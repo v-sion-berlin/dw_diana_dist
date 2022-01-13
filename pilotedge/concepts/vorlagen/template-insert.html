@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Template</title>
+    <!-- Default includes -->
+    <link href="../../_sources/images/favicon.png" rel="icon" type="image/png">
+    <link href="../../_sources/css/tailwind.css" rel="stylesheet">
+    <script src="../../_sources/js/utils/dw.js" type="module"></script>
+    <script src="../../_sources/js/payloadhosting.js"></script>
+    <script src="../../_sources/js/utils/viz.js" type="module"></script>
+    <script src="../../_sources/js/nlw.js"></script>
+  </head>
+  <body>
+    <div class="dw-header dw-header--branded">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="26">
+          <path d="M31.125.585a12.25 12.25 0 00-9.214 4.164A12.25 12.25 0 0012.697.585C5.911.585.411 6.085.411 12.87c0 6.784 5.5 12.284 12.286 12.284a12.25 12.25 0 009.214-4.164 12.247 12.247 0 009.214 4.164c6.786 0 12.286-5.5 12.286-12.284 0-6.786-5.5-12.286-12.286-12.286zm-10.82 18.109A9.582 9.582 0 013.114 12.87c0-5.293 4.29-9.584 9.583-9.584a9.57 9.57 0 017.61 3.76 9.55 9.55 0 011.973 5.824c0 2.19-.738 4.209-1.974 5.823zm15.877-1.435h-2.588l-1.702-4.335-.048-.122-1.712 4.457h-2.58l-2.687-8.77-.002-.007h2.92l1.264 4.42.043.15 1.701-4.57h2.14l1.646 4.425.054.145.021-.074 1.286-4.495h2.933l-2.69 8.776zm-23.04-9.304H7.732v9.83h5.41c2.75 0 5.567-1.614 5.567-4.914 0-3.296-2.818-4.915-5.568-4.915zm-.207 6.857h-2.09v-3.885h2.09c1.77 0 2.402.916 2.402 1.943 0 1.008-.627 1.942-2.402 1.942z" fill="#002D5A" fill-rule="evenodd" />
+        </svg> News
+      </span>
+      <span>Redinsert</span>
+    </div>
+
+    <div class="flex flex-row flex-wrap bg-gray-01">
+      <div class="form-input-chips-wrapper space-x-0">
+        <label class="dw-label__input">Show</label>
+        <select class="dw-dropdown-native">
+          <option value="" selected>- Keine -</option>
+          <option>Yes</option>
+          <option>No</option>
+          <option>Maybe</option>
+        </select>
+      </div>
+
+      <div class="form-input-chips-wrapper">
+        <div>
+          <label class="dw-label__input">Color</label>
+          <div class="form-input-chips">
+            <label>
+              <input type="radio" name="color">
+              <span>red</span>
+            </label>
+
+            <label>
+              <input type="radio" name="color">
+              <span>blue</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="dw-label__input">Redaktionsleitung</label>
+          <input type="text" class="form-input"/>
+        </div>
+
+        <div>
+          <label class="dw-label__input">Rvd der Sendung</label>
+          <input type="text" class="form-input"/>
+        </div>
+
+        <div>
+          <label class="dw-label__input hidden"></label>
+          <input type="text" class="form-input"/>
+        </div>
+
+        <div>
+          <label class="dw-label__input hidden">Label</label>
+          <input type="text" class="form-input"/>
+        </div>
+
+        <div>
+          <label class="dw-label__input hidden">Label</label>
+          <input type="text" class="form-input"/>
+        </div>
+
+        <div>
+          <label class="dw-label__input hidden">Label</label>
+          <input type="text" class="form-input"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group bg-gray-01">
+
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="dw-label__input">Regie</label>
+          <input type="text" class="form-input"/>
+        </div>
+
+        <div>
+          <label class="dw-label__input">Moderation</label>
+          <input type="text" class="form-input"/>
+        </div>
+
+        <div>
+          <label class="dw-label__input hidden">Label</label>
+          <input type="text" class="form-input"/>
+        </div>
+
+        <div>
+          <label class="dw-label__input hidden">Label</label>
+          <input type="text" class="form-input"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div>
+          <label class="dw-label__input">Adressen</label>
+          <input type="text" class="form-input"/>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
