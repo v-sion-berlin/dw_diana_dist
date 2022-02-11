@@ -20,6 +20,7 @@
 console.debug('loading input.js')
 
 const INPUT_EVENT = new Event('input')
+const CHANGE_EVENT = new Event('change')
 
 /**
  * Input class
@@ -197,6 +198,7 @@ const createScrubber = (element) => {
       window.removeEventListener('mousemove', globalMouseMoveListener)
       if (e.clientX !== startCoordinate) {
         element.dispatchEvent(INPUT_EVENT)
+        element.dispatchEvent(CHANGE_EVENT)
       }
     }
 

@@ -207,6 +207,7 @@ const initializeColorDropdown = (element) => {
     const colorValue = element.options[element.selectedIndex].dataset.color
     colorIndicator.style.backgroundColor = colorValue || '#fff'
   })
+  element.dispatchEvent(new Event('change'))
 }
 
 const openDropdowns = []
