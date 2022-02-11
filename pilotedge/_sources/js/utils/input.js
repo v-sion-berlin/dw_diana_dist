@@ -264,10 +264,15 @@ const initializeQuantityField = (element) => {
   const min = input.getAttribute('min')
   const max = input.getAttribute('max')
 
+  input.addEventListener('change', (e) => {
+    input.value = Math.min(Math.max(input.value, min), max)
+    input.dispatchEvent(INPUT_EVENT)
+  })
+
   buttonUp.addEventListener('click', (e) => {
     const oldValue = parseFloat(input.value)
     let newVal
-    oldValue >= max ? newVal = oldValue : newVal = oldValue + 1
+    oldValue >= max ? (newVal = oldValue) : (newVal = oldValue + 1)
     input.value = newVal
     input.dispatchEvent(INPUT_EVENT)
   })
@@ -275,7 +280,7 @@ const initializeQuantityField = (element) => {
   buttonDown.addEventListener('click', (e) => {
     const oldValue = parseFloat(input.value)
     let newVal
-    oldValue <= min ? newVal = oldValue : newVal = oldValue - 1
+    oldValue <= min ? (newVal = oldValue) : (newVal = oldValue - 1)
     input.value = newVal
     input.dispatchEvent(INPUT_EVENT)
   })
@@ -295,5 +300,18 @@ function initializeRangeSlider (element) {
   element.style.setProperty('--value', element.value)
   element.style.setProperty('--min', element.min === '' ? '0' : element.min)
   element.style.setProperty('--max', element.max === '' ? '100' : element.max)
-  element.addEventListener('input', () => element.style.setProperty('--value', element.value))
+  const rangeValue = element.parentNode.querySelector('.rangeValue')
+  if (rangeValue) {
+    rangeValue.value = element.value
+    rangeValue.addEventListener('change', (event) => {
+      element.value = rangeValue.value
+      element.dispatchEvent(INPUT_EVENT)
+    })
+  }
+  element.addEventListener('input', () => {
+    element.style.setProperty('--value', element.value)
+    if (rangeValue) {
+      rangeValue.value = element.value
+    }
+  })
 }

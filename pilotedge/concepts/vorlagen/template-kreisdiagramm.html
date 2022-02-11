@@ -1,348 +1,475 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Template - Kreisdiagramm</title>
-    <!-- Default includes -->
-    <link href="../../_sources/images/favicon.png" rel="icon" type="image/png">
-    <link href="../../_sources/css/tailwind.css" rel="stylesheet">
-    <script src="../../_sources/js/utils/dw.js" type="module"></script>
-    <script src="../../_sources/js/payloadhosting.js"></script>
-    <script src="../../_sources/js/utils/viz.js" type="module"></script>
-    <script src="../../_sources/js/nlw.js"></script>
-  </head>
-  <body>
-    <div>
-      <div class="dw-header">
-        <span>Name der Sendung</span>
-        <span>Abspann</span>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example Template - Kreisdiagramm</title>
+  <!-- Default includes -->
+  <link href="../../_sources/images/favicon.png" rel="icon" type="image/png" />
+  <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
+  <script src="../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../_sources/js/payloadhosting.js"></script>
+  <script src="../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../_sources/js/nlw.js"></script>
+</head>
+
+<body>
+  <div>
+    <div class="dw-header">
+      <span>Name der Sendung</span>
+      <span>Abspann</span>
+    </div>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__input">Sprache der Show</label>
+        <select class="dw-dropdown-native">
+          <option value="" selected>- Keine -</option>
+          <option>Deutsch</option>
+          <option>Englisch</option>
+        </select>
       </div>
     </div>
+  </div>
 
-    <div class="flex flex-row flex-wrap bg-gray-01">
-      <div class="form-input-chips-wrapper">
-        <div>
-          <label class="dw-label__input">Sprache der Show</label>
-          <select class="dw-dropdown-native">
-            <option value="" selected>- Keine -</option>
-            <option>Deutsch</option>
-            <option>Englisch</option>
-          </select>
+  <div class="field-group">
+    <div class="field-group__label">Text</div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div>
+        <label class="dw-label__input">Headline</label>
+        <input type="text" class="form-input" />
+      </div>
+
+      <div>
+        <label class="dw-label__input">Zusatz</label>
+        <input type="text" class="form-input" />
+      </div>
+
+      <div>
+        <label class="dw-label__input">Subheadline</label>
+        <input type="text" class="form-input" />
+      </div>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <div class="field-group__label">Grafik</div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div>
+        <label class="dw-label__input">Anzahl der Segmente</label>
+        <select class="dw-dropdown-native">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="dw-label__input">Nachkomastellen für die Wert Eingabe</label>
+        <select class="dw-dropdown-native" title="lorem ipsum">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <div class="dw-dnd-wrapper">
+      <div class="dw-dnd-head">
+        <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+        <div class="dw-dnd__cell w-[fit-content] flex-1">Name</div>
+        <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">Wert</div>
+        <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">Farbe</div>
+        <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Pause</div>
+        <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">Verschiebung</div>
+      </div>
+
+      <div class="dw-dnd__section">
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled selected>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled selected>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled selected>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled selected>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled selected>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled selected>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue" selected>Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f" selected>Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled selected>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
+        </div>
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown-native" data-active="false" data-default-selection="true" tabindex="3" title="lorem ipsum">
+                <option value="" disabled selected>- Auswählen -</option>
+                <option value="#ff0000">Rot</option>
+                <option value="#f0f">Magenta</option>
+                <option value="#ff0">Gelb</option>
+                <option value="blue">Blau</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+            <div class="dw-rangeWrap">
+              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
+              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="field-group">
-      <div class="field-group__label">Text</div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+  <div class="field-group">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+      <div>
         <div>
-          <label class="dw-label__input">Headline</label>
-          <input type="text" class="form-input" />
-        </div>
-
-        <div>
-          <label class="dw-label__input">Zusatz</label>
-          <input type="text" class="form-input" />
-        </div>
-
-        <div>
-          <label class="dw-label__input">Subheadline</label>
-          <input type="text" class="form-input" />
+          <label class="dw-label__input">Quelle</label>
+          <input type="text" class="form-input" title="lorem ipsum" />
         </div>
       </div>
     </div>
+  </div>
+</body>
 
-    <div class="field-group">
-      <div class="field-group__label">Grafik</div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-        <div>
-          <label class="dw-label__input">Anzahl der Segmente</label>
-          <select class="dw-dropdown-native">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="dw-label__input">Nachkomastellen für die Wert Eingabe</label>
-          <select class="dw-dropdown-native">
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <div class="dw-dnd-wrapper">
-        <div class="dw-dnd-head w-full">
-          <div class="w-4"></div>
-          <div class="dw-dnd__content">
-            <div class="w-[10%] dw-label__input">Name</div>
-            <div class="w-[5%] dw-label__input">Wert</div>
-            <div class="w-[10%] dw-label__input">Farbe</div>
-            <div class="w-[4%] dw-label__input">Pause</div>
-            <div class="w-[7%] dw-label__input">Verschiebung</div>
-          </div>
-        </div>
-
-        <div class="dw-dnd__section">
-          <div class="dw-dnd">
-            <div class="w-4">
-              <span class="dw-dnd__handle"></span>
-            </div>
-            <div class="dw-dnd__content">
-              <div class="w-[10%]">
-                <input type="text" class="form-input">
-              </div>
-              <div class="w-[5%]">
-                <input type="number" class="form-input">
-              </div>
-              <div class="w-[10%]">
-                <div class="dw-dropdown" data-active="false" data-default-selection="true">
-                  <div>
-                    <button type="button" class="dw-dropdown__button">
-                      <span class="dw-dropdown__button__copy"><span class="color-indicator" style="background: #de7426"></span></span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-                        <path d="M17.18 6.87L9.9 12.33 2.62 6.87" stroke="#002D5A" stroke-width="1.05" fill="none"
-                          fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div class="dw-dropdown__content" tabindex="-1">
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #de7426"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #be232d"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #6ea500"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #009bff"></span></a>
-                  </div>
-                </div>
-              </div>
-              <div class="w-[4%]">
-                <input type="number" class="form-input" placeholder="" />
-              </div>
-              <div class="w-[7%]">
-                <input type="range" class="dw-inputRange" min="0" max="10">
-              </div>
-            </div>
-          </div>
-          <div class="dw-dnd">
-            <div class="w-4">
-              <span class="dw-dnd__handle"></span>
-            </div>
-            <div class="dw-dnd__content">
-              <div class="w-[10%]">
-                <input type="text" class="form-input">
-              </div>
-              <div class="w-[5%]">
-                <input type="number" class="form-input">
-              </div>
-              <div class="w-[10%]">
-                <div class="dw-dropdown" data-active="false" data-default-selection="true">
-                  <div>
-                    <button type="button" class="dw-dropdown__button">
-                      <span class="dw-dropdown__button__copy"><span class="color-indicator" style="background: #de7426"></span></span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-                        <path d="M17.18 6.87L9.9 12.33 2.62 6.87" stroke="#002D5A" stroke-width="1.05" fill="none"
-                          fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div class="dw-dropdown__content" tabindex="-1">
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #de7426"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #be232d"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #6ea500"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #009bff"></span></a>
-                  </div>
-                </div>
-              </div>
-              <div class="w-[4%]">
-                <input type="number" class="form-input" placeholder="" />
-              </div>
-              <div class="w-[7%]">
-                <input type="range" class="dw-inputRange" min="0" max="10">
-              </div>
-            </div>
-          </div>
-          <div class="dw-dnd">
-            <div class="w-4">
-              <span class="dw-dnd__handle"></span>
-            </div>
-            <div class="dw-dnd__content">
-              <div class="w-[10%]">
-                <input type="text" class="form-input">
-              </div>
-              <div class="w-[5%]">
-                <input type="number" class="form-input">
-              </div>
-              <div class="w-[10%]">
-                <div class="dw-dropdown" data-active="false" data-default-selection="true">
-                  <div>
-                    <button type="button" class="dw-dropdown__button">
-                      <span class="dw-dropdown__button__copy"><span class="color-indicator" style="background: #de7426"></span></span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-                        <path d="M17.18 6.87L9.9 12.33 2.62 6.87" stroke="#002D5A" stroke-width="1.05" fill="none"
-                          fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div class="dw-dropdown__content" tabindex="-1">
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #de7426"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #be232d"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #6ea500"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #009bff"></span></a>
-                  </div>
-                </div>
-              </div>
-              <div class="w-[4%]">
-                <input type="number" class="form-input" placeholder="" />
-              </div>
-              <div class="w-[7%]">
-                <input type="range" class="dw-inputRange" min="0" max="10">
-              </div>
-            </div>
-          </div>
-          <div class="dw-dnd">
-            <div class="w-4">
-              <span class="dw-dnd__handle"></span>
-            </div>
-            <div class="dw-dnd__content">
-              <div class="w-[10%]">
-                <input type="text" class="form-input">
-              </div>
-              <div class="w-[5%]">
-                <input type="number" class="form-input">
-              </div>
-              <div class="w-[10%]">
-                <div class="dw-dropdown" data-active="false" data-default-selection="true">
-                  <div>
-                    <button type="button" class="dw-dropdown__button">
-                      <span class="dw-dropdown__button__copy"><span class="color-indicator" style="background: #de7426"></span></span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-                        <path d="M17.18 6.87L9.9 12.33 2.62 6.87" stroke="#002D5A" stroke-width="1.05" fill="none"
-                          fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div class="dw-dropdown__content" tabindex="-1">
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #de7426"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #be232d"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #6ea500"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #009bff"></span></a>
-                  </div>
-                </div>
-              </div>
-              <div class="w-[4%]">
-                <input type="number" class="form-input" placeholder="" />
-              </div>
-              <div class="w-[7%]">
-                <input type="range" class="dw-inputRange" min="0" max="10">
-              </div>
-            </div>
-          </div>
-          <div class="dw-dnd">
-            <div class="w-4">
-              <span class="dw-dnd__handle"></span>
-            </div>
-            <div class="dw-dnd__content">
-              <div class="w-[10%]">
-                <input type="text" class="form-input">
-              </div>
-              <div class="w-[5%]">
-                <input type="number" class="form-input">
-              </div>
-              <div class="w-[10%]">
-                <div class="dw-dropdown" data-active="false" data-default-selection="true">
-                  <div>
-                    <button type="button" class="dw-dropdown__button">
-                      <span class="dw-dropdown__button__copy"><span class="color-indicator" style="background: #de7426"></span></span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-                        <path d="M17.18 6.87L9.9 12.33 2.62 6.87" stroke="#002D5A" stroke-width="1.05" fill="none"
-                          fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div class="dw-dropdown__content" tabindex="-1">
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #de7426"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #be232d"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #6ea500"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #009bff"></span></a>
-                  </div>
-                </div>
-              </div>
-              <div class="w-[4%]">
-                <input type="number" class="form-input" placeholder="" />
-              </div>
-              <div class="w-[7%]">
-                <input type="range" class="dw-inputRange" min="0" max="10">
-              </div>
-            </div>
-          </div>
-          <div class="dw-dnd">
-            <div class="w-4">
-              <span class="dw-dnd__handle"></span>
-            </div>
-            <div class="dw-dnd__content">
-              <div class="w-[10%]">
-                <input type="text" class="form-input">
-              </div>
-              <div class="w-[5%]">
-                <input type="number" class="form-input">
-              </div>
-              <div class="w-[10%]">
-                <div class="dw-dropdown" data-active="false" data-default-selection="true">
-                  <div>
-                    <button type="button" class="dw-dropdown__button">
-                      <span class="dw-dropdown__button__copy"><span class="color-indicator" style="background: #de7426"></span></span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-                        <path d="M17.18 6.87L9.9 12.33 2.62 6.87" stroke="#002D5A" stroke-width="1.05" fill="none"
-                          fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div class="dw-dropdown__content" tabindex="-1">
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #de7426"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #be232d"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #6ea500"></span></a>
-                    <a href="#" class="dw-dropdown__item"tabindex="-1"><span class="color-indicator" style="background: #009bff"></span></a>
-                  </div>
-                </div>
-              </div>
-              <div class="w-[4%]">
-                <input type="number" class="form-input" placeholder="" />
-              </div>
-              <div class="w-[7%]">
-                <input type="range" class="dw-inputRange" min="0" max="10">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="field-group">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-        <div>
-          <div>
-            <label class="dw-label__input">Quelle</label>
-            <input type="text" class="form-input" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
 </html>

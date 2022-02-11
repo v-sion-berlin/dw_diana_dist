@@ -6,6 +6,41 @@
  */
 
 /**
+ * If CSS or JavaScript has changed, change the timestamp to force the browser
+ * to reload the resource files located in the head section.
+ *
+ * Added 2021-12-06 <mps-berlin@dw.com>
+ *
+ * @since 1.00
+ */
+const LAST_CHANGE = Date.parse('2022-01-24 14:48:00')
+
+/**
+ * To use cache control for stylesheets or scripts rename 'href' to 'data-href'
+ * and 'src' to 'data-src' in the head section.
+ * <code><link data-href="{name-of-resource-file}.css" rel="stylesheet"></code>
+ * <code><script data-src="{name-of-resource-file}.js"></script></code>
+ *
+ * Added 2021-12-06 <mps-berlin@dw.com>
+ *
+ * @since 1.00
+ */
+const initializeResources = () => {
+  const elements = document.querySelectorAll('link, script')
+
+  for (const element of elements) {
+    if (element.hasAttribute('data-href') || element.hasAttribute('data-src')) {
+      const uriAttr = element.hasAttribute('data-href') ? 'href' : 'src'
+      const uri = element.getAttribute(`data-${uriAttr}`)
+      const attr = document.createAttribute(uriAttr)
+      attr.value = `${uri}?t=${LAST_CHANGE}`
+      element.setAttributeNode(attr)
+      element.removeAttribute('data-' + uriAttr)
+    }
+  }
+}
+
+/**
  * Loads the <code>[Input module]{@link Input}</code> if it is not loaded already.
  * @since 1.00
  */
@@ -13,7 +48,7 @@ const initializeInputs = async () => {
   const elements = document.querySelectorAll('textarea, select, [type="number"], [type="date"], [type="text"], [type="range"]')
 
   if (elements) {
-    const module = await import('./input.js')
+    const module = await import(`./input.js?t=${LAST_CHANGE}`)
     const Input = module.default
 
     for (const element of elements) {
@@ -29,7 +64,7 @@ const initializeInputs = async () => {
 const initializeDraggables = async () => {
   const elements = document.querySelectorAll('.dw-dnd-wrapper')
   if (elements) {
-    const module = await import('./draggable.js')
+    const module = await import(`./draggable.js?t=${LAST_CHANGE}`)
     const Draggable = module.default
 
     for (const element of elements) {
@@ -45,11 +80,21 @@ const initializeDraggables = async () => {
 const initializeDropdowns = async () => {
   const elements = document.querySelectorAll('.dw-dropdown')
   if (elements) {
-    const module = await import('./dropdown.js')
+    const module = await import(`./dropdown.js?t=${LAST_CHANGE}`)
     const Dropdown = module.default
 
     for (const element of elements) {
       Dropdown.initialize(element)
+    }
+  }
+
+  const nativeElements = document.querySelectorAll('.dw-dropdown-native')
+  if (nativeElements) {
+    const module = await import(`./dropdown.js?t=${LAST_CHANGE}`)
+    const Dropdown = module.default
+
+    for (const element of nativeElements) {
+      Dropdown.initializeNative(element)
     }
   }
 }
@@ -64,10 +109,13 @@ const initializeDropdowns = async () => {
 window.datestamp = () => {
   const today = new Date()
   const formatter = new Intl.NumberFormat('de-DE', { minimumIntegerDigits: 2 })
-  return `${formatter.format(today.getMonth() + 1)}${formatter.format(today.getDate())}`
+  return `${formatter.format(today.getMonth() + 1)}${formatter.format(
+    today.getDate()
+  )}`
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  initializeResources()
   initializeInputs()
   initializeDraggables()
   initializeDropdowns()
