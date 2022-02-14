@@ -111,7 +111,7 @@ class Media {
    * @instance
    */
   static setImage (imageElement, imageObject) {
-    const imageValue = imageElement.querySelector('.dw-imageThumb img')
+    const imageValue = imageElement.querySelector('.dw-imgThumb img')
     imageValue.src = imageObject.url
     imageValue.dataset.title = imageObject.title
 

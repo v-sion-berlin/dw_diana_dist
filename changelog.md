@@ -15,7 +15,7 @@
 
 <a id="1.10"></a>
 
-## 2022-02-10, Version 1.10
+## 2022-02-14, Version 1.10
 
 Start of the log. Further log entries can contain comments and remarks here.
 
@@ -36,6 +36,7 @@ Start of the log. Further log entries can contain comments and remarks here.
 * Added: help link
 * Added: input with icon
 * Added: background to images
+* Added: comment under image select button
 * Cleanup: merged version from dw with version from v-sion
 
 ### Corresponding jira tickets
@@ -52,8 +53,7 @@ Start of the log. Further log entries can contain comments and remarks here.
 * [Template Framework / Farbauswahl mit Name](https://jira.dw.com/browse/DIANA-820)
 * [Template Framework / Slider mit Werten](https://jira.dw.com/browse/DIANA-823)
 * [Template Framework / Thumbnail-Image (Größe)](https://jira.dw.com/browse/DIANA-868)
-
-
+* [Template Framework / Kommentar unter Bildauswahl](https://jira.dw.com/browse/DIANA-821)
 
 ### Commits
 #### v-sion
