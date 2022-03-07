@@ -6,6 +6,7 @@
 
 /* global vizrt */
 /* global nlw */
+/* global Option */
 
 console.debug('loading font_test.js')
 
@@ -45,49 +46,41 @@ Object.entries(nlwData).forEach(([i, row]) => {
 })
 
 document.addEventListener('DOMContentLoaded', function () {
-  const dropdownLanguage = document.querySelector('#dropdown--select-language')
-  const dropdownFont = document.querySelector('#dropdown--select-font')
-  const fontOption = dropdownFont.querySelector('.dw-dropdown__item').cloneNode(true)
-  const fontOptions = dropdownFont.querySelector('.dw-dropdown__content')
+  const dropdownLanguage = document.querySelector('[data-co="language"]')
+  const dropdownFont = document.querySelector('[data-co="-concept-variant-choice/variant"]')
   const directionSwitch = document.querySelector('#direction-switch')
 
   dropdownLanguage.addEventListener('input', (e) => {
-    const selectedLanguage = e.target.dataset.selected
+    const selectedLanguage = e.target.value
     if (languages[selectedLanguage].Direction === 'left-to-right') {
       directionSwitch.classList.remove('dw-direction-rtl')
     } else {
       directionSwitch.classList.add('dw-direction-rtl')
     }
     const coFont = vizrt.payloadhosting.getFieldText('-concept-variant-choice/variant')
-    dropdownFont.dataset.selected = coFont
-    fontOptions.innerHTML = ''
     const fonts = languages[selectedLanguage].Fonts
+    while (dropdownFont.options.length) {
+      dropdownFont.options.remove(0)
+    }
     if (fonts) {
       fonts.forEach((font) => {
-        const newFontOption = fontOption.cloneNode(true)
-        newFontOption.innerHTML = font
-        newFontOption.dataset.value = font
-        fontOptions.appendChild(newFontOption)
+        const newOption = new Option(font, font, false, font === coFont)
+        dropdownFont.appendChild(newOption)
       })
     }
   })
 })
 
 document.addEventListener('vizPayloadReady', function () {
-  const dropdownLanguage = document.querySelector('#dropdown--select-language')
-  const languageOption = dropdownLanguage.querySelector('.dw-dropdown__item').cloneNode(true)
-  const languageOptions = dropdownLanguage.querySelector('.dw-dropdown__content')
-  languageOptions.innerHTML = ''
-
+  const dropdownLanguage = document.querySelector('[data-co="language"]')
   const coLanguage = vizrt.payloadhosting.getFieldText('language')
-  dropdownLanguage.dataset.selected = coLanguage
-  languageDirection = vizrt.payloadhosting.getFieldText('language-direction')
+  const languageDirection = vizrt.payloadhosting.getFieldText('language-direction')
   Object.entries(languages).forEach(([key, language]) => {
     if ((language.Direction === 'left-to-right' && languageDirection === '0') || (language.Direction === 'right-to-left' && languageDirection === '1')) {
-      const newSelectOption = languageOption.cloneNode(true)
-      newSelectOption.innerHTML = `${language.English} / ${language.Native}`
-      newSelectOption.dataset.value = key
-      languageOptions.appendChild(newSelectOption)
+      const newOption = new Option(`${language.English} / ${language.Native}`, key, false, key === coLanguage)
+      dropdownLanguage.appendChild(newOption)
     }
   })
+
+  dropdownLanguage.dispatchEvent(new Event('input'))
 })

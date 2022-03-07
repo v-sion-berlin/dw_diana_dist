@@ -78,23 +78,14 @@ const initializeDraggables = async () => {
  * @since 1.00
  */
 const initializeDropdowns = async () => {
-  const elements = document.querySelectorAll('.dw-dropdown')
+  /* DEPRECATED: .dw-dropdown-native */
+  const elements = document.querySelectorAll('.dw-dropdown, .dw-dropdown-native')
   if (elements) {
     const module = await import(`./dropdown.js?t=${LAST_CHANGE}`)
     const Dropdown = module.default
 
     for (const element of elements) {
       Dropdown.initialize(element)
-    }
-  }
-
-  const nativeElements = document.querySelectorAll('.dw-dropdown-native')
-  if (nativeElements) {
-    const module = await import(`./dropdown.js?t=${LAST_CHANGE}`)
-    const Dropdown = module.default
-
-    for (const element of nativeElements) {
-      Dropdown.initializeNative(element)
     }
   }
 }

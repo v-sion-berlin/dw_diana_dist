@@ -15,10 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const languageSelect = document.querySelector('[data-co="02/Language"]')
   languageSelect.addEventListener('input', (e) => {
-    document.querySelector('#ArabicWebText').dataset.visible = languageSelect.dataset.selected === '4'
-    if (languageSelect.dataset.selected !== '4' && document.querySelector('[data-co="07/CreditsVariant"]:checked').value === '3') {
+    document.querySelector('#ArabicWebText').dataset.visible = languageSelect.value === '4'
+    if (languageSelect.value !== '4' && document.querySelector('[data-co="07/CreditsVariant"]:checked').value === '3') {
       document.querySelector('[data-co="07/CreditsVariant"][value="1"]').checked = true
       document.querySelector('[data-co="07/CreditsVariant"][value="1"]').dispatchEvent(new Event('change'))
+    }
+
+    if (languageSelect.value === '4') {
+      document.querySelector('#direction-switch').classList.add('dw-direction-rtl')
+    } else {
+      document.querySelector('#direction-switch').classList.remove('dw-direction-rtl')
     }
   })
 })

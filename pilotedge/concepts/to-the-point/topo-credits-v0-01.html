@@ -22,30 +22,18 @@
     </div>
     <div class="flex flex-row flex-wrap bg-gray-01">
       <div class="form-input-chips-wrapper space-x-0">
-        <div class="dw-label__section">Language</div>
-        <!-- NOTE: set data-default-section to false and set required data-selected value based on data-value of dw-dropdown__items for preselection -->
-        <div class="dw-dropdown" data-co="02/Language" data-active="false" data-default-selection="true" data-selected="">
-          <div>
-            <button type="button" class="dw-dropdown__button">
-              <span class="dw-dropdown__button__copy">- Bitte wählen -</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-                <path d="M17.18 6.87L9.9 12.33 2.62 6.87" stroke="#002D5A" stroke-width="1.05" fill="none" fill-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
-
-          <div class="dw-dropdown__content" tabindex="-1">
-            <a href="#" class="dw-dropdown__item" tabindex="-1" data-value="4">Arabic</a>
-            <a href="#" class="dw-dropdown__item" tabindex="-1" data-value="0">English</a>
-            <a href="#" class="dw-dropdown__item" tabindex="-1" data-value="2">German</a>
-            <a href="#" class="dw-dropdown__item" tabindex="-1" data-value="3">Russian</a>
-            <a href="#" class="dw-dropdown__item" tabindex="-1" data-value="1">Spanish</a>
-          </div>
-        </div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="02/Language">
+          <option value="4">Arabic</option>
+          <option value="0">English</option>
+          <option value="2">German</option>
+          <option value="3">Russian</option>
+          <option value="1">Spanish</option>
+        </select>
       </div>
       <div class="form-input-chips-wrapper">
         <div>
-          <div class="dw-label__section">Variant</div>
+          <div class="dw-label__input">Variant</div>
           <div class="form-input-chips">
             <label>
               <input type="radio" value="0" name="LowerthirdVariant" data-co="07/CreditsVariant">
@@ -60,7 +48,7 @@
               <span>Web</span>
             </label>
             <label>
-              <input type="radio" value="2" name="LowerthirdVariant" data-co="07/CreditsVariant" checked>
+              <input type="radio" value="2" name="LowerthirdVariant" data-co="07/CreditsVariant">
               <span>Copyright</span>
             </label>
           </div>
@@ -68,65 +56,54 @@
       </div>
     </div>
 
-    <div class="field-group">
+    <div id="direction-switch">
+      <div class="field-group">
 
-      <div id="Sponsor" data-visible="false">
-        <label class="dw-label__input">Sponsor Text</label>
-        <input type="text" class="form-input" data-co="08/SponsorText" />
-      </div>
+        <div id="Sponsor" data-visible="false">
+          <label class="dw-label__input">Sponsor Text</label>
+          <input type="text" class="form-input" data-co="08/SponsorText" />
+        </div>
 
-      <div id="Text" data-visible="false">
-        <div class="grid grid-cols-2 gap-2">
-          <div>
-            <label class="dw-label__input">Funktion Links</label>
-            <input type="text" class="form-input" data-co="09/CreditsLeftLine1" />
-          </div>
+        <div id="Text" data-visible="false">
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="dw-label__input">Funktion Links</label>
+              <input type="text" class="form-input" data-co="09/CreditsLeftLine1" />
+            </div>
 
-          <div>
-            <label class="dw-label__input">Funktion Rechts</label>
-            <input type="text" class="form-input" data-co="12/CreditsRightLine1" />
-          </div>
+            <div>
+              <label class="dw-label__input">Funktion Rechts</label>
+              <input type="text" class="form-input" data-co="12/CreditsRightLine1" />
+            </div>
 
-          <div>
-            <label class="dw-label__input">Name 1 Links</label>
-            <input type="text" class="form-input" data-co="10/CreditsLeftLine2" />
-          </div>
+            <div>
+              <label class="dw-label__input">Name 1 Links</label>
+              <input type="text" class="form-input" data-co="10/CreditsLeftLine2" />
+            </div>
 
-          <div>
-            <label class="dw-label__input">Name 1 Rechts</label>
-            <input type="text" class="form-input" data-co="13/CreditsRightLine2" />
-          </div>
+            <div>
+              <label class="dw-label__input">Name 1 Rechts</label>
+              <input type="text" class="form-input" data-co="13/CreditsRightLine2" />
+            </div>
 
-          <div>
-            <label class="dw-label__input">Name 2 Links</label>
-            <input type="text" class="form-input" data-co="11/CreditsLeftLine3" />
-          </div>
+            <div>
+              <label class="dw-label__input">Name 2 Links</label>
+              <input type="text" class="form-input" data-co="11/CreditsLeftLine3" />
+            </div>
 
-          <div>
-            <label class="dw-label__input">Name 2 Rechts</label>
-            <input type="text" class="form-input" data-co="14/CreditsRightLine3" />
+            <div>
+              <label class="dw-label__input">Name 2 Rechts</label>
+              <input type="text" class="form-input" data-co="14/CreditsRightLine3" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div id="Copyright" data-visible="false">
-        <div class="dw-label__section">Copyright</div>
-        <!-- NOTE: set data-default-section to false and set required data-selected value based on data-value of dw-dropdown__items for preselection -->
-        <div class="dw-dropdown" data-co="15/CopyrightText" data-active="false" data-default-selection="true" data-selected="">
-          <div>
-            <button type="button" class="dw-dropdown__button">
-              <span class="dw-dropdown__button__copy">- Bitte wählen -</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19">
-                <path d="M17.18 6.87L9.9 12.33 2.62 6.87" stroke="#002D5A" stroke-width="1.05" fill="none" fill-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
-
-          <div class="dw-dropdown__content" tabindex="-1">
-            <a href="#" class="dw-dropdown__item" tabindex="-1" data-value="© DEUTSCHE WELLE 2021">© DEUTSCHE WELLE 2021</a>
-            <a href="#" class="dw-dropdown__item" tabindex="-1" data-value="© DEUTSCHE WELLE 2022">© DEUTSCHE WELLE 2022</a>
-          </div>
-        </div>
+        <div id="Copyright" data-visible="false">
+          <div class="dw-label__input">Copyright</div>
+          <select class="dw-dropdown" data-co="15/CopyrightText">
+            <option value="© DEUTSCHE WELLE 2021">© DEUTSCHE WELLE 2021</option>
+            <option value="© DEUTSCHE WELLE 2022">© DEUTSCHE WELLE 2022</option>
+          </select>
       </div>
     </div>
   </body>

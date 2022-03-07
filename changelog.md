@@ -6,13 +6,37 @@
   </tr>
   <tr>
     <td valign="top">
+      <a href="#1.11">1.11</a><br/>
       <a href="#1.10">1.10</a><br/>
     </td>
   </tr>
 </table>
 
 <!------------------------------------------------------------------------------->
+<hr />
+<a id="1.11"></a>
 
+## 2022-03-07, Version 1.11
+
+Bugfix release
+
+### Notable changes
+* Added: Templates without inputs fields - [Template Framework / Templates ohne Eingabefelder](https://jira.dw.com/browse/DIANA-817)
+* Added: CSS Klasse für ltr - [Template Framework / Templates ohne Eingabefelder](https://jira.dw.com/browse/DIANA-1210)
+* Added: max='2100-12-31' to date picker in component - [Template Framework / Datepicker Attribute 'max'](https://jira.dw.com/browse/DIANA-1214)
+* Fixed: Select fields are only intalic if the first element has the property disabled and this options is selected
+* Fixed: Wrong font size for text inputs - [Template Framework / Text-inputs](https://jira.dw.com/browse/DIANA-811)
+* Fixed: Wrong font size for Alert/Info - [Template Framework / Alert/Info](https://jira.dw.com/browse/DIANA-816)
+* Fixed: Dropdown handle for rtl - [Template Framework / Dropdown rtl](https://jira.dw.com/browse/DIANA-1211)
+* Fixed: Table headers for rtl - [Template Framework / Tabelle Labels rtl](https://jira.dw.com/browse/DIANA-1212)
+* Fixed: Range slider doesn't set co value - [Template Framework / Control vom Slider nicht ansprechbar](https://jira.dw.com/browse/DIANA-1213)
+* Fixed: Cell spacing for tables in rtl - [Template Framework / Platzierung der Spalten bei rtl fehlerhaft](https://jira.dw.com/browse/DIANA-1215)
+* Fixed: Missing width classes - [Template Framework / Max-Wert der Input-Feldes "Breite" reagiert nicht](https://jira.dw.com/browse/DIANA-1216)
+* Fixed: Wrong slider layout in rtl - [Template Framework / Slider RTL falsche Darstellung](https://jira.dw.com/browse/DIANA-1218)
+* Fixed: Bigger font size in rtl via class 'font-large' - [Template Framework / RTL Schriften in Input-Felder schlecht lesbar](https://jira.dw.com/browse/DIANA-1219)
+* Removed: dw styled dropdown - class .dw-dropdown-native replaced by .dw-dropdown
+
+<hr />
 <a id="1.10"></a>
 
 ## 2022-02-14, Version 1.10

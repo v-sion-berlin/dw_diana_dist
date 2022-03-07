@@ -64,6 +64,10 @@ class Input {
       setTextareaMaxRows(element)
     }
 
+    if (element.tagName.toLowerCase() === 'select') {
+      initializeSelect(element)
+    }
+
     if (element.hasAttribute('data-scrubber')) {
       createScrubber(element)
     }
@@ -204,8 +208,12 @@ const createScrubber = (element) => {
 
     const globalMouseMoveListener = (e) => {
       if (e.which === 1) {
-        const delta = direction * step * Math.floor(e.clientX - startCoordinate)
-        const value = Math.min(Math.max(startValue + delta, minValue), maxValue)
+        const delta =
+          direction * step * Math.floor(e.clientX - startCoordinate)
+        const value = Math.min(
+          Math.max(startValue + delta, minValue),
+          maxValue
+        )
         const valueString = value.toFixed(Math.log10(1 / step))
 
         element.value = valueString
@@ -299,21 +307,48 @@ const initializeQuantityField = (element) => {
  * @memberof Input
  */
 function initializeRangeSlider (element) {
-  element.style.setProperty('--value', element.value)
+  const isRTL = element.closest('.dw-direction-rtl')
+
+  element.style.setProperty('--value', isRTL ? 100 - element.value : element.value)
   element.style.setProperty('--min', element.min === '' ? '0' : element.min)
   element.style.setProperty('--max', element.max === '' ? '100' : element.max)
+
   const rangeValue = element.parentNode.querySelector('.rangeValue')
   if (rangeValue) {
-    rangeValue.value = element.value
+    rangeValue.value = isRTL ? 100 - element.value : element.value
     rangeValue.addEventListener('change', (event) => {
-      element.value = rangeValue.value
+      element.value = isRTL ? rangeValue.value : 100 - rangeValue
       element.dispatchEvent(INPUT_EVENT)
     })
   }
+
+  // There are two elements that are connected: the slider and the rangeValue.
+  // We need this to set the range value after the value of the slider was
+  // set progammatically. Only called once.
+  document.addEventListener('vizPayloadReady', () => element.dispatchEvent(INPUT_EVENT), { once: true })
+
   element.addEventListener('input', () => {
     element.style.setProperty('--value', element.value)
     if (rangeValue) {
       rangeValue.value = element.value
     }
   })
+}
+
+/*****************************************************************************/
+/* SELECT
+/*****************************************************************************/
+/**
+ * Provides special functions for select
+ * @param {HTMLElement} element Input
+ * @since 1.00
+ * @memberof Input
+ */
+function initializeSelect (element) {
+  if (element.options[0].disabled && element.options[0].selected) {
+    element.classList.add('italic')
+    element.addEventListener('change', () => {
+      element.classList.remove('italic')
+    }, { once: true })
+  }
 }

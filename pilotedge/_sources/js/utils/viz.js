@@ -91,7 +91,7 @@ const databinding = async () => {
       // this callback is called when the value of the html control changes
       let newEventCallback
 
-      if (elementType === 'textarea' || elementType === 'number' || elementType === 'date' || elementType === 'select' || elementType === 'text') {
+      if (elementType === 'textarea' || elementType === 'number' || elementType === 'range' || elementType === 'date' || elementType === 'select' || elementType === 'text') {
         const module = await import('./input.js')
         const Input = module.default
         const callbacks = Input.createBinding(element)
@@ -113,16 +113,6 @@ const databinding = async () => {
         const module = await import('./media.js')
         const Media = module.default
         newFieldCallback = Media.createBinding(element)
-      } else if (elementType === 'div') {
-        if (element.classList.contains('dw-dropdown')) {
-          newFieldCallback = (value) => {
-            const selectedElement = element.querySelector(`.dw-dropdown__item[data-value="${value}"]`)
-            if (selectedElement) {
-              selectedElement.dispatchEvent(new Event('setActive'))
-            }
-          }
-          newEventCallback = (e) => { vizrt.payloadhosting.setFieldText(fieldPath, element.dataset.selected) }
-        }
       }
 
       if (newFieldCallback) {
