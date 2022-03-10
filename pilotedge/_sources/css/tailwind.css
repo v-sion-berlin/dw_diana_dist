@@ -776,6 +776,8 @@ select {
 }
   @font-face {
     font-family: "DWTheAntiquaB-W6SemiBold";
+    font-style: normal;
+    font-weight: normal;
     src: url("../fonts/antiquab/DWTheAntiquaB-W6SemiBold.eot?#iefix")
         format("embedded-opentype"),
       url("../fonts/antiquab/DWTheAntiquaB-W6SemiBold.otf") format("opentype"),
@@ -783,8 +785,6 @@ select {
       url("../fonts/antiquab/DWTheAntiquaB-W6SemiBold.ttf") format("truetype"),
       url("../fonts/antiquab/DWTheAntiquaB-W6SemiBold.svg#DWTheAntiquaB-W6SemiBold")
         format("svg");
-    font-weight: normal;
-    font-style: normal;
   }
 
   @font-face {
@@ -881,7 +881,7 @@ select {
 .dw-subline {
 	margin-bottom: 10px;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 600;
 	--tw-text-opacity: 1;
 	color: rgba(92, 102, 110, var(--tw-text-opacity));
 }
@@ -910,6 +910,9 @@ p {
 .dw-direction-ltr {
     direction: ltr;
   }
+.dw-direction-rtl .dw-direction-ltr {
+	text-align: right;
+}
 .dw-label__input {
 	margin-bottom: 5px;
 	display: block;
@@ -1899,7 +1902,12 @@ input[type="number"] {
 }
 .dw-link--help::before {
     content: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik03LjUgMGE3LjUgNy41IDAgMSAxIDAgMTUgNy41IDcuNSAwIDAgMSAwLTE1em0xLjA5NiA0LjkxSDZ2LjYxNnMuODY1LjMwOCAxLjE1NC42MTZ2NC45MzNzLS44NjYuMzA4LTEuMTU0LjYxN1YxMmgzLjc1di0uMzA4Yy0uMjg4LS4zMDktMS4xNTQtLjYxNy0xLjE1NC0uNjE3VjQuOTF6bS0uODY1LTIuNjZjLS40OTUgMC0uODY2LjM4LS44NjYuODg2IDAgLjUwNy4zNzEuODg3Ljg2Ni44ODcuNDk0IDAgLjg2NS0uMzguODY1LS44ODcgMC0uNTA2LS4zNy0uODg2LS44NjUtLjg4NnoiIGZpbGw9IiMwMDJENUEiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K);
+  }
+:not(.dw-direction-rtl) > .dw-link--help::before {
     margin-right: 4px;
+  }
+.dw-direction-rtl .dw-link--help::before {
+    margin-left: 4px;
   }
 .visible {
 	visibility: visible;
@@ -2844,6 +2852,9 @@ input[type="number"] {
 .px-5 {
 	padding-left: 25px;
 	padding-right: 25px;
+}
+.text-right {
+	text-align: right;
 }
 .font-serif {
 	font-family: DWTheAntiquaB-W6SemiBold, serif;

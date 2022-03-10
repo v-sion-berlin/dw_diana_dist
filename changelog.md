@@ -6,11 +6,24 @@
   </tr>
   <tr>
     <td valign="top">
+      <a href="#1.11">1.12</a><br/>
       <a href="#1.11">1.11</a><br/>
       <a href="#1.10">1.10</a><br/>
     </td>
   </tr>
 </table>
+<!------------------------------------------------------------------------------->
+<hr />
+<a id="1.12"></a>
+
+## 2022-03-09, Version 1.12
+
+Bugfix release
+
+### Notable changes
+* Fixed: Distance of help icon for rtl
+* Fixed: Elements with class .dw-direction-ltr under parent with class .dw-direction-rtl automatically getting class text-right
+* Added: text-right, text-left, text-center
 
 <!------------------------------------------------------------------------------->
 <hr />
