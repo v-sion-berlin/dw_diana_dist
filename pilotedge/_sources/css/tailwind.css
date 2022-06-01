@@ -1970,6 +1970,7 @@ input[type="number"] {
   }
 .smaller-arrows .dw-quantity input {
 	padding-right: 22px;
+    min-width: 50px;
 }
 .smaller-arrows .dw-quantity-nav {
     position: absolute;
