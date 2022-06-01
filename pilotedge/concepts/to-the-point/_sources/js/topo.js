@@ -1,34 +1,34 @@
-/* global Event */
 'use strict'
 
-window.generateAutoTitle = () => {
-  return ''
-}
+const NLW_PROPERTIES = Object.freeze({
+  LANGUAGE: 0,
+  CALL_TEXT: 1,
+  CALL_URL: 2,
+  ONLINE: 4,
+  EDITORS: 6,
+  CAMERA: 7,
+  DIRECTOR: 8,
+  EXECUTIVE_PRODUCER: 9,
+  CREDITS_ONLINE: 10,
+  SPONSOR: 11
+})
 
-document.addEventListener('DOMContentLoaded', () => {
-  const creditsVariantRadios = document.querySelectorAll('[data-co="07/CreditsVariant"]')
-  creditsVariantRadios.forEach(radio => radio.addEventListener('change', (e) => {
-    document.querySelector('#Sponsor').dataset.visible = e.target.value === '0'
-    document.querySelector('#Text').dataset.visible = e.target.value === '1' || e.target.value === '3'
-    document.querySelector('#Copyright').dataset.visible = e.target.value === '2'
-  }))
-
-  const languageSelect = document.querySelector('[data-co="02/Language"]')
-  languageSelect.addEventListener('input', (e) => {
-    document.querySelector('#ArabicWebText').dataset.visible = languageSelect.value === '4'
-    if (languageSelect.value !== '4' && document.querySelector('[data-co="07/CreditsVariant"]:checked').value === '3') {
-      document.querySelector('[data-co="07/CreditsVariant"][value="1"]').checked = true
-      document.querySelector('[data-co="07/CreditsVariant"][value="1"]').dispatchEvent(new Event('change'))
+const initializeNLWData = () => {
+  const data = {}
+  const NLW = nlw.data
+  NLW.load('topo-inserts.db')
+  if (NLW.error) {
+    console.log(NLW.error)
+  }
+  const nlwTable = NLW.worksheet().worksheets.worksheet1.table
+  Object.entries(nlwTable).forEach(([i, column]) => {
+    const key = column[1]
+    if (!data[key]) {
+      data[key] = []
     }
-
-    if (languageSelect.value === '4') {
-      document.querySelector('#direction-switch').classList.add('dw-direction-rtl')
-    } else {
-      document.querySelector('#direction-switch').classList.remove('dw-direction-rtl')
-    }
+    Object.entries(column).forEach(([j, cell]) => {
+      data[key].push(cell)
+    })
   })
-})
-
-document.addEventListener('vizPayloadReady', () => {
-  document.querySelector('[data-co="07/CreditsVariant"]:checked').dispatchEvent(new Event('change'))
-})
+  return data
+}

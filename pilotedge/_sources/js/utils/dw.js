@@ -1,28 +1,17 @@
+/* global CustomEvent, Event */
+
 /**
  * @file This file is the start entry for framework functions and is
  * needed by all templates to work.
  * @author v-sion GmbH <contact@v-sion.de>
- * @version 1.00
+ * @version 1.12
  */
-
-/**
- * If CSS or JavaScript has changed, change the timestamp to force the browser
- * to reload the resource files located in the head section.
- *
- * Added 2021-12-06 <mps-berlin@dw.com>
- *
- * @since 1.00
- */
-const LAST_CHANGE = Date.parse('2022-01-24 14:48:00')
 
 /**
  * To use cache control for stylesheets or scripts rename 'href' to 'data-href'
  * and 'src' to 'data-src' in the head section.
  * <code><link data-href="{name-of-resource-file}.css" rel="stylesheet"></code>
  * <code><script data-src="{name-of-resource-file}.js"></script></code>
- *
- * Added 2021-12-06 <mps-berlin@dw.com>
- *
  * @since 1.00
  */
 const initializeResources = () => {
@@ -48,7 +37,7 @@ const initializeInputs = async () => {
   const elements = document.querySelectorAll('textarea, select, [type="number"], [type="date"], [type="text"], [type="range"]')
 
   if (elements) {
-    const module = await import(`./input.js?t=${LAST_CHANGE}`)
+    const module = await import('./input.js')
     const Input = module.default
 
     for (const element of elements) {
@@ -64,7 +53,7 @@ const initializeInputs = async () => {
 const initializeDraggables = async () => {
   const elements = document.querySelectorAll('.dw-dnd-wrapper')
   if (elements) {
-    const module = await import(`./draggable.js?t=${LAST_CHANGE}`)
+    const module = await import('./draggable.js')
     const Draggable = module.default
 
     for (const element of elements) {
@@ -81,13 +70,47 @@ const initializeDropdowns = async () => {
   /* DEPRECATED: .dw-dropdown-native */
   const elements = document.querySelectorAll('.dw-dropdown, .dw-dropdown-native')
   if (elements) {
-    const module = await import(`./dropdown.js?t=${LAST_CHANGE}`)
+    const module = await import('./dropdown.js')
     const Dropdown = module.default
 
     for (const element of elements) {
       Dropdown.initialize(element)
     }
   }
+}
+
+/**
+ * Add timing section with offset and duration (mosart).
+ * Loads the <code>[Timing module]{@link Timing}</code> if it is not loaded already.
+ * @since 1.12
+ */
+const initializeSectionTiming = async () => {
+  const element = document.querySelector('.dw-mosart-info')
+
+  if (element) {
+    const module = await import('./timing.js')
+    const Timing = module.default
+
+    Timing.initialize(element)
+  }
+}
+
+/**
+ * Add contact section.
+ * @since 1.12
+ */
+const initializeSectionContact = () => {
+  const div = () => { return document.createElement('div') }
+
+  //const divWrapper = document.body.appendChild(div())
+  //divWrapper.classList.add('field-group')
+
+  const divContact = div()
+  divContact.classList.add('dw-footer')
+  const spanContact = document.createElement('span')
+  spanContact.innerHTML = 'Contact: echtzeitgrafik@dw.com'
+  divContact.append(spanContact)
+  document.body.append(divContact)
 }
 
 /**
@@ -105,9 +128,76 @@ window.datestamp = () => {
   )}`
 }
 
+/**
+ * Defines a global function that can handle ltr/rtl changes
+ * @param {String} queryLanguageSelect querySelector for selecting the language selection control
+ * @param {String} queryDirectionDiv querySelector for getting the div that handles the direction
+ * @since 1.13
+ * @global
+ */
+window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
+  const languageSelect = document.querySelector(queryLanguageSelect)
+  const directionDiv = document.querySelector(queryDirectionDiv)
+  languageSelect.addEventListener('change', (e) => {
+    const footer = document.querySelector('.dw-footer')
+    const hasRtl = languageSelect.options[languageSelect.selectedIndex].hasAttribute('rtl')
+    if (hasRtl) {
+      if (footer) {
+        footer.classList.add('dw-direction-rtl')
+        footer.classList.remove('dw-direction-ltr')
+      }
+      directionDiv.classList.add('dw-direction-rtl')
+      directionDiv.classList.remove('dw-direction-ltr')
+    } else {
+      if (footer) {
+        footer.classList.remove('dw-direction-rtl')
+        footer.classList.add('dw-direction-ltr')
+      }
+      directionDiv.classList.remove('dw-direction-rtl')
+      directionDiv.classList.add('dw-direction-ltr')
+    }
+  })
+
+  document.addEventListener('vizPayloadReady', () => {
+    // WE're using a custom event here to pass additional data. That way we can
+    // distinguish between initial change call and change events that are fired
+    // by the user.
+    languageSelect.dispatchEvent(new CustomEvent('change', { detail: 'dw.js' }))
+  })
+}
+
+/**
+ * Defines a global function that shows a div if the attribute translation is present in the language selection
+ * @param {String} queryLanguageSelect querySelector for selecting the language selection control
+ * @param {String} queryTranslationDiv querySelector for getting the div that contains the translation controls
+ * @since 1.13
+ * @global
+ */
+window.initializeTranslationPanel = (queryLanguageSelect, queryTranslationDiv) => {
+  const languageSelect = document.querySelector(queryLanguageSelect)
+  const translationDiv = document.querySelector(queryTranslationDiv)
+  languageSelect.addEventListener('change', (e) => {
+    const hasTranslation = languageSelect.options[languageSelect.selectedIndex].hasAttribute('translation')
+    translationDiv.dataset.visible = hasTranslation
+  })
+
+  document.addEventListener('vizPayloadReady', () => languageSelect.dispatchEvent(new Event('change')))
+}
+
+/**
+ * Function for capitalizing strings
+ * @param {String} text the text that shall be capitalized
+ * @returns {String} capitalized text
+ * @since 1.13
+ * @global
+ */
+window.capitalize = (text) => { return text.replace(/^\w/, (c) => c.toUpperCase()) }
+
 document.addEventListener('DOMContentLoaded', () => {
   initializeResources()
   initializeInputs()
   initializeDraggables()
   initializeDropdowns()
+  initializeSectionTiming()
+  initializeSectionContact()
 })

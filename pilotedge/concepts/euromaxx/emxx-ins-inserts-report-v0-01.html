@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euromaxx - Report</title>
+  <!-- Default includes -->
+  <link href="../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../_sources/js/payloadhosting.js"></script>
+  <script src="../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../_sources/js/nlw.js"></script>
+  <script src="_source/emxx.js"></script>
+  <script>
+    /* global Event */
+    /* global initializeNLWData, NLW_PROPERTIES */
+    let reportSelect
+    let languageSelector
+    let nlwData = {}
+
+    window.generateAutoTitle = () => {
+      const title = document.title.replace('Euromaxx -', 'EMXX')
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      return `${title} ${language}`
+    }
+
+    const setFunctionNames = () => {
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const translationLanguage = 'English'
+      // reportSelect
+
+      switch (reportSelect.value) {
+        case '0':
+          document.querySelector('[data-co="Report1Function"]').value = nlwData[language][NLW_PROPERTIES.REPORT]
+          document.querySelector('[data-co="Report1Function"]').dispatchEvent(new Event('input'))
+
+          // Translation
+          document.querySelector('[data-co="Report1Function_dummy"]').value = nlwData[translationLanguage][NLW_PROPERTIES.REPORT]
+          document.querySelector('[data-co="Report1Function_dummy"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Report2Function_dummy"]').value = ''
+          document.querySelector('[data-co="Report2Function_dummy"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Report3Function_dummy"]').value = ''
+          document.querySelector('[data-co="Report3Function_dummy"]').dispatchEvent(new Event('input'))
+          break
+        case '1': {
+          document.querySelector('[data-co="Report1Function"]').value = nlwData[language][NLW_PROPERTIES.REPORT]
+          document.querySelector('[data-co="Report1Function"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Report2Function"]').value = nlwData[language][NLW_PROPERTIES.CAMERA]
+          document.querySelector('[data-co="Report2Function"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Report3Function"]').value = nlwData[language][NLW_PROPERTIES.EDITOR]
+          document.querySelector('[data-co="Report3Function"]').dispatchEvent(new Event('input'))
+
+          // Translation
+          document.querySelector('[data-co="Report1Function_dummy"]').value = nlwData[translationLanguage][NLW_PROPERTIES.REPORT]
+          document.querySelector('[data-co="Report1Function_dummy"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Report2Function_dummy"]').value = nlwData[translationLanguage][NLW_PROPERTIES.CAMERA]
+          document.querySelector('[data-co="Report2Function_dummy"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Report3Function_dummy"]').value = nlwData[translationLanguage][NLW_PROPERTIES.EDITOR]
+          document.querySelector('[data-co="Report3Function_dummy"]').dispatchEvent(new Event('input'))
+          break
+        }
+        case '2': {
+          const report = nlwData[language][NLW_PROPERTIES.REPORT]
+          const camera = nlwData[language][NLW_PROPERTIES.CAMERA]
+          const editor = nlwData[language][NLW_PROPERTIES.EDITOR]
+
+          const reportTranslation = nlwData[translationLanguage][NLW_PROPERTIES.REPORT]
+          const cameraTranslation = nlwData[translationLanguage][NLW_PROPERTIES.CAMERA]
+          const editorTranslation = nlwData[translationLanguage][NLW_PROPERTIES.EDITOR]
+
+          document.querySelector('[data-co="Report1Function"]').value = `${report}, ${camera}, ${editor}`
+          document.querySelector('[data-co="Report1Function"]').dispatchEvent(new Event('input'))
+
+          // Translation
+          document.querySelector('[data-co="Report1Function_dummy"]').value = `${reportTranslation}, ${cameraTranslation}, ${editorTranslation}`
+          document.querySelector('[data-co="Report1Function_dummy"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Report2Function_dummy"]').value = ''
+          document.querySelector('[data-co="Report2Function_dummy"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Report3Function_dummy"]').value = ''
+          document.querySelector('[data-co="Report3Function_dummy"]').dispatchEvent(new Event('input'))
+          break
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      nlwData = initializeNLWData()
+      languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const translationPanel = document.querySelector('#Translation')
+      languageSelector.addEventListener('change', (event) => {
+        translationPanel.dataset.visible = languageSelector.value === ('3')
+        setFunctionNames()
+      })
+
+      // Show / hide playout duration panel dependent on automatic playout
+      reportSelect = document.querySelector('[data-co="ReportVariantIndex"]')
+      const secondLine = document.querySelector('#Table2')
+      const thirdLine = document.querySelector('#Table3')
+      reportSelect.addEventListener('click', (event) => {
+        secondLine.dataset.visible = event.target.value === '1'
+        thirdLine.dataset.visible = event.target.value === '1'
+        setFunctionNames()
+      })
+
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      reportSelect.dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header">
+    <span>Euromaxx</span>
+    <span>Report</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Language</div>
+      <select class="dw-dropdown" data-co="LanguageIndex">
+        <option value="3" rtl>Arabic</option>
+        <option value="0">English</option>
+        <option value="1">German</option>
+        <option value="2">Spanish</option>
+      </select>
+    </div>
+
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Report Variant</div>
+      <select class="dw-dropdown" data-co="ReportVariantIndex">
+        <option value="0">Report</option>
+        <option value="1">Report, Camera, Editor</option>
+        <option value="2">VJ Report</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="direction-switch">
+    <div class="field-group">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div id="Function1">
+          <input type="text" class="form-input" data-co="Report1Function" disabled />
+        </div>
+        <div id="Name1">
+          <input type="text" class="form-input" data-co="Report1Name" />
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group" id="Table2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div id="Function2">
+
+          <input type="text" class="form-input" data-co="Report2Function" disabled />
+        </div>
+        <div id="Name2">
+          <input type="text" class="form-input" data-co="Report2Name" />
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group" id="Table3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div id="Function3">
+          <input type="text" class="form-input" data-co="Report3Function" disabled />
+        </div>
+        <div id="Name3">
+          <input type="text" class="form-input" data-co="Report3Name" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-group" id="Translation">
+    <label class="dw-label__input">Translation</label>
+    <div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <input type="text" class="form-input" data-co="Report1Function_dummy" disabled />
+        </div>
+        <div>
+          <input type="text" class="form-input" data-co="Report1Name_dummy" />
+        </div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <input type="text" class="form-input" data-co="Report2Function_dummy" disabled />
+        </div>
+        <div>
+          <input type="text" class="form-input" data-co="Report2Name_dummy" />
+        </div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <input type="text" class="form-input" data-co="Report3Function_dummy" disabled />
+        </div>
+        <div>
+          <input type="text" class="form-input" data-co="Report3Name_dummy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

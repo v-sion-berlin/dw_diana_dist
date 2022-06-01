@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To the Point - Credits</title>
+  <!-- Default includes -->
+  <link href="../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../_sources/js/payloadhosting.js"></script>
+  <script src="../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../_sources/js/nlw.js"></script>
+  <script src="./_sources/js/topo.js"></script>
+  <script>
+    /* global Event */
+    /* global vizrt */
+    /* global initializeNLWData, NLW_PROPERTIES */
+    let nlwData = {}
+
+    window.generateAutoTitle = () => {
+      // const title = document.title.replace('To the Point', 'TOPO')
+      const [show, graphicType, graphicName] = window.location.pathname.split('/').pop().split('-')
+      const languageSelect = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelect[languageSelect.selectedIndex].text
+      return `${show.toUpperCase()} ${window.capitalize(graphicType)} ${window.capitalize(graphicName)} - ${language}`
+    }
+
+    const panelNumbering = () => {
+      const panelNumbers = [1, 2, 3, 4, 5]
+
+      if (document.querySelector('[data-co="CreditsShowSponsors"]:checked').value === '0') {
+        panelNumbers[4]--
+      }
+
+      panelNumbers.forEach((number, i) => {
+        document.querySelector(`#Panel${i + 1} .field-group__label`).textContent = `Panel ${number}`
+      })
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      nlwData = initializeNLWData()
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      languageSelector.addEventListener('change', (event) => {
+        const language = languageSelector[languageSelector.selectedIndex].text
+        document.querySelector('[data-co="CreditsEditorsHeadlineLeft"]').value = nlwData[language][NLW_PROPERTIES.EDITORS]
+        document.querySelector('[data-co="CreditsEditorsHeadlineLeft"]').dispatchEvent(new Event('input'))
+        document.querySelector('[data-co="CreditsCameraHeadline"]').value = nlwData[language][NLW_PROPERTIES.CAMERA]
+        document.querySelector('[data-co="CreditsCameraHeadline"]').dispatchEvent(new Event('input'))
+        document.querySelector('[data-co="CreditsDirectorHeadline"]').value = nlwData[language][NLW_PROPERTIES.DIRECTOR]
+        document.querySelector('[data-co="CreditsDirectorHeadline"]').dispatchEvent(new Event('input'))
+        const [executiveProducerHeadline, executiveProducerName1] = nlwData[language][NLW_PROPERTIES.EXECUTIVE_PRODUCER].split(/\s*=\s*/)
+        document.querySelector('[data-co="CreditsExecutiveProducerHeadline"]').value = executiveProducerHeadline
+        document.querySelector('[data-co="CreditsExecutiveProducerHeadline"]').dispatchEvent(new Event('input'))
+        document.querySelector('[data-co="CreditsExecutiveProducerName1"]').value = executiveProducerName1
+        document.querySelector('[data-co="CreditsExecutiveProducerName1"]').dispatchEvent(new Event('input'))
+        const [socialMediaHeadline, socialMediaName1] = nlwData[language][NLW_PROPERTIES.CREDITS_ONLINE].split(/\s*=\s*/)
+        document.querySelector('[data-co="SocialMediaHeadline"]').value = socialMediaHeadline
+        document.querySelector('[data-co="SocialMediaHeadline"]').dispatchEvent(new Event('input'))
+        document.querySelector('[data-co="SocialMediaName1"]').value = socialMediaName1
+        document.querySelector('[data-co="SocialMediaName1"]').dispatchEvent(new Event('input'))
+        document.querySelector('[data-co="SponsorText"]').value = nlwData[language][NLW_PROPERTIES.SPONSOR]
+        document.querySelector('[data-co="SponsorText"]').dispatchEvent(new Event('input'))
+
+        if (language === 'Belarusian') {
+          vizrt.payloadhosting.setFieldText('CreditsShowSponsors', '0')
+          document.querySelector('[data-co="CreditsShowSponsors"][value="0"]').dispatchEvent(new Event('click'))
+        }
+      })
+
+      const sponsorsOptions = document.querySelectorAll('[data-co="CreditsShowSponsors"]')
+      const sponsorenPanel = document.querySelector('#Panel4')
+      sponsorsOptions.forEach((option) => option.addEventListener('click', (event) => {
+        sponsorenPanel.dataset.visible = event.target.value === '0'
+        panelNumbering()
+      }))
+
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header">
+    <span>To the Point</span>
+    <span>Credits</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Language</div>
+      <select class="dw-dropdown" data-co="LanguageIndex">
+        <option value="4" rtl translation>Arabic</option>
+        <option value="0">English</option>
+        <option value="1">German</option>
+        <option value="3" translation>Belarusian</option>
+        <option value="2">Spanish</option>
+      </select>
+    </div>
+
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Sponsors</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="CreditsShowSponsors" type="radio" value="1" name="skipsponsors" />
+            <span>On</span>
+          </label>
+
+          <label>
+            <input data-co="CreditsShowSponsors" type="radio" value="0" name="skipsponsors" />
+            <span>Off</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="direction-switch">
+    <div class="field-group" id="Panel1">
+      <div class="field-group__label">Panel 1</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 gap-2">
+          <input type="text" class="form-input" data-co="CreditsEditorsHeadlineLeft" disabled />
+          <input type="text" data-co="CreditsEditorsName1Left" class="form-input col-start-1" />
+          <input type="text" data-co="CreditsEditorsName2Left" class="form-input" />
+        </div>
+        <div class="grid grid-cols-1 gap-2 sm:grid-rows-3">
+          <input type="text" data-co="CreditsEditorsName1Right" class="form-input sm:row-start-2" />
+          <input type="text" data-co="CreditsEditorsName2Right" class="form-input sm:row-start-3" />
+        </div>
+      </div>
+    </div>
+    <div class="field-group" id="Panel2">
+      <div class="field-group__label">Panel 2</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 gap-2">
+          <input type="text" class="form-input" data-co="CreditsCameraHeadline" disabled />
+          <input type="text" data-co="CreditsCameraName1" class="form-input" />
+          <input type="text" data-co="CreditsCameraName2" class="form-input" />
+        </div>
+        <div class="grid grid-cols-1 gap-2 sm:grid-rows-3">
+          <input type="text" class="form-input" data-co="CreditsDirectorHeadline" disabled />
+          <input type="text" data-co="CreditsDirectorName1" class="form-input" />
+        </div>
+      </div>
+    </div>
+    <div class="field-group" id="Panel3">
+      <div class="field-group__label">Panel 3</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 gap-2">
+          <input type="text" data-co="CreditsExecutiveProducerHeadline" class="form-input" disabled />
+          <input type="text" data-co="CreditsExecutiveProducerName1" class="form-input" />
+        </div>
+        <div class="grid grid-cols-1 gap-2">
+          <input type="text" data-co="SocialMediaHeadline" class="form-input" disabled />
+          <input type="text" data-co="SocialMediaName1" class="form-input" />
+        </div>
+      </div>
+    </div>
+    <div class="field-group" id="Panel4">
+      <div class="field-group__label">Panel 4</div>
+      <input type="text" data-co="SponsorText" class="form-input" disabled />
+    </div>
+    <div class="field-group" id="Panel5">
+      <div class="field-group__label">Panel 5</div>
+      <div class="dw-label__input">Copyright</div>
+      <select class="dw-dropdown" data-co="CopyrightText">
+        <option>© DEUTSCHE WELLE 2022</option>
+        <option>© DEUTSCHE WELLE 2023</option>
+        <option>© DEUTSCHE WELLE 2024</option>
+        <option>© DEUTSCHE WELLE 2025</option>
+      </select>
+    </div>
+  </div>
+</body>
+
+</html>

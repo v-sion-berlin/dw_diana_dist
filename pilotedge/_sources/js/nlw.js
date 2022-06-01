@@ -1,7 +1,7 @@
 /**
  * NLW Tool data handler.
  * 
- * @version: 1.3.2
+ * @version: 1.3.3
  * @author: gunnar.steffen@dw.com
  * 
  * This module contains various methods to load and handle data from nlw tool.
@@ -21,16 +21,16 @@ var nlw;
     var request = (function() {
         function request() {
             const $project = {
-                'url': 'http://bwebgs/pilotedge/index.php', // fallback url
-                'root': 'pilotedge',                        // project root
-                'index': 'index.php'                        // index file
+                'url': 'https://bviz-web11-live/pilotedge/index.php',   // fallback url
+                'root': 'pilotedge',                                    // project root
+                'index': 'index.php'                                    // index file
             };
         
             this.baseUrl = project_location($project);
             this.urlGetParameter = build_query({
                 'p': 'nlw.api',     // request page
                 'm': 'json',        // output format
-                'f': 'tools/nlw/'   // nlw root
+                'f': 'nlw/'         // nlw root
             });
         };
         

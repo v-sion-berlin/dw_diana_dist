@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To the Point - Topic</title>
+  <!-- Default includes -->
+  <link href="../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../_sources/js/payloadhosting.js"></script>
+  <script src="../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../_sources/js/nlw.js"></script>
+  <script>
+    window.generateAutoTitle = () => {
+      const [show, graphicType, graphicName] = window.location.pathname.split('/').pop().split('-')
+      const languageSelect = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelect[languageSelect.selectedIndex].text
+      const contentString = document.querySelector('[data-co="TopicVariantIndex"]:checked').nextElementSibling.textContent
+      return `${show.toUpperCase()} ${window.capitalize(graphicType)} ${window.capitalize(graphicName)} ${contentString} - ${language}`
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header">
+    <span>To the Point</span>
+    <span>Topic</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Language</div>
+      <select class="dw-dropdown" data-co="LanguageIndex">
+        <option value="4" rtl translation>Arabic</option>
+        <option value="0">English</option>
+        <option value="1">German</option>
+        <option value="3" translation>Belarusian</option>
+        <option value="2">Spanish</option>
+      </select>
+    </div>
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Variant</div>
+        <div class="form-input-chips">
+          <label>
+            <input type="radio" value="0" name="TopicVariant" data-co="TopicVariantIndex" />
+            <span>A</span>
+          </label>
+          <label>
+            <input type="radio" value="1" name="TopicVariant" data-co="TopicVariantIndex" />
+            <span>B</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Glow</div>
+        <div class="form-input-chips">
+          <label>
+            <input type="radio" value="1" name="TopicGlowVariant" data-co="TopicGlowActive" />
+            <span>ON</span>
+          </label>
+          <label>
+            <input type="radio" value="0" name="TopicGlowVariant" data-co="TopicGlowActive" />
+            <span>OFF</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="direction-switch">
+    <div class="field-group">
+      <div class="grid gap-2">
+        <div>
+          <label class="dw-label__input">Top line</label>
+          <input type="text" class="form-input" data-co="TopicHeadline" />
+        </div>
+        <div>
+          <label class="dw-label__input">Bottom line</label>
+          <input type="text" class="form-input" data-co="TopicSubline" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-group" id="translation-panel">
+    <label class="dw-label__input">Translation</label>
+    <div class="grid gap-2">
+      <div>
+        <label class="dw-label__input">Top line</label>
+        <input type="text" class="form-input" data-co="Dummies/TopicHeadline" />
+      </div>
+      <div>
+        <label class="dw-label__input">Bottom line</label>
+        <input type="text" class="form-input" data-co="Dummies/TopicSubline" />
+      </div>
+    </div>
+    <span class="dw-alert">Please provide a translation for the operator.</span>
+  </div>
+</body>
+
+</html>

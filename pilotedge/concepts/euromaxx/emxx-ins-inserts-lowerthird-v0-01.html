@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euromaxx - Insert</title>
+  <!-- Default includes -->
+  <link href="../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../_sources/js/payloadhosting.js"></script>
+  <script src="../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../_sources/js/nlw.js"></script>
+  <script>
+    /* global Event */
+    let insertVariantSelect
+    const divMapping = {
+      '1L': [
+        { id: 'Line1', label: 'Text / Name', visible: true },
+        { id: 'Line2', label: '', visible: false },
+        { id: 'Line3', label: '', visible: false }
+      ],
+      '2L': [
+        { id: 'Line1', label: 'Name', visible: true },
+        { id: 'Line2', label: 'Function line', visible: true },
+        { id: 'Line3', label: '', visible: false }
+      ],
+      '3L': [
+        { id: 'Line2', label: 'Function lines', visible: true },
+        { id: 'Line3', label: '', visible: true },
+        { id: 'Line1', label: 'Name', visible: true }
+      ]
+    }
+
+    window.generateAutoTitle = () => {
+      const title = document.title.replace('Euromaxx -', 'EMXX')
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const insertVariant = insertVariantSelect.options[insertVariantSelect.selectedIndex].textContent
+      return `${title} ${insertVariant} ${language}`
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Show / hide playout duration panel dependent on automatic playout
+      insertVariantSelect = document.querySelector('[data-co="InsertVariantIndex"]')
+      insertVariantSelect.addEventListener('change', (event) => {
+        const insertVariantName = insertVariantSelect.options[insertVariantSelect.selectedIndex].text
+        divMapping[insertVariantName].forEach((divConfig) => {
+          console.log(divConfig)
+          const lineDiv = document.querySelector(`#${divConfig.id}`)
+          lineDiv.querySelector('label').textContent = divConfig.label
+          lineDiv.querySelector('label').dataset.visible = divConfig.label !== ''
+          lineDiv.dataset.visible = divConfig.visible
+          lineDiv.parentNode.appendChild(lineDiv)
+        })
+      })
+
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      insertVariantSelect.dispatchEvent(new Event('change'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header">
+    <span>Euromaxx</span>
+    <span>Insert</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Language</div>
+      <select class="dw-dropdown" data-co="LanguageIndex">
+        <option value="3" rtl translation>Arabic</option>
+        <option value="0">English</option>
+        <option value="1">German</option>
+        <option value="2">Spanish</option>
+      </select>
+    </div>
+
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Insert Variant</div>
+      <select class="dw-dropdown" data-co="InsertVariantIndex">
+        <option value="0">1L</option>
+        <option value="1">2L</option>
+        <option value="2">3L</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="direction-switch">
+    <div class="field-group">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div id="Line1">
+          <label class="dw-label__input">Insert Line 1</label>
+          <input id="Line1Input" type="text" class="form-input" data-co="InsertLine1" />
+        </div>
+        <div id="Line2">
+          <label class="dw-label__input">Insert Line 2</label>
+          <input id="Line2Input" type="text" class="form-input" data-co="InsertLine2" />
+        </div>
+        <div id="Line3">
+          <label class="dw-label__input md:block">Insert Line 3</label>
+          <input id="Line3Input" type="text" class="form-input" data-co="InsertLine3" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-group" id="translation-panel">
+    <label class="dw-label__input">Translation</label>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+      <div>
+        <input type="text" class="form-input" data-co="InsertLine1_dummy" />
+      </div>
+      <div>
+        <input type="text" class="form-input" data-co="InsertLine2_dummy" />
+      </div>
+      <div>
+        <input type="text" class="form-input" data-co="InsertLine3_dummy" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
