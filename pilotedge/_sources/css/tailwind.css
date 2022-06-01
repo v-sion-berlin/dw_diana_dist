@@ -2042,6 +2042,9 @@ input[type="number"] {
 .col-start-1 {
 	grid-column-start: 1;
 }
+.m-4 {
+	margin: 20px;
+}
 .ml-4 {
 	margin-left: 20px;
 }
@@ -2051,11 +2054,20 @@ input[type="number"] {
 .mb-4 {
 	margin-bottom: 20px;
 }
+.mb-6 {
+	margin-bottom: 30px;
+}
+.mt-1 {
+	margin-top: 5px;
+}
 .mt-\[5px\] {
 	margin-top: 5px;
 }
 .mt-3 {
 	margin-top: 15px;
+}
+.block {
+	display: block;
 }
 .flex {
 	display: -webkit-box;
@@ -5465,12 +5477,36 @@ input[type="number"] {
 	-ms-flex-item-align: center;
 	    align-self: center;
 }
+.rounded {
+	border-radius: 0.25rem;
+}
+.border {
+	border-width: 1px;
+}
+.border-2 {
+	border-width: 2px;
+}
+.border-solid {
+	border-style: solid;
+}
+.border-blue-light {
+	--tw-border-opacity: 1;
+	border-color: rgba(0, 165, 255, var(--tw-border-opacity));
+}
 .bg-gray-01 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(241, 243, 245, var(--tw-bg-opacity));
 }
 .bg-transparent {
 	background-color: transparent;
+}
+.bg-blue {
+	--tw-bg-opacity: 1;
+	background-color: rgba(0, 45, 90, var(--tw-bg-opacity));
+}
+.bg-blue-light {
+	--tw-bg-opacity: 1;
+	background-color: rgba(0, 165, 255, var(--tw-bg-opacity));
 }
 .bg-blue-medium {
 	--tw-bg-opacity: 1;
@@ -5480,13 +5516,16 @@ input[type="number"] {
 	--tw-bg-opacity: 1;
 	background-color: rgba(228, 232, 235, var(--tw-bg-opacity));
 }
-.bg-blue-light {
-	--tw-bg-opacity: 1;
-	background-color: rgba(0, 165, 255, var(--tw-bg-opacity));
+.p-2 {
+	padding: 10px;
 }
 .px-5 {
 	padding-left: 25px;
 	padding-right: 25px;
+}
+.px-\[20px\] {
+	padding-left: 20px;
+	padding-right: 20px;
 }
 .text-left {
 	text-align: left;
@@ -5494,8 +5533,20 @@ input[type="number"] {
 .text-right {
 	text-align: right;
 }
+.font-sans {
+	font-family: Noto Sans, sans-serif;
+}
+.font-serif {
+	font-family: DWTheAntiquaB-W6SemiBold, serif;
+}
 .text {
 	font-size: .8125rem;
+}
+.text-xs {
+	font-size: 12px;
+}
+.text-m {
+	font-size: 16px;
 }
 .font-bold {
 	font-weight: 700;
@@ -5515,6 +5566,14 @@ input[type="number"] {
 .text-orange {
 	--tw-text-opacity: 1;
 	color: rgba(235, 110, 20, var(--tw-text-opacity));
+}
+.text-white {
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.text-gray-03 {
+	--tw-text-opacity: 1;
+	color: rgba(216, 221, 226, var(--tw-text-opacity));
 }
 .blur {
 	--tw-blur: blur(8px);
