@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTL & translation example</title>
+    <!-- Default includes -->
+    <link
+      href="../../_sources/images/favicon.png"
+      rel="icon"
+      type="image/png"
+    />
+    <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
+    <script src="../../_sources/js/utils/dw.js" type="module"></script>
+    <script src="../../_sources/js/payloadhosting.js"></script>
+    <script src="../../_sources/js/utils/viz.js" type="module"></script>
+    <script src="../../_sources/js/nlw.js"></script>
+  </head>
+
+  <body>
+    <div class="dw-header">
+      <span>Translation Panel example</span>
+    </div>
+
+    <span class="dw-alert dw-alert--info w-full">
+      Hier werden verschiedene Varianten für den Aufbau des Translation Panels
+      gezeigt.
+    </span>
+
+    <div class="field-group">
+      <div class="field-group__label">Variante 01</div>
+    </div>
+    <div class="field-group bg-gray-12" id="translation-panel">
+      <label class="field-group__label text-gray-03">Translation</label>
+      <div class="grid grid-cols-2 gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <div class="grid gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <span class="dw-alert text-gray-03"
+        >Please provide a translation for the operator.</span
+      >
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Variante 02</div>
+    </div>
+    <div class="field-group bg-gray-12" id="translation-panel">
+      <label class="field-group__label text-gray-03">Translation</label>
+      <textarea
+        data-co="translation"
+        class="dw-textarea"
+        data-max-rows="2"
+        rows="2"
+      ></textarea>
+      <span class="dw-alert text-gray-03"
+        >Please provide a translation for the operator.</span
+      >
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Variante 03</div>
+    </div>
+    <div class="field-group bg-gray-12" id="translation-panel">
+      <label class="field-group__label text-gray-03">Translation</label>
+      <div class="grid grid-cols-2 gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <span class="dw-alert text-gray-03"
+        >Please provide a translation for the operator.</span
+      >
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Variante 04</div>
+    </div>
+    <div class="field-group bg-gray-12" id="translation-panel">
+      <label class="field-group__label text-gray-03">Translation</label>
+      <div class="grid grid-cols-2 gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <div class="grid gap-2 mb-2">
+        <label class="dw-label__input text-gray-03">Label</label>
+        <textarea
+          data-co="translation"
+          class="dw-textarea"
+          data-max-rows="2"
+          rows="2"
+        ></textarea>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <span class="dw-alert text-gray-03"
+        >Please provide a translation for the operator.</span
+      >
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Variante 05</div>
+    </div>
+    <div class="field-group bg-gray-12" id="translation-panel">
+      <label class="field-group__label text-gray-03">Translation</label>
+      <div class="grid grid-cols-3 gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <div class="grid gap-2 mb-2">
+        <textarea
+          data-co="translation"
+          class="dw-textarea"
+          data-max-rows="2"
+          rows="2"
+        ></textarea>
+      </div>
+      <span class="dw-alert text-gray-03"
+        >Please provide a translation for the operator.</span
+      >
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Variante 06</div>
+    </div>
+    <div class="field-group bg-gray-12" id="translation-panel">
+      <label class="field-group__label text-gray-03">Translation</label>
+      <div class="grid gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <div class="grid mb-2">
+        <label class="dw-label__input text-gray-03">Label</label>
+        <textarea
+          data-co="translation"
+          class="dw-textarea"
+          data-max-rows="2"
+          rows="2"
+        ></textarea>
+      </div>
+      <span class="dw-alert text-gray-03"
+        >Please provide a translation for the operator.</span
+      >
+    </div>
+  </body>
+
+  <!-- DON'T USE THIS SCRIPT IN PRODUCTION!!! -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () =>
+      document.dispatchEvent(new Event("vizPayloadReady"))
+    );
+  </script>
+</html>

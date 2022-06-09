@@ -58,29 +58,6 @@
       </div>
     </div>
 
-    <div class="field-group w-1/2 smaller-arrows">
-      <div class="field-group__label">Text</div>
-
-      <div class="dw-flexGroup">
-        <div class="w-1/2">
-          <label class="dw-label__input">Headline</label>
-          <input type="text" class="form-input" value="Bundesliga Tabelle" />
-        </div>
-        <div class="w-1/2">
-          <label class="dw-label__input">Matchday</label>
-          <div class="dw-quantity">
-            <input
-              type="number"
-              class="form-input"
-              min="1"
-              max="40"
-              value="1"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="field-group w-1/2">
       <div class="field-group__label">Text</div>
 
@@ -118,369 +95,6 @@
       </div>
     </div>
 
-    <div class="dw-dnd-wrapper smaller-arrows">
-      <div class="dw-dnd-head">
-        <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
-        <div class="dw-dnd__cell dw_md:w-[65px] w-[60px]" title="Rank">
-          Rank
-        </div>
-        <div class="dw-dnd__cell w-[fit-content] flex-1" title="Flag">Flag</div>
-        <div class="dw-dnd__cell dw_md:w-[180px] w-[140px]" title="Flag">
-          Driver
-        </div>
-        <div class="dw-dnd__cell dw_md:w-[180px] w-[140px]" title="Flag">
-          Car
-        </div>
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[70px]" title="Flag">
-          Points
-        </div>
-      </div>
-      <div class="dw-dnd__section">
-        <div class="dw-dnd" draggable="true">
-          <!-- 1. column -->
-          <div class="dw-dnd__cell">
-            <!-- This is the definition of the drag handle for drag and drop -->
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <!-- 2. column - Rank -->
-          <div class="dw_md:w-[65px] w-[60px] dw-dnd__cell">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                name="rank-input"
-                class="form-input w-full"
-                placeholder=""
-                value="1"
-                min="0"
-                max="99"
-                data-scrubber=""
-                data-co="Body/Row/1/pseudo-rank"
-                data-init-value="1"
-              />
-              <div class="dw-quantity-nav">
-                <div class="dw-quantity-button dw-quantity-up"></div>
-                <div class="dw-quantity-button dw-quantity-down"></div>
-              </div>
-            </div>
-          </div>
-          <!-- 3. column - Flag -->
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <select class="dw-dropdown" tabindex="2">
-              <option value="" disabled selected>...</option>
-              <option>&uarr;</option>
-              <option>&darr;</option>
-              <option>&middot;&middot;&middot;</option>
-            </select>
-          </div>
-          <!-- 4. column - Driver -->
-          <div class="dw_md:w-[180px] w-[140px] dw-dnd__cell">
-            <input
-              type="text"
-              class="form-input w-full font-large"
-              data-co="Body/Row/1/Driver"
-            />
-          </div>
-          <!-- 5. column - Car -->
-          <div class="dw_md:w-[180px] w-[140px] dw-dnd__cell">
-            <input
-              type="text"
-              class="form-input w-full font-large"
-              placeholder="1."
-              data-co="Body/Row/1/Car"
-            />
-          </div>
-          <!-- 6. column - Points -->
-          <div class="dw_md:w-[80px] w-[70px] dw-dnd__cell" name="points">
-            <!-- This div defines the number input with up and down buttons -->
-            <div class="dw-quantity">
-              <!-- the data-scrubber attribute allows to click and drag to increase and decrease the value -->
-              <input
-                type="number"
-                class="form-input w-full"
-                placeholder=""
-                value="1"
-                min="0"
-                max="99"
-                data-scrubber=""
-                data-co="Body/Row/1/Points"
-                data-init-value="1"
-              />
-              <div class="dw-quantity-nav">
-                <div class="dw-quantity-button dw-quantity-up"></div>
-                <div class="dw-quantity-button dw-quantity-down"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="dw-dnd-wrapper smaller-arrows">
-      <div class="dw-dnd-head">
-        <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
-        <div
-          class="dw-dnd__cell dw_md:w-[65px] w-[35px]"
-          title="FirstLongLabel"
-        >
-          FirstLongLabel
-        </div>
-        <div
-          class="dw-dnd__cell dw_md:w-[95px] w-[48px]"
-          title="Second Long Label"
-        >
-          Second Long Label
-        </div>
-        <div class="dw-dnd__cell w-[fit-content] flex-1" title="ThirdLongLabel">
-          ThirdLongLabel
-        </div>
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">Goal diff.</div>
-        <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]"></div>
-        <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Points</div>
-      </div>
-      <div class="dw-dnd__section">
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
-            <input
-              type="text"
-              class="form-input bg-transparent dw-direction-ltr"
-              placeholder="1."
-              disabled
-            />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="2">
-              <option value="" disabled selected>...</option>
-              <option>&uarr;</option>
-              <option>&darr;</option>
-              <option>&middot;&middot;&middot;</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <select class="dw-dropdown" tabindex="3">
-              <option value="" disabled selected>-- Please select --</option>
-              <option>1. FC Köln</option>
-              <option>Borussia Dortmund</option>
-              <option>VFB Stuttgart</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="4">
-              <option value="" disabled selected>...</option>
-              <option>+</option>
-              <option>-</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[50px]">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                class="form-input dw-input-number"
-                placeholder=""
-                value="188"
-                min="0"
-                max="9999"
-              />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[50px]">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                class="form-input dw-input-number"
-                placeholder=""
-                value="188"
-                min="0"
-                max="9999"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
-            <input
-              type="text"
-              class="form-input bg-transparent dw-direction-ltr"
-              placeholder="1."
-              disabled
-            />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="2">
-              <option value="" disabled selected>...</option>
-              <option>&uarr;</option>
-              <option>&darr;</option>
-              <option>&middot;&middot;&middot;</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <select class="dw-dropdown" tabindex="3">
-              <option value="" disabled selected>-- Please select --</option>
-              <option>1. FC Köln</option>
-              <option>Borussia Dortmund</option>
-              <option>VFB Stuttgart</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="4">
-              <option value="" disabled selected>...</option>
-              <option>+</option>
-              <option>-</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[50px]">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                class="form-input dw-input-number"
-                placeholder=""
-                value="1"
-                min="0"
-                max="9999"
-              />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[50px]">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                class="form-input dw-input-number"
-                placeholder=""
-                value="1"
-                min="0"
-                max="9999"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
-            <input
-              type="text"
-              class="form-input bg-transparent dw-direction-ltr"
-              placeholder="1."
-              disabled
-            />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="2">
-              <option value="" disabled selected>...</option>
-              <option>&uarr;</option>
-              <option>&darr;</option>
-              <option>&middot;&middot;&middot;</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <select class="dw-dropdown" tabindex="3">
-              <option value="" disabled selected>-- Please select --</option>
-              <option>1. FC Köln</option>
-              <option>Borussia Dortmund</option>
-              <option>VFB Stuttgart</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="4">
-              <option value="" disabled selected>...</option>
-              <option>+</option>
-              <option>-</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[50px]">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                class="form-input dw-input-number"
-                placeholder=""
-                value="1"
-                min="0"
-                max="9999"
-              />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[50px]">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                class="form-input dw-input-number"
-                placeholder=""
-                value="1"
-                min="0"
-                max="9999"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
-            <input
-              type="text"
-              class="form-input bg-transparent dw-direction-ltr"
-              placeholder="1."
-              disabled
-            />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="2">
-              <option value="" disabled selected>...</option>
-              <option>&uarr;</option>
-              <option>&darr;</option>
-              <option>&middot;&middot;&middot;</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <select class="dw-dropdown" tabindex="3">
-              <option value="" disabled selected>-- Please select --</option>
-              <option>1. FC Köln</option>
-              <option>Borussia Dortmund</option>
-              <option>VFB Stuttgart</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="4">
-              <option value="" disabled selected>...</option>
-              <option>+</option>
-              <option>-</option>
-            </select>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[50px]">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                class="form-input dw-input-number"
-                placeholder=""
-                value="1"
-                min="0"
-                max="9999"
-              />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[50px]">
-            <div class="dw-quantity">
-              <input
-                type="number"
-                class="form-input dw-input-number"
-                placeholder=""
-                value="1"
-                min="0"
-                max="9999"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="dw-dnd-wrapper">
       <div class="dw-dnd-head">
         <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
@@ -507,7 +121,7 @@
             />
           </div>
           <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="2">
+            <select class="dw-dropdown font-bold text-xl" tabindex="2">
               <option value="" disabled selected>...</option>
               <option>&uarr;</option>
               <option>&darr;</option>
@@ -523,7 +137,7 @@
             </select>
           </div>
           <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="4">
+            <select class="dw-dropdown font-bold text-l" tabindex="4">
               <option value="" disabled selected>...</option>
               <option>+</option>
               <option>-</option>
@@ -567,7 +181,7 @@
             />
           </div>
           <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="2">
+            <select class="dw-dropdown font-bold text-xl" tabindex="2">
               <option value="" disabled selected>...</option>
               <option>&uarr;</option>
               <option>&darr;</option>
@@ -583,7 +197,7 @@
             </select>
           </div>
           <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-            <select class="dw-dropdown" tabindex="4">
+            <select class="dw-dropdown font-bold text-l" tabindex="4">
               <option value="" disabled selected>...</option>
               <option>+</option>
               <option>-</option>
