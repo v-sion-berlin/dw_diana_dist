@@ -15,52 +15,54 @@
  * @since 1.00
  */
 const initializeResources = () => {
-  const elements = document.querySelectorAll('link, script')
+  const elements = document.querySelectorAll("link, script");
 
   for (const element of elements) {
-    if (element.hasAttribute('data-href') || element.hasAttribute('data-src')) {
-      const uriAttr = element.hasAttribute('data-href') ? 'href' : 'src'
-      const uri = element.getAttribute(`data-${uriAttr}`)
-      const attr = document.createAttribute(uriAttr)
-      attr.value = `${uri}?t=${LAST_CHANGE}`
-      element.setAttributeNode(attr)
-      element.removeAttribute('data-' + uriAttr)
+    if (element.hasAttribute("data-href") || element.hasAttribute("data-src")) {
+      const uriAttr = element.hasAttribute("data-href") ? "href" : "src";
+      const uri = element.getAttribute(`data-${uriAttr}`);
+      const attr = document.createAttribute(uriAttr);
+      attr.value = `${uri}?t=${LAST_CHANGE}`;
+      element.setAttributeNode(attr);
+      element.removeAttribute("data-" + uriAttr);
     }
   }
-}
+};
 
 /**
  * Loads the <code>[Input module]{@link Input}</code> if it is not loaded already.
  * @since 1.00
  */
 const initializeInputs = async () => {
-  const elements = document.querySelectorAll('textarea, select, [type="number"], [type="date"], [type="text"], [type="range"]')
+  const elements = document.querySelectorAll(
+    'textarea, select, [type="number"], [type="date"], [type="text"], [type="range"]'
+  );
 
   if (elements) {
-    const module = await import('./input.js')
-    const Input = module.default
+    const module = await import("./input.js");
+    const Input = module.default;
 
     for (const element of elements) {
-      Input.initialize(element)
+      Input.initialize(element);
     }
   }
-}
+};
 
 /**
  * Loads the <code>[Draggable module]{@link Draggable}</code> if it is not loaded already.
  * @since 1.00
  */
 const initializeDraggables = async () => {
-  const elements = document.querySelectorAll('.dw-dnd-wrapper')
+  const elements = document.querySelectorAll(".dw-dnd-wrapper");
   if (elements) {
-    const module = await import('./draggable.js')
-    const Draggable = module.default
+    const module = await import("./draggable.js");
+    const Draggable = module.default;
 
     for (const element of elements) {
-      Draggable.initialize(element)
+      Draggable.initialize(element);
     }
   }
-}
+};
 
 /**
  * Loads the <code>[Dropdown module]{@link Dropdown}</code> if it is not loaded already.
@@ -68,16 +70,18 @@ const initializeDraggables = async () => {
  */
 const initializeDropdowns = async () => {
   /* DEPRECATED: .dw-dropdown-native */
-  const elements = document.querySelectorAll('.dw-dropdown, .dw-dropdown-native')
+  const elements = document.querySelectorAll(
+    ".dw-dropdown, .dw-dropdown-native"
+  );
   if (elements) {
-    const module = await import('./dropdown.js')
-    const Dropdown = module.default
+    const module = await import("./dropdown.js");
+    const Dropdown = module.default;
 
     for (const element of elements) {
-      Dropdown.initialize(element)
+      Dropdown.initialize(element);
     }
   }
-}
+};
 
 /**
  * Add timing section with offset and duration (mosart).
@@ -85,33 +89,35 @@ const initializeDropdowns = async () => {
  * @since 1.12
  */
 const initializeSectionTiming = async () => {
-  const element = document.querySelector('.dw-mosart-info')
+  const element = document.querySelector(".dw-mosart-info");
 
   if (element) {
-    const module = await import('./timing.js')
-    const Timing = module.default
+    const module = await import("./timing.js");
+    const Timing = module.default;
 
-    Timing.initialize(element)
+    Timing.initialize(element);
   }
-}
+};
 
 /**
  * Add contact section.
  * @since 1.12
  */
 const initializeSectionContact = () => {
-  const div = () => { return document.createElement('div') }
+  const div = () => {
+    return document.createElement("div");
+  };
 
   //const divWrapper = document.body.appendChild(div())
   //divWrapper.classList.add('field-group')
 
-  const divContact = div()
-  divContact.classList.add('dw-footer')
-  const spanContact = document.createElement('span')
-  spanContact.innerHTML = 'Contact: echtzeitgrafik@dw.com'
-  divContact.append(spanContact)
-  document.body.append(divContact)
-}
+  const divContact = div();
+  divContact.classList.add("dw-footer");
+  const spanContact = document.createElement("span");
+  spanContact.innerHTML = "Contact: echtzeitgrafik@dw.com";
+  divContact.append(spanContact);
+  document.body.append(divContact);
+};
 
 /**
  * Defines a global variable window.datestamp that contains the actual
@@ -121,12 +127,12 @@ const initializeSectionContact = () => {
  * @global
  */
 window.datestamp = () => {
-  const today = new Date()
-  const formatter = new Intl.NumberFormat('de-DE', { minimumIntegerDigits: 2 })
+  const today = new Date();
+  const formatter = new Intl.NumberFormat("de-DE", { minimumIntegerDigits: 2 });
   return `${formatter.format(today.getMonth() + 1)}${formatter.format(
     today.getDate()
-  )}`
-}
+  )}`;
+};
 
 /**
  * Defines a global function that can handle ltr/rtl changes
@@ -136,35 +142,38 @@ window.datestamp = () => {
  * @global
  */
 window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
-  const languageSelect = document.querySelector(queryLanguageSelect)
-  const directionDiv = document.querySelector(queryDirectionDiv)
-  languageSelect.addEventListener('change', (e) => {
-    const footer = document.querySelector('.dw-footer')
-    const hasRtl = languageSelect.options[languageSelect.selectedIndex].hasAttribute('rtl')
+  const languageSelect = document.querySelector(queryLanguageSelect);
+  const directionDiv = document.querySelector(queryDirectionDiv);
+  languageSelect.addEventListener("change", (e) => {
+    const footer = document.querySelector(".dw-footer");
+    const hasRtl =
+      languageSelect.options[languageSelect.selectedIndex].hasAttribute("rtl");
     if (hasRtl) {
       if (footer) {
-        footer.classList.add('dw-direction-rtl')
-        footer.classList.remove('dw-direction-ltr')
+        footer.classList.add("dw-direction-rtl");
+        footer.classList.remove("dw-direction-ltr");
       }
-      directionDiv.classList.add('dw-direction-rtl')
-      directionDiv.classList.remove('dw-direction-ltr')
+      directionDiv.classList.add("dw-direction-rtl");
+      directionDiv.classList.remove("dw-direction-ltr");
     } else {
       if (footer) {
-        footer.classList.remove('dw-direction-rtl')
-        footer.classList.add('dw-direction-ltr')
+        footer.classList.remove("dw-direction-rtl");
+        footer.classList.add("dw-direction-ltr");
       }
-      directionDiv.classList.remove('dw-direction-rtl')
-      directionDiv.classList.add('dw-direction-ltr')
+      directionDiv.classList.remove("dw-direction-rtl");
+      directionDiv.classList.add("dw-direction-ltr");
     }
-  })
+  });
 
-  document.addEventListener('vizPayloadReady', () => {
+  document.addEventListener("vizPayloadReady", () => {
     // WE're using a custom event here to pass additional data. That way we can
     // distinguish between initial change call and change events that are fired
     // by the user.
-    languageSelect.dispatchEvent(new CustomEvent('change', { detail: 'dw.js' }))
-  })
-}
+    languageSelect.dispatchEvent(
+      new CustomEvent("change", { detail: "dw.js" })
+    );
+  });
+};
 
 /**
  * Defines a global function that shows a div if the attribute translation is present in the language selection
@@ -173,16 +182,24 @@ window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
  * @since 1.13
  * @global
  */
-window.initializeTranslationPanel = (queryLanguageSelect, queryTranslationDiv) => {
-  const languageSelect = document.querySelector(queryLanguageSelect)
-  const translationDiv = document.querySelector(queryTranslationDiv)
-  languageSelect.addEventListener('change', (e) => {
-    const hasTranslation = languageSelect.options[languageSelect.selectedIndex].hasAttribute('translation')
-    translationDiv.dataset.visible = hasTranslation
-  })
+window.initializeTranslationPanel = (
+  queryLanguageSelect,
+  queryTranslationDiv
+) => {
+  const languageSelect = document.querySelector(queryLanguageSelect);
+  const translationDiv = document.querySelector(queryTranslationDiv);
+  languageSelect.addEventListener("change", (e) => {
+    const hasTranslation =
+      languageSelect.options[languageSelect.selectedIndex].hasAttribute(
+        "translation"
+      );
+    translationDiv.dataset.visible = hasTranslation;
+  });
 
-  document.addEventListener('vizPayloadReady', () => languageSelect.dispatchEvent(new Event('change')))
-}
+  document.addEventListener("vizPayloadReady", () =>
+    languageSelect.dispatchEvent(new Event("change"))
+  );
+};
 
 /**
  * Function for capitalizing strings
@@ -191,13 +208,23 @@ window.initializeTranslationPanel = (queryLanguageSelect, queryTranslationDiv) =
  * @since 1.13
  * @global
  */
-window.capitalize = (text) => { return text.replace(/^\w/, (c) => c.toUpperCase()) }
+window.capitalize = (text) => {
+  return text.replace(/^\w/, (c) => c.toUpperCase());
+};
 
-document.addEventListener('DOMContentLoaded', () => {
-  initializeResources()
-  initializeInputs()
-  initializeDraggables()
-  initializeDropdowns()
-  initializeSectionTiming()
-  initializeSectionContact()
-})
+function entitiesHtml(string) {
+  return String(string)
+    .replace(/&/g, "&amp;")
+    .replace(/>/g, "&gt;")
+    .replace(/</g, "&lt;")
+    .replace(/"/g, "&quot;");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initializeResources();
+  initializeInputs();
+  initializeDraggables();
+  initializeDropdowns();
+  initializeSectionTiming();
+  initializeSectionContact();
+});

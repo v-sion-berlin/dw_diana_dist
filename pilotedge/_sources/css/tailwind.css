@@ -1289,7 +1289,7 @@ textarea + .dw-alert {
 	padding-bottom: 7px;
 	padding-left: 12px;
 	padding-right: 12px;
-	padding-right: 20px;
+	padding-right: 24px;
 	font-size: 13px;
 	line-height: 1rem;
 	--tw-text-opacity: 1;
@@ -1324,6 +1324,7 @@ select {
     background-position: calc(100% - 8px) center;
     min-width: 50px;
   }
+/* TODO: needs to be finetuned e.g. http://localhost:53110/pilotedge/concepts/examples/template-bundesliga_rtl.html */
 .dw-direction-rtl select {
     background-position: left 0.5rem center;
     padding-right: 1rem;
@@ -1992,6 +1993,9 @@ input[type="number"] {
 .static {
 	position: static;
 }
+.fixed {
+	position: fixed;
+}
 .absolute {
 	position: absolute;
 }
@@ -2004,8 +2008,8 @@ input[type="number"] {
 .col-start-1 {
 	grid-column-start: 1;
 }
-.m-4 {
-	margin: 20px;
+.m-6 {
+	margin: 30px;
 }
 .ml-4 {
 	margin-left: 20px;
@@ -2016,11 +2020,23 @@ input[type="number"] {
 .mb-4 {
 	margin-bottom: 20px;
 }
-.mb-6 {
-	margin-bottom: 30px;
+.ml-6 {
+	margin-left: 30px;
+}
+.mr-6 {
+	margin-right: 30px;
+}
+.mt-6 {
+	margin-top: 30px;
 }
 .mt-1 {
 	margin-top: 4px;
+}
+.mb-6 {
+	margin-bottom: 30px;
+}
+.mt-2 {
+	margin-top: 10px;
 }
 .mb-2 {
 	margin-bottom: 10px;
@@ -2033,6 +2049,9 @@ input[type="number"] {
 }
 .block {
 	display: block;
+}
+.inline {
+	display: inline;
 }
 .flex {
 	display: -webkit-box;
@@ -5472,11 +5491,11 @@ input[type="number"] {
 	-ms-flex-item-align: center;
 	    align-self: center;
 }
+.rounded-md {
+	border-radius: 0.375rem;
+}
 .rounded {
 	border-radius: 0.25rem;
-}
-.border {
-	border-width: 1px;
 }
 .border-2 {
 	border-width: 2px;
@@ -5591,9 +5610,6 @@ input[type="number"] {
 	--tw-bg-opacity: 1;
 	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 }
-.p-2 {
-	padding: 10px;
-}
 .p-\[8px\] {
 	padding: 8px;
 }
@@ -5617,14 +5633,14 @@ input[type="number"] {
 .font-serif {
 	font-family: DWTheAntiquaB-W6SemiBold, serif;
 }
+.font-courier {
+	font-family: Courier News, serif;
+}
 .text {
 	font-size: .8125rem;
 }
 .text-xl {
 	font-size: 20px;
-}
-.text-xs {
-	font-size: 12px;
 }
 .text-m {
 	font-size: 16px;
@@ -5658,6 +5674,19 @@ input[type="number"] {
 .text-gray-03 {
 	--tw-text-opacity: 1;
 	color: rgba(216, 221, 226, var(--tw-text-opacity));
+}
+.text-blue {
+	--tw-text-opacity: 1;
+	color: rgba(0, 45, 90, var(--tw-text-opacity));
+}
+.text-gray-15 {
+	--tw-text-opacity: 1;
+	color: rgba(38, 46, 51, var(--tw-text-opacity));
+}
+.shadow-inner {
+	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	-webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+	        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .blur {
 	--tw-blur: blur(8px);

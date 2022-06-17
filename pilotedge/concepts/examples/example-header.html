@@ -10,6 +10,8 @@
       rel="icon"
       type="image/png"
     />
+    <script src="../../_sources/js/utils/prism.js"></script>
+    <link href="../../_sources/css/prism.css" rel="stylesheet" />
     <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
     <script src="../../_sources/js/utils/dw.js" type="module"></script>
     <script src="../../_sources/js/payloadhosting.js"></script>
@@ -18,19 +20,81 @@
   </head>
 
   <body>
+    <div class="field-group__label mt-2">Header Default</div>
     <div class="dw-header">
       <span>SHOW NAME</span>
       <span>TEMPLATE NAME</span>
     </div>
 
+    <div class="mt-2 rounded-md bg-gray-01 shadow-inner">
+      <pre class="language-html"><code><!-- <div class="dw-header">
+      <span>SHOW NAME</span>
+      <span>TEMPLATE NAME</span>
+    </div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">Header Branded</div>
     <div class="dw-header dw-header--branded">
       <img src="./_sources/images/Header_NEWS.png" />
       <span>Lorem ipsum dolor amet</span>
     </div>
 
+    <div class="mt-2 rounded-md bg-gray-01 shadow-inner">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--branded">
+      <img src="./_sources/images/Header_NEWS.png" />
+      <span>Lorem ipsum dolor amet</span>
+    </div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">
+      Header Branded mit weissem Text für dunkle Hintergründe
+    </div>
     <div class="dw-header dw-header--branded">
       <img src="./_sources/images/Header_NEWS.png" />
       <span class="text-white">Lorem ipsum dolor amet</span>
+    </div>
+
+    <div class="mt-2 rounded-md bg-gray-01 shadow-inner">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--branded">
+      <img src="./_sources/images/Header_NEWS.png" />
+      <span class="text-white">Lorem ipsum dolor amet</span>
+    </div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">Header Branded mit blauem Text</div>
+    <div class="dw-header dw-header--branded">
+      <img src="./_sources/images/Header_NEWS.png" />
+      <span class="text-blue">Lorem ipsum dolor amet</span>
+    </div>
+
+    <div class="mt-2 rounded-md bg-gray-01 shadow-inner">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--branded">
+      <img src="./_sources/images/Header_NEWS.png" />
+      <span class="text-blue">Lorem ipsum dolor amet</span>
+    </div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">
+      Header Branded mit grauem (gray-15) Text
+    </div>
+    <div class="dw-header dw-header--branded">
+      <img src="./_sources/images/Header_NEWS.png" />
+      <span class="text-gray-15">Lorem ipsum dolor amet</span>
+    </div>
+
+    <div class="mt-2 rounded-md bg-gray-01 shadow-inner">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--branded">
+      <img src="./_sources/images/Header_NEWS.png" />
+      <span class="text-gray-15">Lorem ipsum dolor amet</span>
+    </div> --></code></pre>
     </div>
   </body>
 </html>
