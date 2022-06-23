@@ -5487,14 +5487,6 @@ input[type="number"] {
 .gap-2 {
 	gap: 10px;
 }
-.gap-x-2 {
-	-webkit-column-gap: 10px;
-	   -moz-column-gap: 10px;
-	        column-gap: 10px;
-}
-.gap-y-4 {
-	row-gap: 20px;
-}
 .gap-y-2 {
 	row-gap: 10px;
 }
@@ -5527,12 +5519,12 @@ input[type="number"] {
 	--tw-bg-opacity: 1;
 	background-color: rgba(241, 243, 245, var(--tw-bg-opacity));
 }
-.bg-transparent {
-	background-color: transparent;
-}
 .bg-gray-02 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(228, 232, 235, var(--tw-bg-opacity));
+}
+.bg-transparent {
+	background-color: transparent;
 }
 .bg-blue {
 	--tw-bg-opacity: 1;
@@ -5632,10 +5624,6 @@ input[type="number"] {
 }
 .p-\[8px\] {
 	padding: 8px;
-}
-.px-5 {
-	padding-left: 25px;
-	padding-right: 25px;
 }
 .px-\[20px\] {
 	padding-left: 20px;

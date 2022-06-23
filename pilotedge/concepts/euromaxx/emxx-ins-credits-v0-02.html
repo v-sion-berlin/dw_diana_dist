@@ -60,6 +60,14 @@
       const thanksOptions = document.querySelectorAll('[data-co="LeaveOut3_CREDIT"]')
       const thanksPanel = document.querySelector('#Panel3')
 
+      const EMPTY_IMAGE_PATH = 'IMAGE*/GRAPHICS/GLOBALS/TEXTURES/empty'
+      const Logo1ArabicSelect = document.querySelector('[data-co="SponsorArabic1"]')
+      const Logo2ArabicSelect = document.querySelector('[data-co="SponsorArabic2"]')
+      const Logo3ArabicSelect = document.querySelector('[data-co="SponsorArabic3"]')
+      const Logo1LatinSelect = document.querySelector('[data-co="SponsorLatin1"]')
+      const Logo2LatinSelect = document.querySelector('[data-co="SponsorLatin2"]')
+      const Logo3LatinSelect = document.querySelector('[data-co="SponsorLatin3"]')
+
       sponsorsOptions.forEach((option) => option.addEventListener('click', (event) => {
         sponsorenPanel.dataset.visible = event.target.value === '0'
         panelNumbering()
@@ -76,6 +84,11 @@
       const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
       const partnerLines = document.querySelectorAll('#partnerLines input')
       languageSelector.addEventListener('change', (event) => {
+        // clear Logo-COs
+        vizrt.payloadhosting.setFieldText('Logo1', EMPTY_IMAGE_PATH)
+        vizrt.payloadhosting.setFieldText('Logo2', EMPTY_IMAGE_PATH)
+        vizrt.payloadhosting.setFieldText('Logo3', EMPTY_IMAGE_PATH)
+
         const language = languageSelector[languageSelector.selectedIndex].text
         document.querySelector('[data-co="Function1"]').value = nlwData[language][NLW_PROPERTIES.PRODUCERS]
         document.querySelector('[data-co="Function1"]').dispatchEvent(new Event('input'))
@@ -101,18 +114,77 @@
         const sponsorsArabic = document.querySelectorAll('[name="SponsorsArabic"]')
         const sponsorsLatin = document.querySelectorAll('[name="SponsorsLatin"]')
 
+        vizrt.payloadhosting.setFieldText('Logo1', ' ')
+        vizrt.payloadhosting.setFieldText('Logo2', ' ')
+        vizrt.payloadhosting.setFieldText('Logo3', ' ')
+
         if (language === 'Arabic') {
           partnerLines.forEach((partnerLine) => partnerLine.classList.add('text-right'))
 
           // hide sponsor logo dropdowns depending on language
           sponsorsLatin.forEach((sponsor) => { sponsor.dataset.visible = false })
           sponsorsArabic.forEach((sponsor) => { sponsor.dataset.visible = true })
+
+          // change Logos after each Language Change
+          Logo1ArabicSelect.dispatchEvent(new Event('change'))
+          Logo2ArabicSelect.dispatchEvent(new Event('change'))
+          Logo3ArabicSelect.dispatchEvent(new Event('change'))
         } else {
           partnerLines.forEach((partnerLine) => partnerLine.classList.remove('text-right'))
 
           // hide sponsor logo dropdowns depending on language
           sponsorsLatin.forEach((sponsor) => { sponsor.dataset.visible = true })
           sponsorsArabic.forEach((sponsor) => { sponsor.dataset.visible = false })
+
+          // change Logos after each Language Change
+          Logo1LatinSelect.dispatchEvent(new Event('change'))
+          Logo2LatinSelect.dispatchEvent(new Event('change'))
+          Logo3LatinSelect.dispatchEvent(new Event('change'))
+        }
+      })
+
+      // Event Listeners for Logo Dropdowns
+      Logo1ArabicSelect.addEventListener('change', (event) => {
+        if (Logo1ArabicSelect.value === 'empty_image' || Logo1ArabicSelect.value === 'please_select') {
+          vizrt.payloadhosting.setFieldText('Logo1', EMPTY_IMAGE_PATH)
+        } else {
+          vizrt.payloadhosting.setFieldText('Logo1', vizrt.payloadhosting.getFieldText('SponsorArabic1'))
+        }
+      })
+      Logo2ArabicSelect.addEventListener('change', (event) => {
+        if (Logo2ArabicSelect.value === 'empty_image' || Logo2ArabicSelect.value === 'please_select') {
+          vizrt.payloadhosting.setFieldText('Logo2', EMPTY_IMAGE_PATH)
+        } else {
+          vizrt.payloadhosting.setFieldText('Logo2', vizrt.payloadhosting.getFieldText('SponsorArabic2'))
+        }
+      })
+      Logo3ArabicSelect.addEventListener('change', (event) => {
+        if (Logo3ArabicSelect.value === 'empty_image' || Logo3ArabicSelect.value === 'please_select') {
+          vizrt.payloadhosting.setFieldText('Logo3', EMPTY_IMAGE_PATH)
+        } else {
+          vizrt.payloadhosting.setFieldText('Logo3', vizrt.payloadhosting.getFieldText('SponsorArabic3'))
+        }
+      })
+
+      Logo1LatinSelect.addEventListener('change', (event) => {
+        if (Logo1LatinSelect.value === 'empty_image' || Logo1LatinSelect.value === 'please_select') {
+          vizrt.payloadhosting.setFieldText('Logo1', EMPTY_IMAGE_PATH)
+        } else {
+          vizrt.payloadhosting.setFieldText('Logo1', vizrt.payloadhosting.getFieldText('SponsorLatin1'))
+        }
+      })
+      Logo2LatinSelect.addEventListener('change', (event) => {
+        if (Logo2LatinSelect.value === 'empty_image' || Logo2LatinSelect.value === 'please_select') {
+          vizrt.payloadhosting.setFieldText('Logo2', EMPTY_IMAGE_PATH)
+        } else {
+          vizrt.payloadhosting.setFieldText('Logo2', vizrt.payloadhosting.getFieldText('SponsorLatin2'))
+        }
+      })
+      Logo3LatinSelect.addEventListener('change', (event) => {
+        if (Logo3LatinSelect.value === 'empty_image' || Logo3LatinSelect.value === 'please_select') {
+          vizrt.payloadhosting.setFieldText('Logo3', EMPTY_IMAGE_PATH)
+        } else {
+          vizrt.payloadhosting.setFieldText('Logo3', vizrt.payloadhosting.getFieldText('SponsorLatin3'))
         }
       })
 
@@ -123,6 +195,8 @@
     document.addEventListener('vizPayloadReady', function () {
       document.querySelector('[data-co="LeaveOut2_CREDIT"]:checked').dispatchEvent(new Event('click'))
       document.querySelector('[data-co="LeaveOut3_CREDIT"]:checked').dispatchEvent(new Event('click'))
+
+      console.log('Done')
     })
   </script>
 </head>
@@ -217,22 +291,28 @@
           <input type="text" class="form-input" data-co="SponsorsLine" disabled />
         </div>
         <select name="SponsorsArabic" data-co="SponsorArabic1" class="dw-dropdown col-start-1" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
-          <option>- Please select -</option>
+          <option value="please_select" selected disabled>- Please select -</option>
+          <option value="empty_image">Empty</option>
         </select>
         <select name="SponsorsArabic" data-co="SponsorArabic2" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
-          <option>- Please select -</option>
+          <option value="please_select" selected disabled>- Please select -</option>
+          <option value="empty_image">Empty</option>
         </select>
         <select name="SponsorsArabic" data-co="SponsorArabic3" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
-          <option>- Please select -</option>
+          <option value="please_select" selected disabled>- Please select -</option>
+          <option value="empty_image">Empty</option>
         </select>
         <select name="SponsorsLatin" data-co="SponsorLatin1" class="dw-dropdown col-start-1" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
-          <option>- Please select -</option>
+          <option value="please_select" selected disabled>- Please select -</option>
+          <option value="empty_image">Empty</option>
         </select>
         <select name="SponsorsLatin" data-co="SponsorLatin2" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
-          <option>- Please select -</option>
+          <option value="please_select" selected disabled>- Please select -</option>
+          <option value="empty_image">Empty</option>
         </select>
         <select name="SponsorsLatin" data-co="SponsorLatin3" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
-          <option>- Please select -</option>
+          <option value="please_select" selected disabled>- Please select -</option>
+          <option value="empty_image">Empty</option>
         </select>
       </div>
     </div>

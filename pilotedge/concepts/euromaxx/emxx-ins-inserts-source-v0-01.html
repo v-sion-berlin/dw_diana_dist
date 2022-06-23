@@ -23,7 +23,8 @@
       const title = document.title.replace('Euromaxx -', 'EMXX')
       const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
       const language = languageSelector[languageSelector.selectedIndex].text
-      return `${title} ${language}`
+      const sourceVariant = document.querySelector('[data-co="SourceVariantIndex"]:checked').parentNode.querySelector('span').textContent
+      return `${title} ${sourceVariant} ${language}`
     }
 
     const setLine1WithSource = () => {
@@ -40,6 +41,7 @@
       line1withSource.dispatchEvent(new Event('input'))
 
       dummySource.parentNode.dataset.visible = dummySourceOption.value === '1'
+      document.querySelector('[data-co="dummy-source_dummy"').parentNode.dataset.visible = dummySourceOption.value === '1'
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -53,10 +55,7 @@
       }))
 
       const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
-      const translationPanel = document.querySelector('#Translation')
       languageSelector.addEventListener('change', (event) => {
-        translationPanel.dataset.visible = event.target.value === ('3')
-
         const language = languageSelector[languageSelector.selectedIndex].text
         const translationLanguage = 'English'
         document.querySelector('[data-co="dummy-source"]').value = nlwData[language][NLW_PROPERTIES.SOURCE]
@@ -77,6 +76,7 @@
 
       // set ltr / rtl dependent on selected language
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
     })
 
     document.addEventListener('vizPayloadReady', function () {
@@ -94,7 +94,7 @@
     <div class="form-input-chips-wrapper space-x-0">
       <div class="dw-label__input">Language</div>
       <select class="dw-dropdown" data-co="LanguageIndex">
-        <option value="3" rtl>Arabic</option>
+        <option value="3" rtl translation>Arabic</option>
         <option value="0">English</option>
         <option value="1">German</option>
         <option value="2">Spanish</option>
@@ -136,29 +136,29 @@
     </div>
   </div>
 
-  <div id="direction-switch">
-    <div class="field-group">
-      <div class="dw-flexGroup">
-        <div class="w-[80px]">
-          <input data-co="dummy-source" type="text" class="form-input font-large" disabled />
-        </div>
-        <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <div id="Line1">
-            <input type="text" class="form-input" data-co="dummy-line1" />
-          </div>
-          <div id="Line2">
-            <input type="text" class="form-input" data-co="SourceLine2" />
-          </div>
-        </div>
-      </div>
+  <div class="field-group" id="direction-switch">
 
-      <div class="hidden">
-        <input type="text" class="form-input" data-co="SourceLine1" />
+    <div class="dw-flexGroup">
+      <div class="w-[80px]">
+        <input data-co="dummy-source" type="text" class="form-input font-large" disabled />
+      </div>
+      <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div id="Line1">
+          <input type="text" class="form-input" data-co="dummy-line1" />
+        </div>
+        <div id="Line2">
+          <input type="text" class="form-input" data-co="SourceLine2" />
+        </div>
       </div>
     </div>
+
+    <div class="hidden">
+      <input type="text" class="form-input" data-co="SourceLine1" />
+    </div>
+
   </div>
 
-  <div class="field-group" id="Translation">
+  <div class="field-group" id="translation-panel">
     <label class="dw-label__input">Translation</label>
     <div class="dw-flexGroup">
       <div class="w-[80px]">

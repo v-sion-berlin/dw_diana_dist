@@ -17,12 +17,14 @@
     /* global Event */
     /* global Option */
     /* global initializeNLWData, NLW_PROPERTIES */
+
     let nlwData = {}
     window.generateAutoTitle = () => {
       const title = document.title.replace('Euromaxx -', 'EMXX')
       const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
       const language = languageSelector[languageSelector.selectedIndex].text
-      return `${title} ${language}`
+      const socialMediaVariant = document.querySelector('[data-co="SocialMediaVariantIndex"]:checked').parentNode.querySelector('span').textContent
+      return `${title} ${socialMediaVariant} ${language}`
     }
 
     document.addEventListener('DOMContentLoaded', function () {

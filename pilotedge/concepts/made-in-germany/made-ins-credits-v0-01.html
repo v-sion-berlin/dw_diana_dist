@@ -17,6 +17,10 @@
     /* global Event */
     /* global initializeNLWData, NLW_PROPERTIES */
     let nlwData = {}
+    let function1, function2, function3
+    let name1 = ''
+    let name2 = ''
+    let name3 = ''
 
     window.generateAutoTitle = () => {
       const title = document.title.replace('Made in Germany', 'MADE')
@@ -90,62 +94,115 @@
         document.querySelector('[data-co="SponsorsFunction2"').dispatchEvent(new Event('input'))
 
         const email = nlwData[language][NLW_PROPERTIES.EMAIL].split(/\s*=\s*/)
-        document.querySelector('[data-co="Adresses1Function"').value = email[0]
-        document.querySelector('[data-co="Adresses1Function"').dispatchEvent(new Event('input'))
+        function1 = email[0]
+        document.querySelector('[data-co="Address1Function"').value = function1
+        document.querySelector('[data-co="Address1Function"').dispatchEvent(new Event('input'))
         if (email[1]) {
-          document.querySelector('[data-co="Adresses1Name"]').value = email[1]
-          document.querySelector('[data-co="Adresses1Name"]').dispatchEvent(new Event('input'))
+          name1 = email[1]
+          document.querySelector('[data-co="Address1Name"]').value = name1
+          document.querySelector('[data-co="Address1Name"]').dispatchEvent(new Event('input'))
         } else {
-          document.querySelector('[data-co="Adresses1Name"]').value = ''
-          document.querySelector('[data-co="Adresses1Name"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Address1Name"]').value = ''
+          document.querySelector('[data-co="Address1Name"]').dispatchEvent(new Event('input'))
         }
 
         const facebook = nlwData[language][NLW_PROPERTIES.FACEBOOK].split(/\s*=\s*/)
-        document.querySelector('[data-co="Adresses2Function"').value = facebook[0]
-        document.querySelector('[data-co="Adresses2Function"').dispatchEvent(new Event('input'))
+        function2 = facebook[0]
+        document.querySelector('[data-co="Address2Function"').value = function2
+        document.querySelector('[data-co="Address2Function"').dispatchEvent(new Event('input'))
         if (facebook[1]) {
-          document.querySelector('[data-co="Adresses2Name"]').value = facebook[1]
-          document.querySelector('[data-co="Adresses2Name"]').dispatchEvent(new Event('input'))
+          name2 = facebook[1]
+          document.querySelector('[data-co="Address2Name"]').value = name2
+          document.querySelector('[data-co="Address2Name"]').dispatchEvent(new Event('input'))
         } else {
-          document.querySelector('[data-co="Adresses2Name"]').value = ''
-          document.querySelector('[data-co="Adresses2Name"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Address2Name"]').value = ''
+          document.querySelector('[data-co="Address2Name"]').dispatchEvent(new Event('input'))
         }
 
-        const twitter = nlwData[language][NLW_PROPERTIES.EMAIL].split(/\s*=\s*/)
-        document.querySelector('[data-co="Adresses3Function"').value = twitter[0]
-        document.querySelector('[data-co="Adresses3Function"').dispatchEvent(new Event('input'))
+        const twitter = nlwData[language][NLW_PROPERTIES.TWITTER].split(/\s*=\s*/)
+        function3 = twitter[0]
+        document.querySelector('[data-co="Address3Function"').value = function3
+        document.querySelector('[data-co="Address3Function"').dispatchEvent(new Event('input'))
         if (twitter[1]) {
-          document.querySelector('[data-co="Adresses3Name"]').value = twitter[1]
-          document.querySelector('[data-co="Adresses3Name"]').dispatchEvent(new Event('input'))
+          name3 = twitter[1]
+          document.querySelector('[data-co="Address3Name"]').value = name3
+          document.querySelector('[data-co="Address3Name"]').dispatchEvent(new Event('input'))
         } else {
-          document.querySelector('[data-co="Adresses3Name"]').value = ''
-          document.querySelector('[data-co="Adresses3Name"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Address3Name"]').value = ''
+          document.querySelector('[data-co="Address3Name"]').dispatchEvent(new Event('input'))
         }
       })
 
       const adressline2checkbox = document.querySelector('[data-co="enableadress2"]')
-      const adressesline2function = document.querySelector('[data-co="Adresses2Function"]')
-      const adressesline2name = document.querySelector('[data-co="Adresses2Name"]')
+      const adressesline2function = document.querySelector('[data-co="Address2Function"]')
+      const adressesline2name = document.querySelector('[data-co="Address2Name"]')
+
+      const adressline3checkbox = document.querySelector('[data-co="enableadress3"]')
+      const adressesline3function = document.querySelector('[data-co="Address3Function"]')
+      const adressesline3name = document.querySelector('[data-co="Address3Name"]')
+      const adressesline3label = document.querySelector('[id="enableadress3label"]')
+      console.log(adressesline3label)
 
       adressline2checkbox.addEventListener('click', (event) => {
-        adressesline2function.dataset.visible = event.target.checked
-        adressesline2function.dataset.value = ''
-        adressesline2name.dataset.visible = event.target.checked
-        adressesline2name.dataset.value = ''
-      })
+        if (event.target.checked) {
+          // hide third line depending on selected second line
+          adressline3checkbox.dataset.visible = true
+          adressesline3label.textContent = 'Enable address'
+          adressesline3name.value = name3
+          adressline3checkbox.dispatchEvent(new Event('click'))
 
-      /*
-      const adressline3checkbox = document.querySelector('[data-co="enableadress3"]')
-      const adressesline3function = document.querySelector('[data-co="Adresses3Function"]')
-      const adressesline3name = document.querySelector('[data-co="Adresses3Name"]')
+          adressesline2function.dataset.visible = true
+          adressesline2function.value = function2
+          adressesline2name.dataset.visible = true
+          adressesline2name.value = name2
+          name2 = ''
+          adressesline2function.dispatchEvent(new Event('input'))
+          adressesline2name.dispatchEvent(new Event('input'))
+        } else {
+          adressline3checkbox.dataset.visible = false
+          adressesline3label.textContent = ''
+          if (adressline3checkbox.checked === true) {
+            name3 = adressesline3name.value
+            // else name3 is already stored in variable name3 and would become blank if run twice
+          }
+          console.log('Line 160: name3 = ' + name3)
+          adressline3checkbox.checked = false
+          adressline3checkbox.dispatchEvent(new Event('click'))
+
+          adressesline2function.dataset.visible = false
+          adressesline2function.value = ''
+          adressesline2name.dataset.visible = false
+          name2 = adressesline2name.value
+          adressesline2name.value = ''
+          adressesline2function.dispatchEvent(new Event('input'))
+          adressesline2name.dispatchEvent(new Event('input'))
+        }
+      })
 
       adressline3checkbox.addEventListener('click', (event) => {
-        adressesline3function.dataset.visible = event.target.checked
-        // adressesline3function.dataset.value = ''
-        adressesline3name.dataset.visible = event.target.checked
-        // adressesline3name.dataset.value = ''
+        if (event.target.checked) {
+          adressesline3function.dataset.visible = true
+          adressesline3function.value = function3
+          adressesline3name.dataset.visible = true
+          adressesline3name.value = name3
+          name3 = ''
+          adressesline3function.dispatchEvent(new Event('input'))
+          adressesline3name.dispatchEvent(new Event('input'))
+          console.log('Line 181: name3 = ' + name3)
+        } else {
+          adressesline3function.dataset.visible = false
+          adressesline3function.value = ''
+          adressesline3name.dataset.visible = false
+          if (adressline2checkbox.checked === true) {
+            name3 = adressesline3name.value
+            // else name3 is already stored in variable name3 and would become blank if run twice
+          }
+          adressesline3name.value = ''
+          adressesline3function.dispatchEvent(new Event('input'))
+          adressesline3name.dispatchEvent(new Event('input'))
+          console.log('Line 190: name3 = ' + name3)
+        }
       })
-      */
 
       // set ltr / rtl dependent on selected language
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
@@ -270,10 +327,10 @@
         <div class="dw-flexGroup">
           <div class="w-[150px] h-[35px]"></div>
           <div class="flex-1">
-            <input type="text" class="form-input" data-co="Adresses1Function" disabled />
+            <input type="text" class="form-input" data-co="Address1Function" disabled />
           </div>
           <div class="flex-1">
-            <input type="text" class="form-input" data-co="Adresses1Name" />
+            <input type="text" class="form-input" data-co="Address1Name" />
           </div>
         </div>
         <div class="dw-flexGroup">
@@ -284,24 +341,24 @@
             </div>
           </div>
           <div class="flex-1">
-            <input type="text" class="form-input" data-co="Adresses2Function" disabled />
+            <input type="text" class="form-input" data-co="Address2Function" disabled />
           </div>
           <div class="flex-1">
-            <input type="text" data-co="Adresses2Name" class="form-input" />
+            <input type="text" data-co="Address2Name" class="form-input" />
           </div>
         </div>
         <div class="dw-flexGroup">
           <div class="w-[150px] h-[35px] mt-[5px]">
             <div class="dw-flexGroup">
               <input data-co="enableadress3" type="checkbox" value="" class="form-input dw-checkbox">
-              <label class="dw-label__input">Enable address</label>
+              <label id="enableadress3label" class="dw-label__input">Enable address</label>
             </div>
           </div>
           <div class="flex-1">
-            <input type="text" class="form-input" data-co="" disabled />
+            <input type="text" class="form-input" data-co="Address3Function" disabled />
           </div>
           <div class="flex-1">
-            <input type="text" data-co="" class="form-input" />
+            <input type="text" data-co="Address3Name" class="form-input" />
           </div>
         </div>
       </div>
