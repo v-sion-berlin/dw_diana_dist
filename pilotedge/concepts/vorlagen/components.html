@@ -10,6 +10,8 @@
       rel="icon"
       type="image/png"
     />
+    <script src="../../_sources/js/utils/prism.js"></script>
+    <link href="../../_sources/css/prism.css" rel="stylesheet" />
     <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
     <script src="../../_sources/js/utils/dw.js" type="module"></script>
     <script src="../../_sources/js/payloadhosting.js"></script>
@@ -21,319 +23,490 @@
     <div class="dw-header">
       <span>Components</span>
     </div>
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 col-auto gap-x-2 gap-y-4 mt-4 mb-4 px-5"
-    >
-      <!-- o -->
 
-      <!-- oo -->
+    <span class="dw-alert dw-alert--info w-full">
+      Hier werden alle vordefinierten Components gelistet
+    </span>
 
-      <label class="font-bold">Text Input</label>
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input">Label</label>
-        <input data-co="" type="text" class="form-input" />
+    <div class="grid grid-cols-1 col-auto gap-y-2 mt-4 mb-4">
+      <div class="field-group">
+        <label class="field-group__label">Text Input</label>
+        <div>
+          <input data-co="" type="text" class="form-input" />
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <input data-co="" type="text" class="form-input" /> --></code>
+          </pre>
+        </div>
       </div>
 
-      <!-- oo -->
-
-      <label class="font-bold"
-        >Text Input - LARGE FONT (only applies for rtl)</label
-      >
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input">Label</label>
-        <input data-co="" type="text" class="form-input font-large" />
+      <div class="field-group bg-gray-02">
+        <label class="field-group__label">Text Input mit Label</label>
+        <div>
+          <label class="dw-label__input">Label</label>
+          <input data-co="" type="text" class="form-input" />
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input">Label</label>
+<input data-co="" type="text" class="form-input" /> --></code>
+          </pre>
+        </div>
       </div>
 
-      <!-- oo -->
-      <label class="font-bold"
-        >Kurzes Text Input Max-Length 10 Characters</label
-      >
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input w-[60px]">kurzes Label</label>
-        <input
-          data-co=""
-          maxlength="10"
-          type="text"
-          class="form-input w-[100px]"
-          placeholder="Default Text"
-        />
-        <span class="dw-alert dw-alert--error hidden"
-          >Maximal 10 Zeichen erlaubt!</span
+      <div class="field-group">
+        <label class="field-group__label"
+          >Text Input mit Label - LARGE FONT (only applies for rtl)</label
         >
+        <div>
+          <label class="dw-label__input">Label</label>
+          <input data-co="" type="text" class="form-input font-large" />
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input">Label</label>
+<input data-co="" type="text" class="form-input font-large" /> --></code>
+          </pre>
+        </div>
       </div>
 
-      <!-- oo -->
-
-      <label class="font-bold">Text Input + Error Text</label>
-
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input">Label</label>
-        <input
-          data-co=""
-          type="text"
-          class="form-input dw-error"
-          placeholder="Default Text"
-        />
-        <span class="dw-alert dw-alert--error"
-          >Bitte geben Sie eine Telefonnummer an, unter der Sie tagsüber gut
-          erreichbar sind</span
-        >
-      </div>
-
-      <!-- oo -->
-
-      <label class="font-bold">Text Input + Icon</label>
-
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input">Label</label>
-        <div class="form-input-with-icon-wrap">
+      <div class="field-group bg-gray-02">
+        <label class="field-group__label">Kurzes Text Input</label>
+        <div>
+          <label class="dw-label__input w-[60px]">kurzes Label</label>
           <input
             data-co=""
+            maxlength="10"
             type="text"
-            class="form-input"
-            placeholder="Default Text"
-            value="DW News"
+            class="form-input w-[100px]"
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="17"
-            viewBox="0 0 24 24"
-            class="form-input-icon"
+          <span class="dw-alert dw-alert--error hidden"
+            >A maximum of 10 characters is allowed!</span
           >
-            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609
-            1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127
-            1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797
-            6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108
-            1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415
-            3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6
-            3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548
-            2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562
-            2.457-2.549z" / stroke="#002D5A" stroke-width="1.05" fill="none"
-            fill-rule="evenodd" />
-          </svg>
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input w-[60px]">kurzes Label</label>
+<input
+  data-co=""
+  maxlength="10"
+  type="text"
+  class="form-input w-[100px]"
+/>
+<span class="dw-alert dw-alert--error hidden"
+  >A maximum of 10 characters is allowed!</span
+> --></code>
+          </pre>
         </div>
       </div>
 
-      <!-- oo -->
-
-      <label class="font-bold">Text Input + System Text</label>
-
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input">Label</label>
-        <input
-          data-co=""
-          type="text"
-          class="form-input"
-          placeholder="Default Text"
-        />
-        <span class="dw-alert"
-          >Bitte geben Sie eine Telefonnummer an, unter der Sie tagsüber gut
-          erreichbar sind</span
-        >
+      <div class="field-group">
+        <label class="field-group__label">Text Input + Error Text</label>
+        <div>
+          <label class="dw-label__input">Label</label>
+          <input data-co="" type="text" class="form-input dw-error" />
+          <span class="dw-alert dw-alert--error"
+            >Please don't use quotation marks here - they will be added in the
+            scene automatically</span
+          >
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input">Label</label>
+<input data-co="" type="text" class="form-input dw-error" />
+<span class="dw-alert dw-alert--error"
+  >Please don't use quotation marks here - they will be added in the
+  scene automatically</span
+> --></code>
+          </pre>
+        </div>
       </div>
 
-      <!-- oo -->
+      <div class="field-group bg-gray-02">
+        <label class="field-group__label">Text Input + Icon</label>
+        <div>
+          <label class="dw-label__input">Label</label>
+          <div class="form-input-with-icon-wrap">
+            <input data-co="" type="text" class="form-input" />
+            <img src="./_sources/images/twitter.svg" class="form-input-icon" />
+          </div>
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input">Label</label>
+<div class="form-input-with-icon-wrap">
+  <input data-co="" type="text" class="form-input" />
+  <img src="./_sources/images/twitter.svg" class="form-input-icon" />
+</div> --></code>
+          </pre>
+        </div>
+      </div>
 
-      <label class="font-bold">Textarea</label>
+      <div class="field-group">
+        <label class="field-group__label">Text Input + System Text</label>
+        <div>
+          <label class="dw-label__input">Label</label>
+          <input data-co="" type="text" class="form-input" />
+          <span class="dw-alert"
+            >You can leave this field blank if you don't need it.</span
+          >
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input">Label</label>
+<input data-co="" type="text" class="form-input" />
+<span class="dw-alert"
+  >You can leave this field blank if you don't need it.</span
+> --></code>
+          </pre>
+        </div>
+      </div>
 
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input">Textarea mit max. 5 Zeilen</label>
-        <textarea
-          data-co=""
-          class="dw-textarea"
-          data-max-rows="5"
-          placeholder="Enter some long form content."
-        >
+      <div class="field-group bg-gray-02">
+        <label class="field-group__label">Textarea</label>
+        <div>
+          <label class="dw-label__input">Textarea with max. 5 Rows</label>
+          <textarea data-co="" class="dw-textarea" data-max-rows="5" rows="5">
 Lorem ipsum dolor amet Lorem ipsum dolor amet Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
-        >
-
-        <label class="dw-label__input">Textarea mit max. 2 Zeilen</label>
-        <textarea
-          data-co=""
-          class="dw-textarea"
-          data-max-rows="2"
-          placeholder="Enter some long form content."
-        >
+          >
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input">Textarea with max. 5 Rows</label>
+<textarea data-co="" class="dw-textarea" data-max-rows="5" rows="5">
+Lorem ipsum dolor amet Lorem ipsum dolor amet Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
+> --></code>
+          </pre>
+        </div>
+        <div>
+          <label class="dw-label__input">Textarea with max. 2 Rows</label>
+          <textarea data-co="" class="dw-textarea" data-max-rows="2" rows="2">
 Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
-        >
+          >
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input">Textarea with max. 2 Rows</label>
+<textarea data-co="" class="dw-textarea" data-max-rows="2" rows="2">
+Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
+> --></code>
+          </pre>
+        </div>
       </div>
 
-      <!-- oo -->
+      <div class="field-group">
+        <label class="field-group__label">Number Input</label>
+        <div>
+          <label class="dw-label__input">Label</label>
+          <div class="dw-quantity">
+            <input
+              data-co=""
+              name="input-number-1"
+              type="number"
+              class="form-input dw-input-number"
+              value="1"
+              min="0"
+              max="9999"
+              data-scrubber
+            />
+          </div>
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <label class="dw-label__input">Label</label>
+<div class="dw-quantity">
+  <input
+    data-co=""
+    name="input-number-1"
+    type="number"
+    class="form-input dw-input-number"
+    value="1"
+    min="0"
+    max="9999"
+    data-scrubber
+  />
+</div> --></code>
+          </pre>
+        </div>
+      </div>
 
-      <label class="font-bold">Number Input</label>
+      <div class="field-group bg-gray-02">
+        <label class="field-group__label">Checkbox</label>
 
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input">Label</label>
-        <div class="dw-quantity">
+        <div class="max-w-xs dw-flexGroup">
           <input
             data-co=""
-            name="input-number-1"
-            type="number"
-            class="form-input dw-input-number"
-            value="1"
-            min="0"
-            max="9999"
-            data-scrubber
+            type="checkbox"
+            value="checkbox-1"
+            class="form-input dw-checkbox"
           />
+          <label class="dw-label__input">Label</label>
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <div class="max-w-xs dw-flexGroup">
+<input
+  data-co=""
+  type="checkbox"
+  value="checkbox-1"
+  class="form-input dw-checkbox"
+/>
+<label class="dw-label__input">Label</label>
+</div> --></code>
+          </pre>
         </div>
       </div>
 
-      <!-- oo -->
+      <div class="field-group">
+        <label class="field-group__label">Checkbox Checked</label>
 
-      <label class="font-bold">Checkbox</label>
-
-      <!-- ooo -->
-      <div class="max-w-xs dw-flexGroup">
-        <input
-          data-co=""
-          type="checkbox"
-          value="checkbox-1"
-          class="form-input dw-checkbox"
-        />
-        <label class="dw-label__input">Label</label>
+        <div class="max-w-xs dw-flexGroup">
+          <input
+            data-co=""
+            type="checkbox"
+            value="checkbox-2"
+            checked
+            class="form-input dw-checkbox"
+          />
+          <label class="dw-label__input">Label Checked</label>
+        </div>
+        <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <div class="max-w-xs dw-flexGroup">
+<input
+  data-co=""
+  type="checkbox"
+  value="checkbox-2"
+  checked
+  class="form-input dw-checkbox"
+/>
+<label class="dw-label__input">Label Checked</label>
+</div> --></code>
+          </pre>
+        </div>
       </div>
 
-      <!-- oo -->
+      <div class="field-group bg-gray-02">
+        <label class="field-group__label">Dropdown</label>
 
-      <label class="font-bold">Checkbox Checked</label>
-
-      <!-- ooo -->
-      <div class="max-w-xs dw-flexGroup">
-        <input
-          data-co=""
-          type="checkbox"
-          value="checkbox-2"
-          checked
-          class="form-input dw-checkbox"
-        />
-        <label class="dw-label__input">Label Checked</label>
-      </div>
-
-      <!-- oo -->
-
-      <label class="font-bold">Dropdown</label>
-
-      <!-- ooo -->
-      <div>
         <div>
           <label class="dw-label__input">Dropdown</label>
           <select data-co="" class="dw-dropdown">
-            <option value="" disabled selected>Bitte wählen</option>
+            <option value="" disabled selected>-- Please select --</option>
             <option>Yes</option>
             <option>No</option>
             <option>Maybe</option>
           </select>
           <span class="dw-alert dw-alert--error hidden"></span>
         </div>
+        <div class="dw-code">
+          <pre class="language-markup"><code><!-- <div>
+  <label class="dw-label__input">Dropdown</label>
+  <select data-co="" class="dw-dropdown">
+    <option value="" disabled selected>-- Please select --</option>
+    <option>Yes</option>
+    <option>No</option>
+    <option>Maybe</option>
+  </select>
+  <span class="dw-alert dw-alert--error hidden"></span>
+</div> --></code>
+          </pre>
+        </div>
       </div>
 
-      <!-- oo -->
-
-      <label class="font-bold">Dropdown + Error Text</label>
-
-      <!-- ooo -->
-      <div>
-        <select data-co="" data-active="false" class="dw-dropdown">
-          <option value="" disabled selected>Bitte wählen</option>
-          <option>Yes</option>
-          <option>No</option>
-          <option>Maybe</option>
-        </select>
-        <span class="dw-alert dw-alert--error"
-          >Bitte geben Sie eine Telefonnummer an, unter der Sie tagsüber gut
-          erreichbar sind</span
-        >
+      <div class="field-group">
+        <label class="field-group__label">Dropdown mit Farbfeld</label>
+        <div class="dw-colorDropdown">
+          <select
+            class="dw-dropdown"
+            data-active="false"
+            tabindex="3"
+            title="lorem ipsum"
+          >
+            <option value="" disabled selected>-- Please select --</option>
+            <option data-color="#ff0000">Red</option>
+            <option data-color="#f0f">Magenta</option>
+            <option data-color="#ff0">Yellow</option>
+            <option data-color="blue">Blue</option>
+          </select>
+          <div class="dw-colorIndicator"></div>
+        </div>
+        <div class="dw-code">
+          <pre class="language-markup"><code><!-- <div class="dw-colorDropdown">
+  <select
+    class="dw-dropdown"
+    data-active="false"
+    tabindex="3"
+    title="lorem ipsum"
+  >
+    <option value="" disabled selected>-- Please select --</option>
+    <option data-color="#ff0000">Red</option>
+    <option data-color="#f0f">Magenta</option>
+    <option data-color="#ff0">Yellow</option>
+    <option data-color="blue">Blue</option>
+  </select>
+  <div class="dw-colorIndicator"></div>
+</div> --></code>
+          </pre>
+        </div>
       </div>
 
-      <!-- oo -->
+      <div class="field-group bg-gray-02">
+        <label class="field-group__label">Dropdown + Error Text</label>
+        <div>
+          <select data-co="" data-active="false" class="dw-dropdown">
+            <option value="" disabled selected>-- Please select --</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+          </select>
+          <span class="dw-alert dw-alert--error"
+            >Please check for the correct social media address!</span
+          >
+        </div>
+        <div class="dw-code">
+          <pre class="language-markup"><code><!-- <div>
+  <select data-co="" data-active="false" class="dw-dropdown">
+    <option value="" disabled selected>-- Please select --</option>
+    <option>Yes</option>
+    <option>No</option>
+    <option>Maybe</option>
+  </select>
+  <span class="dw-alert dw-alert--error"
+    >Please check for the correct social media address!</span
+  >
+</div> --></code>
+          </pre>
+        </div>
+      </div>
 
-      <label class="font-bold">Text Input Date</label>
-
-      <!-- ooo -->
-      <div>
-        <label class="dw-label__input">Label</label>
+      <div class="field-group">
+        <label class="field-group__label">Text Input Date</label>
         <input
           data-co=""
           type="date"
           class="form-input-date max-w-xs"
           max="2100-12-31"
         />
-      </div>
-
-      <!-- oo -->
-
-      <label class="font-bold">Choice Chips</label>
-
-      <!-- ooo -->
-      <div>
-        <div class="form-input-chips">
-          <label>
-            <input data-co="" type="radio" name="language" checked />
-            <span>Left to right</span>
-          </label>
-
-          <label>
-            <input data-co="" type="radio" name="language" />
-            <span>Right to left</span>
-          </label>
+        <div class="dw-code">
+          <pre class="language-markup"><code><!-- <input
+  data-co=""
+  type="date"
+  class="form-input-date max-w-xs"
+  max="2100-12-31"
+/> --></code>
+            </pre>
         </div>
       </div>
 
-      <!-- oo -->
+      <div class="field-group bg-gray-02">
+          <label class="field-group__label">Choice Chips</label>
+          <div class="form-input-chips">
+            <label>
+              <input data-co="" type="radio" name="language" checked />
+              <span>Left to right</span>
+            </label>
 
-      <label class="font-bold">Drag & Drop (only works in template)</label>
+            <label>
+              <input data-co="" type="radio" name="language" />
+              <span>Right to left</span>
+            </label>
+          </div>
+        <div class="dw-code">
+            <pre class="language-markup"><code><!-- <div class="form-input-chips">
+  <label>
+    <input data-co="" type="radio" name="language" checked />
+    <span>Left to right</span>
+  </label>
 
-      <!-- ooo -->
-      <div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
+  <label>
+    <input data-co="" type="radio" name="language" />
+    <span>Right to left</span>
+  </label>
+</div> --></code>
+              </pre>
           </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <label class="dw-label__input hidden">Label</label>
-            <input data-co="" type="text" class="form-input" />
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <label class="dw-label__input hidden">Label</label>
-            <input data-co="" type="text" class="form-input" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
-            <label class="dw-label__input hidden">Label</label>
-            <input data-co="" type="text" class="form-input" />
-          </div>
-        </div>
       </div>
 
-      <!-- oo -->
+      <div class="field-group">
+          <label class="field-group__label">Drag & Drop (only works in template)</label>
+          <div>
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell w-[fit-content] flex-1">
+                <label class="dw-label__input hidden">Label</label>
+                <input data-co="" type="text" class="form-input" />
+              </div>
+            </div>
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell w-[fit-content] flex-1">
+                <label class="dw-label__input hidden">Label</label>
+                <input data-co="" type="text" class="form-input" />
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
+                <label class="dw-label__input hidden">Label</label>
+                <input data-co="" type="text" class="form-input" />
+              </div>
+            </div>
+          </div>
+        <div class="dw-code">
+            <pre class="language-markup"><code><!-- <div>
+  <div class="dw-dnd">
+    <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+      <span class="dw-dnd__handle"></span>
+    </div>
+    <div class="dw-dnd__cell w-[fit-content] flex-1">
+      <label class="dw-label__input hidden">Label</label>
+      <input data-co="" type="text" class="form-input" />
+    </div>
+  </div>
+  <div class="dw-dnd">
+    <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+      <span class="dw-dnd__handle"></span>
+    </div>
+    <div class="dw-dnd__cell w-[fit-content] flex-1">
+      <label class="dw-label__input hidden">Label</label>
+      <input data-co="" type="text" class="form-input" />
+    </div>
+    <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
+      <label class="dw-label__input hidden">Label</label>
+      <input data-co="" type="text" class="form-input" />
+    </div>
+  </div>
+</div> --></code>
+              </pre>
+          </div>
+      </div>
 
-      <label class="font-bold"
-        >Drag & Drop Table (only works in template)</label
-      >
-
-      <!-- ooo -->
+    <div class="field-group bg-gray-02">
+      <label class="field-group__label">Drag & Drop Table (only works in template)</label>
       <div class="dw-dnd-wrapper">
         <div class="dw-dnd-head">
           <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
-          <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">Platz</div>
+          <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">Place</div>
           <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]"></div>
           <div class="dw-dnd__cell w-[fit-content] flex-1">Team</div>
-          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">Tordiff.</div>
+          <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">Goal dif.</div>
           <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]"></div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Punkte</div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Points</div>
         </div>
         <div class="dw-dnd__section">
           <div class="dw-dnd">
@@ -344,7 +517,6 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
               <input
                 type="text"
                 class="form-input bg-transparent dw-direction-ltr"
-                placeholder="1."
                 disabled
               />
             </div>
@@ -358,7 +530,7 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <select class="dw-dropdown" tabindex="3">
-                <option value="" disabled selected>- Auswählen -</option>
+                <option value="" disabled selected>-- Please select --</option>
                 <option>1. FC Köln</option>
                 <option>Borussia Dortmund</option>
                 <option>VFB Stuttgart</option>
@@ -373,26 +545,12 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
             </div>
             <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
               <div class="dw-quantity">
-                <input
-                  type="number"
-                  class="form-input dw-input-number"
-                  placeholder=""
-                  value="1"
-                  min="0"
-                  max="9999"
-                />
+                <input type="number" class="form-input dw-input-number" />
               </div>
             </div>
             <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
               <div class="dw-quantity">
-                <input
-                  type="number"
-                  class="form-input dw-input-number"
-                  placeholder=""
-                  value="1"
-                  min="0"
-                  max="9999"
-                />
+                <input type="number" class="form-input dw-input-number" />
               </div>
             </div>
           </div>
@@ -404,7 +562,6 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
               <input
                 type="text"
                 class="form-input bg-transparent dw-direction-ltr"
-                placeholder="1."
                 disabled
               />
             </div>
@@ -418,7 +575,7 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <select class="dw-dropdown" tabindex="3">
-                <option value="" disabled selected>- Auswählen -</option>
+                <option value="" disabled selected>-- Please select --</option>
                 <option>1. FC Köln</option>
                 <option>Borussia Dortmund</option>
                 <option>VFB Stuttgart</option>
@@ -433,38 +590,136 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
             </div>
             <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
               <div class="dw-quantity">
-                <input
-                  type="number"
-                  class="form-input dw-input-number"
-                  placeholder=""
-                  value="1"
-                  min="0"
-                  max="9999"
-                />
+                <input type="number" class="form-input dw-input-number" />
               </div>
             </div>
             <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
               <div class="dw-quantity">
-                <input
-                  type="number"
-                  class="form-input dw-input-number"
-                  placeholder=""
-                  value="1"
-                  min="0"
-                  max="9999"
-                />
+                <input type="number" class="form-input dw-input-number" />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="dw-code">
+          <pre class="language-markup"><code><!--  <div class="dw-dnd-wrapper">
+  <div class="dw-dnd-head">
+    <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+    <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">Place</div>
+    <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]"></div>
+    <div class="dw-dnd__cell w-[fit-content] flex-1">Team</div>
+    <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">Goal dif.</div>
+    <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]"></div>
+    <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Points</div>
+  </div>
+  <div class="dw-dnd__section">
+    <div class="dw-dnd">
+      <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+        <span class="dw-dnd__handle"></span>
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
+        <input
+          type="text"
+          class="form-input bg-transparent dw-direction-ltr"
+          disabled
+        />
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
+        <select class="dw-dropdown" tabindex="2">
+          <option value="" disabled selected>...</option>
+          <option>&uarr;</option>
+          <option>&darr;</option>
+          <option>&middot;&middot;&middot;</option>
+        </select>
+      </div>
+      <div class="dw-dnd__cell w-[fit-content] flex-1">
+        <select class="dw-dropdown" tabindex="3">
+          <option value="" disabled selected>-- Please select --</option>
+          <option>1. FC Köln</option>
+          <option>Borussia Dortmund</option>
+          <option>VFB Stuttgart</option>
+        </select>
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
+        <select class="dw-dropdown" tabindex="4">
+          <option value="" disabled selected>...</option>
+          <option>+</option>
+          <option>-</option>
+        </select>
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+        <div class="dw-quantity">
+          <input type="number" class="form-input dw-input-number" />
+        </div>
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+        <div class="dw-quantity">
+          <input type="number" class="form-input dw-input-number" />
+        </div>
+      </div>
+    </div>
+    <div class="dw-dnd">
+      <div class="dw-dnd__cell dw-dnd__handle-wrap w-4">
+        <span class="dw-dnd__handle"></span>
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[65px] w-[35px]">
+        <input
+          type="text"
+          class="form-input bg-transparent dw-direction-ltr"
+          disabled
+        />
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
+        <select class="dw-dropdown" tabindex="2">
+          <option value="" disabled selected>...</option>
+          <option>&uarr;</option>
+          <option>&darr;</option>
+          <option>&middot;&middot;&middot;</option>
+        </select>
+      </div>
+      <div class="dw-dnd__cell w-[fit-content] flex-1">
+        <select class="dw-dropdown" tabindex="3">
+          <option value="" disabled selected>-- Please select --</option>
+          <option>1. FC Köln</option>
+          <option>Borussia Dortmund</option>
+          <option>VFB Stuttgart</option>
+        </select>
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
+        <select class="dw-dropdown" tabindex="4">
+          <option value="" disabled selected>...</option>
+          <option>+</option>
+          <option>-</option>
+        </select>
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+        <div class="dw-quantity">
+          <input type="number" class="form-input dw-input-number" />
+        </div>
+      </div>
+      <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+        <div class="dw-quantity">
+          <input type="number" class="form-input dw-input-number" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div> --></code>
+            </pre>
+      </div>
+    </div>
 
-      <!-- oo -->
+    <div class="field-group">
+      <label class="field-group__label">Buttons</label>
 
-      <label class="font-bold">Buttons</label>
-
-      <!-- ooo -->
-      <div>
+        <button class="dw-btn">Button</button>
+        <br />
+        <div class="dw-code">
+          <pre
+              class="language-markup"
+          ><code><!-- <button class="dw-btn">Button</button> --></code>
+          </pre>
+        </div>
         <button class="dw-btn">
           <span>Secondary Button</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
@@ -477,6 +732,22 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
           </svg>
         </button>
         <br />
+        <div class="dw-code">
+          <pre
+              class="language-markup"
+          ><code><!-- <button class="dw-btn">
+  <span>Secondary Button</span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+    <path
+      d="M12.45 7.571H1.95M7.2 2.214v10.714"
+      stroke="currentColor"
+      fill="none"
+      fill-rule="evenodd"
+    />
+  </svg>
+</button> --></code>
+          </pre>
+        </div>
         <button class="dw-btn" disabled>
           <span>Secondary Button Disabled</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
@@ -488,13 +759,27 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
             />
           </svg>
         </button>
+      <br />
+      <div class="dw-code">
+        <pre
+            class="language-markup"
+        ><code><!-- <button class="dw-btn" disabled>
+  <span>Secondary Button Disabled</span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+    <path
+      d="M12.45 7.571H1.95M7.2 2.214v10.714"
+      stroke="currentColor"
+      fill="none"
+      fill-rule="evenodd"
+    />
+  </svg>
+</button> --></code>
+        </pre>
       </div>
+    </div>
 
-      <!-- oo -->
-
-      <label class="font-bold">Slider (Input Range)</label>
-
-      <!-- ooo -->
+    <div class="field-group bg-gray-02">
+      <label class="field-group__label">Slider (Input Range)</label>
       <div>
         <label>
           <span class="hidden">Input Range</span>
@@ -507,14 +792,27 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
           />
         </label>
       </div>
+      <div class="dw-code">
+        <pre
+            class="language-markup"
+        ><code><!-- <div>
+  <label>
+    <span class="hidden">Input Range</span>
+    <input
+      data-co=""
+      type="range"
+      class="dw-inputRange"
+      min="0"
+      max="10"
+    />
+  </label>
+</div> --></code>
+        </pre>
+      </div>
+    </div>
 
-      <!-- oo -->
-
-      <!-- oo -->
-
-      <label class="font-bold">Slider with Value Field (Input Range)</label>
-
-      <!-- ooo -->
+    <div class="field-group">
+      <label class="field-group__label">Slider with Value Field (Input Range)</label>
       <div>
         <label>
           <span class="hidden">Input Range</span>
@@ -530,33 +828,51 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
           </div>
         </label>
       </div>
+      <div class="dw-code">
+        <pre
+            class="language-markup"
+        ><code><!-- <div>
+  <label>
+    <span class="hidden">Input Range</span>
+    <div class="dw-rangeWrap">
+      <input
+        data-co
+        type="range"
+        class="dw-inputRange"
+        min="0"
+        max="100"
+      />
+      <input type="text" class="form-input rangeValue" data-scrubber />
+    </div>
+  </label>
+</div> --></code>
+        </pre>
+      </div>
+    </div>
 
-      <!-- oo -->
-
-      <label class="font-bold">Bild Auswahl</label>
-
-      <!-- ooo -->
+    <div class="field-group bg-gray-02">
+      <label class="field-group__label">Image Selection</label>
       <div>
         <div class="field-group">
-          <div class="field-group__label">Bild</div>
+          <div class="field-group__label">Image</div>
 
           <div class="dw-imgSelect" type="image" data-co="">
             <div>
               <div>
-                <label class="dw-label__input">Autor Filter</label>
+                <label class="dw-label__input">Author filter</label>
                 <input type="text" class="form-input" />
               </div>
             </div>
 
             <div>
               <div>
-                <label class="dw-label__input">Datum Filter</label>
+                <label class="dw-label__input">Date filter</label>
                 <input type="text" class="form-input" />
               </div>
             </div>
 
             <button class="dw-btn select">
-              <span>Bild auswählen</span>
+              <span>Select image</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
                 <path
                   d="M12.45 7.571H1.95M7.2 2.214v10.714"
@@ -568,7 +884,7 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
             </button>
 
             <button class="dw-btn remove">
-              <span>Bild löschen</span>
+              <span>Delete image</span>
             </button>
 
             <div class="dw-imgThumb">
@@ -582,34 +898,83 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
           </div>
         </div>
       </div>
+      <div class="dw-code">
+        <pre
+            class="language-markup"
+        ><code><!-- <div>
+  <div class="field-group">
+    <div class="field-group__label">Image</div>
 
-      <!-- oo -->
-
-      <label class="font-bold">Bild Auswahl - Button mit Info</label>
-
-      <!-- ooo -->
+    <div class="dw-imgSelect" type="image" data-co="">
       <div>
+        <div>
+          <label class="dw-label__input">Author filter</label>
+          <input type="text" class="form-input" />
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label class="dw-label__input">Date filter</label>
+          <input type="text" class="form-input" />
+        </div>
+      </div>
+
+      <button class="dw-btn select">
+        <span>Select image</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+          <path
+            d="M12.45 7.571H1.95M7.2 2.214v10.714"
+            stroke="currentColor"
+            fill="none"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+
+      <button class="dw-btn remove">
+        <span>Delete image</span>
+      </button>
+
+      <div class="dw-imgThumb">
+        <img
+          src="../../_sources/images/placeholderThumb.png"
+          alt="Thumb"
+          width="35"
+          height="35"
+        />
+      </div>
+    </div>
+  </div>
+</div> --></code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="field-group">
+        <label class="field-group__label">Image Selection - Button with additional information</label
+      >
         <div class="field-group">
-          <div class="field-group__label">Bild</div>
+          <div class="field-group__label">Image</div>
 
           <div class="dw-imgSelect" type="image" data-co="">
             <div>
               <div>
-                <label class="dw-label__input">Autor Filter</label>
+                <label class="dw-label__input">Author filter</label>
                 <input type="text" class="form-input" />
               </div>
             </div>
 
             <div>
               <div>
-                <label class="dw-label__input">Datum Filter</label>
+                <label class="dw-label__input">Date filter</label>
                 <input type="text" class="form-input" />
               </div>
             </div>
 
             <div class="dw-btn-wrap">
               <button class="dw-btn select">
-                <span>Bild auswählen</span>
+                <span>Select image</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
                   <path
                     d="M12.45 7.571H1.95M7.2 2.214v10.714"
@@ -619,11 +984,11 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
                   />
                 </svg>
               </button>
-              <span class="dw-imgHint">Größe: 100x100px</span>
+              <span class="dw-imgHint">Size: 100x100px</span>
             </div>
 
             <button class="dw-btn remove">
-              <span>Bild löschen</span>
+              <span>Delete image</span>
             </button>
 
             <div class="dw-imgThumb">
@@ -636,77 +1001,86 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
             </div>
           </div>
         </div>
-      </div>
+        <div class="dw-code">
+            <pre
+              class="language-markup"
+            ><code><!-- <div class="field-group">
+  <div class="field-group__label">Image</div>
 
-      <!-- oo -->
-
-      <label class="font-bold">alert / info</label>
-
-      <!-- ooo -->
+  <div class="dw-imgSelect" type="image" data-co="">
+    <div>
       <div>
-        <span class="dw-alert dw-alert--info">
-          <span class="text-orange font-bold">Vorsicht!</span>
-          Grafik in Preview unbedingt auf überlappende Texte prüfen
-        </span>
+        <label class="dw-label__input">Author filter</label>
+        <input type="text" class="form-input" />
       </div>
+    </div>
 
-      <!-- oo -->
-
-      <label class="font-bold">Header CB</label>
-
-      <!-- ooo -->
-      <div class="dw-header">
-        <span>Name der Sendung</span>
-        <span>Abspann</span>
+    <div>
+      <div>
+        <label class="dw-label__input">Date filter</label>
+        <input type="text" class="form-input" />
       </div>
+    </div>
 
-      <!-- oo -->
-
-      <label class="font-bold">Header CB zweizeilig</label>
-
-      <!-- ooo -->
-      <div class="dw-header">
-        <span>Dies ist ein langer Name der Sendung</span>
-        <span>Dies ist ein langer Abspann xyz</span>
-      </div>
-
-      <!-- oo -->
-
-      <label class="font-bold">Header CB (branded)</label>
-
-      <!-- ooo -->
-      <div class="dw-header dw-header--branded">
-        <img src="./_sources/images/Header_NEWS.png" />
-        <span>Dies ist ein langer Abspann xyz</span>
-      </div>
-
-      <!-- oo -->
-
-      <label class="font-bold">Header CB</label>
-
-      <!-- ooo -->
-      <div class="dw-header dw-header--alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+    <div class="dw-btn-wrap">
+      <button class="dw-btn select">
+        <span>Select image</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
           <path
-            d="M12 5.177l8.631 15.823h-17.262l8.631-15.823zm0-4.177l-12 22h24l-12-22zm-1 9h2v6h-2v-6zm1 9.75c-.689 0-1.25-.56-1.25-1.25s.561-1.25 1.25-1.25 1.25.56 1.25 1.25-.561 1.25-1.25 1.25z"
-            fill="#002D5A"
+            d="M12.45 7.571H1.95M7.2 2.214v10.714"
+            stroke="currentColor"
+            fill="none"
             fill-rule="evenodd"
           />
         </svg>
-        <span>Please do not use this template! Work in progress...</span>
+      </button>
+      <span class="dw-imgHint">Size: 100x100px</span>
+    </div>
+
+    <button class="dw-btn remove">
+      <span>Delete image</span>
+    </button>
+
+    <div class="dw-imgThumb">
+      <img
+        src="../../_sources/images/placeholderThumb.png"
+        alt="Thumb"
+        width="35"
+        height="35"
+      />
+    </div>
+  </div>
+</div> --></code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="field-group bg-gray-02">
+        <label class="field-group__label">Alert / Info</label>
+        <span class="dw-alert dw-alert--info">
+          <span class="text-orange font-bold">Beware!</span>
+          Please check the graphic for overlapping texts.
+        </span>
+        <div class="dw-code">
+            <pre
+              class="language-markup"
+            ><code><!-- <span class="dw-alert dw-alert--info">
+  <span class="text-orange font-bold">Beware!</span>
+  Please check the graphic for overlapping texts.
+</span> --></code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-group__label">Help link</label>
+      <a href="mailto:echtzeitgrafik@dw.com" class="dw-link--help">echtzeitgrafik@dw.com</a>
+      <div class="dw-code">
+          <pre
+            class="language-markup"
+          ><code><!-- <a href="mailto:echtzeitgrafik@dw.com" class="dw-link--help">echtzeitgrafik@dw.com</a> --></code>
+          </pre>
       </div>
-
-      <!-- oo -->
-
-      <label class="font-bold">Hilfe Link</label>
-
-      <!-- ooo -->
-
-      <a href="mailto:echtzeitgrafik@dw.com" class="dw-link--help" title="Hilfe"
-        >echtzeitgrafik@dw.com</a
-      >
-
-      <!-- o -->
     </div>
   </body>
 </html>

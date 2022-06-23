@@ -1,475 +1,1504 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example Template - Kreisdiagramm</title>
+    <!-- Default includes -->
+    <script src="../../_sources/js/utils/prism.js"></script>
+    <link href="../../_sources/css/prism.css" rel="stylesheet" />
+    <link
+      href="../../_sources/images/favicon.png"
+      rel="icon"
+      type="image/png"
+    />
+    <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
+    <script src="../../_sources/js/utils/dw.js" type="module"></script>
+    <script src="../../_sources/js/payloadhosting.js"></script>
+    <script src="../../_sources/js/utils/viz.js" type="module"></script>
+    <script src="../../_sources/js/nlw.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Example Template - Kreisdiagramm</title>
-  <!-- Default includes -->
-  <link href="../../_sources/images/favicon.png" rel="icon" type="image/png" />
-  <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
-  <script src="../../_sources/js/utils/dw.js" type="module"></script>
-  <script src="../../_sources/js/payloadhosting.js"></script>
-  <script src="../../_sources/js/utils/viz.js" type="module"></script>
-  <script src="../../_sources/js/nlw.js"></script>
-</head>
-
-<body>
-  <div>
-    <div class="dw-header">
-      <span>Name der Sendung</span>
-      <span>Abspann</span>
-    </div>
-  </div>
-
-  <div class="flex flex-row flex-wrap bg-gray-01">
-    <div class="form-input-chips-wrapper">
-      <div>
-        <label class="dw-label__input">Sprache der Show</label>
-        <select class="dw-dropdown">
-          <option value="" selected>- Keine -</option>
-          <option>Deutsch</option>
-          <option>Englisch</option>
-        </select>
+  <body>
+    <div>
+      <div class="dw-header">
+        <span>Name der Sendung</span>
+        <span>Abspann</span>
       </div>
     </div>
-  </div>
 
-  <div class="field-group">
-    <div class="field-group__label">Text</div>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-      <div>
-        <label class="dw-label__input">Headline</label>
-        <input type="text" class="form-input" />
-      </div>
-
-      <div>
-        <label class="dw-label__input">Zusatz</label>
-        <input type="text" class="form-input" />
-      </div>
-
-      <div>
-        <label class="dw-label__input">Subheadline</label>
-        <input type="text" class="form-input" />
-      </div>
-    </div>
-  </div>
-
-  <div class="field-group">
-    <div class="field-group__label">Grafik</div>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-      <div>
-        <label class="dw-label__input">Anzahl der Segmente</label>
-        <select class="dw-dropdown">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-        </select>
-      </div>
-
-      <div>
-        <label class="dw-label__input">Nachkomastellen für die Wert Eingabe</label>
-        <select class="dw-dropdown" title="lorem ipsum">
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <div class="field-group">
-    <div class="dw-dnd-wrapper">
-      <div class="dw-dnd-head">
-        <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
-        <div class="dw-dnd__cell w-[fit-content] flex-1">Name</div>
-        <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">Wert</div>
-        <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">Farbe</div>
-        <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Pause</div>
-        <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">Verschiebung</div>
-      </div>
-
-      <div class="dw-dnd__section">
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled selected>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled selected>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled selected>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled selected>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled selected>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled selected>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue" selected>Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f" selected>Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled selected>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-        <div class="dw-dnd">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-            <span class="dw-dnd__handle"></span>
-          </div>
-          <div class="dw-dnd__cell w-[fit-content] flex-1">
-            <input type="text" class="form-input" title="lorem ipsum" />
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
-            <div class="dw-colorDropdown">
-              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum">
-                <option value="" disabled selected>- Auswählen -</option>
-                <option data-color="#ff0000">Rot</option>
-                <option data-color="#f0f">Magenta</option>
-                <option data-color="#ff0">Gelb</option>
-                <option data-color="blue">Blau</option>
-              </select>
-              <div class="dw-colorIndicator"></div>
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
-            <div class="dw-quantity">
-              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
-            </div>
-          </div>
-          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
-            <div class="dw-rangeWrap">
-              <input type="range" class="dw-inputRange" min="0" max="10" title="lorem ipsum" />
-              <input type="text" class="form-input rangeValue" title="lorem ipsum" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="field-group">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-      <div>
+    <div class="flex flex-row flex-wrap bg-gray-01">
+      <div class="form-input-chips-wrapper">
         <div>
-          <label class="dw-label__input">Quelle</label>
-          <input type="text" class="form-input" title="lorem ipsum" />
+          <label class="dw-label__input">Language</label>
+          <select class="dw-dropdown">
+            <option>German</option>
+            <option>English</option>
+          </select>
         </div>
       </div>
     </div>
-  </div>
-</body>
 
+    <div class="field-group">
+      <div class="field-group__label">Text</div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div>
+          <label class="dw-label__input">Headline</label>
+          <input type="text" class="form-input" />
+        </div>
+
+        <div>
+          <label class="dw-label__input">Addition</label>
+          <input type="text" class="form-input" />
+        </div>
+
+        <div>
+          <label class="dw-label__input">Subheadline</label>
+          <input type="text" class="form-input" />
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Graphic</div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div>
+          <label class="dw-label__input">Segment count</label>
+          <select class="dw-dropdown">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="dw-label__input">Decimal</label>
+          <select class="dw-dropdown" title="lorem ipsum">
+            <option>0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">Name</div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">Wert</div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">Farbe</div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Pause</div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">Verschiebung</div>
+        </div>
+
+        <div class="dw-dnd__section">
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled>-- Please select --</option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue" selected>Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled>-- Please select --</option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f" selected>Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dw-code">
+      <pre class="language-markup"><code><!--
+    <div class="field-group">
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">Name</div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">Wert</div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">Farbe</div>
+          <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Pause</div>
+          <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">Verschiebung</div>
+        </div>
+
+        <div class="dw-dnd__section">
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled>-- Please select --</option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue" selected>Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled>-- Please select --</option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f" selected>Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <input type="text" class="form-input" title="lorem ipsum" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+              <div class="dw-colorDropdown">
+                <select
+                  class="dw-dropdown"
+                  data-active="false"
+                  tabindex="3"
+                  title="lorem ipsum"
+                >
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
+                  <option data-color="#ff0000">Red</option>
+                  <option data-color="#f0f">Magenta</option>
+                  <option data-color="#ff0">Yellow</option>
+                  <option data-color="blue">Blue</option>
+                </select>
+                <div class="dw-colorIndicator"></div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  type="number"
+                  class="form-input dw-input-number"
+                  placeholder=""
+                  value="1"
+                  min="0"
+                  max="9999"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">
+              <div class="dw-rangeWrap">
+                <input
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="10"
+                  title="lorem ipsum"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  title="lorem ipsum"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> --></code>
+          </pre>
+    </div>
+
+    <div class="field-group">
+      <label class="dw-label__input">Source</label>
+      <input type="text" class="form-input" title="lorem ipsum" />
+    </div>
+  </body>
 </html>

@@ -2024,6 +2024,9 @@ input[type="number"] {
 .ml-4 {
 	margin-left: 20px;
 }
+.mt-\[5px\] {
+	margin-top: 5px;
+}
 .mt-4 {
 	margin-top: 20px;
 }
@@ -2054,9 +2057,6 @@ input[type="number"] {
 .mb-2 {
 	margin-bottom: 10px;
 }
-.mt-\[5px\] {
-	margin-top: 5px;
-}
 .mt-3 {
 	margin-top: 15px;
 }
@@ -2083,17 +2083,17 @@ input[type="number"] {
 .h-\[60px\] {
 	height: 60px;
 }
-.h-7 {
-	height: 35px;
-}
-.h-\[50px\] {
-	height: 50px;
-}
 .h-\[35px\] {
 	height: 35px;
 }
 .h-\[20px\] {
 	height: 20px;
+}
+.h-7 {
+	height: 35px;
+}
+.h-\[50px\] {
+	height: 50px;
 }
 .w-\[1px\] {
 	width: 1px;
@@ -5406,11 +5406,11 @@ input[type="number"] {
 	width: -moz-fit-content;
 	width: fit-content;
 }
-.w-4 {
-	width: 20px;
-}
 .w-1\/2 {
 	width: 50%;
+}
+.w-4 {
+	width: 20px;
 }
 .w-3\/4 {
 	width: 75%;
@@ -5442,11 +5442,11 @@ input[type="number"] {
 .list-decimal {
 	list-style-type: decimal;
 }
-.grid-cols-2 {
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 .grid-cols-1 {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .grid-cols-4 {
 	grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -10173,12 +10173,12 @@ input[type="number"] {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 
-	.md\:grid-cols-2 {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
 	.md\:grid-cols-4 {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.md\:grid-cols-2 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 @media (min-width: 1024px) {

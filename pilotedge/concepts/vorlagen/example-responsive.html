@@ -10,6 +10,8 @@
       rel="icon"
       type="image/png"
     />
+    <script src="../../_sources/js/utils/prism.js"></script>
+    <link href="../../_sources/css/prism.css" rel="stylesheet" />
     <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
     <script src="../../_sources/js/utils/dw.js" type="module"></script>
     <script src="../../_sources/js/payloadhosting.js"></script>
@@ -67,6 +69,48 @@
           />
         </div>
       </div>
+      <div class="dw-code">
+        <pre class="language-markup"><code><!--
+      <div class="grid grid-cols-2 gap-2">
+        <div class="w-full">
+          <label class="dw-label__input">Headline</label>
+          <input
+            type="text"
+            class="form-input"
+            value=""
+            placeholder="Headlines"
+          />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input">Headline Addition</label>
+          <input
+            type="text"
+            class="form-input"
+            value=""
+            placeholder="Addition"
+          />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input">Subheadline</label>
+          <input
+            type="text"
+            class="form-input"
+            value=""
+            placeholder="Subheadlines"
+          />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input">Source</label>
+          <input
+            type="text"
+            class="form-input"
+            value=""
+            placeholder="Source: ..."
+          />
+        </div>
+      </div> --></code>
+          </pre>
+      </div>
     </div>
 
     <div class="field-group">
@@ -108,6 +152,48 @@
             placeholder="Source: ..."
           />
         </div>
+      </div>
+      <div class="dw-code">
+        <pre class="language-markup"><code><!--
+      <div class="grid gap-2 md:grid-cols-2">
+        <div class="w-full">
+          <label class="dw-label__input">Headline</label>
+          <input
+            type="text"
+            class="form-input"
+            value=""
+            placeholder="Headlines"
+          />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input">Headline Addition</label>
+          <input
+            type="text"
+            class="form-input"
+            value=""
+            placeholder="Addition"
+          />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input">Subheadline</label>
+          <input
+            type="text"
+            class="form-input"
+            value=""
+            placeholder="Subheadlines"
+          />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input">Source</label>
+          <input
+            type="text"
+            class="form-input"
+            value=""
+            placeholder="Source: ..."
+          />
+        </div>
+      </div> --></code>
+          </pre>
       </div>
     </div>
 
@@ -164,11 +250,63 @@
           />
         </div>
       </div>
+      <div class="dw-code">
+        <pre class="language-markup"><code><!-- 
+      <div
+        class="flex flex-wrap justify-items-start items-end gap-2 w-full"
+        type="image"
+        data-co=""
+      >
+        <div class="flex-auto">
+          <div>
+            <label class="dw-label__input"
+              >Feld, dass die meiste Breite beansprucht</label
+            >
+            <input type="text" class="form-input" />
+          </div>
+        </div>
+
+        <div class="flex-1">
+          <div>
+            <label class="dw-label__input"
+              >Feld, dass die zweit-meiste Breite beansprucht</label
+            >
+            <input type="date" class="form-input" />
+          </div>
+        </div>
+
+        <button class="dw-btn select">
+          <span>Select image</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+            <path
+              d="M12.45 7.571H1.95M7.2 2.214v10.714"
+              stroke="currentColor"
+              fill="none"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <button class="dw-btn remove">
+          <span>Delete image</span>
+        </button>
+
+        <div class="flex-none dw-imgThumb">
+          <img
+            src="../../_sources/images/placeholderThumb.png"
+            alt="Thumb"
+            width="35"
+            height="35"
+          />
+        </div>
+      </div>
+           --></code>
+          </pre>
+      </div>
     </div>
 
     <div class="field-group">
       <div class="field-group__label">Gruppierung für Umbrechung</div>
-
       <div class="grid gap-2 md:grid-cols-2 w-full" type="image" data-co="">
         <div class="flex justify-items-start items-end gap-2">
           <div class="flex-auto">
@@ -209,6 +347,50 @@
             />
           </div>
         </div>
+      </div>
+      <div class="dw-code">
+        <pre class="language-markup"><code><!-- 
+      <div class="grid gap-2 md:grid-cols-2 w-full" type="image" data-co="">
+        <div class="flex justify-items-start items-end gap-2">
+          <div class="flex-auto">
+            <label class="dw-label__input">Author Filter</label>
+            <input type="text" class="form-input" />
+          </div>
+
+          <div class="flex-1">
+            <label class="dw-label__input">Date Filter</label>
+            <input type="date" class="form-input" />
+          </div>
+        </div>
+
+        <div class="flex justify-items-start items-end gap-2">
+          <button class="flex-auto dw-btn select">
+            <span>Select image</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+              <path
+                d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                stroke="currentColor"
+                fill="none"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <button class="flex-auto dw-btn remove">
+            <span>Delete image</span>
+          </button>
+
+          <div class="flex-none dw-imgThumb">
+            <img
+              src="../../_sources/images/placeholderThumb.png"
+              alt="Thumb"
+              width="35"
+              height="35"
+            />
+          </div>
+        </div>
+      </div>
+           --></code>
+          </pre>
       </div>
     </div>
 
@@ -382,6 +564,170 @@
           </button>
         </div>
       </div>
+      <div class="dw-code">
+        <pre class="language-markup"><code><!--
+      <div class="flex flex-wrap justify-items-start content-start gap-2">
+        <div>
+          <label class="dw-label__input">Choice Chips</label>
+          <div class="form-input-chips">
+            <label>
+              <input data-co="" type="radio" name="language" checked />
+              <span>Size S</span>
+            </label>
+
+            <label>
+              <input data-co="" type="radio" name="language" />
+              <span>Size M</span>
+            </label>
+          </div>
+        </div>
+        <div>
+          <label class="dw-label__input">Choice Chips</label>
+          <div class="form-input-chips">
+            <label>
+              <input data-co="" type="radio" name="numbers" checked />
+              <span>1</span>
+            </label>
+            <label>
+              <input data-co="" type="radio" name="numbers" />
+              <span>2</span>
+            </label>
+            <label>
+              <input data-co="" type="radio" name="numbers" />
+              <span>3</span>
+            </label>
+          </div>
+        </div>
+        <div>
+          <label class="dw-label__input">Number Input</label>
+          <div class="dw-quantity">
+            <input
+              data-co=""
+              name="input-number-1"
+              type="number"
+              class="form-input dw-input-number"
+              value="1"
+              min="0"
+              max="9999"
+              data-scrubber
+            />
+          </div>
+        </div>
+        <div>
+          <label class="dw-label__input">Dropdown</label>
+          <select data-co="" class="dw-dropdown">
+            <option value="" disabled selected>-- Please select --</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Maybe</option>
+          </select>
+        </div>
+        <div>
+          <label class="dw-label__input">Dropdown + Error Text</label>
+          <div>
+            <select data-co="" data-active="false" class="dw-dropdown">
+              <option value="" disabled selected>-- Please select --</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Maybe</option>
+            </select>
+            <span class="dw-alert dw-alert--error"
+              >Please check for the correct social media address!</span
+            >
+          </div>
+        </div>
+        <div>
+          <label class="dw-label__input">Checkbox</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              data-co=""
+              type="checkbox"
+              value="checkbox-1"
+              checked
+              class="form-input dw-checkbox"
+            />
+          </div>
+        </div>
+        <div>
+          <label class="dw-label__input">Checkbox + Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              data-co=""
+              type="checkbox"
+              value="checkbox-2"
+              checked
+              class="form-input dw-checkbox"
+            />
+            <label class="dw-label__input">Label Checked</label>
+          </div>
+        </div>
+        <div>
+          <label class="dw-label__input">Text Input</label>
+          <input data-co="" type="text" class="form-input" />
+        </div>
+        <div>
+          <label class="dw-label__input">Slider</label>
+          <label class="dw-flexGroup h-7 items-center">
+            <span class="hidden">Input Range</span>
+            <input
+              data-co=""
+              type="range"
+              class="dw-inputRange"
+              min="0"
+              max="10"
+            />
+          </label>
+        </div>
+        <div>
+          <label class="dw-label__input"
+            >Slider with Value Field (Input Range)</label
+          >
+          <div>
+            <label>
+              <span class="hidden">Input Range</span>
+              <div class="dw-rangeWrap">
+                <input
+                  data-co
+                  type="range"
+                  class="dw-inputRange"
+                  min="0"
+                  max="100"
+                />
+                <input
+                  type="text"
+                  class="form-input rangeValue"
+                  data-scrubber
+                />
+              </div>
+            </label>
+          </div>
+        </div>
+        <div>
+          <label class="dw-label__input">Calendar</label>
+          <input
+            data-co=""
+            type="date"
+            class="form-input-date max-w-xs"
+            max="2100-12-31"
+          />
+        </div>
+        <div>
+          <label class="dw-label__input">Button</label>
+          <button class="dw-btn">
+            <span>Secondary Button</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+              <path
+                d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                stroke="currentColor"
+                fill="none"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </div> --></code>
+          </pre>
+      </div>
     </div>
 
     <div class="field-group">
@@ -523,6 +869,147 @@
           </div>
         </div>
       </div>
+      <div class="dw-code">
+        <pre class="language-markup"><code><!--
+      <div class="grid grid-cols-1 sm:grid-cols-2 sm gap-2 bg-gray-01">
+        <div class="p-[8px]">
+          <label class="dw-label__input">Group Label</label>
+          <input type="text" class="form-input" value="Group Label" />
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd-head">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+            <div class="dw-dnd__cell flex-1">Place</div>
+            <div class="dw-dnd__cell flex-auto">Dolor</div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Ipsum</div>
+            <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Lorem</div>
+          </div>
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> --></code>
+          </pre>
+      </div>
     </div>
 
     <div class="field-group">
@@ -534,6 +1021,19 @@
         <div class="w-full h-[50px] bg-blue-medium"></div>
         <div class="w-full h-[50px] bg-blue-medium"></div>
         <div class="w-full h-[50px] bg-blue-medium"></div>
+      </div>
+      <div class="dw-code">
+        <pre class="language-markup"><code><!-- 
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+      >
+        <div class="w-full h-[50px] bg-blue-medium"></div>
+        <div class="w-full h-[50px] bg-blue-medium"></div>
+        <div class="w-full h-[50px] bg-blue-medium"></div>
+        <div class="w-full h-[50px] bg-blue-medium"></div>
+      </div>
+           --></code>
+          </pre>
       </div>
     </div>
   </body>

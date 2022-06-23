@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive example</title>
+    <title>Background Color example</title>
     <!-- Default includes -->
     <link
       href="../../_sources/images/favicon.png"
       rel="icon"
       type="image/png"
     />
+    <script src="../../_sources/js/utils/prism.js"></script>
+    <link href="../../_sources/css/prism.css" rel="stylesheet" />
     <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
     <script src="../../_sources/js/utils/dw.js" type="module"></script>
     <script src="../../_sources/js/payloadhosting.js"></script>
@@ -26,7 +28,9 @@
       Hier wird die Verwendung von Hintergrundfarben auf Container demonstriert.
       Grundsätzlich kann die class <strong>bg-{color-value}</strong> auf allen
       Container platziertw werden, sollte aber, um Abstände zu vermeiden, auf
-      dem äußersten div mit class <strong>field-group</strong> gesetzt werden.
+      dem äußersten div mit class <strong>field-group</strong> gesetzt
+      werden.<br />
+      <i>Ein Code-Beispiel findet sich ganz unten.</i>
     </span>
 
     <div class="field-group">
@@ -1551,6 +1555,7 @@
     <div class="field-group">
       <div class="field-group__label">Background bg-black text-white</div>
     </div>
+
     <div class="field-group bg-black">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div>
@@ -1612,6 +1617,73 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">
+        Example code with Parameters bg-black text-white
+      </div>
+    </div>
+    <div class="dw-code">
+      <pre class="language-html"><code><!-- <div class="field-group bg-black">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label text-white">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input text-white">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> --></code></pre>
     </div>
   </body>
 </html>
