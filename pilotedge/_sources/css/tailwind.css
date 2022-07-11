@@ -1290,7 +1290,7 @@ textarea + .dw-alert {
 	--tw-border-opacity: 1;
 	border-left-color: rgba(235, 110, 20, var(--tw-border-opacity));
 	--tw-bg-opacity: 1;
-	background-color: rgba(247, 247, 247, var(--tw-bg-opacity));
+	background-color: rgba(228, 232, 235, var(--tw-bg-opacity));
 	padding-top: 6px;
 	padding-bottom: 6px;
 	padding-left: 10px;
@@ -1298,6 +1298,13 @@ textarea + .dw-alert {
 	font-size: .8125rem;
 	--tw-text-opacity: 1;
 	color: rgba(50, 60, 69, var(--tw-text-opacity));
+}
+.bg-gray-12 > .dw-alert--info {
+	--tw-bg-opacity: 1;
+	background-color: rgba(59, 68, 77, var(--tw-bg-opacity));
+	font-size: .8125rem;
+	--tw-text-opacity: 1;
+	color: rgba(241, 243, 245, var(--tw-text-opacity));
 }
 .dw-direction-rtl .dw-alert--info {
 	border-right-width: 8px;
@@ -1355,7 +1362,6 @@ select {
     background-position: calc(100% - 8px) center;
     min-width: 50px;
   }
-/* TODO: needs to be finetuned e.g. http://localhost:53110/pilotedge/concepts/examples/template-bundesliga_rtl.html */
 .dw-direction-rtl select {
     background-position: left 0.5rem center;
     padding-right: 1rem;
