@@ -911,6 +911,7 @@ p {
   .dw-direction-rtl .dw-label__input,
   .dw-direction-rtl .field-group__label,
   .dw-direction-rtl .dw-dnd-head .dw-dnd__cell,
+  .dw-direction-rtl .dw-alert,
   .dw-direction-ltr {
     direction: ltr;
     text-align: right;
@@ -5449,9 +5450,6 @@ input[type="number"] {
 }
 .w-1\/4 {
 	width: 25%;
-}
-.min-w-\[83px\] {
-	min-width: 83px;
 }
 .max-w-xs {
 	max-width: 20rem;
