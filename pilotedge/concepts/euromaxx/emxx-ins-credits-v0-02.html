@@ -39,7 +39,8 @@
       }
 
       panelNumbers.forEach((number, i) => {
-        document.querySelector(`#Panel${i + 1} .field-group__label`).textContent = `Panel ${number}`
+        const panelLabel = document.querySelector(`#Panel${i + 1} .field-group__label`)
+        panelLabel.textContent = 'Panel ' + number + ' (' + panelLabel.getAttribute('name') + ')'
       })
     }
 
@@ -195,16 +196,14 @@
     document.addEventListener('vizPayloadReady', function () {
       document.querySelector('[data-co="LeaveOut2_CREDIT"]:checked').dispatchEvent(new Event('click'))
       document.querySelector('[data-co="LeaveOut3_CREDIT"]:checked').dispatchEvent(new Event('click'))
-
-      console.log('Done')
     })
   </script>
 </head>
 
 <body>
-  <div class="dw-header">
-    <span>Euromaxx</span>
-    <span>Credits</span>
+  <div class="dw-header dw-header--branded">
+    <img src="./_source/images/Header_EMX.png" title="EMXX" />
+    <span class="text-gray-15">Credits</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
     <div class="form-input-chips-wrapper space-x-0">
@@ -252,7 +251,7 @@
 
   <div id="direction-switch">
     <div id="Panel1" class="field-group">
-      <div class="field-group__label">Panel 1</div>
+      <div name="Production" class="field-group__label">Panel 1 (Production)</div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div>
           <input type="text" class="form-input" data-co="Function1" disabled />
@@ -285,40 +284,34 @@
     </div>
 
     <div id="Panel2" class="field-group">
-      <div class="field-group__label">Panel 2</div>
+      <div name="Sponsors" class="field-group__label">Panel 2 (Sponsors)</div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
         <div id="SponsorsLine">
           <input type="text" class="form-input" data-co="SponsorsLine" disabled />
         </div>
         <select name="SponsorsArabic" data-co="SponsorArabic1" class="dw-dropdown col-start-1" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
-          <option value="please_select" selected disabled>- Please select -</option>
-          <option value="empty_image">Empty</option>
+          <option value="please_select" selected>- Please select -</option>
         </select>
         <select name="SponsorsArabic" data-co="SponsorArabic2" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
-          <option value="please_select" selected disabled>- Please select -</option>
-          <option value="empty_image">Empty</option>
+          <option value="please_select" selected>- Please select -</option>
         </select>
         <select name="SponsorsArabic" data-co="SponsorArabic3" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
-          <option value="please_select" selected disabled>- Please select -</option>
-          <option value="empty_image">Empty</option>
+          <option value="please_select" selected>- Please select -</option>
         </select>
         <select name="SponsorsLatin" data-co="SponsorLatin1" class="dw-dropdown col-start-1" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
-          <option value="please_select" selected disabled>- Please select -</option>
-          <option value="empty_image">Empty</option>
+          <option value="please_select" selected>- Please select -</option>
         </select>
         <select name="SponsorsLatin" data-co="SponsorLatin2" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
-          <option value="please_select" selected disabled>- Please select -</option>
-          <option value="empty_image">Empty</option>
+          <option value="please_select" selected>- Please select -</option>
         </select>
         <select name="SponsorsLatin" data-co="SponsorLatin3" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
-          <option value="please_select" selected disabled>- Please select -</option>
-          <option value="empty_image">Empty</option>
+          <option value="please_select" selected>- Please select -</option>
         </select>
       </div>
     </div>
 
     <div id="Panel3" class="field-group">
-      <div class="field-group__label">Panel 3</div>
+      <div name="Thanks" class="field-group__label">Panel 3 (Thanks)</div>
       <div class="grid gap-2">
         <div id="Support">
           <textarea data-co="SupportLines" class="dw-textarea" data-max-rows="3" rows="3" disabled></textarea>
@@ -332,14 +325,14 @@
         </div>
       </div>
     </div>
-    <div id="Panel4" class="field-group">
-      <div class="field-group__label">Panel 4</div>
+    <div id="Panel4" name="Copyright" class="field-group">
+      <div name="Copyright" class="field-group__label">Panel 4 (Copyright)</div>
       <div id="Links">
         <textarea data-co="LinksLines" class="dw-textarea" data-max-rows="4" rows="4" disabled></textarea>
       </div>
       <div>
         <select class="dw-dropdown" data-co="CopyrightLine">
-          <option>© DEUTSCHE WELLE 2022</option>
+          <option selected>© DEUTSCHE WELLE 2022</option>
           <option>© DEUTSCHE WELLE 2023</option>
           <option>© DEUTSCHE WELLE 2024</option>
           <option>© DEUTSCHE WELLE 2025</option>

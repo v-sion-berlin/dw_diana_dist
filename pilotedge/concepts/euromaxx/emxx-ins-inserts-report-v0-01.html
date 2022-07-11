@@ -97,11 +97,15 @@
 
       // Show / hide playout duration panel dependent on automatic playout
       reportSelect = document.querySelector('[data-co="ReportVariantIndex"]')
-      const secondLine = document.querySelector('#Table2')
-      const thirdLine = document.querySelector('#Table3')
+      const secondLines = document.querySelectorAll('[name="Table2"]')
+      const thirdLines = document.querySelectorAll('[name="Table3"]')
       reportSelect.addEventListener('click', (event) => {
-        secondLine.dataset.visible = event.target.value === '1'
-        thirdLine.dataset.visible = event.target.value === '1'
+        secondLines.forEach((panel) => {
+          panel.dataset.visible = event.target.value === '1'
+        })
+        thirdLines.forEach((panel) => {
+          panel.dataset.visible = event.target.value === '1'
+        })
         setFunctionNames()
       })
 
@@ -115,9 +119,9 @@
 </head>
 
 <body>
-  <div class="dw-header">
-    <span>Euromaxx</span>
-    <span>Report</span>
+  <div class="dw-header dw-header--branded">
+    <img src="./_source/images/Header_EMX.png" title="EMXX" />
+    <span class="text-gray-15">Report</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
     <div class="form-input-chips-wrapper space-x-0">
@@ -144,6 +148,7 @@
     <div class="field-group">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div id="Function1">
+
           <input type="text" class="form-input" data-co="Report1Function" disabled />
         </div>
         <div id="Name1">
@@ -152,7 +157,7 @@
       </div>
     </div>
 
-    <div class="field-group" id="Table2">
+    <div class="field-group" name="Table2">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div id="Function2">
 
@@ -164,7 +169,7 @@
       </div>
     </div>
 
-    <div class="field-group" id="Table3">
+    <div class="field-group" name="Table3">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div id="Function3">
           <input type="text" class="form-input" data-co="Report3Function" disabled />
@@ -177,36 +182,38 @@
   </div>
 
   <div class="field-group" id="Translation">
-    <label class="dw-label__input">Translation</label>
-    <div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <div>
-          <input type="text" class="form-input" data-co="Report1Function_dummy" disabled />
-        </div>
-        <div>
-          <input type="text" class="form-input" data-co="Report1Name_dummy" />
-        </div>
-      </div>
-    </div>
-    <br>
-    <div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <div>
-          <input type="text" class="form-input" data-co="Report2Function_dummy" disabled />
-        </div>
-        <div>
-          <input type="text" class="form-input" data-co="Report2Name_dummy" />
+    <label class="field-group__label">Translation</label>
+    <div class="grid grid-cols-1 gap-6">
+      <div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div>
+            <input type="text" class="form-input" data-co="Report1Function_dummy" disabled />
+          </div>
+          <div>
+            <input type="text" class="form-input" data-co="Report1Name_dummy" />
+          </div>
         </div>
       </div>
-    </div>
-    <br>
-    <div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <div>
-          <input type="text" class="form-input" data-co="Report3Function_dummy" disabled />
+
+      <div name="Table2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div>
+            <input type="text" class="form-input" data-co="Report2Function_dummy" disabled />
+          </div>
+          <div>
+            <input type="text" class="form-input" data-co="Report2Name_dummy" />
+          </div>
         </div>
-        <div>
-          <input type="text" class="form-input" data-co="Report3Name_dummy" />
+      </div>
+
+      <div name="Table3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div>
+            <input type="text" class="form-input" data-co="Report3Function_dummy" disabled />
+          </div>
+          <div>
+            <input type="text" class="form-input" data-co="Report3Name_dummy" />
+          </div>
         </div>
       </div>
     </div>

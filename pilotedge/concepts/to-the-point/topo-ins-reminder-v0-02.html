@@ -24,14 +24,15 @@
     document.addEventListener('DOMContentLoaded', () => {
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
     })
   </script>
 </head>
 
 <body>
-  <div class="dw-header">
-    <span>To the Point</span>
-    <span>Reminder</span>
+  <div class="dw-header dw-header--branded">
+    <img src="./_sources/images/Header_TOPO.png" title="TOPO" />
+    <span class="text-white">Reminder</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
     <div class="form-input-chips-wrapper space-x-0">
@@ -76,10 +77,10 @@
     </div>
   </div>
 
-  <div class="field-group" id="translation-panel">
-    <label class="dw-label__input">Translation</label>
-    <textarea data-co="translation" class="dw-textarea" data-max-rows="2" rows="2"></textarea>
-    <span class="dw-alert">Please provide a translation for the operator.</span>
+  <div class="field-group bg-gray-12" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <textarea data-co="translation" class="dw-textarea dw-direction-ltr" data-max-rows="2" rows="2"></textarea>
+    <span class="dw-alert dw-direction-ltr text-gray-03">Please provide a translation for the operator.</span>
   </div>
 </body>
 

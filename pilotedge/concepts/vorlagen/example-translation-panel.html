@@ -20,6 +20,12 @@
   </head>
 
   <body>
+    <!-- DON'T USE THIS SCRIPT IN PRODUCTION!!! -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () =>
+        document.dispatchEvent(new Event("vizPayloadReady"))
+      );
+    </script>
     <div class="dw-header">
       <span>Translation Panel example</span>
     </div>
@@ -34,6 +40,9 @@
     </div>
     <div class="field-group bg-gray-12" id="translation-panel">
       <label class="field-group__label text-gray-03">Translation</label>
+      <span class="dw-alert dw-alert--info mb-4">
+        Please provide a translation for the operator
+      </span>
       <div class="grid grid-cols-2 gap-2 mb-2">
         <div class="w-full">
           <label class="dw-label__input text-gray-03">Label</label>
@@ -55,26 +64,28 @@
       >
     </div>
     <div class="field-group dw-code">
-      <pre><code class="language-html">&lt;div class="field-group bg-gray-12" id="translation-panel"&gt;
-  &lt;label class="field-group__label text-gray-03"&gt;Translation&lt;/label&gt;
-  &lt;div class="grid grid-cols-2 gap-2 mb-2"&gt;
-    &lt;div class="w-full"&gt;
-      &lt;label class="dw-label__input text-gray-03"&gt;Label&lt;/label&gt;
-      &lt;input type="text" class="form-input" value="" &lt;/&gt;
-    &lt;/div&gt;
-    &lt;div class="w-full"&gt;
-      &lt;label class="dw-label__input text-gray-03"&gt;Label&lt;/label&gt;
-      &lt;input type="text" class="form-input" value="" &lt;/&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="grid gap-2 mb-2"&gt;
-    &lt;div class="w-full"&gt;
-      &lt;label class="dw-label__input text-gray-03"&gt;Label&lt;/label&gt;
-      &lt;input type="text" class="form-input" value="" &lt;/&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;span class="dw-alert text-gray-03"&gt;Please provide a translation for the operator.&lt;/span&gt;
-&lt;/div&gt;</code></pre>
+      <pre><code class="language-html"><!-- <div class="field-group bg-gray-12" id="translation-panel">
+      <label class="field-group__label text-gray-03">Translation</label>
+      <span class="dw-alert dw-alert--info mb-4">
+        Please provide a translation for the operator
+      </span>
+      <div class="grid grid-cols-2 gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <div class="grid gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+    </div> --></code></pre>
     </div>
 
     <div class="field-group">
@@ -82,29 +93,30 @@
     </div>
     <div class="field-group bg-gray-12" id="translation-panel">
       <label class="field-group__label text-gray-03">Translation</label>
+      <span class="dw-alert dw-alert--info mb-4">
+        Please provide a translation for the operator
+      </span>
       <textarea
         data-co="translation"
         class="dw-textarea"
         data-max-rows="2"
         rows="2"
       ></textarea>
-      <span class="dw-alert text-gray-03"
-        >Please provide a translation for the operator.</span
-      >
     </div>
 
     <div class="field-group dw-code">
       <pre class="language-markup"><code><!--
 <div class="field-group bg-gray-12" id="translation-panel">
   <label class="field-group__label text-gray-03">Translation</label>
+  <span class="dw-alert dw-alert--info mb-4">
+Please provide a translation for the operator
+  </span>
   <textarea
     data-co="translation"
     class="dw-textarea"
     data-max-rows="2"
     rows="2"
   ></textarea>
-  <span class="dw-alert text-gray-03"
-    >Please provide a translation for the operator.</span>
 </div>
       --></code>
       </pre>
@@ -115,6 +127,9 @@
     </div>
     <div class="field-group bg-gray-12" id="translation-panel">
       <label class="field-group__label text-gray-03">Translation</label>
+      <span class="dw-alert dw-alert--info mb-4">
+        Please provide a translation for the operator
+      </span>
       <div class="grid grid-cols-2 gap-2 mb-2">
         <div class="w-full">
           <label class="dw-label__input text-gray-03">Label</label>
@@ -135,14 +150,14 @@
           <input type="text" class="form-input" value="" />
         </div>
       </div>
-      <span class="dw-alert text-gray-03"
-        >Please provide a translation for the operator.</span
-      >
     </div>
     <div class="field-group dw-code">
       <pre class="language-markup"><code><!--
 <div class="field-group bg-gray-12" id="translation-panel">
   <label class="field-group__label text-gray-03">Translation</label>
+  <span class="dw-alert dw-alert--info mb-4">
+Please provide a translation for the operator
+  </span>
   <div class="grid grid-cols-2 gap-2 mb-2">
     <div class="w-full">
       <label class="dw-label__input text-gray-03">Label</label>
@@ -163,8 +178,6 @@
       <input type="text" class="form-input" value="" />
     </div>
   </div>
-  <span class="dw-alert text-gray-03"
-    >Please provide a translation for the operator.</span>
 </div>
       --></code>
       </pre>
@@ -175,6 +188,9 @@
     </div>
     <div class="field-group bg-gray-12" id="translation-panel">
       <label class="field-group__label text-gray-03">Translation</label>
+      <span class="dw-alert dw-alert--info mb-4">
+        Please provide a translation for the operator
+      </span>
       <div class="grid grid-cols-2 gap-2 mb-2">
         <div class="w-full">
           <label class="dw-label__input text-gray-03">Label</label>
@@ -204,15 +220,15 @@
           <input type="text" class="form-input" value="" />
         </div>
       </div>
-      <span class="dw-alert text-gray-03"
-        >Please provide a translation for the operator.</span
-      >
     </div>
 
     <div class="field-group dw-code">
       <pre class="language-markup"><code><!--
 <div class="field-group bg-gray-12" id="translation-panel">
   <label class="field-group__label text-gray-03">Translation</label>
+  <span class="dw-alert dw-alert--info mb-4">
+Please provide a translation for the operator
+  </span>
   <div class="grid grid-cols-2 gap-2 mb-2">
     <div class="w-full">
       <label class="dw-label__input text-gray-03">Label</label>
@@ -242,9 +258,6 @@
       <input type="text" class="form-input" value="" />
     </div>
   </div>
-  <span class="dw-alert text-gray-03"
-    >Please provide a translation for the operator.</span>
-</div>
       --></code>
       </pre>
     </div>
@@ -254,6 +267,9 @@
     </div>
     <div class="field-group bg-gray-12" id="translation-panel">
       <label class="field-group__label text-gray-03">Translation</label>
+      <span class="dw-alert dw-alert--info mb-4">
+        Please provide a translation for the operator
+      </span>
       <div class="grid grid-cols-3 gap-2 mb-2">
         <div class="w-full">
           <label class="dw-label__input text-gray-03">Label</label>
@@ -276,15 +292,15 @@
           rows="2"
         ></textarea>
       </div>
-      <span class="dw-alert text-gray-03"
-        >Please provide a translation for the operator.</span
-      >
     </div>
 
     <div class="field-group dw-code">
       <pre class="language-markup"><code><!--
 <div class="field-group bg-gray-12" id="translation-panel">
   <label class="field-group__label text-gray-03">Translation</label>
+  <span class="dw-alert dw-alert--info mb-4">
+Please provide a translation for the operator
+  </span>
   <div class="grid grid-cols-3 gap-2 mb-2">
     <div class="w-full">
       <label class="dw-label__input text-gray-03">Label</label>
@@ -307,9 +323,6 @@
       rows="2"
     ></textarea>
   </div>
-  <span class="dw-alert text-gray-03"
-    >Please provide a translation for the operator.</span
-  >
 </div>
       --></code>
       </pre>
@@ -320,6 +333,9 @@
     </div>
     <div class="field-group bg-gray-12" id="translation-panel">
       <label class="field-group__label text-gray-03">Translation</label>
+      <span class="dw-alert dw-alert--info mb-4">
+        Please provide a translation for the operator
+      </span>
       <div class="grid gap-2 mb-2">
         <div class="w-full">
           <label class="dw-label__input text-gray-03">Label</label>
@@ -343,15 +359,15 @@
           rows="5"
         ></textarea>
       </div>
-      <span class="dw-alert text-gray-03"
-        >Please provide a translation for the operator.</span
-      >
     </div>
 
     <div class="field-group dw-code">
       <pre class="language-markup"><code><!--
 <div class="field-group bg-gray-12" id="translation-panel">
   <label class="field-group__label text-gray-03">Translation</label>
+  <span class="dw-alert dw-alert--info mb-4">
+Please provide a translation for the operator
+  </span>
   <div class="grid gap-2 mb-2">
     <div class="w-full">
       <label class="dw-label__input text-gray-03">Label</label>
@@ -375,19 +391,44 @@
       rows="5"
     ></textarea>
   </div>
-  <span class="dw-alert text-gray-03"
-    >Please provide a translation for the operator.</span
-  >
 </div>
       --></code>
       </pre>
     </div>
-  </body>
 
-  <!-- DON'T USE THIS SCRIPT IN PRODUCTION!!! -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () =>
-      document.dispatchEvent(new Event("vizPayloadReady"))
-    );
-  </script>
+    <div class="field-group">
+      <div class="field-group__label">
+        Variante 07 - Anschluß an Footer (kein Abstand)
+      </div>
+    </div>
+    <div class="field-group bg-gray-12" id="translation-panel">
+      <label class="field-group__label text-gray-03">Translation</label>
+      <span class="dw-alert dw-alert--info mb-4">
+        Please provide a translation for the operator
+      </span>
+      <div class="grid gap-2 mb-2">
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+        <div class="w-full">
+          <label class="dw-label__input text-gray-03">Label</label>
+          <input type="text" class="form-input" value="" />
+        </div>
+      </div>
+      <div class="grid mb-2">
+        <label class="dw-label__input text-gray-03">Label</label>
+        <textarea
+          data-co="translation"
+          class="dw-textarea"
+          data-max-rows="5"
+          rows="5"
+        ></textarea>
+      </div>
+    </div>
+  </body>
 </html>

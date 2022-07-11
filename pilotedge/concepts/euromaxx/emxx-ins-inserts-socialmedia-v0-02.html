@@ -34,7 +34,7 @@
       const socialMediaVariantOptions = document.querySelectorAll('[data-co="SocialMediaVariantIndex"]')
       const line1 = document.querySelector('#Line1')
       const line1SelectDiv = document.querySelector('#Line1SelectDiv')
-      const line1Label = line1.querySelector('label')
+      const line1Label = line1.querySelector('#text-label')
       const line2 = document.querySelector('#Line2')
       const line2SelectDiv = document.querySelector('#Line2SelectDiv')
       const dummyDiv = document.querySelector('#dummyDiv')
@@ -47,7 +47,7 @@
         dummyDiv.dataset.visible = value === '1'
         line2.dataset.visible = (value === '1')
         dummyDiv.dataset.visible = (value === '1')
-        dummyLabel.dataset.visible = (value === '1')
+        dummyLabel.dataset.visible = true
       }))
 
       const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
@@ -95,9 +95,9 @@
 </head>
 
 <body>
-  <div class="dw-header">
-    <span>Euromaxx</span>
-    <span>Social Media</span>
+  <div class="dw-header dw-header--branded">
+    <img src="./_source/images/Header_EMX.png" title="EMXX" />
+    <span class="text-gray-15">Social Media</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
     <div class="form-input-chips-wrapper space-x-0">
@@ -149,10 +149,6 @@
         </div>
         <div class="flex-1 grid grid-cols-1 gap-2">
           <div id="Line1" class="grid gap-2">
-            <div>
-              <label class="dw-label__input">Text</label>
-              <input type="text" class="form-input" data-co="SocialMediaLine1" />
-            </div>
             <div id="Line1SelectDiv">
               <label class="dw-label__input">Defaults</label>
               <select class="dw-dropdown dw-direction-ltr">
@@ -160,19 +156,23 @@
               </select>
               <span class="dw-alert">Use for autofill</span>
             </div>
+            <div>
+              <label id="text-label" class="dw-label__input">Text</label>
+              <input type="text" class="form-input" data-co="SocialMediaLine1" />
+            </div>
           </div>
           <div id="Line2">
             <div class="grid gap-2">
-              <div>
-                <label class="dw-label__input">Web address</label>
-                <input type="text" class="form-input dw-direction-ltr" data-co="SocialMediaLine2" />
-              </div>
               <div id="Line2SelectDiv">
                 <label class="dw-label__input">Defaults</label>
                 <select class="dw-dropdown dw-direction-ltr">
                   <option disabled selected>-- Please select --</option>
                 </select>
                 <span class="dw-alert">Use for autofill</span>
+              </div>
+              <div>
+                <label class="dw-label__input">Web address</label>
+                <input type="text" class="form-input dw-direction-ltr" data-co="SocialMediaLine2" />
               </div>
             </div>
           </div>

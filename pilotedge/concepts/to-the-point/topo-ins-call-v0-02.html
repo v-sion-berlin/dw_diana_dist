@@ -30,17 +30,24 @@
       const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
       const lowerthirdLine1 = document.querySelector('[data-co="LowerthirdLine1"]')
       const lowerthirdLine2 = document.querySelector('[data-co="LowerthirdLine2"]')
+      const LowerThirdWeb = document.querySelector('[data-co="LowerthirdLineWeb"]')
       languageSelector.addEventListener('change', (event) => {
         const language = languageSelector[languageSelector.selectedIndex].text
         lowerthirdLine1.value = nlwData[language][NLW_PROPERTIES.CALL_TEXT]
         lowerthirdLine1.dispatchEvent(new Event('input'))
         lowerthirdLine2.value = nlwData[language][NLW_PROPERTIES.CALL_URL]
         lowerthirdLine2.dispatchEvent(new Event('input'))
+        LowerThirdWeb.value = nlwData[language][NLW_PROPERTIES.CALL_URL]
+        LowerThirdWeb.dispatchEvent(new Event('input'))
 
         if (language === 'Arabic') {
+          lowerthirdLine2.dataset.visible = false
+          LowerThirdWeb.dataset.visible = true
           lowerthirdLine1.parentNode.querySelector('label').textContent = 'Insert text (arabic)'
           lowerthirdLine2.parentNode.querySelector('label').textContent = 'URL (latin)'
         } else {
+          lowerthirdLine2.dataset.visible = true
+          LowerThirdWeb.dataset.visible = false
           lowerthirdLine1.parentNode.querySelector('label').textContent = 'Insert text'
           lowerthirdLine2.parentNode.querySelector('label').textContent = 'URL'
         }
@@ -52,9 +59,9 @@
 </head>
 
 <body>
-  <div class="dw-header">
-    <span>To the Point</span>
-    <span>Call</span>
+  <div class="dw-header dw-header--branded">
+    <img src="./_sources/images/Header_TOPO.png" title="TOPO" />
+    <span class="text-white">Call</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
     <div class="form-input-chips-wrapper space-x-0">
@@ -79,6 +86,7 @@
         <div id="LowerthirdLine2">
           <label class="dw-label__input">URL</label>
           <input type="text" class="form-input dw-direction-ltr" data-co="LowerthirdLine2" />
+          <input type="text" class="form-input dw-direction-ltr" data-co="LowerthirdLineWeb" />
         </div>
       </div>
     </div>

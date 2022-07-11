@@ -24,17 +24,18 @@
     document.addEventListener('DOMContentLoaded', () => {
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
     })
   </script>
 </head>
 
 <body>
-  <div class="dw-header">
-    <span>To the Point</span>
-    <span>Biography</span>
+  <div class="dw-header dw-header--branded">
+    <img src="./_sources/images/Header_TOPO.png" title="TOPO" />
+    <span class="text-white">Biography</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
-    <div class="form-input-chips-wrapper space-x-0">
+    <div class="form-input-chips-wrapper space-x-0 hidden">
       <div class="dw-label__input">Language</div>
       <select class="dw-dropdown" data-co="LanguageIndex">
         <option value="4" rtl translation>Arabic</option>
@@ -66,34 +67,37 @@
       <div class="grid gap-2">
         <div>
           <label class="dw-label__input">Biographical details</label>
+          <span class="dw-alert mb-2">Please press Enter for a linebreak and to prevent overflow on the right.</span>
           <textarea class="dw-textarea" data-co="QuoteText" rows="6" cols="30" data-max-rows="6"></textarea>
         </div>
 
         <div>
-          <label class="dw-label__input">Name & Function</label>
+          <label class="dw-label__input">Name</label>
           <input type="text" class="form-input" data-co="QuoteName" />
         </div>
 
         <div>
+          <label class="dw-label__input">Function</label>
           <input type="text" class="form-input" data-co="QuoteFunction" />
         </div>
       </div>
     </div>
   </div>
 
-  <div class="field-group" id="translation-panel">
-    <label class="dw-label__input">Translation</label>
+  <div class="field-group bg-gray-12" id="translation-panel">
+    <label class="field-group__label text-gray-03">Translation</label>
     <div class="grid gap-2">
       <div>
-        <label class="dw-label__input">Name & Function</label>
-        <input type="text" class="form-input" data-co="Dummies/QuoteName" />
+        <label class="dw-label__input text-gray-03">Name</label>
+        <input type="text" class="form-input dw-direction-ltr" data-co="Dummies/QuoteName" />
       </div>
 
       <div>
-        <input type="text" class="form-input" data-co="Dummies/QuoteFunction" />
+        <label class="dw-label__input text-gray-03">Function</label>
+        <input type="text" class="form-input dw-direction-ltr" data-co="Dummies/QuoteFunction" />
       </div>
     </div>
-    <span class="dw-alert">Please provide a translation for the operator.</span>
+    <span class="dw-alert dw-direction-ltr text-gray-03">Please provide a translation for the operator.</span>
   </div>
 </body>
 

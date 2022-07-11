@@ -48,17 +48,20 @@
         const insertVariantName = insertVariantSelect.options[insertVariantSelect.selectedIndex].text
         divMapping[insertVariantName].forEach((divConfig) => {
           console.log(divConfig)
-          const lineDiv = document.querySelector(`#${divConfig.id}`)
-          lineDiv.querySelector('label').textContent = divConfig.label
-          lineDiv.querySelector('label').dataset.visible = divConfig.label !== ''
-          lineDiv.dataset.visible = divConfig.visible
-          lineDiv.parentNode.appendChild(lineDiv)
+          const lineDivs = document.querySelectorAll('[name="' + divConfig.id + '"]')
+          lineDivs.forEach((lineDiv) => {
+            lineDiv.querySelector('label').textContent = divConfig.label
+            lineDiv.querySelector('label').dataset.visible = divConfig.label !== ''
+            lineDiv.dataset.visible = divConfig.visible
+            lineDiv.parentNode.appendChild(lineDiv)
+          })
         })
       })
 
       // set ltr / rtl dependent on selected language
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
     })
 
     document.addEventListener('vizPayloadReady', function () {
@@ -68,9 +71,9 @@
 </head>
 
 <body>
-  <div class="dw-header">
-    <span>Euromaxx</span>
-    <span>Insert</span>
+  <div class="dw-header dw-header--branded">
+    <img src="./_source/images/Header_EMX.png" title="EMXX" />
+    <span class="text-gray-15">Insert</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
     <div class="form-input-chips-wrapper space-x-0">
@@ -96,35 +99,38 @@
   <div id="direction-switch">
     <div class="field-group">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-        <div id="Line1">
+        <div name="Line1">
           <label class="dw-label__input">Insert Line 1</label>
           <input id="Line1Input" type="text" class="form-input" data-co="InsertLine1" />
         </div>
-        <div id="Line2">
+        <div name="Line2">
           <label class="dw-label__input">Insert Line 2</label>
           <input id="Line2Input" type="text" class="form-input" data-co="InsertLine2" />
         </div>
-        <div id="Line3">
+        <div name="Line3">
           <label class="dw-label__input md:block">Insert Line 3</label>
           <input id="Line3Input" type="text" class="form-input" data-co="InsertLine3" />
         </div>
       </div>
     </div>
   </div>
-
-  <div class="field-group" id="translation-panel">
-    <label class="dw-label__input">Translation</label>
+  <div class="field-group bg-gray-12" id="translation-panel">
+    <label class="field-group__label text-gray-03">Translation</label>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-      <div>
-        <input type="text" class="form-input" data-co="InsertLine1_dummy" />
+      <div name="Line1">
+        <label class="dw-label__input text-gray-03">Insert Line 1</label>
+        <input type="text" class="form-input dw-direction-ltr" data-co="InsertLine1_dummy" />
       </div>
-      <div>
-        <input type="text" class="form-input" data-co="InsertLine2_dummy" />
+      <div name="Line2">
+        <label class="dw-label__input text-gray-03">Insert Line 2</label>
+        <input type="text" class="form-input dw-direction-ltr" data-co="InsertLine2_dummy" />
       </div>
-      <div>
-        <input type="text" class="form-input" data-co="InsertLine3_dummy" />
+      <div name="Line3">
+        <label class="dw-label__input md:block text-gray-03">Insert Line 3</label>
+        <input type="text" class="form-input dw-direction-ltr" data-co="InsertLine3_dummy" />
       </div>
     </div>
+    <span class="dw-direction-ltr dw-alert text-gray-03">Please provide a translation for the operator.</span>
   </div>
 </body>
 

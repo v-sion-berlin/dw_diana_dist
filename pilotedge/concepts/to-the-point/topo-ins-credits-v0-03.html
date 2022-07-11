@@ -53,13 +53,19 @@
         const [executiveProducerHeadline, executiveProducerName1] = nlwData[language][NLW_PROPERTIES.EXECUTIVE_PRODUCER].split(/\s*=\s*/)
         document.querySelector('[data-co="CreditsExecutiveProducerHeadline"]').value = executiveProducerHeadline
         document.querySelector('[data-co="CreditsExecutiveProducerHeadline"]').dispatchEvent(new Event('input'))
-        document.querySelector('[data-co="CreditsExecutiveProducerName1"]').value = executiveProducerName1
-        document.querySelector('[data-co="CreditsExecutiveProducerName1"]').dispatchEvent(new Event('input'))
+        if (executiveProducerName1) {
+          document.querySelector('[data-co="CreditsExecutiveProducerName1"]').value = executiveProducerName1
+          document.querySelector('[data-co="CreditsExecutiveProducerName1"]').dispatchEvent(new Event('input'))
+        } else {
+          document.querySelector('[data-co="CreditsExecutiveProducerName1"]').value = ''
+          vizrt.payloadhosting.setFieldText('CreditsExecutiveProducerName1', '')
+          document.querySelector('[data-co="CreditsExecutiveProducerName1"]').dispatchEvent(new Event('input'))
+        }
         const [socialMediaHeadline, socialMediaName1] = nlwData[language][NLW_PROPERTIES.CREDITS_ONLINE].split(/\s*=\s*/)
-        document.querySelector('[data-co="SocialMediaHeadline"]').value = socialMediaHeadline
-        document.querySelector('[data-co="SocialMediaHeadline"]').dispatchEvent(new Event('input'))
-        document.querySelector('[data-co="SocialMediaName1"]').value = socialMediaName1
-        document.querySelector('[data-co="SocialMediaName1"]').dispatchEvent(new Event('input'))
+        document.querySelector('[data-co="CreditsSocialMediaHeadline"]').value = socialMediaHeadline
+        document.querySelector('[data-co="CreditsSocialMediaHeadline"]').dispatchEvent(new Event('input'))
+        document.querySelector('[data-co="CreditsSocialMediaName1"]').value = socialMediaName1
+        document.querySelector('[data-co="CreditsSocialMediaName1"]').dispatchEvent(new Event('input'))
         document.querySelector('[data-co="SponsorText"]').value = nlwData[language][NLW_PROPERTIES.SPONSOR]
         document.querySelector('[data-co="SponsorText"]').dispatchEvent(new Event('input'))
 
@@ -72,11 +78,15 @@
       const sponsorsOptions = document.querySelectorAll('[data-co="CreditsShowSponsors"]')
       const sponsorenPanel = document.querySelector('#Panel4')
       sponsorsOptions.forEach((option) => option.addEventListener('click', (event) => {
-        sponsorenPanel.dataset.visible = event.target.value === '0'
+        sponsorenPanel.dataset.visible = event.target.value === '1'
         panelNumbering()
       }))
 
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="CreditsShowSponsors"]:checked').dispatchEvent(new Event('click'))
     })
   </script>
 </head>
@@ -153,14 +163,118 @@
           <input type="text" data-co="CreditsExecutiveProducerName1" class="form-input" />
         </div>
         <div class="grid grid-cols-1 gap-2">
-          <input type="text" data-co="SocialMediaHeadline" class="form-input" disabled />
-          <input type="text" data-co="SocialMediaName1" class="form-input" />
+          <input type="text" data-co="CreditsSocialMediaHeadline" class="form-input" disabled />
+          <input type="text" data-co="CreditsSocialMediaName1" class="form-input dw-direction-ltr" />
         </div>
       </div>
     </div>
     <div class="field-group" id="Panel4">
       <div class="field-group__label">Panel 4</div>
-      <input type="text" data-co="SponsorText" class="form-input" disabled />
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <input type="text" data-co="SponsorText" class="form-input" disabled />
+
+        <div class="dw-imgSelect col-start-1 hidden" type="image" data-co="Logo1">
+          <button class="dw-btn select">
+            <span>Choose Sponsor Logo 1</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+              <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+
+          <button class="dw-btn remove">
+            <span>Delete Logo</span>
+          </button>
+
+          <div class="dw-imgThumb">
+            <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+          </div>
+        </div>
+
+        <div class="dw-imgSelect hidden" type="image" data-co="Logo2">
+          <button class="dw-btn select">
+            <span>Choose Sponsor Logo 2</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+              <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+
+          <button class="dw-btn remove">
+            <span>Delete Logo</span>
+          </button>
+
+          <div class="dw-imgThumb">
+            <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+          </div>
+        </div>
+
+        <div class="dw-imgSelect hidden" type="image" data-co="Logo3">
+          <button class="dw-btn select">
+            <span>Choose Sponsor Logo 3</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+              <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+
+          <button class="dw-btn remove">
+            <span>Delete Logo</span>
+          </button>
+
+          <div class="dw-imgThumb">
+            <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+          </div>
+        </div>
+
+        <div class="dw-imgSelect hidden" type="image" data-co="Logo4">
+          <button class="dw-btn select">
+            <span>Choose Sponsor Logo 4</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+              <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+
+          <button class="dw-btn remove">
+            <span>Delete Logo</span>
+          </button>
+
+          <div class="dw-imgThumb">
+            <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+          </div>
+        </div>
+
+        <div class="dw-imgSelect hidden" type="image" data-co="Logo5">
+          <button class="dw-btn select">
+            <span>Choose Sponsor Logo 5</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+              <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+
+          <button class="dw-btn remove">
+            <span>Delete Logo</span>
+          </button>
+
+          <div class="dw-imgThumb">
+            <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+          </div>
+        </div>
+
+        <div class="dw-imgSelect hidden" type="image" data-co="Logo6">
+          <button class="dw-btn select">
+            <span>Choose Sponsor Logo 6</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+              <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
+            </svg>
+          </button>
+
+          <button class="dw-btn remove">
+            <span>Delete Logo</span>
+          </button>
+
+          <div class="dw-imgThumb">
+            <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+          </div>
+        </div>
+      </div>
     </div>
     <div class="field-group" id="Panel5">
       <div class="field-group__label">Panel 5</div>

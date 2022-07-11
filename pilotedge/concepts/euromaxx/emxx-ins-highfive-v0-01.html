@@ -25,14 +25,15 @@
       // set ltr / rtl dependent on selected language
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
     })
   </script>
 </head>
 
 <body>
-  <div class="dw-header">
-    <span>Euromaxx</span>
-    <span>Highfive</span>
+  <div class="dw-header dw-header--branded">
+    <img src="./_source/images/Header_EMX.png" title="EMXX" />
+    <span class="text-gray-15">Highfive</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
     <div class="form-input-chips-wrapper space-x-0">
@@ -92,19 +93,20 @@
       </div>
     </div>
   </div>
-
-  <div class="field-group" id="translation-panel">
-    <label class="dw-label__input">Translation</label>
+  <div class="field-group bg-gray-12" id="translation-panel">
+    <label class="field-group__label text-gray-03">Translation</label>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
       <div id="ContentLine1_dummy">
-        <input type="text" class="form-input" data-co="ContentLine1_dummy" />
+        <label class="dw-label__input text-gray-03">Line 1</label>
+        <input type="text" class="form-input dw-direction-ltr" data-co="ContentLine1_dummy" />
       </div>
       <div id="ContentLine2_dummy">
-        <input type="text" class="form-input" data-co="ContentLine2_dummy" />
+        <label class="dw-label__input text-gray-03">Line 2</label>
+        <input type="text" class="form-input dw-direction-ltr" data-co="ContentLine2_dummy" />
       </div>
     </div>
+    <span class="dw-direction-ltr dw-alert text-gray-03">Please provide a translation for the operator.</span>
   </div>
-
 </body>
 
 </html>
