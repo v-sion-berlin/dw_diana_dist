@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euromaxx - Online</title>
+  <!-- Default includes -->
+  <link href="../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../_sources/js/payloadhosting.js"></script>
+  <script src="../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../_sources/js/nlw.js"></script>
+  <script src="_source/emxx.js"></script>
+  <script>
+    /* global Event */
+    /* global Option */
+    /* global initializeNLWData, NLW_PROPERTIES */
+
+    let nlwData = {}
+    window.generateAutoTitle = () => {
+      const title = document.title.replace('Euromaxx -', 'EMXX')
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const socialMediaVariant = document.querySelector('[data-co="SocialMediaVariantIndex"]:checked').parentNode.querySelector('span').textContent
+      return `${title} ${socialMediaVariant} ${language}`
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      nlwData = initializeNLWData()
+
+      // Show / hide second line depending on automatic playout
+      const socialMediaVariantOptions = document.querySelectorAll('[data-co="SocialMediaVariantIndex"]')
+      const variant1L = document.querySelector('#Variant1L')
+      const line1SelectDiv = variant1L.querySelector('#Line1SelectDiv')
+      // const line1Label = line1.querySelector('#text-label')
+      const variant2L = document.querySelector('#Variant2L')
+      const line2SelectDiv = variant2L.querySelector('#Line2SelectDiv')
+      let variant
+
+      socialMediaVariantOptions.forEach((option) => option.addEventListener('click', (event) => {
+        variant = event.target.value
+
+        variant1L.dataset.visible = (variant === '0')
+        variant2L.dataset.visible = (variant === '1')
+      }))
+
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const variant1Select = line1SelectDiv.querySelector('select')
+      const variant2Select = line2SelectDiv.querySelector('select')
+      languageSelector.addEventListener('change', (event) => {
+        const language = languageSelector[languageSelector.selectedIndex].text
+        while (variant1Select.length > 1) {
+          variant1Select.remove(variant1Select.length - 1)
+          variant2Select.remove(variant2Select.length - 1)
+        }
+        const urls = nlwData[language][NLW_PROPERTIES.URL].split(/\s*\|\s*/)
+        urls.forEach((url) => {
+          variant1Select.add(new Option(url))
+          variant2Select.add(new Option(url))
+        })
+
+        if (language === 'Arabic') {
+          if (variant === '0') {
+            variant1L.querySelector('[data-co="SocialMediaLine1"]').classList.add('dw-direction-ltr')
+          } else if (variant === '1') {
+            variant2L.querySelector('[data-co="SocialMediaLine2"]').classList.add('dw-direction-ltr')
+          }
+          document.querySelectorAll('.mr-3').forEach((entry) => {
+            entry.classList.remove('mr-3')
+            entry.classList.add('ml-3')
+          })
+        } else {
+          if (variant === '0') {
+            variant1L.querySelector('[data-co="SocialMediaLine1"]').classList.remove('dw-direction-ltr')
+          } else if (variant === '1') {
+            variant2L.querySelector('[data-co="SocialMediaLine2"]').classList.remove('dw-direction-ltr')
+          }
+          document.querySelectorAll('.ml-3').forEach((entry) => {
+            entry.classList.remove('ml-3')
+            entry.classList.add('mr-3')
+          })
+        }
+      })
+
+      variant1Select.addEventListener('change', (event) => {
+        document.querySelector('[data-co="SocialMediaLine1"]').value = variant1Select.options[variant1Select.selectedIndex].textContent
+        document.querySelector('[data-co="SocialMediaLine1"]').dispatchEvent(new Event('input'))
+      })
+
+      variant2Select.addEventListener('change', (event) => {
+        document.querySelector('[data-co="SocialMediaLine2"]').value = variant2Select.options[variant2Select.selectedIndex].textContent
+        document.querySelector('[data-co="SocialMediaLine2"]').dispatchEvent(new Event('input'))
+      })
+
+      // set ltr / rtl depending on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="SocialMediaVariantIndex"]:checked').dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="./_source/images/Header_EMX.png" title="EMXX" />
+    <span class="text-gray-15">Online</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Language</div>
+      <select class="dw-dropdown" data-co="LanguageIndex">
+        <option value="3" rtl>Arabic</option>
+        <option value="0">English</option>
+        <option value="1">German</option>
+        <option value="2">Spanish</option>
+      </select>
+    </div>
+
+    <div class="form-input-chips-wrapper space-x-0">
+      <div>
+        <label class="dw-label__input">Online Variant</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="SocialMediaVariantIndex" type="radio" value="0" name="socialmediavariant" />
+            <span>1L</span>
+          </label>
+
+          <label>
+            <input data-co="SocialMediaVariantIndex" type="radio" value="1" name="socialmediavariant" />
+            <span>2L</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="direction-switch">
+    <div class="field-group" id="Variant1L">
+      <div class="grid grid-cols-1 gap-1">
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <label class="dw-label__input">Defaults</label>
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="flex-none w-[135px] mr-3">
+            <select class="dw-dropdown" data-co="SocialMediaIconIndex">
+              <option value="0">No Icon</option>
+              <option value="1">Facebook</option>
+              <option value="2">Instagram</option>
+              <option value="3">TikTok</option>
+              <option value="4">Twitter</option>
+              <option value="5">YouTube</option>
+            </select>
+          </div>
+          <div class="flex-1" id="Line1SelectDiv">
+            <select class="dw-dropdown">
+              <option disabled selected>-- Please select --</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <span class="dw-alert mb-2">Add your URL manually or use a default value from the dropdown above.<br/>A selected default value can be extended afterwards in the URL input</span>
+            </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <label id="text-label" class="dw-label__input">Web address</label>
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <input type="text" class="form-input" data-co="SocialMediaLine1" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group" id="Variant2L">
+      <div class="grid grid-cols-1 gap-1">
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <label class="dw-label__input">Text</label>
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <input type="text" class="form-input mb-2" data-co="SocialMediaLine1" />
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <label class="dw-label__input">Defaults</label>
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="flex-none w-[135px] mr-3">
+            <select class="dw-dropdown" data-co="SocialMediaIconIndex">
+              <option value="0">No Icon</option>
+              <option value="1">Facebook</option>
+              <option value="2">Instagram</option>
+              <option value="3">TikTok</option>
+              <option value="4">Twitter</option>
+              <option value="5">YouTube</option>
+            </select>
+          </div>
+          <div class="flex-1" id="Line2SelectDiv">
+            <select class="dw-dropdown">
+              <option disabled selected>-- Please select --</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <span class="dw-alert mb-2">Add your URL manually or use a default value from the dropdown above.<br/>A selected default value can be extended afterwards in the URL input</span>
+            </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <label id="text-label" class="dw-label__input">Web address</label>
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="w-[135px] mr-3"></div>
+          <div class="flex-1">
+            <input type="text" class="form-input" data-co="SocialMediaLine2" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

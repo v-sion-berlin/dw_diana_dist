@@ -31,7 +31,6 @@
       const dummyLine1 = document.querySelector('[data-co="dummy-line1"]')
       const dummySource = document.querySelector('[data-co="dummy-source"]')
       const dummySourceOption = document.querySelector('[data-co="dummy-source-option"]:checked')
-      console.log(dummySourceOption.value)
       const line1withSource = document.querySelector('[data-co="SourceLine1"]')
       if (dummySourceOption.value === '1') {
         line1withSource.value = `${dummySource.value}: ${dummyLine1.value}`
@@ -78,7 +77,6 @@
 
       // set ltr / rtl dependent on selected language
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
-      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
     })
 
@@ -142,17 +140,17 @@
   <div class="field-group" id="direction-switch">
 
     <div class="dw-flexGroup">
-      <div class="w-[80px]">
-        <label class="dw-label__input"></label>
+      <div class="w-[80px] hidden">
+        <label class="dw-label__input">Source:</label>
         <input data-co="dummy-source" type="text" class="form-input font-large" disabled />
       </div>
-      <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div class="flex-1 grid grid-cols-1 gap-2">
         <div id="Line1">
-          <label class="dw-label__input">Line 1</label>
+          <label class="dw-label__input">Source Line 1</label>
           <input type="text" class="form-input" data-co="dummy-line1" />
         </div>
         <div name="Line2">
-          <label class="dw-label__input">Line 2</label>
+          <label class="dw-label__input">Source Line 2</label>
           <input type="text" class="form-input" data-co="SourceLine2" />
         </div>
       </div>
@@ -166,23 +164,25 @@
 
   <div class="field-group bg-gray-12" id="translation-panel">
     <label class="field-group__label text-gray-03">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">
+      Please provide a translation for the operator
+    </span>
     <div class="dw-flexGroup">
-      <div class="w-[80px]">
-        <label class="dw-label__input"></label>
+      <div class="w-[80px] hidden">
+        <label class="dw-label__input text-gray-03">Source:</label>
         <input data-co="dummy-source_dummy" type="text" class="form-input font-large" disabled />
       </div>
-      <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div class="flex-1 grid grid-cols-1 gap-2">
         <div id="Line1">
-          <label class="dw-label__input text-gray-03">Line 1</label>
+          <label class="dw-label__input text-gray-03">Source Line 1</label>
           <input type="text" class="form-input" data-co="SourceLine1_dummy" />
         </div>
         <div name="Line2">
-          <label class="dw-label__input text-gray-03">Line 2</label>
+          <label class="dw-label__input text-gray-03">Source Line 2</label>
           <input type="text" class="form-input" data-co="SourceLine2_dummy" />
         </div>
       </div>
     </div>
-    <span class="dw-alert dw-direction-ltr text-gray-03">Please provide a translation for the operator.</span>
   </div>
 
 </body>

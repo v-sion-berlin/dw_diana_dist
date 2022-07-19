@@ -82,13 +82,7 @@ class Input {
     ) {
       setTextMaxLength(element);
     }
-    if (
-      element.getAttribute("type") === "text" ||
-      element.getAttribute("type") === "number"
-    ) {
-      initializeFocusHandler(element);
-    }
-
+    
     if (element.parentNode.classList.contains('dw-quantity')) {
       initializeQuantityField(element.parentNode)
     }
@@ -186,22 +180,6 @@ const setTextMaxLength = (element) => {
     }
   })
 }
-
-/*****************************************************************************/
-/* FOCUS HANDLER
-/*****************************************************************************/
-
-/**
- * Select complete text in input field on click
- * @param {HTMLElement} element input of type text or number
- * @since 1.00
- * @memberof Input
- */
-const initializeFocusHandler = (element) => {
-  element.addEventListener("click", (e) => {
-    element.setSelectionRange(0, element.value.length);
-  });
-};
 
 /*****************************************************************************/
 /* NUMBER SCRUBBING

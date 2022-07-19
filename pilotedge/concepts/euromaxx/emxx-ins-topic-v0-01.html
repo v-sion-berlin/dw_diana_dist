@@ -24,7 +24,6 @@
       // set ltr / rtl dependent on selected language
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
-      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
     })
   </script>
 </head>
@@ -56,9 +55,11 @@
   </div>
   <div class="field-group bg-gray-12" id="translation-panel">
     <label class="field-group__label text-gray-03">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">
+      Please provide a translation for the operator
+    </span>
     <label class="dw-label__input text-gray-03">Topic</label>
     <input type="text" data-co="translation" class="form-input"/>
-    <span class="dw-alert dw-direction-ltr text-gray-03">Please provide a translation for the operator.</span>
   </div>
 
 </body>

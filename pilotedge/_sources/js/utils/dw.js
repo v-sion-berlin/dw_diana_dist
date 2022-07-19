@@ -151,17 +151,17 @@ window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
     if (hasRtl) {
       if (footer) {
         footer.classList.add("dw-direction-rtl");
-        footer.classList.remove("dw-direction-ltr");
+        // footer.classList.remove("dw-direction-ltr");
       }
       directionDiv.classList.add("dw-direction-rtl");
-      directionDiv.classList.remove("dw-direction-ltr");
+      // directionDiv.classList.remove("dw-direction-ltr");
     } else {
       if (footer) {
         footer.classList.remove("dw-direction-rtl");
-        footer.classList.add("dw-direction-ltr");
+        // footer.classList.add("dw-direction-ltr");
       }
       directionDiv.classList.remove("dw-direction-rtl");
-      directionDiv.classList.add("dw-direction-ltr");
+      // directionDiv.classList.add("dw-direction-ltr");
     }
   });
 
@@ -210,6 +210,60 @@ window.initializeTranslationPanel = (
  */
 window.capitalize = (text) => {
   return text.replace(/^\w/, (c) => c.toUpperCase());
+};
+
+window.checkWordLength = (textQuery, maxWordLength, warningTextQuery) => {
+  /* checks, if input text is too long given a certain maxLength
+
+  also activates or hides a warning (given a warningTextQuery for the related object) for too long input
+  */
+
+  console.log(document.querySelector(textQuery))
+  const textObject = document.querySelector(textQuery)
+  let string
+
+  if (textObject.classList.contains('dw-textarea')) {
+    string = textObject.value
+  } else if (textObject.classList.contains('text')) {
+    string = textObject.dataset.value
+  }
+
+  const warningTextObject = document.querySelector(warningTextQuery)
+
+  let toolong = false
+  console.log(string.split(' '))
+  string.split(' ').forEach(element => {
+    if (element.length > maxWordLength) {
+      toolong = true
+      textObject.classList.remove('dw-highlight-yellow')
+      textObject.classList.add('dw-highlight-red')
+      warningTextObject.classList.remove('hidden')
+    }
+
+    if (element.length > maxWordLength - 5 && element.length <= maxWordLength) {
+      toolong = true
+      warningTextObject.classList.add('hidden')
+      textObject.classList.add('dw-highlight-yellow')
+      textObject.classList.remove('dw-highlight-red')
+    }
+  });
+
+  if (toolong === false) {
+    textObject.classList.remove('dw-highlight-yellow')
+    textObject.classList.remove('dw-highlight-red')
+    warningTextObject.classList.add('hidden')
+  }
+};
+
+window.replaceUmlauts = (string) => {
+  string = string.replace(/ä/g, 'ae')
+  string = string.replace(/ö/g, 'oe')
+  string = string.replace(/ü/g, 'ue')
+  string = string.replace(/ß/g, 'ss')
+  string = string.replace(/Ä/g, 'Ae')
+  string = string.replace(/Ö/g, 'Oe')
+  string = string.replace(/Ü/g, 'Ue')
+  return string
 };
 
 function entitiesHtml(string) {

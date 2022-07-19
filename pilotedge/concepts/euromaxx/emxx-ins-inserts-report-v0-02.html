@@ -92,9 +92,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       nlwData = initializeNLWData()
       languageSelector = document.querySelector('[data-co="LanguageIndex"]')
-      const translationPanel = document.querySelector('#Translation')
       languageSelector.addEventListener('change', (event) => {
-        translationPanel.dataset.visible = languageSelector.value === ('3')
         setFunctionNames()
       })
 
@@ -113,7 +111,7 @@
       })
 
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
-      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#Translation')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
     })
 
     document.addEventListener('vizPayloadReady', function () {
@@ -131,7 +129,7 @@
     <div class="form-input-chips-wrapper space-x-0">
       <div class="dw-label__input">Language</div>
       <select class="dw-dropdown" data-co="LanguageIndex">
-        <option value="3" rtl>Arabic</option>
+        <option value="3" rtl translation>Arabic</option>
         <option value="0">English</option>
         <option value="1">German</option>
         <option value="2">Spanish</option>
@@ -141,9 +139,9 @@
     <div class="form-input-chips-wrapper space-x-0">
       <div class="dw-label__input">Report Variant</div>
       <select class="dw-dropdown" data-co="ReportVariantIndex">
-        <option value="0">Report</option>
-        <option value="1">Report, Camera, Editor</option>
-        <option value="2">VJ Report</option>
+        <option value="0">Contributor</option>
+        <option value="1">Contributors</option>
+        <option value="2">VJ</option>
       </select>
     </div>
   </div>
@@ -184,8 +182,12 @@
       </div>
     </div>
   </div>
-  <div class="field-group bg-gray-12" id="Translation">
+
+  <div class="field-group bg-gray-12" id="translation-panel">
     <label class="field-group__label text-gray-03">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">
+      Please provide a translation for the operator
+    </span>
     <div class="grid grid-cols-1 gap-2">
       <div>
         <div class="grid grid-cols-1 gap-1">
@@ -220,7 +222,6 @@
         </div>
       </div>
     </div>
-    <span class="dw-direction-ltr dw-alert text-gray-03">Please provide a translation for the operator.</span>
   </div>
 </body>
 

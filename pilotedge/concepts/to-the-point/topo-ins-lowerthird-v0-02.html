@@ -32,7 +32,6 @@
 
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
-      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
     })
 
     document.addEventListener('vizPayloadReady', () => {
@@ -78,10 +77,11 @@
     <div class="field-group">
       <div class="grid gap-2">
         <div>
-          <label class="dw-label__input">Insert text</label>
+          <label class="dw-label__input">Line 1</label>
           <input type="text" class="form-input" data-co="LowerthirdLine1" />
         </div>
         <div id="LowerthirdLine2">
+          <label class="dw-label__input">Line 2</label>
           <input type="text" class="form-input" data-co="LowerthirdLine2" />
         </div>
       </div>
@@ -90,16 +90,19 @@
 
   <div class="field-group bg-gray-12" id="translation-panel">
     <label class="field-group__label text-gray-03">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">
+      Please provide a translation for the operator
+    </span>
     <div class="grid gap-2">
       <div>
-        <label class="dw-label__input text-gray-03">Insert text</label>
-        <input type="text" class="form-input dw-direction-ltr" data-co="Dummies/LowerthirdLine1" />
+        <label class="dw-label__input text-gray-03">Line 1</label>
+        <input type="text" class="form-input" data-co="Dummies/LowerthirdLine1" />
       </div>
       <div id="DummyLowerthirdLine2">
-        <input type="text" class="form-input dw-direction-ltr" data-co="Dummies/LowerthirdLine2" />
+        <label class="dw-label__input text-gray-03">Line 2</label>
+        <input type="text" class="form-input" data-co="Dummies/LowerthirdLine2" />
       </div>
     </div>
-    <span class="dw-alert text-gray-03 dw-direction-ltr">Please provide a translation for the operator.</span>
   </div>
 </body>
 

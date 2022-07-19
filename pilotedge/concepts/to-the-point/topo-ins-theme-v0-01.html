@@ -26,7 +26,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
-      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
     })
 
     document.addEventListener('vizPayloadReady', () => {
@@ -85,17 +84,19 @@
 
   <div class="field-group bg-gray-12" id="translation-panel">
     <label class="field-group__label text-gray-03">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">
+      Please provide a translation for the operator
+    </span>
     <div class="grid gap-2">
       <div>
         <label class="dw-label__input text-gray-03">Top line</label>
-        <input type="text" class="form-input dw-direction-ltr" data-co="Dummies/LowerthirdLine1" />
+        <input type="text" class="form-input" data-co="Dummies/LowerthirdLine1" />
       </div>
       <div>
         <label class="dw-label__input text-gray-03">Bottom line</label>
-        <input type="text" class="form-input dw-direction-ltr" data-co="Dummies/LowerthirdLine2" />
+        <input type="text" class="form-input" data-co="Dummies/LowerthirdLine2" />
       </div>
     </div>
-    <span class="dw-alert dw-direction-ltr text-gray-03">Please provide a translation for the operator.</span>
   </div>
 </body>
 

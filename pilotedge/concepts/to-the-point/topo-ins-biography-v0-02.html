@@ -13,6 +13,7 @@
   <script src="../../_sources/js/utils/viz.js" type="module"></script>
   <script src="../../_sources/js/nlw.js"></script>
   <script>
+    /* global Event */
     window.generateAutoTitle = () => {
       const [show, graphicType, graphicName] = window.location.pathname.split('/').pop().split('-')
       const languageSelect = document.querySelector('[data-co="LanguageIndex"]')
@@ -22,9 +23,16 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      const inputTextField = document.querySelector('[data-co="QuoteText"]')
+      inputTextField.addEventListener('input', () => {
+        window.checkWordLength('[data-co="QuoteText"]', 30, '#overflow-warning')
+      })
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
       window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
-      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="QuoteText"]').dispatchEvent(new Event('input'))
     })
   </script>
 </head>
@@ -69,6 +77,7 @@
           <label class="dw-label__input">Biographical details</label>
           <span class="dw-alert mb-2">Please press Enter for a linebreak and to prevent overflow on the right.</span>
           <textarea class="dw-textarea" data-co="QuoteText" rows="6" cols="30" data-max-rows="6"></textarea>
+          <span id="overflow-warning" class="dw-alert dw-alert--error hidden">Text contains at least one word, that is too long and should thus be split to prevent overflow on the right.</span>
         </div>
 
         <div>
@@ -86,18 +95,20 @@
 
   <div class="field-group bg-gray-12" id="translation-panel">
     <label class="field-group__label text-gray-03">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">
+      Please provide a translation for the operator
+    </span>
     <div class="grid gap-2">
       <div>
         <label class="dw-label__input text-gray-03">Name</label>
-        <input type="text" class="form-input dw-direction-ltr" data-co="Dummies/QuoteName" />
+        <input type="text" class="form-input" data-co="Dummies/QuoteName" />
       </div>
 
       <div>
         <label class="dw-label__input text-gray-03">Function</label>
-        <input type="text" class="form-input dw-direction-ltr" data-co="Dummies/QuoteFunction" />
+        <input type="text" class="form-input" data-co="Dummies/QuoteFunction" />
       </div>
     </div>
-    <span class="dw-alert dw-direction-ltr text-gray-03">Please provide a translation for the operator.</span>
   </div>
 </body>
 
