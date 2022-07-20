@@ -2003,7 +2003,7 @@ input[type="number"] {
 }
 .dw-footer {
 	position: relative;
-	margin-top: 40px;
+	margin-top: 30px;
 	display: block;
 	height: 35px;
 	width: 100%;
@@ -2012,7 +2012,7 @@ input[type="number"] {
 }
 .dw-footer:before {
 	position: relative;
-	height: 40px;
+	height: 30px;
 	width: 100%;
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
