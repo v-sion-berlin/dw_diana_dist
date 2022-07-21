@@ -29,6 +29,7 @@ Bugfix release
 - Added: group examples
 - Added: dropdown styles
 - Added: footer margin
+- Removed: full selection on focus
 
 <!------------------------------------------------------------------------------->
 <hr />
