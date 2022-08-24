@@ -2,7 +2,7 @@
  * @file This file contains all functions needed to enhance input html
  * controls, like text inputs, number inputs, date inputs, textareas...
  * @author v-sion GmbH <contact@v-sion.de>
- * @version 1.00
+ * @version 1.10
  */
 
 /**
@@ -76,13 +76,10 @@ class Input {
       setDefaultOnDoubleClick(element)
     }
 
-    if (
-      element.getAttribute("type") === "text" &&
-      element.hasAttribute("maxlength")
-    ) {
-      setTextMaxLength(element);
+    if (element.getAttribute('type') === 'text' && element.hasAttribute('maxlength')) {
+      setTextMaxLength(element)
     }
-    
+
     if (element.parentNode.classList.contains('dw-quantity')) {
       initializeQuantityField(element.parentNode)
     }

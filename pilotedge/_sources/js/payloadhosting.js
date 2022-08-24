@@ -1065,7 +1065,7 @@ var vizrt;
                                 this._createBlurListenerForElementWithPendingIncomingNewValue(htmlElement, text);
                             }
                         }
-                        this._listeners.push(new ListenerRegistration(htmlElement, "input", listener));
+                        this._listeners.push(new ListenerRegistration(htmlElement, htmlElement instanceof HTMLSelectElement ? "change" : "input", listener));
                     }
                 }
                 this._initializeOnFields(new TypedElementIterator(new SingleElementIterator(fieldElement), vizNs, "field"), fieldPath || undefined, fieldId);
@@ -1151,8 +1151,9 @@ var vizrt;
         };
         /**
          * Sets whether this payload hosting automatically should connect fields in payload with input elements in current document.
-         * It will connect an HTML input element with ID "field_x" to a payload field named "x" and an HTML input element with
+         * It will connect an HTML element with ID "field_x" to a payload field named "x" and an HTML element with
          * ID "field_x_y" to a sub-field named "y" of a field named "x" in the payload.
+         * Supported HTML elements are <input>, <textarea>, and <select>.
          * To connect to XML fields instead of text fields use the prefix <i>xmlfield_</i> instead of <i>field_</i> in the HTML
          * input element IDs.
          * The default value of this property is 'true'. Setting this property to true causes immediate binding if payload is ready
@@ -1979,3 +1980,4 @@ var vizrt;
      */
     vizrt.payloadhosting = new PayloadHosting();
 })(vizrt || (vizrt = {}));
+

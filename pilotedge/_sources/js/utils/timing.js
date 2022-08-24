@@ -1,9 +1,9 @@
 /**
  * @file Adds a timing section with offset and duration (mosart).
- * Simply use <div class="dw-mosart-info"></div> and make sure 
+ * Simply use <div class="dw-mosart-info"></div> and make sure
  * there is an co-object named 'mosart-info'.
  * @author Deutsche Welle <gunnar.steffen@dw.com>
- * @version 1.12
+ * @version 1.13
  */
 
 /* global Input */
@@ -16,7 +16,7 @@ const TIMING_SEPERATOR = '|'
 
 /**
  * Timing class.
- * 
+ *
  * @hideconstructor
  */
 class Timing {
@@ -35,7 +35,7 @@ class Timing {
       var input = document.createElement('input')
       input.name = name
       input.type = 'number'
-      input.classList.add('form-input', 'dw-input-number', 'w-[60px]')
+      input.classList.add('form-input', 'dw-input-number')
       input.value = 0
       input.min = 0
       input.max = 59
@@ -46,17 +46,21 @@ class Timing {
 
     // Grid
     this.element.classList.add('field-group', 'bg-gray-02')
+    this.element.style.cssText = 'background: repeating-linear-gradient(134deg,rgb(241, 243, 245),rgb(241, 243, 245) 10px,rgb(236, 240, 242) 10px,rgb(236, 240, 242) 20px)'
     const divGrid = this.element.appendChild(div())
-    divGrid.classList.add('grid', 'grid-cols-2', 'md:grid-cols-4', 'gap-2')
+    divGrid.classList.add('flex', 'flex-row', 'flex-wrap')
+    divGrid.style.gap = '30px'
 
     // Timing in
     const divTimingIn = divGrid.appendChild(div())
     const divTimingInLabel = divTimingIn.appendChild(div())
     divTimingInLabel.classList.add('dw-label__input')
     divTimingInLabel.innerHTML = 'Offset (mm:ss)'
-    const divTimingInputInMM = divTimingIn.appendChild(input_number('offset-mm'))
-    divTimingInputInMM.style.marginRight = '4px'
-    const divTimingInputInSS = divTimingIn.appendChild(input_number('offset-ss'))
+    const divTimingInGridInputs = divTimingIn.appendChild(div())
+    divTimingInGridInputs.classList.add('grid', 'grid-cols-2')
+    divTimingInGridInputs.style.gap = '5px'
+    const divTimingInputInMM = divTimingInGridInputs.appendChild(input_number('offset-mm'))
+    const divTimingInputInSS = divTimingInGridInputs.appendChild(input_number('offset-ss'))
 
     // Timing duration
     const divTimingDur = divGrid.appendChild(div())
@@ -64,9 +68,11 @@ class Timing {
     const divTimingDurLabel = divTimingDur.appendChild(div())
     divTimingDurLabel.classList.add('dw-label__input')
     divTimingDurLabel.innerHTML = 'Duration (mm:ss)'
-    const divTimingInputDurMM = divTimingDur.appendChild(input_number('duration-mm'))
-    divTimingInputDurMM.style.marginRight = '4px'
-    const divTimingInputDurSS = divTimingDur.appendChild(input_number('duration-ss'))
+    const divTimingDurGridInputs = divTimingDur.appendChild(div())
+    divTimingDurGridInputs.classList.add('grid', 'grid-cols-2')
+    divTimingDurGridInputs.style.gap = '5px'
+    const divTimingInputDurMM = divTimingDurGridInputs.appendChild(input_number('duration-mm'))
+    const divTimingInputDurSS = divTimingDurGridInputs.appendChild(input_number('duration-ss'))
 
     // Timecode
     const divTimecode = divGrid.appendChild(div())
@@ -128,7 +134,7 @@ class Timing {
   }
 
   /**
-   * Set mosart timing info, like 'in' and 'duration', 
+   * Set mosart timing info, like 'in' and 'duration',
    * from vizrt payloadhosting.
    * @param {String} coValue Input value
    * @since 1.12
@@ -161,8 +167,8 @@ class Timing {
 
   /**
    * Join array (numbers) with leading zero.
-   * @param {array} array 
-   * @param {string} seperator (optional) 
+   * @param {array} array
+   * @param {string} seperator (optional)
    * @returns {string}
    * @since 1.12
    */
@@ -174,7 +180,7 @@ class Timing {
 
   /**
    * Limits a value to min = 0 or max = 59.
-   * @param {string} input Input value 
+   * @param {string} input Input value
    * @param {number} max Allowed maximum value (optional)
    * @returns {number}
    * @since 1.12
@@ -185,7 +191,7 @@ class Timing {
 
   /**
    * Leading zero.
-   * @param {string} number Input value 
+   * @param {string} number Input value
    * @param {number} size 2 = 02, 4 = 0002 (optional)
    * @returns {string}
    * @since 1.12

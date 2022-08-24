@@ -23,7 +23,8 @@ class Draggable {
    * @since 1.00
    * @instance
    */
-  static initialize (element) {
+  static initialize (element, id) {
+    element.setAttribute("id", id);
     const draggables = element.querySelectorAll('.dw-dnd')
     draggables.forEach((draggable, index) => {
       draggable.setAttribute('draggable', true)
@@ -46,6 +47,7 @@ class Draggable {
         const newIndex = index
         const draggables = draggable.closest('.dw-dnd__section').querySelectorAll('.dw-dnd')
 
+        console.log('drop ', draggables)
         const factor = newIndex > oldIndex ? 1 : -1
         const condition = newIndex > oldIndex ? (i) => i < newIndex : (i) => i > newIndex
 
@@ -54,18 +56,45 @@ class Draggable {
           const coElementsNext = draggables[i + factor].querySelectorAll('[data-co]')
 
           for (let i = 0; i < coElements.length; i++) {
-            if (vizrt.payloadhosting.isPayloadReady()) {
+            if (
+              vizrt && vizrt.payloadhosting &&
+              vizrt.payloadhosting.isPayloadReady()
+            ) {
               if (vizrt.payloadhosting.fieldExists(coElements[i].dataset.co)) {
-                if (vizrt.payloadhosting.getFieldMediaType(coElements[i].dataset.co) === 'application/atom+xml;type=entry;media=image') {
-                  const current = vizrt.payloadhosting.getFieldXml(coElements[i].dataset.co)
-                  const next = vizrt.payloadhosting.getFieldXml(coElementsNext[i].dataset.co)
-                  vizrt.payloadhosting.setFieldXml(coElements[i].dataset.co, next)
-                  vizrt.payloadhosting.setFieldXml(coElementsNext[i].dataset.co, current)
+                if (
+                  vizrt.payloadhosting.getFieldMediaType(
+                    coElements[i].dataset.co
+                  ) === "application/atom+xml;type=entry;media=image"
+                ) {
+                  const current = vizrt.payloadhosting.getFieldXml(
+                    coElements[i].dataset.co
+                  );
+                  const next = vizrt.payloadhosting.getFieldXml(
+                    coElementsNext[i].dataset.co
+                  );
+                  vizrt.payloadhosting.setFieldXml(
+                    coElements[i].dataset.co,
+                    next
+                  );
+                  vizrt.payloadhosting.setFieldXml(
+                    coElementsNext[i].dataset.co,
+                    current
+                  );
                 } else {
-                  const current = vizrt.payloadhosting.getFieldText(coElements[i].dataset.co)
-                  const next = vizrt.payloadhosting.getFieldText(coElementsNext[i].dataset.co)
-                  vizrt.payloadhosting.setFieldText(coElements[i].dataset.co, next)
-                  vizrt.payloadhosting.setFieldText(coElementsNext[i].dataset.co, current)
+                  const current = vizrt.payloadhosting.getFieldText(
+                    coElements[i].dataset.co
+                  );
+                  const next = vizrt.payloadhosting.getFieldText(
+                    coElementsNext[i].dataset.co
+                  );
+                  vizrt.payloadhosting.setFieldText(
+                    coElements[i].dataset.co,
+                    next
+                  );
+                  vizrt.payloadhosting.setFieldText(
+                    coElementsNext[i].dataset.co,
+                    current
+                  );
                 }
               }
             }

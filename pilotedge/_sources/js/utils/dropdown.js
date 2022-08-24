@@ -1,15 +1,16 @@
 /**
  * @file Provides functions for the styled drop downs.
  * @author v-sion GmbH <contact@v-sion.de>
- * @version 1.00
+ * @version 1.14
  */
 
 /* global Event */
-/* global MutationObserver */
 /* global Option */
 /* global nlw */
 
 console.debug('loading dropdown.js')
+
+const NLW_CACHE = {}
 
 /**
  * Dropdown class
@@ -41,11 +42,27 @@ export default Dropdown
 const createNLWOptions = (element) => {
   const table = element.dataset.nlwTable
 
-  const NLW = nlw.data
-  NLW.load(table)
-  if (NLW.error) {
-    console.log(NLW.error)
+  // Create an instance of the nlw object to handle different data sources
+  const NLW = Object.create(nlw.data)
+  NLW.error = false
+
+  // Use cache option to avoid loading the same data source several times
+  if (!NLW_CACHE.hasOwnProperty(table)) {
+    // Data request
+    NLW_CACHE[table] = {}
+    NLW.load(table)
+    if (NLW.error) {
+      console.log('Error loading data "' + table + '".')
+    } else {
+      NLW_CACHE[table] = NLW.worksheet()
+    }
   } else {
+    // Use cached data
+    NLW.data = NLW_CACHE[table]
+  }
+
+  // Fill drobdown option
+  if (NLW.error === false) {
     const data = {}
     let [keyType, keyIndex] = element.dataset.nlwKeys.split(':')
 

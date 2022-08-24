@@ -97,6 +97,9 @@ const databinding = async () => {
         const callbacks = Input.createBinding(element)
         newFieldCallback = callbacks.newFieldCallback
         newEventCallback = callbacks.newEventCallback
+      } else if (elementType === 'label') {
+        newFieldCallback = (value) => { element.value = value }
+        newEventCallback = (e) => { vizrt.payloadhosting.setFieldText(fieldPath, element.value) }
       } else if (elementType === 'checkbox') {
         newFieldCallback = (value) => { element.checked = value === 'true' }
         newEventCallback = (e) => { vizrt.payloadhosting.setFieldText(fieldPath, element.checked ? 'true' : 'false') }
