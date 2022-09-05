@@ -32,7 +32,7 @@
       <div class="field-group__label">Table</div>
       <div class="dw-dnd-wrapper">
         <div class="dw-dnd-head">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
           <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">Place</div>
           <div class="dw-dnd__cell w-[fit-content] flex-1">Flag</div>
           <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Driver</div>
@@ -43,7 +43,7 @@
           <!-- 1. ROW -->
           <div class="dw-dnd">
             <!-- HANDLE -->
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <!-- PLACE -->
@@ -93,7 +93,7 @@
           <!-- 2. ROW -->
           <div class="dw-dnd">
             <!-- HANDLE -->
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <!-- PLACE -->
@@ -144,7 +144,7 @@
           <!-- 3. ROW -->
           <div class="dw-dnd">
             <!-- HANDLE -->
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <!-- PLACE -->
@@ -195,7 +195,7 @@
           <!-- 4. ROW -->
           <div class="dw-dnd">
             <!-- HANDLE -->
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <!-- PLACE -->
@@ -250,7 +250,7 @@
         <pre class="language-markup"><code><!--
       <div class="dw-dnd-wrapper">
         <div class="dw-dnd-head">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
           <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">Place</div>
           <div class="dw-dnd__cell w-[fit-content] flex-1">Flag</div>
           <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Driver</div>
@@ -259,7 +259,7 @@
         </div>
         <div class="dw-dnd__section">
           <div class="dw-dnd">
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
@@ -302,7 +302,7 @@
             </div>
           </div>
           <div class="dw-dnd">
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
@@ -311,50 +311,6 @@
                 type="text"
                 class="form-input dw-direction-ltr"
               />
-            <div class="dw-dnd__cell w-[fit-content] flex-1">
-              <select
-                data-co=""
-                name="flagSelect"
-                class="dw-dropdown"
-                tabindex="3"
-                data-nlw-table="flags-with-single-path.db"
-                data-nlw-keys="column:A"
-                data-nlw-values="column:A"
-                data-nlw-start-index="1"
-                data-nlw-prefix="cell:D2"
-              >
-                <option value="" disabled selected>- Auswählen -</option>
-              </select>
-            </div>
-            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-              <input data-co="" type="text" class="form-input" />
-            </div>
-            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-              <input data-co="" type="text" class="form-input" />
-            </div>
-            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-              <div class="dw-quantity">
-                <input
-                  data-co=""
-                  type="number"
-                  class="form-input dw-input-number"
-                  min="0"
-                  max="9999"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="dw-dnd">
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-              <span class="dw-dnd__handle"></span>
-            </div>
-            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-              <input
-                data-co=""
-                type="text"
-                class="form-input dw-direction-ltr"
-              />
-            </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <select
                 data-co=""
@@ -389,7 +345,51 @@
             </div>
           </div>
           <div class="dw-dnd">
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <select
+                data-co=""
+                name="flagSelect"
+                class="dw-dropdown"
+                tabindex="3"
+                data-nlw-table="flags-with-single-path.db"
+                data-nlw-keys="column:A"
+                data-nlw-values="column:A"
+                data-nlw-start-index="1"
+                data-nlw-prefix="cell:D2"
+              >
+                <option value="" disabled selected>- Auswählen -</option>
+              </select>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
@@ -434,6 +434,1060 @@
           </div>
         </div>
       </div> --></code>
+          </pre>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Table mit multiline Element</div>
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+          <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">Place</div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">Flag</div>
+          <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Driver</div>
+          <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">Car</div>
+          <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">Points</div>
+        </div>
+        <div class="dw-dnd__section">
+          <!-- 1. ROW -->
+          <div class="dw-dnd">
+            <!-- HANDLE -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <!-- PLACE -->
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <!-- FLAG -->
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <textarea id="textarea-headline-text" class="dw-textarea" data-max-rows="2" title="multiline textarea" placeholder="Enter Text here..."></textarea>
+            </div>
+            <!-- Driver -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" value="Abc"/>
+            </div>
+            <!-- Car -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <!-- Points -->
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- 2. ROW -->
+          <div class="dw-dnd">
+            <!-- HANDLE -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <!-- PLACE -->
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <!-- FLAG -->
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <textarea id="textarea-headline-text" class="dw-textarea" data-max-rows="2" title="multiline textarea" placeholder="Enter Text here..."></textarea>
+            </div>
+            <!-- Driver -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input"  value="Def"/>
+            </div>
+            <!-- Car -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <!-- Points -->
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- 3. ROW -->
+          <div class="dw-dnd">
+            <!-- HANDLE -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <!-- PLACE -->
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <!-- FLAG -->
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <textarea id="textarea-headline-text" class="dw-textarea" data-max-rows="2" title="multiline textarea" placeholder="Enter Text here..."></textarea>
+            </div>
+            <!-- Driver -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input"  value="Ghi"/>
+            </div>
+            <!-- Car -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <!-- Points -->
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- 4. ROW -->
+          <div class="dw-dnd">
+            <!-- HANDLE -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <!-- PLACE -->
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <!-- FLAG -->
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <textarea id="textarea-headline-text" class="dw-textarea" data-max-rows="2" title="multiline textarea" placeholder="Enter Text here..."></textarea>
+            </div>
+            <!-- Driver -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input"  value="Jkl"/>
+            </div>
+            <!-- Car -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <!-- Points -->
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dw-code">
+        <pre class="language-markup"><code><!--
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+          <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">Place</div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">Flag</div>
+          <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Driver</div>
+          <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">Car</div>
+          <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">Points</div>
+        </div>
+        <div class="dw-dnd__section">
+         <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <textarea id="textarea-headline-text" class="dw-textarea" data-max-rows="2" title="multiline textarea" placeholder="Enter Text here..."></textarea>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" value="Abc"/>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <textarea id="textarea-headline-text" class="dw-textarea" data-max-rows="2" title="multiline textarea" placeholder="Enter Text here..."></textarea>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input"  value="Def"/>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <textarea id="textarea-headline-text" class="dw-textarea" data-max-rows="2" title="multiline textarea" placeholder="Enter Text here..."></textarea>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input"  value="Ghi"/>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <textarea id="textarea-headline-text" class="dw-textarea" data-max-rows="2" title="multiline textarea" placeholder="Enter Text here..."></textarea>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input"  value="Jkl"/>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> --></code>
+          </pre>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Table mit mehreren Zeilen</div>
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <div class="grid grid-cols-2 gap-2">
+                <div class="w-full">Label 1</div>
+                <div class="w-full">Label 2</div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Label 3</div>
+        </div>
+        <div class="dw-dnd__section">
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Headlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Addition"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Subheadlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Source: ..."
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Driver -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" value="Abc"/>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Headlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Addition"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Subheadlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Source: ..."
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Driver -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" value="Abc"/>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Headlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Addition"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Subheadlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Source: ..."
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Driver -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" value="Abc"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dw-code">
+        <pre class="language-markup"><code><!--
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <div class="grid grid-cols-2 gap-2">
+                <div class="w-full">Label 1</div>
+                <div class="w-full">Label 2</div>
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Label 3</div>
+        </div>
+        <div class="dw-dnd__section">
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Headlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Addition"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Subheadlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Source: ..."
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" value="Abc"/>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Headlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Addition"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Subheadlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Source: ..."
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" value="Abc"/>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid grid-cols-2 gap-2">
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Headlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Addition"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Subheadlines"
+                  />
+                </div>
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="form-input"
+                    value=""
+                    placeholder="Source: ..."
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" value="Abc"/>
+            </div>
+          </div>
+        </div>
+      </div>
+ --></code>
+          </pre>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Table mit Bild-Block in oberer Zeile</div>
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <div class="w-full">Label</div>
+          </div>
+        </div>
+        <div class="dw-dnd__section">
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <div class="dw-imgSelect" type="image" data-co="">
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Author filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Date filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <button class="dw-btn select">
+                    <span>Select image</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                      <path
+                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                        stroke="currentColor"
+                        fill="none"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <button class="dw-btn remove">
+                    <span>Delete image</span>
+                  </button>
+
+                  <div class="dw-imgThumb">
+                    <img
+                      src="../../_sources/images/placeholderThumb.png"
+                      alt="Thumb"
+                      width="35"
+                      height="35"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Headlines"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Addition"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <div class="dw-imgSelect" type="image" data-co="">
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Author filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Date filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <button class="dw-btn select">
+                    <span>Select image</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                      <path
+                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                        stroke="currentColor"
+                        fill="none"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <button class="dw-btn remove">
+                    <span>Delete image</span>
+                  </button>
+
+                  <div class="dw-imgThumb">
+                    <img
+                      src="../../_sources/images/placeholderThumb.png"
+                      alt="Thumb"
+                      width="35"
+                      height="35"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Headlines"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Addition"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <div class="dw-imgSelect" type="image" data-co="">
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Author filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Date filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <button class="dw-btn select">
+                    <span>Select image</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                      <path
+                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                        stroke="currentColor"
+                        fill="none"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <button class="dw-btn remove">
+                    <span>Delete image</span>
+                  </button>
+
+                  <div class="dw-imgThumb">
+                    <img
+                      src="../../_sources/images/placeholderThumb.png"
+                      alt="Thumb"
+                      width="35"
+                      height="35"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Headlines"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Addition"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dw-code">
+        <pre class="language-markup"><code><!--
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <div class="w-full">Label</div>
+          </div>
+        </div>
+        <div class="dw-dnd__section">
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <div class="dw-imgSelect" type="image" data-co="">
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Author filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Date filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <button class="dw-btn select">
+                    <span>Select image</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                      <path
+                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                        stroke="currentColor"
+                        fill="none"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <button class="dw-btn remove">
+                    <span>Delete image</span>
+                  </button>
+
+                  <div class="dw-imgThumb">
+                    <img
+                      src="../../_sources/images/placeholderThumb.png"
+                      alt="Thumb"
+                      width="35"
+                      height="35"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Headlines"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Addition"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <div class="dw-imgSelect" type="image" data-co="">
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Author filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Date filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <button class="dw-btn select">
+                    <span>Select image</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                      <path
+                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                        stroke="currentColor"
+                        fill="none"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <button class="dw-btn remove">
+                    <span>Delete image</span>
+                  </button>
+
+                  <div class="dw-imgThumb">
+                    <img
+                      src="../../_sources/images/placeholderThumb.png"
+                      alt="Thumb"
+                      width="35"
+                      height="35"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Headlines"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Addition"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <div class="dw-imgSelect" type="image" data-co="">
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Author filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <div>
+                      <label class="dw-label__input">Date filter</label>
+                      <input type="text" class="form-input" />
+                    </div>
+                  </div>
+
+                  <button class="dw-btn select">
+                    <span>Select image</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                      <path
+                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                        stroke="currentColor"
+                        fill="none"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  <button class="dw-btn remove">
+                    <span>Delete image</span>
+                  </button>
+
+                  <div class="dw-imgThumb">
+                    <img
+                      src="../../_sources/images/placeholderThumb.png"
+                      alt="Thumb"
+                      width="35"
+                      height="35"
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Headlines"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <input
+                      type="text"
+                      class="form-input"
+                      value=""
+                      placeholder="Addition"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ --></code>
           </pre>
       </div>
     </div>

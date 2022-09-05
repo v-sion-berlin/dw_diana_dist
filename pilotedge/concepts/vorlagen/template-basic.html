@@ -177,7 +177,7 @@
       <!-- Start of our table-->
       <div class="dw-dnd-wrapper">
         <div class="dw-dnd-head">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
           <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">Place</div>
           <div class="dw-dnd__cell w-[fit-content] flex-1">Flag</div>
           <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Driver</div>
@@ -188,7 +188,7 @@
           <!-- 1. ROW -->
           <div class="dw-dnd">
             <!-- HANDLE -->
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <!-- PLACE -->
@@ -240,7 +240,7 @@
           <!-- 2. ROW -->
           <div class="dw-dnd">
             <!-- HANDLE -->
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <!-- PLACE -->
@@ -293,7 +293,7 @@
           <!-- 3. ROW -->
           <div class="dw-dnd">
             <!-- HANDLE -->
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <!-- PLACE -->
@@ -346,7 +346,7 @@
           <!-- 4. ROW -->
           <div class="dw-dnd">
             <!-- HANDLE -->
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <!-- PLACE -->
@@ -404,7 +404,7 @@
       <pre class="language-markup"><code><!--
       <div class="dw-dnd-wrapper">
         <div class="dw-dnd-head">
-          <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]"></div>
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
           <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">Place</div>
           <div class="dw-dnd__cell w-[fit-content] flex-1">Flag</div>
           <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Driver</div>
@@ -413,7 +413,7 @@
         </div>
         <div class="dw-dnd__section">
           <div class="dw-dnd">
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
@@ -458,53 +458,7 @@
             </div>
           </div>
           <div class="dw-dnd">
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
-              <span class="dw-dnd__handle"></span>
-            </div>
-            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-              <input
-                data-co=""
-                type="text"
-                class="form-input dw-direction-ltr"
-              />
-            </div>
-            <div class="dw-dnd__cell w-[fit-content] flex-1">
-              <select
-                data-co=""
-                name="flagSelect"
-                class="dw-dropdown"
-                tabindex="3"
-                data-nlw-table="flags-with-single-path.db"
-                data-nlw-keys="column:A"
-                data-nlw-values="column:A"
-                data-nlw-start-index="1"
-                data-nlw-prefix="cell:D2"
-              >
-                <option value="" disabled selected>-- Please select --</option>
-              </select>
-            </div>
-            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-              <input data-co="" type="text" class="form-input" />
-            </div>
-            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-              <input data-co="" type="text" class="form-input" />
-            </div>
-            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-              <div class="dw-quantity">
-                <input
-                  data-co=""
-                  type="number"
-                  class="form-input dw-input-number"
-                  min="0"
-                  max="9999"
-                  value="0"
-                  data-scrubber
-                />
-              </div>
-            </div>
-          </div>
-          <div class="dw-dnd">
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
@@ -550,7 +504,53 @@
             </div>
           </div>
           <div class="dw-dnd">
-            <div class="dw-dnd__cell dw-dnd__handle-wrap w-[20px]">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input
+                data-co=""
+                type="text"
+                class="form-input dw-direction-ltr"
+              />
+            </div>
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <select
+                data-co=""
+                name="flagSelect"
+                class="dw-dropdown"
+                tabindex="3"
+                data-nlw-table="flags-with-single-path.db"
+                data-nlw-keys="column:A"
+                data-nlw-values="column:A"
+                data-nlw-start-index="1"
+                data-nlw-prefix="cell:D2"
+              >
+                <option value="" disabled selected>-- Please select --</option>
+              </select>
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                  value="0"
+                  data-scrubber
+                />
+              </div>
+            </div>
+          </div>
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
               <span class="dw-dnd__handle"></span>
             </div>
             <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
