@@ -10220,6 +10220,10 @@ input[type="number"] {
 	.dw_md\:w-\[100\%\] {
 		width: 100%;
 	}
+
+	.dw_md\:grid-cols-\[200px\2c 1fr\2c 60px\] {
+		grid-template-columns: 200px 1fr 60px;
+	}
 }
 @media (min-width: 640px) {
 
