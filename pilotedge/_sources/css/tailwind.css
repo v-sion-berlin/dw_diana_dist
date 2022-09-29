@@ -2028,6 +2028,9 @@ input[type="number"] {
 	--tw-text-opacity: 1;
 	color: rgba(92, 102, 110, var(--tw-text-opacity));
 }
+.dw-content {
+    min-height: 150px;
+  }
 .dw-footer {
 	position: relative;
 	display: block;
@@ -10223,6 +10226,10 @@ input[type="number"] {
 
 	.dw_md\:grid-cols-\[200px\2c 1fr\2c 60px\] {
 		grid-template-columns: 200px 1fr 60px;
+	}
+
+	.dw_md\:grid-cols-\[1fr\2c 60px\2c 60px\] {
+		grid-template-columns: 1fr 60px 60px;
 	}
 }
 @media (min-width: 640px) {
