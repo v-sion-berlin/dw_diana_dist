@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spacing example</title>
+    <!-- Default includes -->
+    <link
+      href="../../_sources/images/favicon.png"
+      rel="icon"
+      type="image/png"
+    />
+    <script src="../../_sources/js/utils/prism.js"></script>
+    <link href="../../_sources/css/prism.css" rel="stylesheet" />
+    <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
+    <script src="../../_sources/js/utils/dw.js" type="module"></script>
+    <script src="../../_sources/js/payloadhosting.js"></script>
+    <script src="../../_sources/js/utils/viz.js" type="module"></script>
+    <script src="../../_sources/js/nlw.js"></script>
+  </head>
+
+  <body>
+    <div class="dw-header">
+      <span>Spacing examples</span>
+    </div>
+
+    <span class="dw-alert dw-alert--info w-full">
+      Hier wird die Verwendung von padding und margin gezeigt.
+    </span>
+
+    <div class="field-group">
+      <div class="field-group__label">Padding</div>
+      <div class="bg-gray-02 flex flex-row">
+        <div class="pt-8 mr-4 w-auto bg-blue-light">pt-8 (padding-top)</div>
+        <div class="pr-8  mr-4 w-auto bg-blue-light">pr-8 (padding-right)</div>
+        <div class="pb-8  mr-4 w-auto bg-blue-light">pb-8 (padding-bottom)</div>
+        <div class="pl-8  mr-4 w-auto bg-blue-light">pl-8 (padding-left)</div>
+        <div class="pl-0 pr-0 pt-0 pb-0 mr-4 w-auto bg-blue-light">pl-0 pr-0 pt-0 pb-0 (padding-0 all sides)</div>
+        <div class="p-0 mr-4 w-auto bg-blue-light">p-0 (padding-0 all sides)</div>
+      </div>
+
+      <div class="dw-code"><pre class="language-markup"><code><!--<div class="bg-gray-02 flex flex-row">
+        <div class="pt-8 mr-4 w-auto bg-blue-light">pt-8 (padding-top)</div>
+        <div class="pr-8  mr-4 w-auto bg-blue-light">pr-8 (padding-right)</div>
+        <div class="pb-8  mr-4 w-auto bg-blue-light">pb-8 (padding-bottom)</div>
+        <div class="pl-8  mr-4 w-auto bg-blue-light">pl-8 (padding-left)</div>
+        <div class="pl-0 pr-0 pt-0 pb-0 mr-4 w-auto bg-blue-light">pl-0 pr-0 pt-0 pb-0 (padding-0 all sides)</div>
+        <div class="p-0 mr-4 w-auto bg-blue-light">p-0 (padding-0 all sides)</div>
+      </div>--></code></pre>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Margin</div>
+      <div class="bg-gray-02 flex flex-row">
+        <div class="mt-8 w-auto bg-blue-light">mt-8 (margin-top)</div>
+        <div class="mr-8  mr-4 w-auto bg-blue-light">mr-8 (margin-right)</div>
+        <div class="mb-8  mr-4 w-auto bg-blue-light">mb-8 (margin-bottom)</div>
+        <div class="ml-8  mr-4 w-auto bg-blue-light">ml-8 (margin-left)</div>
+        <div class="ml-0 mr-0 mt-0 mb-0 w-auto bg-blue-light">ml-0 mr-0 mt-0 mb-0 (margin-0 all sides)</div>
+        <div class="m-0 w-auto bg-blue-light">p-0 (margin-0 all sides)</div>
+      </div>
+
+      <div class="dw-code"><pre class="language-markup"><code><!--<div class="bg-gray-02 flex flex-row">
+        <div class="mt-8 w-auto bg-blue-light">mt-8 (margin-top)</div>
+        <div class="mr-8  mr-4 w-auto bg-blue-light">mr-8 (margin-right)</div>
+        <div class="mb-8  mr-4 w-auto bg-blue-light">mb-8 (margin-bottom)</div>
+        <div class="ml-8  mr-4 w-auto bg-blue-light">ml-8 (margin-left)</div>
+        <div class="ml-0 mr-0 mt-0 mb-0 w-auto bg-blue-light">ml-0 mr-0 mt-0 mb-0 (margin-0 all sides)</div>
+        <div class="m-0 w-auto bg-blue-light">p-0 (margin-0 all sides)</div>
+      </div>--></code></pre>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Padding Left Reset</div>
+       <div class="form-input-chips-wrapper pl-0" id="destination-container">
+            <div>
+                <label class="dw-label__section">Preview</label>
+                <div class="form-input-chips">
+
+                    <label>
+                        <input type="radio" value="0" name="destination">
+                        <span>Fullscreen</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" value="1" name="destination">
+                        <span>Videowall</span>
+                    </label>
+
+                </div>
+            </div>
+        </div>
+
+      <div class="dw-code"><pre class="language-markup"><code><!--<div class="form-input-chips-wrapper pl-0" id="destination-container">
+            <div>
+                <label class="dw-label__section">Preview</label>
+                <div class="form-input-chips">
+
+                    <label>
+                        <input type="radio" value="0" name="destination">
+                        <span>Fullscreen</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" value="1" name="destination">
+                        <span>Videowall</span>
+                    </label>
+
+                </div>
+            </div>
+        </div>--></code></pre>
+      </div>
+    </div>
+
+
+  </body>
+</html>
