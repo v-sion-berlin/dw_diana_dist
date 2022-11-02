@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image example</title>
+        <!-- Default includes -->
+        <script src="../../_sources/js/utils/prism.js"></script>
+        <link href="../../_sources/css/prism.css" rel="stylesheet" />
+        <link
+            href="../../_sources/images/favicon.png"
+            rel="icon"
+            type="image/png"
+            />
+        <link href="../../_sources/css/tailwind.css" rel="stylesheet" />
+        <script src="../../_sources/js/utils/dw.js" type="module"></script>
+        <script src="../../_sources/js/payloadhosting.js"></script>
+        <script src="../../_sources/js/utils/viz.js" type="module"></script>
+        <script src="../../_sources/js/nlw.js"></script>
+    </head>
+
+    <body>
+        <div class="dw-header">
+            <span>Image examples</span>
+        </div>
+
+        <span class="dw-alert dw-alert--info w-full">
+            This page shows the usage of the Image Selection Component.
+        </span>
+
+        <div class="field-group">
+            <div class="field-group bg-gray-02">
+                <label class="field-group__label">Image Selection Simple</label>
+                <div class="field-group">
+                    <div class="field-group__label">Image</div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="dw-imgSelect" type="image" data-co="">
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn select">
+                                    <span>Select image</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                                    <path
+                                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                                        stroke="currentColor"
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                    />
+                                    </svg>
+                                </button>
+                                <span class="dw-imgHint">1920px x 1080px</span>
+                            </div>
+                            <button class="dw-btn remove">
+                                <span>Delete image</span>
+                            </button>
+
+                            <div class="dw-imgThumb">
+                                <img
+                                    src="../../_sources/images/placeholderThumb.png"
+                                    alt="Thumb"
+                                    width="35"
+                                    height="35"
+                                    />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dw-code">
+                    <pre
+                        class="language-markup"><code><!-- <div class="grid grid-cols-2 gap-2">
+                    <div class="dw-imgSelect" type="image" data-co="">
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn select">
+                                <span>Select image</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                                <path
+                                    d="M12.45 7.571H1.95M7.2 2.214v10.714"
+                                    stroke="currentColor"
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                />
+                                </svg>
+                            </button>
+                            <span class="dw-imgHint">1920px x 1080px</span>
+                        </div>
+                        <button class="dw-btn remove">
+                            <span>Delete image</span>
+                        </button>
+
+                        <div class="dw-imgThumb">
+                            <img
+                                src="../../_sources/images/placeholderThumb.png"
+                                alt="Thumb"
+                                width="35"
+                                height="35"
+                                />
+                        </div>
+                    </div>
+                </div>--></code></pre>
+                </div>
+            </div>
+
+            <div class="field-group bg-gray-02">
+                <label class="field-group__label">Image Selection with Date Filter</label>
+                <div class="field-group">
+                    <div class="field-group__label">Image</div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="dw-imgSelect" type="image" data-co="">
+                            <div>
+                                <label class="dw-label__input">Date filter</label>
+                                <input type="text" class="form-input" />
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn select">
+                                    <span>Select image</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        width="15" height="15">
+                                        <path
+                                            d="M12.45 7.571H1.95M7.2
+                                            2.214v10.714"
+                                            stroke="currentColor"
+                                            fill="none"
+                                            fill-rule="evenodd"
+                                            />
+                                    </svg>
+                                </button>
+                                <span class="dw-imgHint">1920px x 1080px</span>
+                            </div>
+
+                            <button class="dw-btn remove">
+                                <span>Delete image</span>
+                            </button>
+
+                            <div class="dw-imgThumb">
+                                <img
+                                    src="../../_sources/images/placeholderThumb.png"
+                                    alt="Thumb"
+                                    width="35"
+                                    height="35"
+                                    />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dw-code">
+                        <pre
+                            class="language-markup"><code><!-- <div class="grid grid-cols-2 gap-2">
+                    <div class="dw-imgSelect" type="image" data-co="">
+                        <div>
+                            <label class="dw-label__input">Date filter</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn select">
+                                <span>Select image</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="15" height="15">
+                                    <path
+                                        d="M12.45 7.571H1.95M7.2
+                                        2.214v10.714"
+                                        stroke="currentColor"
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                        />
+                                </svg>
+                            </button>
+                            <span class="dw-imgHint">1920px x 1080px</span>
+                        </div>
+
+                        <button class="dw-btn remove">
+                            <span>Delete image</span>
+                        </button>
+
+                        <div class="dw-imgThumb">
+                            <img
+                                src="../../_sources/images/placeholderThumb.png"
+                                alt="Thumb"
+                                width="35"
+                                height="35"
+                                />
+                        </div>
+                    </div>
+                </div>--></code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-group bg-gray-02">
+                <label class="field-group__label">Image Selection - Button
+                    with additional information</label>
+                <div class="field-group">
+                    <div class="field-group__label">Image</div>
+                    <div class="dw-imgSelect" type="image" data-co="">
+                        <div>
+                            <label class="dw-label__input">Author filter</label>
+                            <input type="text" class="form-input" />
+                        </div>
+                        <div>
+                            <label class="dw-label__input">Date filter</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn select">
+                                <span>Select image</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="15" height="15">
+                                    <path
+                                        d="M12.45 7.571H1.95M7.2
+                                        2.214v10.714"
+                                        stroke="currentColor"
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                        />
+                                </svg>
+                            </button>
+                            <span class="dw-imgHint">Size: 100x100px</span>
+                        </div>
+
+                        <button class="dw-btn remove">
+                            <span>Delete image</span>
+                        </button>
+
+                        <div class="dw-imgThumb">
+                            <img
+                                src="../../_sources/images/placeholderThumb.png"
+                                alt="Thumb"
+                                width="35"
+                                height="35"
+                                />
+                        </div>
+                    </div>
+                    <div class="dw-code">
+                        <pre
+                            class="language-markup"><code><!-- <div class="dw-imgSelect" type="image" data-co="">
+                        <div>
+                            <label class="dw-label__input">Author filter</label>
+                            <input type="text" class="form-input" />
+                        </div>
+                        <div>
+                            <label class="dw-label__input">Date filter</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn select">
+                                <span>Select image</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="15" height="15">
+                                    <path
+                                        d="M12.45 7.571H1.95M7.2
+                                        2.214v10.714"
+                                        stroke="currentColor"
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                        />
+                                </svg>
+                            </button>
+                            <span class="dw-imgHint">Size: 100x100px</span>
+                        </div>
+
+                        <button class="dw-btn remove">
+                            <span>Delete image</span>
+                        </button>
+
+                        <div class="dw-imgThumb">
+                            <img
+                                src="../../_sources/images/placeholderThumb.png"
+                                alt="Thumb"
+                                width="35"
+                                height="35"
+                                />
+                        </div>
+                    </div>--></code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-group bg-gray-02">
+                <label class="field-group__label">Image Selection with 2 Filters and Date Filter</label>
+                <div class="field-group">
+                    <div class="field-group__label">Image</div>
+                    <div class="dw-imgSelect" type="image" data-co="">
+                        <div>
+                            <label class="dw-label__input">Filter 1</label>
+                            <input type="text" class="form-input" />
+                        </div>
+                        <div>
+                            <label class="dw-label__input">Filter 2</label>
+                            <input type="text" class="form-input" />
+                        </div>
+                        <div>
+                            <label class="dw-label__input">Date filter</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn select">
+                                <span>Select image</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="15" height="15">
+                                    <path
+                                        d="M12.45 7.571H1.95M7.2
+                                        2.214v10.714"
+                                        stroke="currentColor"
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                        />
+                                </svg>
+                            </button>
+                            <span class="dw-imgHint">Size: 100x100px</span>
+                        </div>
+
+                        <button class="dw-btn remove">
+                            <span>Delete image</span>
+                        </button>
+
+                        <div class="dw-imgThumb">
+                            <img
+                                src="../../_sources/images/placeholderThumb.png"
+                                alt="Thumb"
+                                width="35"
+                                height="35"
+                                />
+                        </div>
+                    </div>
+                    <div class="dw-code">
+                        <pre
+                            class="language-markup"><code><!-- <div class="dw-imgSelect" type="image" data-co="">
+                        <div>
+                            <label class="dw-label__input">Filter 1</label>
+                            <input type="text" class="form-input" />
+                        </div>
+                        <div>
+                            <label class="dw-label__input">Filter 2</label>
+                            <input type="text" class="form-input" />
+                        </div>
+                        <div>
+                            <label class="dw-label__input">Date filter</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn select">
+                                <span>Select image</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    width="15" height="15">
+                                    <path
+                                        d="M12.45 7.571H1.95M7.2
+                                        2.214v10.714"
+                                        stroke="currentColor"
+                                        fill="none"
+                                        fill-rule="evenodd"
+                                        />
+                                </svg>
+                            </button>
+                            <span class="dw-imgHint">Size: 100x100px</span>
+                        </div>
+
+                        <button class="dw-btn remove">
+                            <span>Delete image</span>
+                        </button>
+
+                        <div class="dw-imgThumb">
+                            <img
+                                src="../../_sources/images/placeholderThumb.png"
+                                alt="Thumb"
+                                width="35"
+                                height="35"
+                                />
+                        </div>
+                    </div>--></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </body>
+    </html>
