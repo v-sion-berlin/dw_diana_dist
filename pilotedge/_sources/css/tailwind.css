@@ -1183,7 +1183,9 @@ textarea.dw-textarea:disabled:focus, .form-input:disabled:focus {
 .form-input-icon {
     position: absolute;
     left: 12px;
-    top: 11px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
 .dw-direction-rtl .form-input-with-icon-wrap .form-input {
 	padding-left: 1rem;
@@ -10306,6 +10308,10 @@ input[type="number"] {
 
 	.sm\:w-\[135px\] {
 		width: 135px;
+	}
+
+	.sm\:w-\[155px\] {
+		width: 155px;
 	}
 
 	.sm\:grid-cols-2 {
