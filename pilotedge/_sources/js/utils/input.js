@@ -2,7 +2,7 @@
  * @file This file contains all functions needed to enhance input html
  * controls, like text inputs, number inputs, date inputs, textareas...
  * @author v-sion GmbH <contact@v-sion.de>
- * @version 1.10
+ * @version 1.00
  */
 
 /**
@@ -72,8 +72,11 @@ class Input {
       createScrubber(element)
     }
 
-    if (element.value) {
-      setDefaultOnDoubleClick(element)
+    if (
+      element.value &&
+      !element.parentNode.classList.contains("dw-quantity")
+    ) {
+      setDefaultOnDoubleClick(element);
     }
 
     if (element.getAttribute('type') === 'text' && element.hasAttribute('maxlength')) {

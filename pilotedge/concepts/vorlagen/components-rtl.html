@@ -155,7 +155,7 @@
           <label class="dw-label__input">Label</label>
           <input data-co="" type="text" class="form-input" />
           <span class="dw-alert"
-            >You can leave this field blank if you don't need it.</span
+            >Optional</span
           >
         </div>
         <div class="dw-code">
@@ -164,7 +164,7 @@
           ><code><!-- <label class="dw-label__input">Label</label>
 <input data-co="" type="text" class="form-input" />
 <span class="dw-alert"
-  >You can leave this field blank if you don't need it.</span
+  >Optional</span
 > --></code>
           </pre>
         </div>
@@ -217,7 +217,6 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
               value="1"
               min="0"
               max="9999"
-              data-scrubber
             />
           </div>
         </div>
@@ -234,7 +233,6 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
     value="1"
     min="0"
     max="9999"
-    data-scrubber
   />
 </div> --></code>
           </pre>
@@ -416,27 +414,27 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
           <label class="field-group__label">Choice Chips</label>
           <div class="form-input-chips">
             <label>
-              <input data-co="" type="radio" name="language" checked />
-              <span>Left to right</span>
+              <input data-co="" type="radio" name="language" checked/>
+              <span tabindex=0>Left to right</span>
             </label>
 
             <label>
               <input data-co="" type="radio" name="language" />
-              <span>Right to left</span>
+              <span tabindex=0>Right to left</span>
             </label>
           </div>
         <div class="dw-code">
             <pre class="language-markup"><code><!-- <div class="form-input-chips">
-  <label>
-    <input data-co="" type="radio" name="language" checked />
-    <span>Left to right</span>
-  </label>
+            <label>
+              <input data-co="" type="radio" name="language" checked/>
+              <span tabindex=0>Left to right</span>
+            </label>
 
-  <label>
-    <input data-co="" type="radio" name="language" />
-    <span>Right to left</span>
-  </label>
-</div> --></code>
+            <label>
+              <input data-co="" type="radio" name="language" />
+              <span tabindex=0>Right to left</span>
+            </label>
+          </div> --></code>
               </pre>
           </div>
       </div>
@@ -824,7 +822,7 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
               min="0"
               max="100"
             />
-            <input type="text" class="form-input rangeValue" data-scrubber />
+            <input type="text" class="form-input rangeValue"/>
           </div>
         </label>
       </div>
@@ -842,7 +840,7 @@ Lorem ipsum dolor amet Lorem ipsum dolor amet</textarea
         min="0"
         max="100"
       />
-      <input type="text" class="form-input rangeValue" data-scrubber />
+      <input type="text" class="form-input rangeValue" />
     </div>
   </label>
 </div> --></code>
