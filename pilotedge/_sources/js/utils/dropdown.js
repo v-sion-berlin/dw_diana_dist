@@ -4,8 +4,7 @@
  * @version 1.14
  */
 
-/* global Event */
-/* global Option */
+/* global CustomEvent, Event, Option */
 /* global nlw */
 
 console.debug('loading dropdown.js')
@@ -34,6 +33,8 @@ class Dropdown {
     if (element.parentNode.classList.contains('dw-colorDropdown')) {
       initializeColorDropdown(element)
     }
+
+    document.addEventListener('vizPayloadReady', () => element.dispatchEvent(new CustomEvent('change', { detail: 'dw.js' })), { once: true })
   }
 }
 

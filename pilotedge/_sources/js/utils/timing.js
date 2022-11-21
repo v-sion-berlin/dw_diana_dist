@@ -1,8 +1,8 @@
 /**
  * @file Adds a timing section with offset and duration (mosart).
- * Simply use <div class="dw-mosart-info"></div> and make sure
- * there is an co-object named 'mosart-info'.
- * @author Deutsche Welle <gunnar.steffen@dw.com>
+ * Simply use <div class="dw-ram-duration"></div> and make sure
+ * there is an co-object named 'ram-duration'.
+ * @author Deutsche Welle <mps-gs@dw.com>
  * @version 1.13
  */
 
@@ -11,7 +11,7 @@
 
 console.debug('loading timing.js')
 
-const TIMING_CO_FIELD = 'mosart-info'
+const TIMING_CO_FIELD = 'ram-duration'
 const TIMING_SEPERATOR = '|'
 
 /**

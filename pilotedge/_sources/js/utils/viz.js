@@ -19,6 +19,9 @@ console.debug('loading viz.js')
  * @instance
  */
 const generateAutoTitle = () => {
+  // It cause problems, if both functions are used
+  if (window.generateAutoTitles) return
+
   if (typeof window.generateAutoTitle !== 'undefined') {
     setTimeout(() => {
       vizrt.payloadhosting.setFieldText('-auto-generated-title', window.generateAutoTitle())
@@ -31,6 +34,198 @@ const generateAutoTitle = () => {
 // one that is injected by us into the payloadhosting.js.
 window.addEventListener('payloadChanged', generateAutoTitle)
 vizrt.payloadhosting.addEventListener('payloadchange', generateAutoTitle)
+
+/**
+ * Generates the auto titles if a script has defined this function with name
+ * window.generateAutoTitles().
+ * 
+ * Fields / keys:
+ * - '-auto-generated-title'      (string|array)
+ * - 'ram-title'                  (string|array)
+ * - 'ram-continue-points'        (string|integer)
+ * 
+ * Possible values:
+ * - 'FS Sports Rankings'         = Plain text
+ * - '3'                          = String number
+ * -  2                           = Integer
+ * - '{GraphicType}'              = Control object field
+ * - '{GLobals/GraphicType}'      = Stagged control object field
+ * - '[data-co="Headline"]'       = Query selector
+ * - 'input[data-co="Headline"]'  = Query selector
+ * - '||'                         = Seperator one (template title)
+ * - '|'                          = Seperator two (significant template content)
+ * 
+ * Usage:
+ * template title || significant template content | significant template content...
+ * 
+ * @author Deutsche Welle <mps-gs@dw.com>
+ * @since 1.17
+ * @instance
+ */
+const generateAutoTitles = () => {
+  if (typeof window.generateAutoTitles !== 'undefined') {
+    setTimeout(() => {
+      // Needed to change the seperators for all
+      // title fields if necessary
+      const SEPERATOR_ONE_MATCH = '||'
+      const SEPERATOR_ONE = '||'
+      const SEPERATOR_TWO_MATCH = '|'
+      const SEPERATOR_TWO = '|'
+      // Not allowed character in passed object array values will removed
+      const REMOVE_CHARACTER = /\|/g
+
+      const titleObject = window.generateAutoTitles()
+      if (!titleObject || typeof titleObject != 'object') return
+
+      const getTitle = (strArray) => {     
+        let out = []
+        
+        const arrayRemoveSeperatorNotNeeded = (strArray, seperator) => {
+          let nextItemIsSeperator = false
+          let out = []
+          let i = 0
+
+          strArray.forEach(item => {
+            if (item === seperator && !nextItemIsSeperator) {
+              out.push(item)
+              if (i < strArray.length && strArray[i+1] === seperator) nextItemIsSeperator = true
+            } else if (item === seperator && nextItemIsSeperator) {
+              if (i < strArray.length && strArray[i+1] !== seperator) nextItemIsSeperator = false
+            } else if (item !== seperator) {
+              out.push(item)
+            }
+            i++
+          })
+          if (out[out.length-1] === seperator) out.pop()
+          return out
+        }
+
+        const isCoObject = (str) => {
+          let pattern = /^\{(.+)\}$/
+          return pattern.test(str)
+        }
+
+        const isSelector = (str) => {
+          let pattern = /\[(.+)\]$/
+          // Looks like selector, double check
+          if (pattern.test(str)) {
+            let pattern = /\[([^)]+)\]/
+            let matches = pattern.exec(str)
+            // Check for special character between brackets
+            if (matches.length > 0) {
+              let pattern = /[`^*$=\-'"]/
+              let subStringBetweenBrackets = matches[1]
+              return pattern.test(subStringBetweenBrackets)
+            }
+          }
+          return false
+        }
+
+        const isSeperator = (str, seperator) => {
+          return (typeof str === 'string' && str === seperator) ? true : false
+        }
+
+        const stringRemoveNotAllowedChr = (str, pattern = REMOVE_CHARACTER) => {
+          return str.replace(pattern, '').trim()
+        }
+
+        const stringToArray = (array) => {
+          return (Array.isArray(array)) ? array : [array]
+        }
+
+        // If string is passed, convert to array
+        strArray = stringToArray(strArray)
+        strArray.forEach(item => {
+          // Co objects
+          if (isCoObject(item)) {
+            item = item.replace(/\{/g, '').replace(/\}/g, '')
+            if (vizrt.payloadhosting.fieldExists(item)) {
+              let coValue = vizrt.payloadhosting.getFieldText(item)
+              // Image?
+              if (!coValue) {
+                let xml = vizrt.payloadhosting.getFieldXml(item)
+                if (xml) {
+                  let title = xml.querySelector('title')?.innerHTML
+                  coValue = (title && title.trim() !== '') ? (title.substring(0, title.lastIndexOf('.')) || title) : ''
+                }
+              }
+              if (coValue !== null && coValue.trim() !== '') out.push(stringRemoveNotAllowedChr(coValue))
+            }
+          // Selector
+          } else if (isSelector(item)) {
+            var element = document.querySelector(item)
+            if (element !== null) {
+              let elementType = element?.getAttribute('type')
+              if (!elementType) {
+                elementType = element.tagName.toLowerCase()
+              }
+              // Checkbox
+              if (elementType === 'checkbox') {
+                let label = element.parentElement?.querySelector('label')?.innerHTML
+                let state = element.checked ? 'selected' : 'unselected'
+                out.push((label && label.trim() !== '') ? stringRemoveNotAllowedChr(label + ' : ' + state) : state)
+              // Radiobutton
+              } else if (elementType === 'radio') {
+                let elements = document.querySelectorAll(item)
+                elements.forEach(radiobutton => {
+                  if (radiobutton.checked) {
+                    let text = radiobutton.parentElement?.querySelector('span')?.innerHTML
+                    out.push((text && text.trim() !== '') ? stringRemoveNotAllowedChr(text) : radiobutton.value)
+                  }    
+                })
+              // Select
+              } else if (elementType === 'select') {
+                let text = element.options[element.selectedIndex].text
+                out.push(stringRemoveNotAllowedChr(text))
+              // Image
+              } else if (elementType === 'image') {
+                console.log('generateAutoTitles() ::', 'Error: Query selector "' + item + '" not supported. Use co object instead.')
+              // other
+              } else {
+                if (element.value.trim() !== '') out.push(stringRemoveNotAllowedChr(element.value))
+              }
+            }
+          // Seperator one
+          } else if (isSeperator(item, SEPERATOR_ONE_MATCH)) {
+            out.push(SEPERATOR_ONE)
+          // Seperator two
+          } else if (isSeperator(item, SEPERATOR_TWO_MATCH)) {
+            out.push(SEPERATOR_TWO)
+          // Plain text
+          } else {
+            if (String(item).trim() !== '') out.push(stringRemoveNotAllowedChr(String(item)))
+          }
+        })
+        out = arrayRemoveSeperatorNotNeeded(out, SEPERATOR_ONE)
+        out = arrayRemoveSeperatorNotNeeded(out, SEPERATOR_TWO)
+        return out.join(' ')
+      }
+
+      const setFieldText = (titleObject, fieldName, acceptedTitle = 'text', defaultTitle = '') => {
+        if (titleObject.hasOwnProperty(fieldName)) {
+          if (vizrt.payloadhosting.fieldExists(fieldName)) {
+            let title = getTitle(titleObject[fieldName])
+            if (acceptedTitle === 'text') {
+              vizrt.payloadhosting.setFieldText(fieldName, title)
+            } else if (acceptedTitle === 'number') {
+              vizrt.payloadhosting.setFieldText(fieldName, (!isNaN(parseInt(title))) ? parseInt(title) : defaultTitle)
+            }
+          }    
+        }
+      }
+
+      setFieldText(titleObject, '-auto-generated-title')
+      setFieldText(titleObject, 'ram-title')
+      setFieldText(titleObject, 'ram-continue-points', 'number', '0')
+    }, 100)
+  }
+}
+
+// We want to create new auto titles every time the payload changes. The
+// callback given by viz doesn't fire on every change, so we need a second
+// one that is injected by us into the payloadhosting.js.
+window.addEventListener('payloadChanged', generateAutoTitles)
+vizrt.payloadhosting.addEventListener('payloadchange', generateAutoTitles)
 
 /**
  * Initializes viz. Uses all defined fieldValueCallbacks and injects a little

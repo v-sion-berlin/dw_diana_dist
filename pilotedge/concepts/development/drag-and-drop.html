@@ -24,385 +24,133 @@
     <div class="field-group__label">Tabelle</div>
   </div>
 
-  <div class="dw-dnd-wrapper w-full">
-    <div class="dw-dnd-head w-full">
-      <div class="dw-dnd__cell dw-dnd__handle-wrap">
-        <!-- HANDLE -->
+  <div class="field-group">
+    <div class="grid grid-cols-1 gap-2">
+      <div name="Line1">
+        <label class="dw-label__input">Insert Line 1</label>
+        <input id="Line1Input" type="text" class="form-input font-large" data-co="InsertLine1" />
       </div>
-      <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">Place</div>
-      <!-- <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]"></div> -->
-      <div class="dw-dnd__cell w-[fit-content] flex-1">Flag</div>
-      <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Driver</div>
-      <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">Car</div>
-      <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">Points</div>
     </div>
-    <div class="dw-dnd__section w-full">
-      <!-- 1. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="101" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="102" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="103" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="104" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="105" type="number" class="form-input dw-input-number" min="0" max="9999" data-scrubber />
+  </div>
+
+  <div class="field-group">
+    <div class="dw-dnd-wrapper">
+      <div class="dw-dnd-head">
+        <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+        <div class="dw-dnd__cell w-[fit-content] flex-1">Name</div>
+        <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">Wert</div>
+        <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">Farbe</div>
+        <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">Pause</div>
+        <div class="dw-dnd__cell dw_md:w-[290px] w-[95px]">Verschiebung</div>
+      </div>
+
+      <div class="dw-dnd__section">
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Colours/row1">
+                <option value="" disabled selected>
+                  -- Please select --
+                </option>
+                <option data-color="#ff0000">Red</option>
+                <option data-color="#f0f">Magenta</option>
+                <option data-color="#ff0">Yellow</option>
+                <option data-color="blue">Blue</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- 2. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="201" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="202" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="203" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="204" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="205" type="number" class="form-input dw-input-number" min="0" max="9999" />
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Colours/row2">
+                <option value="" disabled selected>
+                  -- Please select --
+                </option>
+                <option data-color="#ff0000">Red</option>
+                <option data-color="#f0f">Magenta</option>
+                <option data-color="#ff0">Yellow</option>
+                <option data-color="blue">Blue</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- 3. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="301" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="302" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="303" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="304" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="305" type="number" class="form-input dw-input-number" min="0" max="9999" />
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap">
+            <span class="dw-dnd__handle"></span>
+          </div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
+          </div>
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Colours/row3">
+                <option value="" disabled selected>
+                  -- Please select --
+                </option>
+                <option data-color="#ff0000">Red</option>
+                <option data-color="#f0f">Magenta</option>
+                <option data-color="#ff0">Yellow</option>
+                <option data-color="blue">Blue</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- 4. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="401" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="402" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="403" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="404" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="405" type="number" class="form-input dw-input-number" min="0" max="9999" />
+        <div class="dw-dnd">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap">
+            <span class="dw-dnd__handle"></span>
           </div>
-        </div>
-      </div>
-      <!-- 5. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="501" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="502" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="503" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="504" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="505" type="number" class="form-input dw-input-number" min="0" max="9999" />
+          <div class="dw-dnd__cell w-[fit-content] flex-1">
+            <input type="text" class="form-input" title="lorem ipsum" />
           </div>
-        </div>
-      </div>
-      <!-- 6. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="601" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="602" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="603" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="604" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="605" type="number" class="form-input dw-input-number" min="0" max="9999" />
+          <div class="dw-dnd__cell dw_md:w-[173px] w-[65px]">
+            <div class="dw-quantity">
+              <input type="number" class="form-input dw-input-number" placeholder="" value="1" min="0" max="9999" title="lorem ipsum" />
+            </div>
           </div>
-        </div>
-      </div>
-      <!-- 7. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="701" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="702" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="703" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="704" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="705" type="number" class="form-input dw-input-number" min="0" max="9999" />
-          </div>
-        </div>
-      </div>
-      <!-- 8. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="801" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="802" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="803" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="804" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="805" type="number" class="form-input dw-input-number" min="0" max="9999" />
-          </div>
-        </div>
-      </div>
-      <!-- 9. ROW -->
-      <div class="dw-dnd w-full">
-        <!-- HANDLE -->
-        <div class="dw-dnd__cell dw-dnd__handle-wrap">
-          <span class="dw-dnd__handle"></span>
-        </div>
-        <!-- PLACE -->
-        <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
-          <input data-co="901" type="text" class="form-input " />
-        </div>
-        <!--
-        <div class="dw-dnd__cell dw_md:w-[95px] w-[48px]">
-          <select class="dw-dropdown" tabindex="2">
-            <option value="" disabled selected>...</option>
-            <option>&uarr;</option>
-            <option>&darr;</option>
-            <option>&middot;&middot;&middot;</option>
-          </select>
-        </div>
-        -->
-        <!-- FLAG -->
-        <div class="dw-dnd__cell w-[fit-content] flex-1">
-          <select data-co="902" name="flagSelect" class="dw-dropdown" tabindex="3" data-nlw-table="flags-with-single-path.db" data-nlw-keys="column:A" data-nlw-values="column:A" data-nlw-start-index="1" data-nlw-prefix="cell:D2">
-            <option value="" disabled selected>- Auswählen -</option>
-          </select>
-        </div>
-        <!-- Driver -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
-          <input data-co="903" type="text" class="form-input" />
-        </div>
-        <!-- Car -->
-        <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
-          <input data-co="904" type="text" class="form-input" />
-        </div>
-        <!-- Points -->
-        <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
-          <div class="dw-quantity">
-            <input data-co="905" type="number" class="form-input dw-input-number" min="0" max="9999" />
+          <div class="dw-dnd__cell dw_md:w-[207px] w-[80px]">
+            <div class="dw-colorDropdown">
+              <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Colours/row4">
+                <option value="" disabled selected>
+                  -- Please select --
+                </option>
+                <option data-color="#ff0000">Red</option>
+                <option data-color="#f0f">Magenta</option>
+                <option data-color="#ff0">Yellow</option>
+                <option data-color="blue">Blue</option>
+              </select>
+              <div class="dw-colorIndicator"></div>
+            </div>
           </div>
         </div>
       </div>

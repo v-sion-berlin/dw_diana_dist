@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To the Point - FS Image</title>
+  <!-- Default includes -->
+  <link href="../../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../../_sources/js/payloadhosting.js"></script>
+  <script src="../../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../../_sources/js/nlw.js"></script>
+  <script>
+    window.generateAutoTitle = () => {
+      const [show, graphicType, graphicName] = window.location.pathname.split('/').pop().split('-')
+      return `${show.toUpperCase()} ${window.capitalize(graphicType)} ${window.capitalize(graphicName)}`
+    }
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../Sources/images/Header.png" title="TOPO" />
+    <span class="text-white">FS Image</span>
+  </div>
+
+  <div id="direction-switch">
+    <div class="field-group">
+      <div class="field-group__label">Image</div>
+
+      <div class="dw-imgSelect" type="image" data-co="Image">
+        <div>
+          <div>
+            <label class="dw-label__input">Author Filter</label>
+            <input type="text" class="form-input" />
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <label class="dw-label__input">Date Filter</label>
+            <input type="text" class="form-input" />
+          </div>
+        </div>
+
+        <button class="dw-btn select">
+          <span>Select Image</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+            <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
+          </svg>
+        </button>
+
+        <button class="dw-btn remove">
+          <span>Delete Image</span>
+        </button>
+
+        <div class="dw-imgThumb">
+          <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+</body>
+
+</html>

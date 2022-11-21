@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euromaxx - Ins Credits</title>
+  <!-- Default includes -->
+  <link href="../../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../../_sources/js/payloadhosting.js"></script>
+  <script src="../../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../../_sources/js/nlw.js"></script>
+  <script src="../Sources/JS/emxx-nlw.js"></script>
+  <script>
+    /* global Event */
+    /* global vizrt */
+    /* global initializeNLWData, NLW_PROPERTIES */
+    let nlwData = {}
+
+    window.generateAutoTitle = () => {
+      const title = document.title.replace('Euromaxx', 'EMXX')
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      return `${title.replace('-', language)}`
+    }
+
+    const panelNumbering = () => {
+      const panelNumbers = [1, 2, 3, 4]
+
+      if (document.querySelector('[data-co="LeaveOut2_CREDIT"]:checked').value === '1') {
+        panelNumbers[2]--
+        panelNumbers[3]--
+      }
+
+      if (document.querySelector('[data-co="LeaveOut3_CREDIT"]:checked').value === '1') {
+        panelNumbers[3]--
+      }
+
+      panelNumbers.forEach((number, i) => {
+        const panelLabel = document.querySelector(`#Panel${i + 1} .field-group__label`)
+        panelLabel.textContent = 'Panel ' + number + ' (' + panelLabel.getAttribute('name') + ')'
+      })
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      nlwData = initializeNLWData()
+
+      const sponsorsOptions = document.querySelectorAll('[data-co="LeaveOut2_CREDIT"]')
+      const sponsorenPanel = document.querySelector('#Panel2')
+      const thanksOptions = document.querySelectorAll('[data-co="LeaveOut3_CREDIT"]')
+      const thanksPanel = document.querySelector('#Panel3')
+
+      const EMPTY_IMAGE_PATH = 'IMAGE*/GRAPHICS/GLOBALS/TEXTURES/empty'
+      const Logo1ArabicSelect = document.querySelector('[data-co="SponsorArabic1"]')
+      const Logo2ArabicSelect = document.querySelector('[data-co="SponsorArabic2"]')
+      const Logo3ArabicSelect = document.querySelector('[data-co="SponsorArabic3"]')
+      const Logo1LatinSelect = document.querySelector('[data-co="SponsorLatin1"]')
+      const Logo2LatinSelect = document.querySelector('[data-co="SponsorLatin2"]')
+      const Logo3LatinSelect = document.querySelector('[data-co="SponsorLatin3"]')
+
+      document.querySelectorAll('[value="please_select"]').forEach(option => { option.value = EMPTY_IMAGE_PATH })
+
+      sponsorsOptions.forEach((option) => option.addEventListener('click', (event) => {
+        sponsorenPanel.dataset.visible = event.target.value === '0'
+        panelNumbering()
+      }))
+
+      thanksOptions.forEach((option) => option.addEventListener('click', (event) => {
+        thanksPanel.dataset.visible = event.target.value === '0'
+        panelNumbering()
+      }))
+
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const translationlanguage = 'English'
+      const function1Label = document.querySelector('[data-co="Function1"]')
+      function1Label.innerHTML = nlwData[translationlanguage][NLW_PROPERTIES.PRODUCERS]
+      const function2Label = document.querySelector('[data-co="Function2"]')
+      function2Label.innerHTML = nlwData[translationlanguage][NLW_PROPERTIES.DIRECTOR]
+      const function3Label = document.querySelector('[data-co="Function3"]')
+      const executiveProducerFunctionTranslation = nlwData[translationlanguage][NLW_PROPERTIES.EXECUTIVE_PRODUCERS].split(/\s*=\s*/)[0]
+      function3Label.innerHTML = executiveProducerFunctionTranslation
+      const sponsorsLineLabel = document.querySelector('[data-co="SponsorsLine"]')
+      sponsorsLineLabel.innerHTML = nlwData[translationlanguage][NLW_PROPERTIES.WARDROBE]
+      const supportLinesLabel = document.querySelector('[data-co="SupportLines"]')
+      supportLinesLabel.innerHTML = nlwData[translationlanguage][NLW_PROPERTIES.THANKS].split(/\s*\|\s*/).join('\n')
+      const linksLinesLabel = document.querySelector('[data-co="LinksLines"]')
+
+      languageSelector.addEventListener('change', (event) => {
+        const language = languageSelector[languageSelector.selectedIndex].text
+        function1Label.value = nlwData[language][NLW_PROPERTIES.PRODUCERS]
+        function1Label.dispatchEvent(new Event('input'))
+        function2Label.value = nlwData[language][NLW_PROPERTIES.DIRECTOR]
+        function2Label.dispatchEvent(new Event('input'))
+        const [executiveProducerFunction, executiveProducerNames] = nlwData[language][NLW_PROPERTIES.EXECUTIVE_PRODUCERS].split(/\s*=\s*/)
+        function3Label.value = executiveProducerFunction
+        function3Label.dispatchEvent(new Event('input'))
+
+        if (event.detail !== 'dw.js') {
+          const [executiveProducerName1, executiveProducerName2] = executiveProducerNames?.split(/\s*\|\s*/) || ['', '']
+          document.querySelector('[data-co="Function3Name1"]').value = executiveProducerName1
+          document.querySelector('[data-co="Function3Name1"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Function3Name2"]').value = executiveProducerName2
+          document.querySelector('[data-co="Function3Name2"]').dispatchEvent(new Event('input'))
+        }
+
+        sponsorsLineLabel.value = nlwData[language][NLW_PROPERTIES.WARDROBE]
+        sponsorsLineLabel.dispatchEvent(new Event('input'))
+        supportLinesLabel.value = nlwData[language][NLW_PROPERTIES.THANKS].split(/\s*\|\s*/).join('\n')
+        supportLinesLabel.dispatchEvent(new Event('input'))
+
+        linksLinesLabel.innerHTML = nlwData[language][NLW_PROPERTIES.SOCIAL_MEDIA].split(/\s*\|\s*/).join('\n')
+        linksLinesLabel.value = nlwData[language][NLW_PROPERTIES.SOCIAL_MEDIA].split(/\s*\|\s*/).join('\n')
+        linksLinesLabel.dispatchEvent(new Event('input'))
+
+        const sponsorsArabic = document.querySelectorAll('[name="SponsorsArabic"]')
+        const sponsorsLatin = document.querySelectorAll('[name="SponsorsLatin"]')
+
+        // hide sponsor logo dropdowns depending on language
+        sponsorsLatin.forEach((sponsor) => { sponsor.dataset.visible = language !== 'Arabic' })
+        sponsorsArabic.forEach((sponsor) => { sponsor.dataset.visible = language === 'Arabic' })
+
+        if (language === 'Arabic') {
+          // change Logos after each Language Change
+          Logo1ArabicSelect.dispatchEvent(new Event('change'))
+          Logo2ArabicSelect.dispatchEvent(new Event('change'))
+          Logo3ArabicSelect.dispatchEvent(new Event('change'))
+        } else {
+          // change Logos after each Language Change
+          Logo1LatinSelect.dispatchEvent(new Event('change'))
+          Logo2LatinSelect.dispatchEvent(new Event('change'))
+          Logo3LatinSelect.dispatchEvent(new Event('change'))
+        }
+      })
+
+      // Event Listeners for Logo Dropdowns
+      Logo1ArabicSelect.addEventListener('change', (event) => {
+        vizrt.payloadhosting.setFieldText('Logo1', vizrt.payloadhosting.getFieldText('SponsorArabic1'))
+      })
+      Logo2ArabicSelect.addEventListener('change', (event) => {
+        vizrt.payloadhosting.setFieldText('Logo2', vizrt.payloadhosting.getFieldText('SponsorArabic2'))
+      })
+      Logo3ArabicSelect.addEventListener('change', (event) => {
+        vizrt.payloadhosting.setFieldText('Logo3', vizrt.payloadhosting.getFieldText('SponsorArabic3'))
+      })
+
+      Logo1LatinSelect.addEventListener('change', (event) => {
+        vizrt.payloadhosting.setFieldText('Logo1', vizrt.payloadhosting.getFieldText('SponsorLatin1'))
+      })
+      Logo2LatinSelect.addEventListener('change', (event) => {
+        vizrt.payloadhosting.setFieldText('Logo2', vizrt.payloadhosting.getFieldText('SponsorLatin2'))
+      })
+      Logo3LatinSelect.addEventListener('change', (event) => {
+        vizrt.payloadhosting.setFieldText('Logo3', vizrt.payloadhosting.getFieldText('SponsorLatin3'))
+      })
+
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="LeaveOut2_CREDIT"]:checked').dispatchEvent(new Event('click'))
+      document.querySelector('[data-co="LeaveOut3_CREDIT"]:checked').dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../Sources/images/Header.png" title="EMXX" />
+    <span class="text-gray-15">Ins Credits</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Language</div>
+      <select class="dw-dropdown" data-co="LanguageIndex">
+        <option value="3" rtl>Arabic</option>
+        <option value="0">English</option>
+        <option value="1">German</option>
+        <option value="2">Spanish</option>
+      </select>
+    </div>
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Sponsors</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="LeaveOut2_CREDIT" type="radio" value="0" name="skipsponsors" />
+            <span>On</span>
+          </label>
+
+          <label>
+            <input data-co="LeaveOut2_CREDIT" type="radio" value="1" name="skipsponsors" />
+            <span>Off</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Thanks</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="LeaveOut3_CREDIT" type="radio" value="0" name="skipthanks" />
+            <span>On</span>
+          </label>
+
+          <label>
+            <input data-co="LeaveOut3_CREDIT" type="radio" value="1" name="skipthanks" />
+            <span>Off</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="direction-switch">
+    <div id="Panel1" class="field-group">
+      <div name="Production" class="field-group__label">Panel 1 (Production)</div>
+      <span class="dw-alert mb-2">
+        Please add one contributor per input field
+      </span>
+      <div class="grid grid-cols-1 gap-2 mb-2">
+
+        <label data-co="Function1" value="" class="dw-label__input mb-[-7px]">Producers</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <input type="text" class="form-input font-large" data-co="Function1Name1" />
+          <input type="text" class="form-input font-large" data-co="Function1Name2" />
+        </div>
+
+        <label data-co="Function2" value="" class="dw-label__input mb-[-7px]">Director</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <input type="text" data-co="Function2Name1" class="form-input font-large" />
+        </div>
+
+        <label data-co="Function3" value="" class="dw-label__input mb-[-7px]">Executive Producers</label>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <input type="text" class="form-input font-large" data-co="Function3Name1" />
+          <input type="text" class="form-input font-large" data-co="Function3Name2" />
+        </div>
+
+      </div>
+    </div>
+
+    <div id="Panel2" class="field-group">
+      <div name="Sponsors" class="field-group__label">Panel 2 (Sponsors)</div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        <label data-co="SponsorsLine" value="" class="dw-label__input mb-[-7px]">Wardrobe</label>
+        <select name="SponsorsArabic" data-co="SponsorArabic1" class="dw-dropdown col-start-1" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
+          <option value="please_select" selected>- Please select -</option>
+        </select>
+        <select name="SponsorsArabic" data-co="SponsorArabic2" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
+          <option value="please_select" selected>- Please select -</option>
+        </select>
+        <select name="SponsorsArabic" data-co="SponsorArabic3" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:A" data-nlw-values="column:B" data-nlw-start-index="2" data-nlw-prefix="cell:B2">
+          <option value="please_select" selected>- Please select -</option>
+        </select>
+        <select name="SponsorsLatin" data-co="SponsorLatin1" class="dw-dropdown col-start-1" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
+          <option value="please_select" selected>- Please select -</option>
+        </select>
+        <select name="SponsorsLatin" data-co="SponsorLatin2" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
+          <option value="please_select" selected>- Please select -</option>
+        </select>
+        <select name="SponsorsLatin" data-co="SponsorLatin3" class="dw-dropdown" data-nlw-table="emxx-sponsor-logos.db" data-nlw-keys="column:C" data-nlw-values="column:D" data-nlw-start-index="2" data-nlw-prefix="cell:D2">
+          <option value="please_select" selected>- Please select -</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="Panel3" class="field-group">
+      <div name="Thanks" class="field-group__label">Panel 3 (Thanks)</div>
+      <span class="dw-alert mb-2">
+        Please add one supporter per input field
+      </span>
+      <div class="grid gap-2">
+        <label data-co="SupportLines" value="" class="dw-label__input mb-[-7px]">Support</label>
+        <div id="partnerLines" class="grid gap-2">
+          <input type="text" class="form-input dw-direction-ltr" data-co="Partner1Line" />
+          <input type="text" class="form-input dw-direction-ltr" data-co="Partner2Line" />
+          <input type="text" class="form-input dw-direction-ltr" data-co="Partner3Line" />
+          <input type="text" class="form-input dw-direction-ltr" data-co="Partner4Line" />
+          <input type="text" class="form-input dw-direction-ltr" data-co="Partner5Line" />
+        </div>
+      </div>
+    </div>
+    <div id="Panel4" name="Copyright" class="field-group">
+      <div name="Copyright" class="field-group__label">Panel 4 (Copyright)</div>
+      <label data-co="LinksLines" value="" class="dw-label__input dw-label__input--multiline"></label>
+      <div>
+        <select class="dw-dropdown" data-co="CopyrightLine">
+          <option selected>© DEUTSCHE WELLE 2022</option>
+          <option>© DEUTSCHE WELLE 2023</option>
+          <option>© DEUTSCHE WELLE 2024</option>
+          <option>© DEUTSCHE WELLE 2025</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+</body>
+
+</html>

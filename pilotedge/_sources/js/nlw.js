@@ -2,7 +2,7 @@
  * NLW Tool data handler.
  * 
  * @version: 1.3.3
- * @author: gunnar.steffen@dw.com
+ * @author Deutsche Welle <mps-gs@dw.com>
  * 
  * This module contains various methods to load and handle data from nlw tool.
  * To get started call <code>nlw.data</code>.

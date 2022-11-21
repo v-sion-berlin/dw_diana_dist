@@ -3,10 +3,10 @@
  * Drag and drop doesn't change the dom structure. It just sets the co to the
  * correct value.
  * @author v-sion GmbH <contact@v-sion.de>
- * @version 1.00
+ * @version 1.17
  */
 
-/* global vizrt */
+/* global Event, vizrt */
 
 console.debug('loading draggable.js')
 
@@ -23,8 +23,9 @@ class Draggable {
    * @since 1.00
    * @instance
    */
-  static initialize (element, id) {
-    element.setAttribute("id", id);
+  static initialize (element) {
+    document.addEventListener('dragover', this.handleValidDropAreas)
+
     const draggables = element.querySelectorAll('.dw-dnd')
     draggables.forEach((draggable, index) => {
       draggable.setAttribute('draggable', true)
@@ -39,7 +40,9 @@ class Draggable {
         }
       })
 
-      draggable.addEventListener('dragover', (e) => e.preventDefault())
+      draggable.addEventListener('dragover', (e) => {
+        e.preventDefault()
+      })
 
       draggable.addEventListener('drop', (e) => {
         e.preventDefault()
@@ -47,7 +50,6 @@ class Draggable {
         const newIndex = index
         const draggables = draggable.closest('.dw-dnd__section').querySelectorAll('.dw-dnd')
 
-        console.log('drop ', draggables)
         const factor = newIndex > oldIndex ? 1 : -1
         const condition = newIndex > oldIndex ? (i) => i < newIndex : (i) => i > newIndex
 
@@ -55,46 +57,24 @@ class Draggable {
           const coElements = draggables[i].querySelectorAll('[data-co]')
           const coElementsNext = draggables[i + factor].querySelectorAll('[data-co]')
 
-          for (let i = 0; i < coElements.length; i++) {
-            if (
-              vizrt && vizrt.payloadhosting &&
-              vizrt.payloadhosting.isPayloadReady()
-            ) {
-              if (vizrt.payloadhosting.fieldExists(coElements[i].dataset.co)) {
-                if (
-                  vizrt.payloadhosting.getFieldMediaType(
-                    coElements[i].dataset.co
-                  ) === "application/atom+xml;type=entry;media=image"
-                ) {
-                  const current = vizrt.payloadhosting.getFieldXml(
-                    coElements[i].dataset.co
-                  );
-                  const next = vizrt.payloadhosting.getFieldXml(
-                    coElementsNext[i].dataset.co
-                  );
-                  vizrt.payloadhosting.setFieldXml(
-                    coElements[i].dataset.co,
-                    next
-                  );
-                  vizrt.payloadhosting.setFieldXml(
-                    coElementsNext[i].dataset.co,
-                    current
-                  );
+          for (let j = 0; j < coElements.length; j++) {
+            if (vizrt && vizrt.payloadhosting && vizrt.payloadhosting.isPayloadReady()) {
+              if (vizrt.payloadhosting.fieldExists(coElements[j].dataset.co)) {
+                if (vizrt.payloadhosting.getFieldMediaType(coElements[j].dataset.co) === 'application/atom+xml;type=entry;media=image') {
+                  const current = vizrt.payloadhosting.getFieldXml(coElements[j].dataset.co)
+                  const next = vizrt.payloadhosting.getFieldXml(coElementsNext[j].dataset.co)
+                  vizrt.payloadhosting.setFieldXml(coElements[j].dataset.co, next)
+                  vizrt.payloadhosting.setFieldXml(coElementsNext[j].dataset.co, current)
                 } else {
-                  const current = vizrt.payloadhosting.getFieldText(
-                    coElements[i].dataset.co
-                  );
-                  const next = vizrt.payloadhosting.getFieldText(
-                    coElementsNext[i].dataset.co
-                  );
-                  vizrt.payloadhosting.setFieldText(
-                    coElements[i].dataset.co,
-                    next
-                  );
-                  vizrt.payloadhosting.setFieldText(
-                    coElementsNext[i].dataset.co,
-                    current
-                  );
+                  const current = vizrt.payloadhosting.getFieldText(coElements[j].dataset.co)
+                  const next = vizrt.payloadhosting.getFieldText(coElementsNext[j].dataset.co)
+                  vizrt.payloadhosting.setFieldText(coElements[j].dataset.co, next)
+                  vizrt.payloadhosting.setFieldText(coElementsNext[j].dataset.co, current)
+
+                  if (coElements[j].classList.contains('dw-dropdown')) {
+                    coElements[j].dispatchEvent(new Event('change'))
+                    coElementsNext[j].dispatchEvent(new Event('change'))
+                  }
                 }
               }
             }
@@ -102,6 +82,18 @@ class Draggable {
         }
       })
     })
+  }
+
+  /**
+   * Checks whether the dragged element is over a valid drop zone. Prevents for
+   * dropping an element over an input field.
+   * @param {Event} e The fired dragover event
+   * @since 1.17
+   */
+  static handleValidDropAreas (e) {
+    if (!e.target.closest('.dw-dnd__section')) {
+      e.preventDefault()
+    }
   }
 }
 

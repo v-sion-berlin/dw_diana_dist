@@ -6,6 +6,8 @@
   </tr>
   <tr>
     <td valign="top">
+      <a href="#1.17">1.17</a><br/>
+      <a href="#1.16">1.16</a><br/>
       <a href="#1.15">1.15</a><br/>
       <a href="#1.14">1.14</a><br/>
       <a href="#1.13">1.13</a><br/>
@@ -15,6 +17,30 @@
     </td>
   </tr>
 </table>
+<!------------------------------------------------------------------------------->
+<hr />
+<a id="1.17"></a>
+
+## 2022-10-04, Version 1.17
+
+Bugfix release
+
+### Notable changes
+
+- Fixed: [Template Framework / Drag and Drop / Möglichkeit des ziehens auf Textinputs unerwünscht](https://jira.dw.com/browse/DIANA-1550)
+
+<!------------------------------------------------------------------------------->
+<hr />
+<a id="1.16"></a>
+
+## 2022-08-12, Version 1.16
+
+Bugfix release
+
+### Notable changes
+
+- Merging file differences between v-sion and dw: payloadhosting.js, dropdown.js, timing.js, dw.js, input.js
+
 <!------------------------------------------------------------------------------->
 <hr />
 <a id="1.15"></a>

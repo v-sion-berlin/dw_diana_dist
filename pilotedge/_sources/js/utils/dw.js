@@ -4,33 +4,8 @@
  * @file This file is the start entry for framework functions and is
  * needed by all templates to work.
  * @author v-sion GmbH <contact@v-sion.de>
- * @version 1.13
+ * @version 1.00
  */
-
-/**
- * To use cache control for stylesheets or scripts rename 'href' to 'data-href'
- * and 'src' to 'data-src' in the head section.
- * <code><link data-href="{name-of-resource-file}.css" rel="stylesheet"></code>
- * <code><script data-src="{name-of-resource-file}.js"></script></code>
- * @since 1.00
- * @deprecated because no file is using this
- */
-const initializeResources = () => {
-  const elements = document.querySelectorAll('link, script')
-  // There was no definition
-  const LAST_CHANGE = undefined
-
-  for (const element of elements) {
-    if (element.hasAttribute('data-href') || element.hasAttribute('data-src')) {
-      const uriAttr = element.hasAttribute('data-href') ? 'href' : 'src'
-      const uri = element.getAttribute(`data-${uriAttr}`)
-      const attr = document.createAttribute(uriAttr)
-      attr.value = `${uri}?t=${LAST_CHANGE}`
-      element.setAttributeNode(attr)
-      element.removeAttribute('data-' + uriAttr)
-    }
-  }
-}
 
 /**
  * Loads the <code>[Input module]{@link Input}</code> if it is not loaded already.
@@ -54,14 +29,13 @@ const initializeInputs = async () => {
  * @since 1.00
  */
 const initializeDraggables = async () => {
-  let count = 0;
   const elements = document.querySelectorAll('.dw-dnd-wrapper')
   if (elements) {
     const module = await import('./draggable.js')
     const Draggable = module.default
 
     for (const element of elements) {
-      Draggable.initialize(element, "dwn-dnd-" + count++);
+      Draggable.initialize(element)
     }
   }
 }
@@ -71,8 +45,7 @@ const initializeDraggables = async () => {
  * @since 1.00
  */
 const initializeDropdowns = async () => {
-  /* DEPRECATED: .dw-dropdown-native */
-  const elements = document.querySelectorAll('.dw-dropdown, .dw-dropdown-native')
+  const elements = document.querySelectorAll('.dw-dropdown')
   if (elements) {
     const module = await import('./dropdown.js')
     const Dropdown = module.default
@@ -86,11 +59,11 @@ const initializeDropdowns = async () => {
 /**
  * Add timing section with offset and duration (mosart).
  * Loads the <code>[Timing module]{@link Timing}</code> if it is not loaded already.
+ * @author Deutsche Welle <mps-gs@dw.com>
  * @since 1.12
  */
 const initializeSectionTiming = async () => {
-  const element = document.querySelector('.dw-mosart-info')
-
+  const element = document.querySelector('.dw-ram-duration')
   if (element) {
     const module = await import('./timing.js')
     const Timing = module.default
@@ -156,9 +129,9 @@ window.initializeTranslationPanel = (queryLanguageSelect, queryTranslationDiv) =
     translationDiv.dataset.visible = hasTranslation
   })
 
-  document.addEventListener('vizPayloadReady', () =>
-    languageSelect.dispatchEvent(new Event('change'))
-  )
+  document.addEventListener('vizPayloadReady', () => {
+    languageSelect.dispatchEvent(new CustomEvent('change', { detail: 'dw.js' }))
+  })
 }
 
 /**
@@ -173,7 +146,6 @@ window.capitalize = (text) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initializeResources()
   initializeInputs()
   initializeDraggables()
   initializeDropdowns()
