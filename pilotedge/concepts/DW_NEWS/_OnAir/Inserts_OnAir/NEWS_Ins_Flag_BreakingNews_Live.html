@@ -15,10 +15,9 @@
   <script src="../../Sources/JS/news-nlw.js"></script>
   <script>
     /* global Event, Option */
-    /* global initializeNLWData, NLW_PROPERTIES */
+    /* global NLW_DATA_LOWERTHIRDS, NLW_PROPERTIES_LOWERTHIRDS */
     /* global vizrt */
 
-    let nlwData = {}
     let flagSelect
 
     window.generateAutoTitles = () => {
@@ -31,13 +30,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      nlwData = initializeNLWData()
       flagSelect = document.querySelector('[data-co="FlagGlobal"]')
 
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
       languageSelector.addEventListener('change', (event) => {
         const language = languageSelector[languageSelector.selectedIndex].text
-        const flags = nlwData[language][NLW_PROPERTIES.FLAGS].split(/\s*\|\s*/)
+        const flags = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.FLAGS].split(/\s*\|\s*/)
         const coFlag = vizrt.payloadhosting.getFieldText('FlagGlobal')
 
         while (flagSelect.length > 0) {

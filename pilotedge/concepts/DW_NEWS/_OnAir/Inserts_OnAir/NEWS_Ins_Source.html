@@ -15,9 +15,7 @@
   <script src="../../Sources/JS/news-nlw.js"></script>
   <script>
     /* global Event */
-    /* global initializeNLWData, NLW_PROPERTIES */
-
-    let nlwData = {}
+    /* global NLW_DATA_LOWERTHIRDS, NLW_PROPERTIES_LOWERTHIRDS */
 
     window.generateAutoTitles = () => {
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
@@ -35,13 +33,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      nlwData = initializeNLWData()
 
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
       languageSelector.addEventListener('change', (event) => {
         // Setting default text if present in nlw
         const language = languageSelector[languageSelector.selectedIndex].text
-        const sourceContent = nlwData[language][NLW_PROPERTIES.SOURCE]
+        const sourceContent = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.SOURCE]
         if (event.detail !== 'dw.js') {
           document.querySelector('[data-co="Dummy/ComposedText"]').value = sourceContent
           document.querySelector('[data-co="Dummy/ComposedText"]').dispatchEvent(new Event('input'))

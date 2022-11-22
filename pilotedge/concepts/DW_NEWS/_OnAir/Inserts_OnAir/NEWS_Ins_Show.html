@@ -15,10 +15,9 @@
   <script src="../../Sources/JS/news-nlw.js"></script>
   <script>
     /* global Event, Option */
-    /* global initializeNLWData, NLW_PROPERTIES */
+    /* global NLW_DATA_SHOWS, NLW_PROPERTIES_SHOWS */
     /* global vizrt */
 
-    let nlwData = {}
     let showSelect
 
     const ShowMapping = {
@@ -48,7 +47,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      nlwData = initializeNLWData()
       showSelect = document.querySelector('[data-co="ShowIndexGlobal"]')
 
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobal"]')
@@ -57,18 +55,23 @@
         languageInputPreview.value = languageSelector.value
         languageInputPreview.dispatchEvent(new Event('input'))
         const language = languageSelector[languageSelector.selectedIndex].text
-        const shows = nlwData[language][NLW_PROPERTIES.SHOWS].split(/\s*\|\s*/)
+        const shows = NLW_DATA_SHOWS[language]
         const coShow = vizrt.payloadhosting.getFieldText('ShowIndexGlobal')
 
         while (showSelect.length > 0) {
           showSelect.remove(showSelect.length - 1)
         }
 
-        shows.forEach((show) => {
-          const option = new Option(show, ShowMapping[show])
-          showSelect.add(option)
-          if (ShowMapping[show] === coShow) {
-            showSelect.value = coShow
+        shows.forEach((show, i) => {
+          if (i > 0) {
+            console.log(show)
+            if (show !== '') {
+              const option = new Option(show, i - 1)
+              showSelect.add(option)
+              if (ShowMapping[show] === coShow) {
+                showSelect.value = coShow
+              }
+            }
           }
         })
         showSelect.dispatchEvent(new Event('input'))

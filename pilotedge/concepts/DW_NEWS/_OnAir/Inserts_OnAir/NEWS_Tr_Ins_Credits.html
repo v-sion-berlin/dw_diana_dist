@@ -15,10 +15,9 @@
   <script src="../../Sources/JS/news-nlw.js"></script>
   <script>
     /* global Event */
-    /* global initializeNLWData, NLW_PROPERTIES */
+    /* global NLW_DATA_LOWERTHIRDS, NLW_PROPERTIES_LOWERTHIRDS */
     /* global vizrt */
 
-    let nlwData = {}
     let language
 
     window.generateAutoTitles = () => {
@@ -30,16 +29,15 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      nlwData = initializeNLWData()
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
       languageSelector.addEventListener('click', (event) => {
         language = languageSelector[languageSelector.selectedIndex].text
 
         if (event.detail !== 'dw.js') {
           // PANEL 1
-          const executiveProducerName = nlwData[language][NLW_PROPERTIES.CREDITS_EXECUTIVE_PRODUCER_NAME]
-          const executiveProducerFunction1 = nlwData[language][NLW_PROPERTIES.CREDITS_EXECUTIVE_PRODUCER_FUNCTION_1]
-          // const executiveProducerFunction2 = nlwData[language][NLW_PROPERTIES.CREDITS_EXECUTIVE_PRODUCER_FUNCTION_2]
+          const executiveProducerName = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_EXECUTIVE_PRODUCER_NAME]
+          const executiveProducerFunction1 = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_EXECUTIVE_PRODUCER_FUNCTION_1]
+          // const executiveProducerFunction2 = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_EXECUTIVE_PRODUCER_FUNCTION_2]
           document.querySelector('[data-co="CreditsPage1LeftLine1"]').value = executiveProducerName
           document.querySelector('[data-co="CreditsPage1LeftLine1"]').dispatchEvent(new Event('input'))
           document.querySelector('[data-co="CreditsPage1LeftLine2"]').value = executiveProducerFunction1
@@ -47,9 +45,9 @@
           // document.querySelector('[data-co="CreditsPage1LeftLine3"]').value = executiveProducerFunction2
           // document.querySelector('[data-co="CreditsPage1LeftLine3"]').dispatchEvent(new Event('input'))
 
-          const producerName = nlwData[language][NLW_PROPERTIES.CREDITS_PRODUCER_NAME]
-          const producerFunction1 = nlwData[language][NLW_PROPERTIES.CREDITS_PRODUCER_FUNCTION_1]
-          // const producerFunction2 = nlwData[language][NLW_PROPERTIES.CREDITS_PRODUCER_FUNCTION_2]
+          const producerName = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_PRODUCER_NAME]
+          const producerFunction1 = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_PRODUCER_FUNCTION_1]
+          // const producerFunction2 = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_PRODUCER_FUNCTION_2]
           document.querySelector('[data-co="CreditsPage1RightLine1"]').value = producerName
           document.querySelector('[data-co="CreditsPage1RightLine1"]').dispatchEvent(new Event('input'))
           document.querySelector('[data-co="CreditsPage1RightLine2"]').value = producerFunction1
@@ -58,9 +56,9 @@
           // document.querySelector('[data-co="CreditsPage1RightLine3"]').dispatchEvent(new Event('input'))
 
           // PANEL 2
-          const directorName = nlwData[language][NLW_PROPERTIES.CREDITS_DIRECTOR_NAME]
-          const directorFunction1 = nlwData[language][NLW_PROPERTIES.CREDITS_DIRECTOR_FUNCTION_1]
-          // const directorFunction2 = nlwData[language][NLW_PROPERTIES.CREDITS_DIRECTOR_FUNCTION_2]
+          const directorName = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_DIRECTOR_NAME]
+          const directorFunction1 = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_DIRECTOR_FUNCTION_1]
+          // const directorFunction2 = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_DIRECTOR_FUNCTION_2]
           document.querySelector('[data-co="CreditsPage2LeftLine1"]').value = directorName
           document.querySelector('[data-co="CreditsPage2LeftLine1"]').dispatchEvent(new Event('input'))
           document.querySelector('[data-co="CreditsPage2LeftLine2"]').value = directorFunction1
@@ -68,16 +66,16 @@
           // document.querySelector('[data-co="CreditsPage2LeftLine3"]').value = directorFunction2
           // document.querySelector('[data-co="CreditsPage2LeftLine3"]').dispatchEvent(new Event('input'))
 
-          const presenterName = nlwData[language][NLW_PROPERTIES.CREDITS_PRESENTER_NAME]
-          const presenterFunction1 = nlwData[language][NLW_PROPERTIES.CREDITS_PRESENTER_FUNCTION_1]
-          // const presenterFunction2 = nlwData[language][NLW_PROPERTIES.CREDITS_PRESENTER_FUNCTION_2]
+          const presenterName = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_PRESENTER_NAME]
+          const presenterFunction1 = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_PRESENTER_FUNCTION_1]
+          // const presenterFunction2 = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_PRESENTER_FUNCTION_2]
           document.querySelector('[data-co="CreditsPage2RightLine1"]').value = presenterName
           document.querySelector('[data-co="CreditsPage2RightLine1"]').dispatchEvent(new Event('input'))
           document.querySelector('[data-co="CreditsPage2RightLine2"]').value = presenterFunction1
           document.querySelector('[data-co="CreditsPage2RightLine2"]').dispatchEvent(new Event('input'))
 
           // PANEL 3
-          const socialMedia = nlwData[language][NLW_PROPERTIES.CREDITS_ONLINE].split(/\s*\|\s*/)
+          const socialMedia = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.CREDITS_ONLINE].split(/\s*\|\s*/)
 
           document.querySelector('[data-co="CreditsPage3LeftLine1"]').value = socialMedia[0]
           document.querySelector('[data-co="CreditsPage3LeftLine1"]').innerHTML = socialMedia[0]

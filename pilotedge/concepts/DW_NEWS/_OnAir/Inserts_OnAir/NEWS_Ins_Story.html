@@ -15,10 +15,9 @@
   <script src="../../Sources/JS/news-nlw.js"></script>
   <script>
     /* global Event, Option */
-    /* global initializeNLWData, NLW_PROPERTIES */
+    /* global NLW_DATA_LOWERTHIRDS, NLW_PROPERTIES_LOWERTHIRDS */
     /* global vizrt */
 
-    let nlwData = {}
     let showLocationCheckbox
 
     window.generateAutoTitles = () => {
@@ -37,8 +36,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-      nlwData = initializeNLWData()
-
       // Show / Hide Location
       showLocationCheckbox = document.querySelector('[data-co="Dummy/ShowLocation"]')
       showLocationCheckbox.addEventListener('click', (event) => {
@@ -54,7 +51,7 @@
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
       languageSelector.addEventListener('change', (event) => {
         const language = languageSelector[languageSelector.selectedIndex].text
-        const flags = nlwData[language][NLW_PROPERTIES.FLAGS].split(/\s*\|\s*/)
+        const flags = NLW_DATA_LOWERTHIRDS[language][NLW_PROPERTIES_LOWERTHIRDS.FLAGS].split(/\s*\|\s*/)
 
         language === 'Arabic' ? flagSelect.classList.add('text-m') : flagSelect.classList.remove('text-m')
 
@@ -71,9 +68,11 @@
           }
           flagSelect.add(newOption)
           if (flagText === flagCO) {
-            flagSelect.selectedIndex = flagSelect.options.length - 1
+            flagSelect.value = flagText
           }
         })
+
+        flagSelect.dispatchEvent(new Event('input'))
       })
       // set ltr / rtl dependent on selected language
       window.initializeDirectionSwitch('[data-co="LanguageIndexGlobalPreview"]', '#direction-switch')
