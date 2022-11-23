@@ -93,6 +93,9 @@ class Draggable {
   static handleValidDropAreas (e) {
     if (!e.target.closest('.dw-dnd__section')) {
       e.preventDefault()
+      e.dataTransfer.dropEffect = 'none'
+    } else {
+      e.dataTransfer.dropEffect = 'move'
     }
   }
 }
