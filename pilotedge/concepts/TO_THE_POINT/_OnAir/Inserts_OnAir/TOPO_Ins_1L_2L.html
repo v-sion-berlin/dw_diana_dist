@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To the Point - Ins 1L 2L</title>
+  <!-- Default includes -->
+  <link href="../../../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../../../_sources/js/payloadhosting.js"></script>
+  <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
+  <script>
+    /* global Event */
+
+    window.generateAutoTitles = () => {
+      const languageSelect = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelect[languageSelect.selectedIndex].text
+      const hasTranslation = languageSelect[languageSelect.selectedIndex].hasAttribute('data-translation')
+      const line1FieldId = hasTranslation && window.COElement('Translation/LowerthirdLine1').value ? '{Translation/LowerthirdLine1}' : '{LowerthirdLine1}'
+      const line2FieldId = hasTranslation && window.COElement('Translation/LowerthirdLine2').value ? '{Translation/LowerthirdLine2}' : '{LowerthirdLine2}'
+      return {
+        '-auto-generated-title': ['TOPO Ins 1L 2L', '||', language, '|', line1FieldId, '|', line2FieldId],
+        'ram-title': [language, '|', line1FieldId, '|', line2FieldId],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const lowerthirdVariantOptions = document.querySelectorAll('[data-co="LowerthirdVariantIndex"]')
+      lowerthirdVariantOptions.forEach((option) => option.addEventListener('click', (e) => {
+        document.querySelector('#LowerthirdLine2').dataset.visible = e.target.value === '1'
+        document.querySelector('#DummyLowerthirdLine2').dataset.visible = e.target.value === '1'
+      }))
+
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+
+    document.addEventListener('vizPayloadReady', () => {
+      document.querySelector('[data-co="LowerthirdVariantIndex"]:checked').dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/images/Header.png" alt="TOPO Header Image">
+    <span class="text-white">Ins 1L 2L</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="4" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="1">German</option>
+          <option value="3" data-translation>Russian</option>
+          <option value="2">Spanish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Variant -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Variant</div>
+        <div class="form-input-chips">
+          <label>
+            <input type="radio" value="0" name="LowerthirdVariant" data-co="LowerthirdVariantIndex">
+            <span>1 Line</span>
+          </label>
+          <label>
+            <input type="radio" value="1" name="LowerthirdVariant" data-co="LowerthirdVariantIndex">
+            <span>2 Lines</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div id="direction-switch" class="field-group">
+      <div class="grid gap-2">
+        <div>
+          <label class="dw-label__input">Line 1</label>
+          <input type="text" class="form-input font-large" data-co="LowerthirdLine1">
+        </div>
+        <div id="LowerthirdLine2">
+          <label class="dw-label__input">Line 2</label>
+          <input type="text" class="form-input font-large" data-co="LowerthirdLine2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <div class="grid gap-2">
+      <div>
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input" data-co="Translation/LowerthirdLine1">
+      </div>
+      <div id="DummyLowerthirdLine2">
+        <label class="dw-label__input">Line 2</label>
+        <input type="text" class="form-input" data-co="Translation/LowerthirdLine2">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+</body>
+
+</html>

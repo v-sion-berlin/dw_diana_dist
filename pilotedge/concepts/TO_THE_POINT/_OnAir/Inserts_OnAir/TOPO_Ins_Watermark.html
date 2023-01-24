@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To the Point - Ins Watermark</title>
+  <!-- Default includes -->
+  <link href="../../../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../../../_sources/js/payloadhosting.js"></script>
+  <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
+  <script>
+    window.generateAutoTitles = () => {
+      const languageSelect = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelect[languageSelect.selectedIndex].text
+      return {
+        '-auto-generated-title': ['TOPO Ins Watermark', '||', language],
+        'ram-title': language,
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/images/Header.png" alt="TOPO Header Image">
+    <span class="text-white">Ins Watermark</span>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div id="direction-switch" class="field-group">
+      <div class="dw-label__input">Language</div>
+      <select class="dw-dropdown" data-co="LanguageIndex">
+        <option value="4" data-rtl data-translation>Arabic</option>
+        <option value="0">English</option>
+        <option value="1">German</option>
+        <option value="3" data-translation>Belarusian</option>
+        <option value="2">Spanish</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+</body>
+
+</html>

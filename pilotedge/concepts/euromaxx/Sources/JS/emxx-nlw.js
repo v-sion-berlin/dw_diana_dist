@@ -20,10 +20,10 @@ const NLW_PROPERTIES = Object.freeze({
 
 // This function initializes the nlw data and creates a data structure for
 // using the data in the template.
-const initializeNLWData = () => {
+const initializeNLWData = (table) => {
   const data = {}
   const NLW = nlw.data
-  NLW.load('emxx-inserts.db')
+  NLW.load(table)
   if (NLW.error) {
     console.log(NLW.error)
   }
@@ -39,3 +39,5 @@ const initializeNLWData = () => {
   })
   return data
 }
+
+const NLW_DATA = initializeNLWData('emxx-inserts.db')

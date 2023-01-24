@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,27 +15,10 @@
   <script src="../../Sources/JS/news-nlw.js"></script>
   <script>
     /* global Event, Option */
-    /* global NLW_DATA_SHOWS, NLW_PROPERTIES_SHOWS */
+    /* global NLW_DATA_SHOWS */
     /* global vizrt */
 
     let showSelect
-
-    const ShowMapping = {
-      NEWS: '0',
-      'THE DAY': '1',
-      ASIA: '2',
-      AFRICA: '3',
-      '1_STUNDE': '4',
-      INTERVIEW: '5',
-      الأخبار: '0',
-      مسائية: '4',
-      NACHRICHTEN: '0',
-      'DER TAG': '1',
-      HOBOCTИ: '0',
-      'НЕМЦОВА.ИНТЕРВЬЮ': '5',
-      NOTICIAS: '0',
-      HABER: '0'
-    }
 
     window.generateAutoTitles = () => {
       const show = showSelect[showSelect.selectedIndex].text
@@ -64,11 +47,10 @@
 
         shows.forEach((show, i) => {
           if (i > 0) {
-            console.log(show)
             if (show !== '') {
               const option = new Option(show, i - 1)
               showSelect.add(option)
-              if (ShowMapping[show] === coShow) {
+              if (i - 1 === Number(coShow)) {
                 showSelect.value = coShow
               }
             }
@@ -86,36 +68,38 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/images/Header.png" alt="DW NEWS Header image" />
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image">
     <span class="text-gray-15">Ins Show</span>
   </div>
 
   <!-- CONTENT -->
-  <div id="direction-switch">
-    <div class="field-group">
-      <div class="grid sm:grid-cols-2 gap-2">
-        <div>
-          <label class="dw-label__input">Language</label>
-          <select class="dw-dropdown" data-co="LanguageIndexGlobal">
-            <option value="9" rtl translation>Arabic</option>
-            <option value="0">English</option>
-            <option value="2">German</option>
-            <option value="4">Kiswahili</option>
-            <option value="5" translation>Russian</option>
-            <option value="6">Spanish</option>
-            <option value="7">Turkish</option>
-            <option value="8" translation>Ukrainian</option>
-          </select>
-        </div>
-        <div class="hidden">
-          <label class="dw-label__input">Dummy Language</label>
-          <input type="text" class="form-input" data-co="LanguageIndexGlobalPreview" />
-        </div>
-        <div>
-          <div class="dw-label__input">Show</div>
-          <select class="dw-dropdown" data-co="ShowIndexGlobal">
-            <option value="">(none)</option>
-          </select>
+  <div class="dw-content">
+    <div id="direction-switch">
+      <div class="field-group">
+        <div class="grid sm:grid-cols-2 gap-2">
+          <div>
+            <label class="dw-label__input">Language</label>
+            <select class="dw-dropdown" data-co="LanguageIndexGlobal">
+              <option value="9" data-rtl data-translation>Arabic</option>
+              <option value="0">English</option>
+              <option value="2">German</option>
+              <option value="4">Kiswahili</option>
+              <option value="5" data-translation>Russian</option>
+              <option value="6">Spanish</option>
+              <option value="7">Turkish</option>
+              <option value="8" data-translation>Ukrainian</option>
+            </select>
+          </div>
+          <div class="hidden">
+            <label class="dw-label__input">Dummy Language</label>
+            <input type="text" class="form-input" data-co="LanguageIndexGlobalPreview">
+          </div>
+          <div>
+            <div class="dw-label__input">Show</div>
+            <select class="dw-dropdown" data-co="ShowIndexGlobal">
+              <option value="">(none)</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

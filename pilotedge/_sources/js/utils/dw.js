@@ -1,4 +1,4 @@
-/* global CustomEvent, Event */
+/* global CustomEvent */
 
 /**
  * @file This file is the start entry for framework functions and is
@@ -57,22 +57,6 @@ const initializeDropdowns = async () => {
 }
 
 /**
- * Add timing section with offset and duration (mosart).
- * Loads the <code>[Timing module]{@link Timing}</code> if it is not loaded already.
- * @author Deutsche Welle <mps-gs@dw.com>
- * @since 1.12
- */
-const initializeSectionTiming = async () => {
-  const element = document.querySelector('.dw-ram-duration')
-  if (element) {
-    const module = await import('./timing.js')
-    const Timing = module.default
-
-    Timing.initialize(element)
-  }
-}
-
-/**
  * Defines a global variable window.datestamp that contains the actual
  * timestamp. This can be used during <code>[generating auto titles]{@link generateAutoTitle}</code>.
  * @returns {String} The datestamp.
@@ -97,8 +81,18 @@ window.datestamp = () => {
 window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
   const languageSelect = document.querySelector(queryLanguageSelect)
   const directionDiv = document.querySelector(queryDirectionDiv)
+  if (!languageSelect) {
+    console.error(`window.initializeDirectionSwitch(queryLanguageSelect, queryDirectionDiv): parameter queryLanguageSelect (${queryLanguageSelect}) doesn't give valid node.`)
+    return
+  }
+
+  if (!directionDiv) {
+    console.error(`window.initializeDirectionSwitch(queryLanguageSelect, queryDirectionDiv): parameter directionDiv (${directionDiv}) doesn't give valid node.`)
+    return
+  }
   languageSelect.addEventListener('change', (e) => {
-    const hasRtl = languageSelect.options[languageSelect.selectedIndex].hasAttribute('rtl')
+    const selectedOption = languageSelect.options[languageSelect.selectedIndex]
+    const hasRtl = selectedOption.hasAttribute('rtl') || selectedOption.hasAttribute('data-rtl')
     if (hasRtl) {
       directionDiv.classList.add('dw-direction-rtl')
     } else {
@@ -124,8 +118,18 @@ window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
 window.initializeTranslationPanel = (queryLanguageSelect, queryTranslationDiv) => {
   const languageSelect = document.querySelector(queryLanguageSelect)
   const translationDiv = document.querySelector(queryTranslationDiv)
+  if (!languageSelect) {
+    console.error(`window.initializeTranslationPanel(queryLanguageSelect, queryTranslationDiv): parameter queryLanguageSelect (${queryLanguageSelect}) doesn't give valid node.`)
+    return
+  }
+
+  if (!translationDiv) {
+    console.error(`window.initializeTranslationPanel(queryLanguageSelect, queryTranslationDiv): parameter queryTranslationDiv (${queryTranslationDiv}) doesn't give valid node.`)
+    return
+  }
   languageSelect.addEventListener('change', (e) => {
-    const hasTranslation = languageSelect.options[languageSelect.selectedIndex].hasAttribute('translation')
+    const selectedOption = languageSelect.options[languageSelect.selectedIndex]
+    const hasTranslation = selectedOption.hasAttribute('translation') || selectedOption.hasAttribute('data-translation')
     translationDiv.dataset.visible = hasTranslation
   })
 
@@ -149,5 +153,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeInputs()
   initializeDraggables()
   initializeDropdowns()
-  initializeSectionTiming()
 })

@@ -38,12 +38,12 @@ vizrt.payloadhosting.addEventListener('payloadchange', generateAutoTitle)
 /**
  * Generates the auto titles if a script has defined this function with name
  * window.generateAutoTitles().
- * 
+ *
  * Fields / keys:
  * - '-auto-generated-title'      (string|array)
  * - 'ram-title'                  (string|array)
  * - 'ram-continue-points'        (string|integer)
- * 
+ *
  * Possible values:
  * - 'FS Sports Rankings'         = Plain text
  * - '3'                          = String number
@@ -54,10 +54,10 @@ vizrt.payloadhosting.addEventListener('payloadchange', generateAutoTitle)
  * - 'input[data-co="Headline"]'  = Query selector
  * - '||'                         = Seperator one (template title)
  * - '|'                          = Seperator two (significant template content)
- * 
+ *
  * Usage:
  * template title || significant template content | significant template content...
- * 
+ *
  * @author Deutsche Welle <mps-gs@dw.com>
  * @since 1.17
  * @instance
@@ -77,9 +77,9 @@ const generateAutoTitles = () => {
       const titleObject = window.generateAutoTitles()
       if (!titleObject || typeof titleObject != 'object') return
 
-      const getTitle = (strArray) => {     
+      const getTitle = (strArray) => {
         let out = []
-        
+
         const arrayRemoveSeperatorNotNeeded = (strArray, seperator) => {
           let nextItemIsSeperator = false
           let out = []
@@ -171,7 +171,7 @@ const generateAutoTitles = () => {
                   if (radiobutton.checked) {
                     let text = radiobutton.parentElement?.querySelector('span')?.innerHTML
                     out.push((text && text.trim() !== '') ? stringRemoveNotAllowedChr(text) : radiobutton.value)
-                  }    
+                  }
                 })
               // Select
               } else if (elementType === 'select') {
@@ -210,7 +210,7 @@ const generateAutoTitles = () => {
             } else if (acceptedTitle === 'number') {
               vizrt.payloadhosting.setFieldText(fieldName, (!isNaN(parseInt(title))) ? parseInt(title) : defaultTitle)
             }
-          }    
+          }
         }
       }
 
@@ -226,6 +226,30 @@ const generateAutoTitles = () => {
 // one that is injected by us into the payloadhosting.js.
 window.addEventListener('payloadChanged', generateAutoTitles)
 vizrt.payloadhosting.addEventListener('payloadchange', generateAutoTitles)
+
+/**
+ * Wrapper for html controls that are binded to viz via data-co attribut.
+ * @param {String} fieldId The field id
+ * @returns {Object} Additional functions to use with the given html control
+ */
+window.COElement = (fieldId) => {
+  const element = document.querySelector(`[data-co="${fieldId}"]`)
+
+  if (element) {
+    return {
+      get value () {
+        return element.value
+      },
+      set value (value) {
+        element.value = value
+        element.dispatchEvent(new Event('input'))
+      },
+      getFieldText: () => {
+        return vizrt.payloadhosting.getFieldText(fieldId)
+      }
+    }
+  }
+}
 
 /**
  * Initializes viz. Uses all defined fieldValueCallbacks and injects a little
@@ -274,6 +298,9 @@ const databinding = async () => {
   for (const element of boundElements) {
     const fieldPath = element.dataset.co
     let elementType = element.getAttribute('type')
+    if (!elementType) {
+      elementType = element.dataset.type
+    }
     // Some elements, like textarea has no type attribute so we're using the
     // tag name here to define our elementType.
     if (!elementType) {

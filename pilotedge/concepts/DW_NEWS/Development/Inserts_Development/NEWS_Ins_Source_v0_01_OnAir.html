@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,7 +22,7 @@
     window.generateAutoTitles = () => {
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
       const language = languageSelector[languageSelector.selectedIndex].text
-      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('translation')
+      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('data-translation')
       const translationComposedText = document.querySelector('[data-co="Translation/ComposedText"]')
       const [translationSourceLine1, translationSourceLine2] = translationComposedText.value.split(/\r?\n/)
       const SourceLine1FieldId = hasTranslation && translationSourceLine1 ? translationSourceLine1 : '{SourceLine1}'
@@ -79,7 +79,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/images/Header.png" alt="DW NEWS Header image" />
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
     <span class="text-gray-15">Ins Source</span>
   </div>
 
@@ -89,11 +89,11 @@
       <div>
         <div class="dw-label__input">Language</div>
         <select class="dw-dropdown" data-co="LanguageIndexGlobalPreview">
-          <option value="9" rtl translation>Arabic</option>
+          <option value="9" data-rtl data-translation>Arabic</option>
           <option value="0">English</option>
           <option value="2">German</option>
           <option value="6">Spanish</option>
-          <option value="5" translation>Russian</option>
+          <option value="5" data-translation>Russian</option>
           <option value="7">Turkish</option>
         </select>
       </div>

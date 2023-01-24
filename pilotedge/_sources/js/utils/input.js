@@ -72,15 +72,16 @@ class Input {
       createScrubber(element)
     }
 
-    if (
-      element.value &&
-      !element.parentNode.classList.contains("dw-quantity")
-    ) {
-      setDefaultOnDoubleClick(element);
+    if (element.value && !element.parentNode.classList.contains('dw-quantity') && !element.tagName.toLowerCase() === 'textarea') {
+      setDefaultOnDoubleClick(element)
     }
 
     if (element.getAttribute('type') === 'text' && element.hasAttribute('maxlength')) {
       setTextMaxLength(element)
+    }
+
+    if ((element.getAttribute('type') === 'text' || element.tagName.toLowerCase() === 'textarea') && (element.dataset.wordLengthWarning || element.dataset.wordLengthError)) {
+      setTextMaxWordLength(element)
     }
 
     if (element.parentNode.classList.contains('dw-quantity')) {
@@ -179,6 +180,39 @@ const setTextMaxLength = (element) => {
       warningSpan.classList.remove('hidden')
     }
   })
+}
+
+/*****************************************************************************/
+/* WORD LENGTH
+/*****************************************************************************/
+
+/**
+ * Allow to toggle the class 'hidden' dependent on the allowed max word length
+ * of the given element and the word lengths of the elements value. The class
+ * will be toggled in the span which has to be the next sibling.
+ * @param {HTMLElement} element input that contains the maxlength
+ * @since 1.00
+ * @memberof Input
+ */
+const setTextMaxWordLength = (element) => {
+  const warningSpan = element.nextElementSibling
+  const wordLengthWarning = element.dataset.wordLengthWarning
+  const wordLengthError = element.dataset.wordLengthError
+
+  element.addEventListener('input', (event) => {
+    const words = element.value.split(/\s/)
+
+    warningSpan.dataset.visible = words.some((word) => word.length > wordLengthWarning)
+    element.classList.remove('dw-highlight-yellow', 'dw-highlight-red')
+
+    if (words.some((word) => word.length > wordLengthError)) {
+      element.classList.add('dw-highlight-red')
+    } else if (words.some((word) => word.length > wordLengthWarning)) {
+      element.classList.add('dw-highlight-yellow')
+    }
+  })
+
+  document.addEventListener('vizPayloadReady', () => element.dispatchEvent(INPUT_EVENT), { once: true })
 }
 
 /*****************************************************************************/
