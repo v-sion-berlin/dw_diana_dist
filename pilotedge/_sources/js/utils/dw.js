@@ -1,4 +1,4 @@
-/* global CustomEvent, Event */
+/* global CustomEvent */
 
 /**
  * @file This file is the start entry for framework functions and is
@@ -57,18 +57,45 @@ const initializeDropdowns = async () => {
 }
 
 /**
- * Add timing section with offset and duration (mosart).
- * Loads the <code>[Timing module]{@link Timing}</code> if it is not loaded already.
- * @author Deutsche Welle <mps-gs@dw.com>
- * @since 1.12
+ * Adds a larger image version to the Image Select Thumbnail and shows it on hover
+ * @since 1.00
  */
-const initializeSectionTiming = async () => {
-  const element = document.querySelector('.dw-ram-duration')
-  if (element) {
-    const module = await import('./timing.js')
-    const Timing = module.default
+const initializeImageThumbs = async () => {
+  const elements = document.querySelectorAll(".dw-imgSelect");
+  if (elements) {
 
-    Timing.initialize(element)
+    for (const element of elements) {
+      // create hover image
+      const src = element.querySelector(".dw-imgThumb img").getAttribute("src");
+      if (src) {
+        const imgLarge = document.createElement("div");
+        const img = document.createElement("img");
+        imgLarge.classList.add("dw-imgLarge");
+        imgLarge.classList.add("hidden");
+        img.setAttribute('src', src);
+        imgLarge.appendChild(img);
+        element.append(imgLarge);
+      }
+
+      element
+        .querySelector(".dw-imgThumb")
+        .addEventListener("mouseover", (event) => {
+          const imgLarge =
+            event.target.parentElement.parentElement.querySelector(
+              ".dw-imgLarge"
+            );
+          imgLarge.classList.remove("hidden");
+
+          element.addEventListener("mouseout", (event) => {
+            if (!imgLarge.classList.contains("hidden")) {
+              imgLarge.classList.add("hidden");
+              event.target.parentElement.parentElement.parentElement
+                .querySelector(".dw-imgSelect")
+                .removeEventListener("mousemove", event);
+            }
+          });
+        });
+    }
   }
 }
 
@@ -97,8 +124,18 @@ window.datestamp = () => {
 window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
   const languageSelect = document.querySelector(queryLanguageSelect)
   const directionDiv = document.querySelector(queryDirectionDiv)
+  if (!languageSelect) {
+    console.error(`window.initializeDirectionSwitch(queryLanguageSelect, queryDirectionDiv): parameter queryLanguageSelect (${queryLanguageSelect}) doesn't give valid node.`)
+    return
+  }
+
+  if (!directionDiv) {
+    console.error(`window.initializeDirectionSwitch(queryLanguageSelect, queryDirectionDiv): parameter directionDiv (${directionDiv}) doesn't give valid node.`)
+    return
+  }
   languageSelect.addEventListener('change', (e) => {
-    const hasRtl = languageSelect.options[languageSelect.selectedIndex].hasAttribute('rtl')
+    const selectedOption = languageSelect.options[languageSelect.selectedIndex]
+    const hasRtl = selectedOption.hasAttribute('rtl') || selectedOption.hasAttribute('data-rtl')
     if (hasRtl) {
       directionDiv.classList.add('dw-direction-rtl')
     } else {
@@ -124,8 +161,18 @@ window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
 window.initializeTranslationPanel = (queryLanguageSelect, queryTranslationDiv) => {
   const languageSelect = document.querySelector(queryLanguageSelect)
   const translationDiv = document.querySelector(queryTranslationDiv)
+  if (!languageSelect) {
+    console.error(`window.initializeTranslationPanel(queryLanguageSelect, queryTranslationDiv): parameter queryLanguageSelect (${queryLanguageSelect}) doesn't give valid node.`)
+    return
+  }
+
+  if (!translationDiv) {
+    console.error(`window.initializeTranslationPanel(queryLanguageSelect, queryTranslationDiv): parameter queryTranslationDiv (${queryTranslationDiv}) doesn't give valid node.`)
+    return
+  }
   languageSelect.addEventListener('change', (e) => {
-    const hasTranslation = languageSelect.options[languageSelect.selectedIndex].hasAttribute('translation')
+    const selectedOption = languageSelect.options[languageSelect.selectedIndex]
+    const hasTranslation = selectedOption.hasAttribute('translation') || selectedOption.hasAttribute('data-translation')
     translationDiv.dataset.visible = hasTranslation
   })
 
@@ -149,5 +196,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeInputs()
   initializeDraggables()
   initializeDropdowns()
-  initializeSectionTiming()
+  initializeImageThumbs();
 })

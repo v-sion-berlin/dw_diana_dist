@@ -1925,6 +1925,7 @@ input[type="number"] {
 }
 /* image select */
 .dw-imgSelect {
+	position: relative;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1934,6 +1935,7 @@ input[type="number"] {
 	    -ms-flex-align: end;
 	        align-items: flex-end;
 	justify-items: start;
+	overflow: visible;
 }
 .dw-imgSelect[data-visible="false"] {
 	display: none;
@@ -1971,6 +1973,16 @@ input[type="number"] {
     left: 0;
     position: absolute;
 }
+.dw-imgLarge {
+	position: absolute;
+	right: 10px;
+	bottom: 35px;
+	z-index: 10;
+	height: 140px;
+	width: 140px;
+    -webkit-box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.3);
+}
 .dw-imgSelect .dw-imgThumb {
 	height: 35px;
 	width: 35px;
@@ -1982,7 +1994,7 @@ input[type="number"] {
 	background-color: rgba(228, 232, 235, var(--tw-bg-opacity));
 	font-size: 11px;
 }
-.dw-imgThumb img {
+.dw-imgLarge img, .dw-imgThumb img {
 	height: 100%;
 	width: 100%;
 	-o-object-fit: contain;
@@ -2136,6 +2148,12 @@ input[type="number"] {
     margin-right: 0;
     margin-left: 2px;
   }
+.dw-footer > span:only-child {
+	padding-left: 17px;
+}
+.dw-infoIcon {
+	display: inline-block;
+}
 #translation-panel:not([data-visible="false"]) + .dw-footer {
 	margin-top: 0;
 }
@@ -2243,6 +2261,10 @@ input[type="number"] {
 }
 .m-0 {
 	margin: 0;
+}
+.my-auto {
+	margin-top: auto;
+	margin-bottom: auto;
 }
 .mr-1 {
 	margin-right: 4px;
@@ -2352,11 +2374,11 @@ input[type="number"] {
 .mb-0 {
 	margin-bottom: 0;
 }
-.mb-\[-7px\] {
-	margin-bottom: -7px;
-}
 .mb-\[-2px\] {
 	margin-bottom: -2px;
+}
+.mb-\[-7px\] {
+	margin-bottom: -7px;
 }
 .block {
 	display: block;
@@ -2383,6 +2405,9 @@ input[type="number"] {
 }
 .h-\[50px\] {
 	height: 50px;
+}
+.h-\[35px\] {
+	height: 35px;
 }
 .w-\[1px\] {
 	width: 1px;
@@ -10897,8 +10922,8 @@ input[type="number"] {
 		margin-top: 4px;
 	}
 
-	.sm\:mb-0 {
-		margin-bottom: 0;
+	.sm\:h-\[24px\] {
+		height: 24px;
 	}
 
 	.sm\:h-\[35px\] {

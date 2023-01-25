@@ -253,6 +253,80 @@
 
     <div class="field-group">
       <div class="field-group__label mt-2">
+        Footer unter Dropdown Element und Abstand dazu OHNE Help Link
+      </div>
+
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+          <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">Place</div>
+          <div class="dw-dnd__cell w-[fit-content] flex-1">Flag</div>
+          <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">Driver</div>
+          <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">Car</div>
+          <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">Points</div>
+        </div>
+        <div class="dw-dnd__section">
+          <!-- 1. ROW -->
+          <div class="dw-dnd">
+            <!-- HANDLE -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <!-- PLACE -->
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+            <!-- FLAG -->
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <select
+                data-co=""
+                name="flagSelect"
+                class="dw-dropdown"
+                tabindex="3"
+                data-nlw-table="flags-with-single-path.db"
+                data-nlw-keys="column:A"
+                data-nlw-values="column:A"
+                data-nlw-start-index="1"
+              >
+                <option value="" disabled selected>- Auswählen -</option>
+              </select>
+            </div>
+            <!-- Driver -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[48px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <!-- Car -->
+            <div class="dw-dnd__cell dw_md:w-[150px] w-[65px]">
+              <input data-co="" type="text" class="form-input" />
+            </div>
+            <!-- Points -->
+            <div class="dw-dnd__cell dw_md:w-[80px] w-[65px]">
+              <div class="dw-quantity">
+                <input
+                  data-co=""
+                  type="number"
+                  class="form-input dw-input-number"
+                  min="0"
+                  max="9999"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dw-footer">
+      <span>Contact: echtzeitgrafik@dw.com</span>
+    </div>
+
+    <div class="dw-code">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div> --></code></pre>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label mt-2">
         Footer unter Translation Element ohne Abstand
       </div>
     </div>
