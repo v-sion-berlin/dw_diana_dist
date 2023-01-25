@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,7 +15,7 @@
     window.generateAutoTitles = () => {
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
       const language = languageSelector[languageSelector.selectedIndex].text
-      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('translation')
+      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('data-translation')
       const translationInsertsLine1 = document.querySelector('[data-co="Translation/InsertsLine1"').value
       const insertLine1FieldId = hasTranslation && translationInsertsLine1 ? '{Translation/InsertsLine1}' : '{InsertsLine1}'
       return {
@@ -35,7 +35,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/images/Header.png" alt="DW NEWS Header image" />
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
     <span class="text-gray-15">Ru Ins Opening</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
@@ -44,7 +44,7 @@
       <div>
         <div class="dw-label__input">Language</div>
         <select class="dw-dropdown" data-co="LanguageIndexGlobalPreview">
-          <option value="5" translation>Russian</option>
+          <option value="5" data-translation>Russian</option>
         </select>
       </div>
     </div>

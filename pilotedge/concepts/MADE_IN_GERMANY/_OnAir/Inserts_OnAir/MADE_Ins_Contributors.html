@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Made in Germany - Ins Contributors</title>
+  <!-- Default includes -->
+  <link href="../../../../_sources/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../_sources/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../_sources/js/utils/dw.js" type="module"></script>
+  <script src="../../../../_sources/js/payloadhosting.js"></script>
+  <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
+  <script src="../../../../_sources/js/nlw.js"></script>
+  <script src="../../Sources/JS/made-nlw.js"></script>
+  <script>
+    /* global Event */
+    /* global NLW_DATA, NLW_PROPERTIES */
+
+    let contributor2name1, contributor2name2, contributor3name1, contributor3name2
+    const TRANSLATION_LANGUAGE = 'English'
+    let nlwLanguage
+    let reportVariantIndex
+    let contributor1FunctionLabel, contributor2FunctionLabel, contributor3FunctionLabel
+
+    window.generateAutoTitles = () => {
+      const languageSelect = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelect[languageSelect.selectedIndex].text
+      const hasTranslation = languageSelect[languageSelect.selectedIndex].hasAttribute('data-translation')
+      const title = ['MADE Ins Contributors', '||', language]
+      const contributors = []
+      for (let i = 0; i < 6; i++) {
+        const contributorName = `Contributor${Math.floor(i / 2) + 1}Name${i % 2 + 1}`
+        const contributorTranslation = document.querySelector(`[data-co="Translation/${contributorName}"`).value
+        const contributorFieldId = hasTranslation && contributorTranslation ? `{Translation/${contributorName}}` : `{${contributorName}}`
+        contributors.push('|')
+        contributors.push(contributorFieldId)
+      }
+      return {
+        '-auto-generated-title': title.concat(contributors),
+        'ram-title': contributors.slice(1),
+        'ram-continue-points': 0
+      }
+    }
+
+    const handlePanelVisibilities = () => {
+      document.querySelectorAll('[data-name="Contributor2Function"]').forEach((label) => {
+        label.parentNode.dataset.visible = reportVariantIndex.value === '2'
+      })
+      document.querySelectorAll('[data-name="Contributor3Function"]').forEach((label) => {
+        label.parentNode.dataset.visible = ((reportVariantIndex.value === '1') || (reportVariantIndex.value === '2'))
+      })
+    }
+
+    const setContributorContent = () => {
+      // First contributor - REPORT
+      if (reportVariantIndex.value !== '3') {
+        document.querySelectorAll('[data-name="Contributor1Function"]').forEach((label) => {
+          label.innerHTML = NLW_DATA[TRANSLATION_LANGUAGE][NLW_PROPERTIES.REPORT]
+        })
+        contributor1FunctionLabel.value = NLW_DATA[nlwLanguage][NLW_PROPERTIES.REPORT]
+        contributor1FunctionLabel.dispatchEvent(new Event('input'))
+      } else {
+        document.querySelectorAll('[data-name="Contributor1Function"]').forEach((label) => {
+          label.innerHTML = `${NLW_DATA[TRANSLATION_LANGUAGE][NLW_PROPERTIES.REPORT]}, ${NLW_DATA[TRANSLATION_LANGUAGE][NLW_PROPERTIES.CAMERA]}, ${NLW_DATA[TRANSLATION_LANGUAGE][NLW_PROPERTIES.EDITOR]}`
+        })
+        contributor1FunctionLabel.value = `${NLW_DATA[nlwLanguage][NLW_PROPERTIES.REPORT]}, ${NLW_DATA[nlwLanguage][NLW_PROPERTIES.CAMERA]}, ${NLW_DATA[nlwLanguage][NLW_PROPERTIES.EDITOR]}`
+        contributor1FunctionLabel.dispatchEvent(new Event('input'))
+      }
+
+      // Second Contributor - CAMERA
+      if (reportVariantIndex.value === '2') {
+        contributor2FunctionLabel.value = NLW_DATA[nlwLanguage][NLW_PROPERTIES.CAMERA]
+        contributor2FunctionLabel.dispatchEvent(new Event('input'))
+      } else {
+        contributor2FunctionLabel.value = ''
+        contributor2FunctionLabel.dispatchEvent(new Event('input'))
+        contributor2name1.value = ''
+        contributor2name1.dispatchEvent(new Event('input'))
+        contributor2name2.value = ''
+        contributor2name2.dispatchEvent(new Event('input'))
+      }
+
+      // Third Contributor - EDITOR
+      if (reportVariantIndex.value === '1' || reportVariantIndex.value === '2') {
+        contributor3FunctionLabel.value = NLW_DATA[nlwLanguage][NLW_PROPERTIES.EDITOR]
+        contributor3FunctionLabel.dispatchEvent(new Event('input'))
+      } else {
+        contributor3FunctionLabel.value = ''
+        contributor3FunctionLabel.dispatchEvent(new Event('input'))
+        contributor3name1.value = ''
+        contributor3name1.dispatchEvent(new Event('input'))
+        contributor3name2.value = ''
+        contributor3name2.dispatchEvent(new Event('input'))
+      }
+      handlePanelVisibilities()
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      contributor1FunctionLabel = document.querySelector('[data-co="Contributor1Function"]')
+      contributor2FunctionLabel = document.querySelector('[data-co="Contributor2Function"]')
+      contributor3FunctionLabel = document.querySelector('[data-co="Contributor3Function"]')
+      contributor2name1 = document.querySelector('[data-co="Contributor2Name1"]')
+      contributor2name2 = document.querySelector('[data-co="Contributor2Name2"]')
+      contributor3name1 = document.querySelector('[data-co="Contributor3Name1"]')
+      contributor3name2 = document.querySelector('[data-co="Contributor3Name2"]')
+
+      document.querySelectorAll('[data-name="Contributor1Function"]').forEach((element) => { element.innerHTML = NLW_DATA[TRANSLATION_LANGUAGE][NLW_PROPERTIES.REPORT] })
+      document.querySelectorAll('[data-name="Contributor2Function"]').forEach((element) => { element.innerHTML = NLW_DATA[TRANSLATION_LANGUAGE][NLW_PROPERTIES.CAMERA] })
+      document.querySelectorAll('[data-name="Contributor3Function"]').forEach((element) => { element.innerHTML = NLW_DATA[TRANSLATION_LANGUAGE][NLW_PROPERTIES.EDITOR] })
+
+      const showSecondContributorLine = document.querySelector('[data-co="Dummy/ShowSecondContributorLine"]')
+      const secondLinePanels = document.querySelectorAll('[data-name="secondcontributorline"]')
+      showSecondContributorLine.addEventListener('click', (event) => {
+        secondLinePanels.forEach((panel) => {
+          panel.dataset.visible = showSecondContributorLine.checked
+        })
+        document.querySelector('[data-co="InsertVariantIndex"]').value = showSecondContributorLine.checked ? '5' : '4'
+        document.querySelector('[data-co="InsertVariantIndex"]').dispatchEvent(new Event('input'))
+      })
+
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      languageSelector.addEventListener('change', (event) => {
+        nlwLanguage = languageSelector[languageSelector.selectedIndex].text
+        setContributorContent()
+      })
+
+      reportVariantIndex = document.querySelector('[data-co="Dummy/ReportVariantIndex"]')
+      reportVariantIndex.addEventListener('change', setContributorContent)
+
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="Dummy/ShowSecondContributorLine"]').dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="MADE Header Image">
+    <span class="text-white">Ins Contributors</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="3" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="1">German</option>
+          <option value="2">Spanish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Variant -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Variant</div>
+        <select class="dw-dropdown" data-co="Dummy/ReportVariantIndex">
+          <option value="0">Report</option>
+          <option value="1">Report, Editor</option>
+          <option value="2">Report, Camera, Editor</option>
+          <option value="3">VJ Report</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Show second contributors line -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__input">Show second contributor line</label>
+        <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/ShowSecondContributorLine">
+        <input type="text" class="form-input hidden" data-co="InsertVariantIndex">
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div id="direction-switch">
+      <div class="field-group">
+        <span class="dw-alert mb-2">Please note, that multiple entries are possible - one per input field.</span>
+        <div class="flex sm:flex-row flex-col gap-2">
+          <div class="flex-1">
+            <label data-co="Contributor1Function" data-name="Contributor1Function" class="dw-label__input">Contributor1Function</label>
+            <div class="grid grid-cols-1 gap-2">
+              <input type="text" class="form-input font-large" data-co="Contributor1Name1">
+              <input type="text" class="form-input font-large" data-co="Contributor1Name2" data-name="secondcontributorline">
+            </div>
+          </div>
+          <div class="flex-1">
+            <label data-co="Contributor2Function" data-name="Contributor2Function" class="dw-label__input">Contributor2Function</label>
+            <div class="grid grid-cols-1 gap-2">
+              <input type="text" class="form-input font-large" data-co="Contributor2Name1">
+              <input type="text" class="form-input font-large" data-co="Contributor2Name2" data-name="secondcontributorline">
+            </div>
+          </div>
+          <div class="flex-1">
+            <label data-co="Contributor3Function" data-name="Contributor3Function" class="dw-label__input">Contributor3Function</label>
+            <div class="grid grid-cols-1 gap-2">
+              <input type="text" class="form-input font-large" data-co="Contributor3Name1">
+              <input type="text" class="form-input font-large" data-co="Contributor3Name2" data-name="secondcontributorline">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+    <div class="flex sm:flex-row flex-col gap-2">
+      <div class="flex-1">
+        <label data-co="Contributor1Function" data-name="Contributor1Function" class="dw-label__input">Contributor1Function</label>
+        <div class="grid grid-cols-1 gap-2">
+          <input type="text" class="form-input font-large" data-co="Translation/Contributor1Name1">
+          <input type="text" class="form-input font-large" data-co="Translation/Contributor1Name2" data-name="secondcontributorline">
+        </div>
+      </div>
+      <div class="flex-1">
+        <label data-co="Contributor2Function" data-name="Contributor2Function" class="dw-label__input">Contributor2Function</label>
+        <div class="grid grid-cols-1 gap-2">
+          <input type="text" class="form-input font-large" data-co="Translation/Contributor2Name1">
+          <input type="text" class="form-input font-large" data-co="Translation/Contributor2Name2" data-name="secondcontributorline">
+        </div>
+      </div>
+      <div class="flex-1">
+        <label data-co="Contributor3Function" data-name="Contributor3Function" class="dw-label__input">Contributor3Function</label>
+        <div class="grid grid-cols-1 gap-2">
+          <input type="text" class="form-input font-large" data-co="Translation/Contributor3Name1">
+          <input type="text" class="form-input font-large" data-co="Translation/Contributor3Name2" data-name="secondcontributorline">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+</body>
+
+</html>

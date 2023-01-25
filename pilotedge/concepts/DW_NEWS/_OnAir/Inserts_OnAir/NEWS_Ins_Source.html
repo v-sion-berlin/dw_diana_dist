@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +20,7 @@
     window.generateAutoTitles = () => {
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
       const language = languageSelector[languageSelector.selectedIndex].text
-      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('translation')
+      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('data-translation')
       const translationComposedText = document.querySelector('[data-co="Translation/ComposedText"]')
       const [translationSourceLine1, translationSourceLine2] = translationComposedText.value.split(/\r?\n/)
       const SourceLine1FieldId = hasTranslation && translationSourceLine1 ? translationSourceLine1 : '{SourceLine1}'
@@ -33,7 +33,6 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
       languageSelector.addEventListener('change', (event) => {
         // Setting default text if present in nlw
@@ -76,7 +75,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/images/Header.png" alt="DW NEWS Header image" />
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image">
     <span class="text-gray-15">Ins Source</span>
   </div>
 
@@ -86,11 +85,11 @@
       <div>
         <div class="dw-label__input">Language</div>
         <select class="dw-dropdown" data-co="LanguageIndexGlobalPreview">
-          <option value="9" rtl translation>Arabic</option>
+          <option value="9" data-rtl data-translation>Arabic</option>
           <option value="0">English</option>
           <option value="2">German</option>
           <option value="6">Spanish</option>
-          <option value="5" translation>Russian</option>
+          <option value="5" data-translation>Russian</option>
           <option value="7">Turkish</option>
         </select>
       </div>
@@ -102,12 +101,12 @@
         <label class="dw-label__section">Source Variant</label>
         <div class="form-input-chips">
           <label>
-            <input data-co="SourceVariantIndex" type="radio" value="0" name="source-variant-index" />
+            <input data-co="SourceVariantIndex" type="radio" value="0" name="source-variant-index">
             <span>Top Right</span>
           </label>
 
           <label>
-            <input data-co="SourceVariantIndex" type="radio" value="1" name="source-variant-index" />
+            <input data-co="SourceVariantIndex" type="radio" value="1" name="source-variant-index">
             <span>Bottom Left</span>
           </label>
         </div>
@@ -116,27 +115,23 @@
   </div>
 
   <!-- CONTENT -->
-  <div id="direction-switch">
-    <div class="field-group">
-      <span class="dw-alert dw-alert--info mb-4">
-        Don't use for names!
-      </span>
+  <div class="dw-content">
+    <div class="field-group" id="direction-switch">
+      <span class="dw-alert dw-alert--info mb-4">Don't use for names!</span>
       <label class="dw-label__input">Source Lines</label>
       <textarea data-co="Dummy/ComposedText" class="dw-textarea" data-max-rows="2" rows="2"></textarea>
-      <span class="dw-alert">
-        You may use two lines in this text field.
-      </span>
+      <span class="dw-alert">You may use two lines in this text field.</span>
 
       <!-- This is hidden because we use the textarea for the user.  -->
       <div class="hidden">
         <div class="grid grid-cols-1 gap-2">
           <div>
             <label class="dw-label__input">Line 1</label>
-            <input type="text" class="form-input font-large" data-co="SourceLine1" />
+            <input type="text" class="form-input font-large" data-co="SourceLine1">
           </div>
           <div>
             <label class="dw-label__input">Line 2</label>
-            <input type="text" class="form-input font-large" data-co="SourceLine2" />
+            <input type="text" class="form-input font-large" data-co="SourceLine2">
           </div>
         </div>
       </div>
@@ -144,12 +139,11 @@
   </div>
 
   <!-- TRANSLATION -->
-  <div class="field-group bg-gray-12" id="translation-panel">
-    <label class="field-group__label text-gray-03">Translation</label>
-    <span class="dw-alert dw-alert--info mb-4">
-      Please provide a translation for the operator
-    </span>
-    <label class="dw-label__input text-gray-03">Source</label>
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <label class="dw-label__input">Source</label>
     <textarea data-co="Translation/ComposedText" class="dw-textarea" data-max-rows="2" rows="2"></textarea>
   </div>
 

@@ -1,4 +1,5 @@
 /* global nlw */
+/* eslint-disable no-unused-vars */
 
 const NLW_PROPERTIES_LOWERTHIRDS = Object.freeze({
   LANGUAGE: 0,

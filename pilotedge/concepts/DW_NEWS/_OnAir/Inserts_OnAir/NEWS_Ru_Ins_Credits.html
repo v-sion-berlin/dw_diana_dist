@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -44,7 +44,7 @@
         option.value = value
         helpNameSelect.add(option)
       })
-      helpNameSelect.dispatchEvent(new Event('çhange'))
+      helpNameSelect.dispatchEvent(new Event('change'))
     }
 
     const fillFunctionSelect = () => {
@@ -156,7 +156,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/images/Header.png" alt="DW NEWS Header image" />
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image">
     <span class="text-gray-15">Ru Ins Credits</span>
   </div>
 
@@ -181,64 +181,66 @@
       <select class="dw-dropdown" id="helpNameSelect">
         <option>Name from NLW</option>
       </select>
-      <input type="text" class="form-input" />
+      <input type="text" class="form-input">
     </div>
   </div>
 
   <!-- CONTENT -->
-  <div id="direction-switch">
-    <div class="field-group" name= "" id="Panel1">
-      <div class="field-group__label">Panel 1</div>
-      <div class="grid grid-cols-1 gap-2">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <div class="grid grid-cols-1 gap-2">
-            <label data-co="" value="" class="dw-label__input col-start-1">Executive Producer</label>
-            <input type="text" data-co="CreditsPage1LeftLine1" class="form-input" />
-            <input type="text" data-co="CreditsPage1LeftLine2" class="form-input" />
-            <input type="text" data-co="CreditsPage1LeftLine3" class="form-input" />
-          </div>
-          <div class="grid grid-cols-1 gap-2">
-            <label data-co="" value="" class="dw-label__input col-start-1">Producer</label>
-            <input type="text" data-co="CreditsPage1RightLine1" class="form-input" />
-            <input type="text" data-co="CreditsPage1RightLine2" class="form-input" />
-            <input type="text" data-co="CreditsPage1RightLine3" class="form-input" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="field-group bg-gray-01">
-      <div class="field-group__label">Panel 2</div>
-      <div class="grid grid-cols-1 gap-2">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <div class="grid grid-cols-1 gap-2">
-            <label data-co="" value="" class="dw-label__input col-start-1">Director</label>
-            <input type="text" data-co="CreditsPage2LeftLine1" class="form-input" />
-            <input type="text" data-co="CreditsPage2LeftLine2" class="form-input" />
-          </div>
-          <div class="grid grid-cols-1 gap-2">
-            <label data-co="" value="" class="dw-label__input col-start-1">Presenter</label>
-            <input type="text" data-co="CreditsPage2RightLine1" class="form-input" />
-            <select class="dw-dropdown" data-co="CreditsPage2RightLine2">
-              <option value="">from NLW</option>
-            </select>
+  <div class="dw-content">
+    <div id="direction-switch">
+      <div class="field-group" data-name="" id="Panel1">
+        <div class="field-group__label">Panel 1</div>
+        <div class="grid grid-cols-1 gap-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="grid grid-cols-1 gap-2">
+              <label data-co="" class="dw-label__input col-start-1">Executive Producer</label>
+              <input type="text" data-co="CreditsPage1LeftLine1" class="form-input">
+              <input type="text" data-co="CreditsPage1LeftLine2" class="form-input">
+              <input type="text" data-co="CreditsPage1LeftLine3" class="form-input">
+            </div>
+            <div class="grid grid-cols-1 gap-2">
+              <label data-co="" class="dw-label__input col-start-1">Producer</label>
+              <input type="text" data-co="CreditsPage1RightLine1" class="form-input">
+              <input type="text" data-co="CreditsPage1RightLine2" class="form-input">
+              <input type="text" data-co="CreditsPage1RightLine3" class="form-input">
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="field-group" name="Production and Social Media" id="Panel3">
-      <div class="field-group__label">Panel 3</div>
-      <label data-co="" value="" class="dw-label__input mb-2 col-start-1">Online Addresses</label>
-      <div class="hidden">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <div class="grid grid-cols-1 gap-2">
-            <label data-co="CreditsPage3LeftLine1" value="" class="dw-label__input col-start-1"></label>
-            <label data-co="CreditsPage3LeftLine2" value="" class="dw-label__input"></label>
+      <div class="field-group bg-gray-01">
+        <div class="field-group__label">Panel 2</div>
+        <div class="grid grid-cols-1 gap-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="grid grid-cols-1 gap-2">
+              <label data-co="" class="dw-label__input col-start-1">Director</label>
+              <input type="text" data-co="CreditsPage2LeftLine1" class="form-input">
+              <input type="text" data-co="CreditsPage2LeftLine2" class="form-input">
+            </div>
+            <div class="grid grid-cols-1 gap-2">
+              <label data-co="" class="dw-label__input col-start-1">Presenter</label>
+              <input type="text" data-co="CreditsPage2RightLine1" class="form-input">
+              <select class="dw-dropdown" data-co="CreditsPage2RightLine2">
+                <option value="">from NLW</option>
+              </select>
+            </div>
           </div>
-          <div class="grid grid-cols-1 gap-2">
-            <label data-co="CreditsPage3RightLine1" value="" class="dw-label__input col-start-1"></label>
-            <label data-co="CreditsPage3RightLine2" value="" class="dw-label__input"></label>
+        </div>
+      </div>
+
+      <div class="field-group" data-name="Production and Social Media" id="Panel3">
+        <div class="field-group__label">Panel 3</div>
+        <label data-co="" class="dw-label__input mb-2 col-start-1">Online Addresses</label>
+        <div class="hidden">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="grid grid-cols-1 gap-2">
+              <label data-co="CreditsPage3LeftLine1" class="dw-label__input col-start-1"></label>
+              <label data-co="CreditsPage3LeftLine2" class="dw-label__input"></label>
+            </div>
+            <div class="grid grid-cols-1 gap-2">
+              <label data-co="CreditsPage3RightLine1" class="dw-label__input col-start-1"></label>
+              <label data-co="CreditsPage3RightLine2" class="dw-label__input"></label>
+            </div>
           </div>
         </div>
       </div>
