@@ -61,41 +61,65 @@ const initializeDropdowns = async () => {
  * @since 1.00
  */
 const initializeImageThumbs = async () => {
-  const elements = document.querySelectorAll(".dw-imgSelect");
-  if (elements) {
+  let isOverImgLarge = false
+  let isOverImgThumb = false
 
-    for (const element of elements) {
-      // create hover image
-      const src = element.querySelector(".dw-imgThumb img").getAttribute("src");
-      if (src) {
-        const imgLarge = document.createElement("div");
-        const img = document.createElement("img");
-        imgLarge.classList.add("dw-imgLarge");
-        imgLarge.classList.add("hidden");
-        img.setAttribute('src', src);
-        imgLarge.appendChild(img);
-        element.append(imgLarge);
+  const showHideImgLarge = (imgLarge) => {
+    setTimeout(() => {
+      const imgThumb = imgLarge.parentElement.parentElement.querySelector('.dw-imgThumb')
+      if (!isOverImgLarge && !isOverImgThumb) {
+        imgLarge.classList.add('hidden')
+        imgLarge.removeEventListener('mouseover', onMouseOverImgLarge)
+        imgLarge.removeEventListener('mouseout', onMouseOutImgLarge)
+        imgThumb.removeEventListener('mouseout', onMouseOutImgThumb)
+      } else {
+        const src = imgThumb.querySelector('img').getAttribute('src')
+        if (src) {
+          imgLarge.classList.remove('hidden')
+          imgLarge.querySelector('img').setAttribute('src', imgThumb.querySelector('img').getAttribute('src'))
+        }
       }
+    }, 10)
+  }
 
-      element
-        .querySelector(".dw-imgThumb")
-        .addEventListener("mouseover", (event) => {
-          const imgLarge =
-            event.target.parentElement.parentElement.querySelector(
-              ".dw-imgLarge"
-            );
-          imgLarge.classList.remove("hidden");
+  const onMouseOverImgLarge = (event) => {
+    isOverImgLarge = true
+    showHideImgLarge(event.target.parentElement)
+  }
 
-          element.addEventListener("mouseout", (event) => {
-            if (!imgLarge.classList.contains("hidden")) {
-              imgLarge.classList.add("hidden");
-              event.target.parentElement.parentElement.parentElement
-                .querySelector(".dw-imgSelect")
-                .removeEventListener("mousemove", event);
-            }
-          });
-        });
-    }
+  const onMouseOutImgLarge = (event) => {
+    isOverImgLarge = false
+    showHideImgLarge(event.target.parentElement)
+  }
+
+  const onMouseOutImgThumb = (event) => {
+    isOverImgThumb = false
+    const imgLarge = event.target.parentElement.parentElement.querySelector('.dw-imgLarge')
+    showHideImgLarge(imgLarge)
+  }
+
+  const showLargeImage = (event) => {
+    const imgLarge = event.target.parentElement.parentElement.querySelector('.dw-imgLarge')
+
+    isOverImgThumb = true
+    showHideImgLarge(imgLarge)
+
+    imgLarge.addEventListener('mouseover', onMouseOverImgLarge)
+    imgLarge.addEventListener('mouseout', onMouseOutImgLarge)
+    event.target.addEventListener('mouseout', onMouseOutImgThumb)
+  }
+
+  const elements = document.querySelectorAll('.dw-imgSelect')
+  for (const element of elements) {
+    const imgThumb = element.querySelector('.dw-imgThumb')
+    const imgLarge = document.createElement('div')
+    const img = document.createElement('img')
+    imgLarge.classList.add('dw-imgLarge')
+    imgLarge.classList.add('hidden')
+    imgLarge.appendChild(img)
+    element.append(imgLarge)
+
+    imgThumb.addEventListener('mouseover', showLargeImage)
   }
 }
 
