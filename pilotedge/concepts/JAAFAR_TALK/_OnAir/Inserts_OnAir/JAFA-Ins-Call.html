@@ -35,10 +35,8 @@
       socialMediaSelector.addEventListener('change', (event) => {
         const socialMedia = socialMediaSelector[socialMediaSelector.selectedIndex].innerHTML
         if (socialMedia !== 'No Icon') {
-          document.querySelector('[data-co="CallLine1"]').value = NLW_DATA[socialMedia][NLW_PROPERTIES.TEXT_LINE]
-          document.querySelector('[data-co="CallLine1"]').dispatchEvent(new Event('input'))
-          document.querySelector('[data-co="CallLine2"]').value = NLW_DATA[socialMedia][NLW_PROPERTIES.SOCIAL_MEDIA_ADRESS]
-          document.querySelector('[data-co="CallLine2"]').dispatchEvent(new Event('input'))
+          window.COElement('CallLine1').value = NLW_DATA[socialMedia][NLW_PROPERTIES.TEXT_LINE]
+          window.COElement('CallLine2').value = NLW_DATA[socialMedia][NLW_PROPERTIES.SOCIAL_MEDIA_ADRESS]
         }
       })
     })
@@ -119,7 +117,10 @@
   </div>
 
   <!-- FOOTER -->
-  <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+  <div class="dw-footer">
+    <a class="dw-helpLink">Help</a>
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
 </body>
 
 </html>

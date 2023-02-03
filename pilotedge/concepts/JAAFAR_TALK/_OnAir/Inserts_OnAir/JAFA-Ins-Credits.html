@@ -12,8 +12,10 @@
   <script src="../../../../_sources/js/payloadhosting.js"></script>
   <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
   <script src="../../../../_sources/js/nlw.js"></script>
-  <script src="../../Sources/JS/news-nlw.js"></script>
+  <script src="../../Sources/JS/jafa-credits.js"></script>
   <script>
+    /* global NLW_DATA, NLW_PROPERTIES */
+    /* global Event */
     window.generateAutoTitles = () => {
       return {
         '-auto-generated-title': 'JAFA Ins Credits',
@@ -23,15 +25,40 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
-      languageSelector.addEventListener('click', (event) => {
-        if (event.detail !== 'dw.js') {
-          // Insert Default Values here
-        }
+      const language = 'Arabic'
+      const languageSelector = document.querySelector('[data-co="Dummy/LanguageIndex"]')
+
+      languageSelector.addEventListener('change', (event) => {
+        // Panel 1
+        window.COElement('Credit1Line1').value = NLW_DATA[language][NLW_PROPERTIES.EDITORS]
+        window.COElement('Credit1Line2').value = NLW_DATA[language][NLW_PROPERTIES.EDITORS_NAME_1]
+        window.COElement('Credit1Line3').value = NLW_DATA[language][NLW_PROPERTIES.EDITORS_NAME_2]
+        window.COElement('Credit1Line4').value = NLW_DATA[language][NLW_PROPERTIES.EDITORS_NAME_3]
+        // Panel 2
+        window.COElement('Credit2Line1').value = NLW_DATA[language][NLW_PROPERTIES.PRODUCERS]
+        window.COElement('Credit2Line2').value = NLW_DATA[language][NLW_PROPERTIES.PRODUCERS_NAME_1]
+        window.COElement('Credit2Line3').value = NLW_DATA[language][NLW_PROPERTIES.PRODUCERS_NAME_2]
+        // Panel 3
+        window.COElement('Credit3Line1').value = NLW_DATA[language][NLW_PROPERTIES.SHOW_MANAGEMENT]
+        window.COElement('Credit3Line2').value = NLW_DATA[language][NLW_PROPERTIES.SHOW_MANAGEMENT_NAME]
+        // Panel 4
+        window.COElement('Credit4Line1').value = NLW_DATA[language][NLW_PROPERTIES.MANAGEMENT]
+        window.COElement('Credit4Line2').value = NLW_DATA[language][NLW_PROPERTIES.MANAGEMENT_NAMES]
+        // Panel 5
+        window.COElement('Credit5Line1').value = NLW_DATA[language][NLW_PROPERTIES.YOUTUBE]
+        window.COElement('Credit5Line2').value = NLW_DATA[language][NLW_PROPERTIES.FACEBOOK]
+        window.COElement('Credit5Line3').value = NLW_DATA[language][NLW_PROPERTIES.TWITTER]
+        // Panel 6
+        window.COElement('Credit6Line1').value = NLW_DATA[language][NLW_PROPERTIES.WHATSAPP]
+        window.COElement('Credit6Line3').value = NLW_DATA[language][NLW_PROPERTIES.INSTAGRAM]
+        // Panel 7 (Copyright is not NLW so far)
+        window.COElement('Credit7Line1').value = NLW_DATA[language][NLW_PROPERTIES.WEB]
+        window.COElement('Credit7Line3').value = NLW_DATA[language][NLW_PROPERTIES.MAIL]
       })
     })
 
     document.addEventListener('vizPayloadReady', () => {
+      document.querySelector('[data-co="Dummy/LanguageIndex"]').dispatchEvent(new Event('change'))
     })
   </script>
 </head>
@@ -47,7 +74,7 @@
     <div class="form-input-chips-wrapper">
       <div>
         <div class="dw-label__input">Language</div>
-        <select class="dw-dropdown" data-co="">
+        <select class="dw-dropdown" data-co="Dummy/LanguageIndex">
           <option value="">Arabic</option>
         </select>
       </div>
@@ -158,15 +185,25 @@
           <input type="text" data-co="Credit7Line3" class="form-input" />
         </div>
         <div>
-          <label class="dw-label__input">Copyright</label>
-          <input type="text" data-co="Credit7Line2" class="form-input" />
+          <div>
+            <div class="dw-label__input">Copyright</div>
+            <select class="dw-dropdown" data-co="Credit7Line2">
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- FOOTER -->
-  <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+  <div class="dw-footer">
+    <a class="dw-helpLink">Help</a>
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
 </body>
 
 </html>

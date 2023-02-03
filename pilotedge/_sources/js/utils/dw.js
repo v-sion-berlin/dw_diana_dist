@@ -57,6 +57,73 @@ const initializeDropdowns = async () => {
 }
 
 /**
+ * Adds a larger image version to the Image Select Thumbnail and shows it on hover
+ * @since 1.00
+ */
+const initializeImageThumbs = async () => {
+  let isOverImgLarge = false
+  let isOverImgThumb = false
+
+  const showHideImgLarge = (imgLarge) => {
+    setTimeout(() => {
+      const imgThumb = imgLarge.parentElement.parentElement.querySelector('.dw-imgThumb')
+      if (!isOverImgLarge && !isOverImgThumb) {
+        imgLarge.classList.add('hidden')
+        imgLarge.removeEventListener('mouseover', onMouseOverImgLarge)
+        imgLarge.removeEventListener('mouseout', onMouseOutImgLarge)
+        imgThumb.removeEventListener('mouseout', onMouseOutImgThumb)
+      } else {
+        const src = imgThumb.querySelector('img').getAttribute('src')
+        if (src) {
+          imgLarge.classList.remove('hidden')
+          imgLarge.querySelector('img').setAttribute('src', imgThumb.querySelector('img').getAttribute('src'))
+        }
+      }
+    }, 10)
+  }
+
+  const onMouseOverImgLarge = (event) => {
+    isOverImgLarge = true
+    showHideImgLarge(event.target.parentElement)
+  }
+
+  const onMouseOutImgLarge = (event) => {
+    isOverImgLarge = false
+    showHideImgLarge(event.target.parentElement)
+  }
+
+  const onMouseOutImgThumb = (event) => {
+    isOverImgThumb = false
+    const imgLarge = event.target.parentElement.parentElement.querySelector('.dw-imgLarge')
+    showHideImgLarge(imgLarge)
+  }
+
+  const showLargeImage = (event) => {
+    const imgLarge = event.target.parentElement.parentElement.querySelector('.dw-imgLarge')
+
+    isOverImgThumb = true
+    showHideImgLarge(imgLarge)
+
+    imgLarge.addEventListener('mouseover', onMouseOverImgLarge)
+    imgLarge.addEventListener('mouseout', onMouseOutImgLarge)
+    event.target.addEventListener('mouseout', onMouseOutImgThumb)
+  }
+
+  const elements = document.querySelectorAll('.dw-imgSelect')
+  for (const element of elements) {
+    const imgThumb = element.querySelector('.dw-imgThumb')
+    const imgLarge = document.createElement('div')
+    const img = document.createElement('img')
+    imgLarge.classList.add('dw-imgLarge')
+    imgLarge.classList.add('hidden')
+    imgLarge.appendChild(img)
+    element.append(imgLarge)
+
+    imgThumb.addEventListener('mouseover', showLargeImage)
+  }
+}
+
+/**
  * Defines a global variable window.datestamp that contains the actual
  * timestamp. This can be used during <code>[generating auto titles]{@link generateAutoTitle}</code>.
  * @returns {String} The datestamp.
@@ -153,4 +220,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeInputs()
   initializeDraggables()
   initializeDropdowns()
+  initializeImageThumbs();
 })

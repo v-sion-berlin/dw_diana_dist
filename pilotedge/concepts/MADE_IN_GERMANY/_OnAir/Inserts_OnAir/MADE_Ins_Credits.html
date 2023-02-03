@@ -39,7 +39,7 @@
 
     window.generateAutoTitles = () => {
       return {
-        '-auto-generated-title': ['EMXX Ins Credits', '||', language],
+        '-auto-generated-title': ['MADE Ins Credits', '||', language],
         'ram-title': ['Credits', '|', language],
         'ram-continue-points': 3 + Number(vizrt.payloadhosting.getFieldText('Show2_CREDIT'))
       }
@@ -267,8 +267,8 @@
         <div class="grid gap-2">
           <div class="max-w-xs dw-flexGroup">
             <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/UseSecondContributorNameLine">
-            <label class="dw-label__input">Use second contributor name line</label>
             <input type="text" class="form-input hidden" data-co="ContributorTypeIndex">
+            <label class="dw-label__input">Use second contributor name line</label>
           </div>
           <span class="dw-alert">Please add one contributor per input field</span>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -365,7 +365,10 @@
   </div>
 
   <!-- FOOTER -->
-  <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+  <div class="dw-footer">
+    <a class="dw-helpLink">Help</a>
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
 </body>
 
 </html>
