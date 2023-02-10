@@ -20,7 +20,7 @@
       const topLineFieldId = hasTranslation && translationTopLine ? '{Translation/TopLine}' : '{TopLine}'
       const color = document.querySelector('[name="ColorIndex"]:checked').nextElementSibling.textContent
       return {
-        '-auto-generated-title': ['KUNA Ins 1L 2L', '||', language, '|', color, '|', topLineFieldId],
+        '-auto-generated-title': ['TOP', '||', language, '|', color, '|', topLineFieldId],
         'ram-title': [color, '|', topLineFieldId],
         'ram-continue-points': 0
       }
@@ -104,7 +104,6 @@
 
   <!-- FOOTER -->
   <div class="dw-footer">
-    <a class="dw-helpLink">Help</a>
     <span>Contact: echtzeitgrafik@dw.com</span>
   </div>
 </body>

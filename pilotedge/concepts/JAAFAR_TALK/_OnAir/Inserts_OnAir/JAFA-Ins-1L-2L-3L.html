@@ -35,7 +35,11 @@
           ramtitle = [insertLine1FieldId, '|', insertLine2FieldId]
           autotitle = ['JAFA Ins 1L 2L 3L', '||', insertLine1FieldId, '|', insertLine2FieldId]
           break
-        case '2' || '3':
+        case '2':
+          ramtitle = [insertLine1FieldId, '|', insertLine2FieldId, '|', insertLine3FieldId]
+          autotitle = ['JAFA Ins 1L 2L 3L', '||', insertLine1FieldId, '|', insertLine2FieldId, '|', insertLine3FieldId]
+          break
+        case '3':
           ramtitle = [insertLine1FieldId, '|', insertLine2FieldId, '|', insertLine3FieldId]
           autotitle = ['JAFA Ins 1L 2L 3L', '||', insertLine1FieldId, '|', insertLine2FieldId, '|', insertLine3FieldId]
           break
@@ -170,12 +174,12 @@
         <div class="form-input-chips">
           <label>
             <input data-co="Dummy/MarkerVariantIndex" type="radio" value="0" name="dummy-marker-variant" />
-            <span>Up</span>
+            <span>Top Line</span>
           </label>
 
           <label>
             <input data-co="Dummy/MarkerVariantIndex" type="radio" value="1" name="dummy-marker-variant" />
-            <span>Down</span>
+            <span>Bottom Line</span>
           </label>
         </div>
       </div>
@@ -245,7 +249,6 @@
 
   <!-- FOOTER -->
   <div class="dw-footer">
-    <a class="dw-helpLink">Help</a>
     <span>Contact: echtzeitgrafik@dw.com</span>
   </div>
 </body>

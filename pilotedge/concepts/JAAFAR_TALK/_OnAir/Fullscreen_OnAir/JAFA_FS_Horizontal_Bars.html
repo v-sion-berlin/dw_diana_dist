@@ -66,8 +66,7 @@
     <span class="text-gray-15">FS Horizontal Bars</span>
   </div>
   <!-- LANGUAGE -->
-  <div class="flex flex-row flex-wrap bg-gray-01">
-
+  <div class="flex flex-row justify-items flex-wrap bg-gray-01">
     <div class="form-input-chips-wrapper space-x-0">
       <div class="dw-label__input">Language</div>
       <select id="LanguageIndex" class="dw-dropdown">
@@ -102,7 +101,7 @@
       </div>
     </div>
 
-    <div class="form-input-chips-wrapper space-x-0">
+    <div class="form-input-chips-wrapper space-x-0 w-[100px]">
       <div class="dw-label__input">Unit</div>
       <input type="text" class="form-input font-large" data-co="ValueSuffix">
     </div>
@@ -110,7 +109,9 @@
     <div class="form-input-chips-wrapper">
       <div>
         <label class="dw-label__input">Bar Background</label>
-        <input data-co="Dummy/BarBg" type="checkbox" class="form-input dw-checkbox" />
+        <div class="dw-flexGroup h-7 items-center">
+          <input data-co="Dummy/BarBg" type="checkbox" class="form-input dw-checkbox" />
+        </div>
         <div class="hidden">
           <input data-co="BarBg" type="text" class="form-input" />
         </div>
@@ -308,7 +309,6 @@
 
   <!-- FOOTER -->
   <div class="dw-footer">
-    <a class="dw-helpLink">Help</a>
     <span>Contact: echtzeitgrafik@dw.com</span>
   </div>
 </body>

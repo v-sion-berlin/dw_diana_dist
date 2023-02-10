@@ -52,6 +52,7 @@
       variantOptions.forEach((option) => {
         option.addEventListener('click', (event) => {
           selectedVariant = Number(event.target.value)
+          document.querySelector('#translation-panel').dataset.visible = (selectedVariant === 1)
           document.querySelectorAll('[name="Variant1L"]').forEach(element => {
             element.dataset.visible = (selectedVariant === 0)
           })
@@ -173,16 +174,11 @@
         <label class="dw-label__input text-gray-03">Line 1</label>
         <input type="text" class="form-input font-large" data-co="Translation/AddressLine1" />
       </div>
-      <div name="Variant2L">
-        <label class="dw-label__input text-gray-03">Line 2</label>
-        <input type="text" class="form-input font-large" data-co="Translation/AddressLine2" />
-      </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <div class="dw-footer">
-    <a class="dw-helpLink">Help</a>
     <span>Contact: echtzeitgrafik@dw.com</span>
   </div>
 </body>

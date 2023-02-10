@@ -21,7 +21,7 @@
       const topicHeadlineFieldId = hasTranslation && window.COElement('Translation/TopicHeadline').value ? '{Translation/TopicHeadline}' : '{TopicHeadline}'
       const topicSublineFieldId = hasTranslation && window.COElement('Translation/TopicSubline').value ? '{Translation/TopicSubline}' : '{TopicSubline}'
       return {
-        '-auto-generated-title': ['TOPO Ins Theme', '||', language, '|', variant, '|', topicHeadlineFieldId, '|', topicSublineFieldId],
+        '-auto-generated-title': ['TOPO Ins Topic', '||', language, '|', variant, '|', topicHeadlineFieldId, '|', topicSublineFieldId],
         'ram-title': [language, '|', variant, '|', topicHeadlineFieldId, '|', topicSublineFieldId],
         'ram-continue-points': 0
       }
@@ -41,7 +41,7 @@
 <body>
   <div class="dw-header dw-header--branded">
     <img src="../../Sources/images/Header.png" alt="TOPO Header Image">
-    <span class="text-white">Ins Quote</span>
+    <span class="text-white">Ins Topic</span>
   </div>
   <div class="flex flex-row flex-wrap bg-gray-01">
     <!-- Language -->
@@ -120,7 +120,6 @@
 
   <!-- FOOTER -->
   <div class="dw-footer">
-    <a class="dw-helpLink">Help</a>
     <span>Contact: echtzeitgrafik@dw.com</span>
   </div>
 </body>
