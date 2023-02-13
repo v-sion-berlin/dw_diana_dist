@@ -56,6 +56,7 @@ const initializeDropdowns = async () => {
   }
 }
 
+/* TODO: remove, once declared deprecated over imgSearch */
 /**
  * Adds a larger image version to the Image Select Thumbnail and shows it on hover
  * @since 1.00
@@ -120,6 +121,94 @@ const initializeImageThumbs = async () => {
     element.append(imgLarge)
 
     imgThumb.addEventListener('mouseover', showLargeImage)
+  }
+}
+
+/**
+ * Add Change Listener to site/container Id fields to disable other image search fields on entry
+ * Adds a larger image version to the Image Select Thumbnail and shows it on hover
+ * @since 1.00
+ */
+const initializeImageSearch = async () => {
+  // initialize search
+  const elements = document.querySelectorAll(".imgSearchId");
+  for (const element of elements) {
+    element.addEventListener('keyup', (event) => {
+        const imgSearch = element.closest(".dw-imgSearch");
+        const fields = imgSearch.querySelectorAll('.imgSearchField');
+        for (const field of fields) {
+          field.disabled = event.target.value.length > 0
+        }
+    })
+  }
+
+  // initialize thumbs
+  let isOverImgLarge = false;
+  let isOverImgThumb = false;
+
+  const showHideImgLarge = (imgLarge) => {
+    setTimeout(() => {
+      const imgThumb =
+        imgLarge.parentElement.querySelector(".dw-imgThumb");
+      if (!isOverImgLarge && !isOverImgThumb) {
+        imgLarge.classList.add("hidden");
+        imgLarge.removeEventListener("mouseover", onMouseOverImgLarge);
+        imgLarge.removeEventListener("mouseout", onMouseOutImgLarge);
+        imgThumb.removeEventListener("mouseout", onMouseOutImgThumb);
+      } else {
+        const src = imgThumb.querySelector("img").getAttribute("src");
+        if (src) {
+          imgLarge.classList.remove("hidden");
+          imgLarge
+            .querySelector("img")
+            .setAttribute(
+              "src",
+              imgThumb.querySelector("img").getAttribute("src")
+            );
+        }
+      }
+    }, 10);
+  };
+
+  const onMouseOverImgLarge = (event) => {
+    isOverImgLarge = true;
+    showHideImgLarge(event.target.parentElement);
+  };
+
+  const onMouseOutImgLarge = (event) => {
+    isOverImgLarge = false;
+    showHideImgLarge(event.target.parentElement);
+  };
+
+  const onMouseOutImgThumb = (event) => {
+    isOverImgThumb = false;
+    const imgLarge =
+      event.target.parentElement.parentElement.querySelector(".dw-imgLarge");
+    showHideImgLarge(imgLarge);
+  };
+
+  const showLargeImage = (event) => {
+    const imgLarge =
+      event.target.parentElement.parentElement.querySelector(".dw-imgLarge");
+    isOverImgThumb = true;
+    showHideImgLarge(imgLarge);
+
+    imgLarge.addEventListener("mouseover", onMouseOverImgLarge);
+    imgLarge.addEventListener("mouseout", onMouseOutImgLarge);
+    event.target.addEventListener("mouseout", onMouseOutImgThumb);
+  };
+
+  const wrappers = document.querySelectorAll(".dw-imgSearch");
+  for (const element of wrappers) {
+    const imgThumb = element.querySelector(".dw-imgThumb");
+    const imgLarge = document.createElement("div");
+    const img = document.createElement("img");
+    imgLarge.classList.add("dw-imgLarge");
+    imgLarge.classList.add("hidden");
+    imgLarge.appendChild(img);
+    imgThumb.parentElement.append(imgLarge);
+
+    imgThumb.addEventListener("mouseover", showLargeImage);
   }
 }
 
@@ -221,4 +310,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeDraggables()
   initializeDropdowns()
   initializeImageThumbs();
+  initializeImageSearch();
 })
