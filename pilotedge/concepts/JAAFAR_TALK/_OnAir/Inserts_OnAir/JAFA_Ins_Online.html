@@ -12,10 +12,10 @@
   <script src="../../../../_sources/js/payloadhosting.js"></script>
   <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
   <script src="../../../../_sources/js/nlw.js"></script>
-  <script src="../../Sources/JS/jafa-social-media.js"></script>
+  <script src="../../Sources/JS/jafa-inserts.js"></script>
   <script>
     /* global Event */
-    /* global NLW_DATA, NLW_PROPERTIES */
+    /* global NLW_DATA_ONLINE, NLW_PROPERTIES_ONLINE */
     let socialMediaSelector
     let selectedVariant
     window.generateAutoTitles = () => {
@@ -34,8 +34,8 @@
       const socialMedia = socialMediaSelector[socialMediaSelector.selectedIndex].innerHTML
 
       if (socialMedia !== 'No Icon') {
-        const textContent = NLW_DATA[socialMedia][NLW_PROPERTIES.TEXT_LINE]
-        const socialMediaAddress = NLW_DATA[socialMedia][NLW_PROPERTIES.SOCIAL_MEDIA_ADRESS]
+        const textContent = NLW_DATA_ONLINE[socialMedia][NLW_PROPERTIES_ONLINE.TEXT_LINE]
+        const socialMediaAddress = NLW_DATA_ONLINE[socialMedia][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         window.COElement('AddressLine1').value = selectedVariant === 1 ? textContent : socialMediaAddress
         window.COElement('AddressLine2').value = selectedVariant === 1 ? socialMediaAddress : ''
       }
@@ -74,7 +74,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image" />
+    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image">
     <span class="text-gray-15">Ins Online</span>
   </div>
 
@@ -91,12 +91,12 @@
         <label class="dw-label__section">Variant</label>
         <div class="form-input-chips">
           <label>
-            <input data-co="AddressInsertVariantIndex" type="radio" value="0" name="address-line-count" />
+            <input data-co="AddressInsertVariantIndex" type="radio" value="0" name="address-line-count">
             <span>1 Line</span>
           </label>
 
           <label>
-            <input data-co="AddressInsertVariantIndex" type="radio" value="1" name="address-line-count" />
+            <input data-co="AddressInsertVariantIndex" type="radio" value="1" name="address-line-count">
             <span>2 Lines</span>
           </label>
         </div>
@@ -116,6 +116,7 @@
               <option value="1">Facebook</option>
               <option value="2">Instagram</option>
               <option value="3">Mail</option>
+              <option value="8">TikTok</option>
               <option value="4">Twitter</option>
               <option value="5">Web</option>
               <option value="6">WhatsApp</option>
@@ -151,6 +152,7 @@
               <option value="5">Web</option>
               <option value="6">WhatsApp</option>
               <option value="7">YouTube</option>
+              <option value="8">TikTok</option>
             </select>
           </div>
           <div class="flex-1">
@@ -164,15 +166,14 @@
   </div>
 
   <!-- TRANSLATION -->
-  <div class="field-group bg-gray-12" id="translation-panel">
-    <label class="field-group__label text-gray-03">Translation</label>
-    <span class="dw-alert dw-alert--info mb-4">
-      Please provide a translation for the operator
-    </span>
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
     <div class="grid grid-cols-1 gap-2">
       <div>
-        <label class="dw-label__input text-gray-03">Line 1</label>
-        <input type="text" class="form-input font-large" data-co="Translation/AddressLine1" />
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/AddressLine1">
       </div>
     </div>
   </div>

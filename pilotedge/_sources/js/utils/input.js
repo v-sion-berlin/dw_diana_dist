@@ -47,7 +47,7 @@ class Input {
       element.value = value || ''
     }
     const newEventCallback = (e) => {
-      vizrt.payloadhosting.setFieldText(fieldPath, element.value)
+      vizrt.payloadhosting.setFieldText(fieldPath, element.value === '' ? null : element.value)
     }
 
     return { newFieldCallback, newEventCallback }

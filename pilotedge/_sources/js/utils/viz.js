@@ -206,7 +206,7 @@ const generateAutoTitles = () => {
           if (vizrt.payloadhosting.fieldExists(fieldName)) {
             let title = getTitle(titleObject[fieldName])
             if (acceptedTitle === 'text') {
-              vizrt.payloadhosting.setFieldText(fieldName, title)
+              vizrt.payloadhosting.setFieldText(fieldName, title === '' ? null : title)
             } else if (acceptedTitle === 'number') {
               vizrt.payloadhosting.setFieldText(fieldName, (!isNaN(parseInt(title))) ? parseInt(title) : defaultTitle)
             }

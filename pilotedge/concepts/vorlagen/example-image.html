@@ -28,6 +28,359 @@
             This page shows the usage of the Image Selection Component.
         </span>
 
+        <div class="field-group bg-gray-02">
+            <label class="field-group__label">Image Selection without Site/Container ID</label>
+            <div class="field-group">
+                <div class="field-group__label">Image</div>
+                <div class="dw-alert mb-2">Size: 1920 x 1080px</div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
+                    <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1">
+                        <div class="w-[40%]">
+                            <label class="dw-label__input">Title <img src="./_sources/images/info.svg"  class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                            <input type="text" class="form-input imgSearchField" />
+                        </div>
+                        <div class="w-[30%]">
+                            <label class="dw-label__input">Language</label>
+                            <select data-co="" class="dw-dropdown imgSearchField">
+                                <option value="" disabled selected>-- Please select --</option>
+                                <option>De</option>
+                                <option>En</option>
+                                <option>Pl</option>
+                            </select>
+                        </div>
+                        <div class="w-[30%]">
+                            <label class="dw-label__input">Date</label>
+                            <input type="date" class="form-input imgSearchField" />
+                        </div>
+                    </div>
+                    <div class="dw-imgRowItem w-full dw_md:w-[fit-content] pt-2 pl-[2px] dw_md:pl-[10px] dw_md:pt-[24px]">
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn select">
+                                <span>Search</span>
+                            </button>
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn remove">
+                                <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                            </button>
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <div class="dw-imgThumb">
+                                <img
+                                    src="../../_sources/images/placeholderThumb.png"
+                                    alt="Thumb"
+                                    width="35"
+                                    height="35"
+                                    />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dw-code">
+                    <pre
+                        class="language-markup"><code><!-- <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
+                    <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1">
+                        <div class="w-[40%]">
+                            <label class="dw-label__input">Title <img src="./_sources/images/info.svg"  class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                            <input type="text" class="form-input imgSearchField" />
+                        </div>
+                        <div class="w-[30%]">
+                            <label class="dw-label__input">Language</label>
+                            <select data-co="" class="dw-dropdown imgSearchField">
+                                <option value="" disabled selected>-- Please select --</option>
+                                <option>De</option>
+                                <option>En</option>
+                                <option>Pl</option>
+                            </select>
+                        </div>
+                        <div class="w-[30%]">
+                            <label class="dw-label__input">Date</label>
+                            <input type="date" class="form-input imgSearchField" />
+                        </div>
+                    </div>
+                    <div class="dw-imgRowItem w-full dw_md:w-[fit-content] pt-2 pl-[2px] dw_md:pl-[10px] dw_md:pt-[24px]">
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn select">
+                                <span>Search</span>
+                            </button>
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <button class="dw-btn remove">
+                                <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                            </button>
+                        </div>
+                        <div class="dw-btn-wrap">
+                            <div class="dw-imgThumb">
+                                <img
+                                    src="../../_sources/images/placeholderThumb.png"
+                                    alt="Thumb"
+                                    width="35"
+                                    height="35"
+                                    />
+                            </div>
+                        </div>
+                    </div>
+                </div>--></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="field-group bg-gray-02">
+            <label class="field-group__label">Image Selection with <i>OR</i> Selection</label>
+            <div class="field-group">
+                <div class="field-group__label">Image</div>
+                <div class="dw-alert mb-2">Size: 1920 x 1080px</div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1">
+                            <div class="w-[40%]">
+                                <label class="dw-label__input">Title <img src="./_sources/images/info.svg"  class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                                <input type="text" class="form-input imgSearchField" />
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Language</label>
+                                <select data-co="" class="dw-dropdown imgSearchField">
+                                    <option value="" disabled selected>-- Please select --</option>
+                                    <option>De</option>
+                                    <option>En</option>
+                                    <option>Pl</option>
+                                </select>
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Date</label>
+                                <input type="date" class="form-input imgSearchField" />
+                            </div>
+                        </div>
+                        <div class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6"><span class="dw-label__input">or</span></div>
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] ">
+                            <div class="w-[fit-content] flex-1">
+                                <label class="dw-label__input">Site/Container-ID</label>
+                                <input type="text" class="form-input imgSearchId" />
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn select">
+                                    <span>Search</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn remove">
+                                    <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <div class="dw-imgThumb">
+                                    <img
+                                        src="../../_sources/images/placeholderThumb.png"
+                                        alt="Thumb"
+                                        width="35"
+                                        height="35"
+                                        />
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1">
+                            <div class="w-[40%]">
+                                <label class="dw-label__input">Title <img src="./_sources/images/info.svg"  class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                                <input type="text" class="form-input imgSearchField" />
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Language</label>
+                                <select data-co="" class="dw-dropdown imgSearchField">
+                                    <option value="" disabled selected>-- Please select --</option>
+                                    <option>De</option>
+                                    <option>En</option>
+                                    <option>Pl</option>
+                                </select>
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Date</label>
+                                <input type="date" class="form-input imgSearchField" />
+                            </div>
+                        </div>
+                        <div class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6"><span class="dw-label__input">or</span></div>
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] ">
+                            <div class="w-[fit-content] flex-1">
+                                <label class="dw-label__input">Site/Container-ID</label>
+                                <input type="text" class="form-input imgSearchId" />
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn select">
+                                    <span>Search</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn remove">
+                                    <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <div class="dw-imgThumb">
+                                    <img
+                                        src="../../_sources/images/placeholderThumb.png"
+                                        alt="Thumb"
+                                        width="35"
+                                        height="35"
+                                        />
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1">
+                            <div class="w-[40%]">
+                                <label class="dw-label__input">Title <img src="./_sources/images/info.svg"  class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                                <input type="text" class="form-input imgSearchField" />
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Language</label>
+                                <select data-co="" class="dw-dropdown imgSearchField">
+                                    <option value="" disabled selected>-- Please select --</option>
+                                    <option>De</option>
+                                    <option>En</option>
+                                    <option>Pl</option>
+                                </select>
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Date</label>
+                                <input type="date" class="form-input imgSearchField" />
+                            </div>
+                        </div>
+                        <div class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6"><span class="dw-label__input">or</span></div>
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] ">
+                            <div class="w-[fit-content] flex-1">
+                                <label class="dw-label__input">Site/Container-ID</label>
+                                <input type="text" class="form-input imgSearchId" />
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn select">
+                                    <span>Search</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn remove">
+                                    <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <div class="dw-imgThumb">
+                                    <img
+                                        src="../../_sources/images/placeholderThumb.png"
+                                        alt="Thumb"
+                                        width="35"
+                                        height="35"
+                                        />
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1">
+                            <div class="w-[40%]">
+                                <label class="dw-label__input">Title <img src="./_sources/images/info.svg"  class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                                <input type="text" class="form-input imgSearchField" />
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Language</label>
+                                <select data-co="" class="dw-dropdown imgSearchField">
+                                    <option value="" disabled selected>-- Please select --</option>
+                                    <option>De</option>
+                                    <option>En</option>
+                                    <option>Pl</option>
+                                </select>
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Date</label>
+                                <input type="date" class="form-input imgSearchField" />
+                            </div>
+                        </div>
+                        <div class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6"><span class="dw-label__input">or</span></div>
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] ">
+                            <div class="w-[fit-content] flex-1">
+                                <label class="dw-label__input">Site/Container-ID</label>
+                                <input type="text" class="form-input imgSearchId" />
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn select">
+                                    <span>Search</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn remove">
+                                    <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <div class="dw-imgThumb">
+                                    <img
+                                        src="../../_sources/images/placeholderThumb.png"
+                                        alt="Thumb"
+                                        width="35"
+                                        height="35"
+                                        />
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                <div class="dw-code">
+                    <pre
+                        class="language-markup"><code><!-- <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1">
+                            <div class="w-[40%]">
+                                <label class="dw-label__input">Title <img src="./_sources/images/info.svg"  class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                                <input type="text" class="form-input imgSearchField" />
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Language</label>
+                                <select data-co="" class="dw-dropdown imgSearchField">
+                                    <option value="" disabled selected>-- Please select --</option>
+                                    <option>De</option>
+                                    <option>En</option>
+                                    <option>Pl</option>
+                                </select>
+                            </div>
+                            <div class="w-[30%]">
+                                <label class="dw-label__input">Date</label>
+                                <input type="date" class="form-input imgSearchField" />
+                            </div>
+                        </div>
+                        <div class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6"><span class="dw-label__input">or</span></div>
+                        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] ">
+                            <div class="w-[fit-content] flex-1">
+                                <label class="dw-label__input">Site/Container-ID</label>
+                                <input type="text" class="form-input imgSearchId" />
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn select">
+                                    <span>Search</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <button class="dw-btn remove">
+                                    <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                                </button>
+                            </div>
+                            <div class="dw-btn-wrap">
+                                <div class="dw-imgThumb">
+                                    <img
+                                        src="../../_sources/images/placeholderThumb.png"
+                                        alt="Thumb"
+                                        width="35"
+                                        height="35"
+                                        />
+                                </div>
+                            </div>
+                        </div>
+
+                </div>--></code></pre>
+                </div>
+            </div>
+        </div>
+
+
         <div class="field-group">
             <div class="field-group bg-gray-02">
                 <label class="field-group__label">Image Selection Simple</label>
@@ -37,7 +390,7 @@
                         <div class="dw-imgSelect" type="image" data-co="">
                             <div class="dw-btn-wrap">
                                 <button class="dw-btn select">
-                                    <span>Select</span>
+                                    <span>Search</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
                                     <path
                                         d="M12.45 7.571H1.95M7.2 2.214v10.714"
@@ -70,7 +423,7 @@
                     <div class="dw-imgSelect" type="image" data-co="">
                         <div class="dw-btn-wrap">
                             <button class="dw-btn select">
-                                <span>Select image</span>
+                                <span>Search</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
                                 <path
                                     d="M12.45 7.571H1.95M7.2 2.214v10.714"
@@ -111,7 +464,7 @@
                             </div>
                             <div class="dw-btn-wrap">
                                 <button class="dw-btn select">
-                                    <span>Select image</span>
+                                    <span>Search</span>
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         width="15" height="15">
                                         <path
@@ -150,7 +503,7 @@
                         </div>
                         <div class="dw-btn-wrap">
                             <button class="dw-btn select">
-                                <span>Select image</span>
+                                <span>Search</span>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     width="15" height="15">
                                     <path
@@ -199,7 +552,7 @@
                         </div>
                         <div class="dw-btn-wrap">
                             <button class="dw-btn select">
-                                <span>Select image</span>
+                                <span>Search</span>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     width="15" height="15">
                                     <path
@@ -240,7 +593,7 @@
                         </div>
                         <div class="dw-btn-wrap">
                             <button class="dw-btn select">
-                                <span>Select image</span>
+                                <span>Search</span>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     width="15" height="15">
                                     <path
@@ -291,7 +644,7 @@
                         </div>
                         <div class="dw-btn-wrap">
                             <button class="dw-btn select">
-                                <span>Select image</span>
+                                <span>Search</span>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     width="15" height="15">
                                     <path
@@ -336,7 +689,7 @@
                         </div>
                         <div class="dw-btn-wrap">
                             <button class="dw-btn select">
-                                <span>Select image</span>
+                                <span>Search</span>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     width="15" height="15">
                                     <path

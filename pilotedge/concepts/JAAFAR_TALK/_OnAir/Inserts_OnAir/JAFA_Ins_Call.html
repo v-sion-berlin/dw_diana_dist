@@ -12,19 +12,17 @@
   <script src="../../../../_sources/js/payloadhosting.js"></script>
   <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
   <script src="../../../../_sources/js/nlw.js"></script>
-  <script src="../../Sources/JS/jafa-social-media.js"></script>
+  <script src="../../Sources/JS/jafa-inserts.js"></script>
   <script>
     /* global Event */
-    /* global NLW_DATA, NLW_PROPERTIES */
+    /* global NLW_DATA_ONLINE, NLW_PROPERTIES_ONLINE */
     window.generateAutoTitles = () => {
       const hasTranslation = true
       const translationCallLine1 = document.querySelector('[data-co="Translation/CallLine1"').value
       const callLine1FieldId = hasTranslation && translationCallLine1 ? '{Translation/CallLine1}' : '{CallLine1}'
-      const translationCallLine2 = document.querySelector('[data-co="Translation/CallLine2"').value
-      const callLine2FieldId = hasTranslation && translationCallLine2 ? '{Translation/CallLine2}' : '{CallLine2}'
       return {
-        '-auto-generated-title': ['JAFA Ins Call', '||', callLine1FieldId, '|', callLine2FieldId],
-        'ram-title': [callLine1FieldId, '|', callLine2FieldId],
+        '-auto-generated-title': ['JAFA Ins Call', '||', callLine1FieldId, '|', '{CallLine2}'],
+        'ram-title': [callLine1FieldId, '|', '{CallLine2}'],
         'ram-continue-points': 0
       }
     }
@@ -35,8 +33,8 @@
       socialMediaSelector.addEventListener('change', (event) => {
         const socialMedia = socialMediaSelector[socialMediaSelector.selectedIndex].innerHTML
         if (socialMedia !== 'No Icon') {
-          window.COElement('CallLine1').value = NLW_DATA[socialMedia][NLW_PROPERTIES.TEXT_LINE]
-          window.COElement('CallLine2').value = NLW_DATA[socialMedia][NLW_PROPERTIES.SOCIAL_MEDIA_ADRESS]
+          window.COElement('CallLine1').value = NLW_DATA_ONLINE[socialMedia][NLW_PROPERTIES_ONLINE.TEXT_LINE]
+          window.COElement('CallLine2').value = NLW_DATA_ONLINE[socialMedia][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         }
       })
     })
@@ -49,7 +47,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image" />
+    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image">
     <span class="text-gray-15">Ins Call</span>
   </div>
 
@@ -87,6 +85,7 @@
               <option value="4">Twitter</option>
               <option value="6">WhatsApp</option>
               <option value="7">YouTube</option>
+              <option value="8">TikTok</option>
             </select>
           </div>
           <div class="flex-1">
@@ -99,15 +98,14 @@
   </div>
 
   <!-- TRANSLATION -->
-  <div class="field-group bg-gray-12" id="translation-panel">
-    <label class="field-group__label text-gray-03">Translation</label>
-    <span class="dw-alert dw-alert--info mb-4">
-      Please provide a translation for the operator
-    </span>
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
     <div class="grid grid-cols-1 gap-2">
       <div>
-        <label class="dw-label__input text-gray-03">Line 1</label>
-        <input type="text" class="form-input font-large" data-co="Translation/CallLine1" />
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/CallLine1">
       </div>
     </div>
   </div>

@@ -47,8 +47,10 @@
         document.querySelectorAll('[data-name="Line2"]').forEach((line) => {
           line.dataset.visible = (event.target.value !== '1')
           if (event.target.value === '1') {
-            line.querySelector('input').value = ''
-            line.querySelector('input').dispatchEvent(new Event('input'))
+            if (line.querySelector('input').value !== '') {
+              line.querySelector('input').value = ''
+              line.querySelector('input').dispatchEvent(new Event('input'))
+            }
           }
           setInsertsVariantIndex()
         })

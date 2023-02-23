@@ -13,6 +13,16 @@
   <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
   <script src="../../../../_sources/js/nlw.js"></script>
   <script>
+    const divMapping = {
+      0: [
+        { 'data-name': 'line1-panel', label: 'Quote Line', visible: true },
+        { 'data-name': 'line2-panel', label: 'Text', visible: true }
+      ],
+      1: [
+        { 'data-name': 'line1-panel', label: 'Quote Line 1', visible: true },
+        { 'data-name': 'line2-panel', label: 'Quote Line 2', visible: true }
+      ]
+    }
     /* global Event */
     window.generateAutoTitles = () => {
       const translationQuoteLine1 = document.querySelector('[data-co="Translation/QuoteLine1"').value
@@ -36,10 +46,19 @@
       const quoteVariantOptions = document.querySelectorAll('[data-co="QuoteVariantIndex"]')
 
       quoteVariantOptions.forEach((option) => option.addEventListener('click', (event) => {
-        document.querySelector('[data-co="QuoteText1"]').dataset.visible = (event.target.value === '0')
-        document.querySelector('[data-co="QuoteName1"]').dataset.visible = (event.target.value === '0')
-        document.querySelector('[data-co="QuoteText2"]').dataset.visible = (event.target.value === '1')
-        document.querySelector('[data-co="QuoteName2"]').dataset.visible = (event.target.value === '1')
+        divMapping[option.value].forEach((divConfig) => {
+          const linePanels = document.querySelectorAll(`[data-name="${divConfig['data-name']}"]`)
+          linePanels.forEach((panel) => {
+            panel.querySelector('label').textContent = divConfig.label
+            panel.querySelector('label').dataset.visible = divConfig.label !== ''
+            panel.dataset.visible = divConfig.visible
+            panel.parentNode.appendChild(panel)
+          })
+        })
+        document.querySelector('[data-name="QuoteText1"]').dataset.visible = (event.target.value === '0')
+        document.querySelector('[data-name="QuoteName1"]').dataset.visible = (event.target.value === '0')
+        document.querySelector('[data-name="QuoteText2"]').dataset.visible = (event.target.value === '1')
+        document.querySelector('[data-name="QuoteName2"]').dataset.visible = (event.target.value === '1')
       }))
     })
 
@@ -51,7 +70,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image" />
+    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image">
     <span class="text-gray-15">Ins Quote 1L 2L</span>
   </div>
 
@@ -69,15 +88,18 @@
     <!-- Insert variant -->
     <div class="form-input-chips-wrapper">
       <div>
-        <label class="dw-label__section">Marker Variant</label>
+        <label class="dw-label__section">
+          Marker Variant
+          <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="1 Line: First Line is a quote, second the quotee,&#10;2 Lines: Quote is distributed over both lines.">
+        </label>
         <div class="form-input-chips">
           <label>
-            <input data-co="QuoteVariantIndex" type="radio" value="0" name="quote-variant-index" />
+            <input data-co="QuoteVariantIndex" type="radio" value="0" name="quote-variant-index">
             <span>1 Line</span>
           </label>
 
           <label>
-            <input data-co="QuoteVariantIndex" type="radio" value="1" name="quote-variant-index" />
+            <input data-co="QuoteVariantIndex" type="radio" value="1" name="quote-variant-index">
             <span>2 Lines</span>
           </label>
         </div>
@@ -89,34 +111,45 @@
   <div class="dw-content dw-direction-rtl">
     <div class="field-group">
       <div class="grid grid-cols-1 gap-2">
-        <div>
+        <div data-name="line1-panel">
           <label class="dw-label__input">Line 1</label>
-          <input type="text" class="form-input font-large" data-co="QuoteText1" />
-          <input type="text" class="form-input font-large" data-co="QuoteText2" />
+          <div class="form-input-with-icon-wrap" data-name="QuoteText1">
+            <img src="../../Sources/Images/QuotationMark.svg" class="form-input-icon">
+            <input type="text" class="form-input font-large" data-co="QuoteText1">
+            <img src="../../Sources/Images/QuotationMark.svg" class="form-input-icon">
+          </div>
+          <div class="form-input-with-icon-wrap" data-name="QuoteText2">
+            <input type="text" class="form-input font-large" data-co="QuoteText2">
+            <img src="../../Sources/Images/QuotationMark.svg" class="form-input-icon">
+          </div>
         </div>
-        <div name="Line2">
+        <div data-name="line2-panel">
           <label class="dw-label__input">Line 2</label>
-          <input type="text" class="form-input font-large" data-co="QuoteName1" />
-          <input type="text" class="form-input font-large" data-co="QuoteName2" />
+          <div class="form-input-with-icon-wrap" data-name="QuoteName1">
+            <input type="text" class="form-input font-large" data-co="QuoteName1">
+          </div>
+          <div class="form-input-with-icon-wrap" data-name="QuoteName2">
+            <img src="../../Sources/Images/QuotationMark.svg" class="form-input-icon">
+            <input type="text" class="form-input font-large" data-co="QuoteName2">
+          </div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- TRANSLATION -->
-  <div class="field-group bg-gray-12" id="translation-panel">
-    <label class="field-group__label text-gray-03">Translation</label>
-    <span class="dw-alert dw-alert--info mb-4">
-      Please provide a translation for the operator
-    </span>
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
     <div class="grid grid-cols-1 gap-2">
-      <div>
-        <label class="dw-label__input text-gray-03">Line 1</label>
-        <input type="text" class="form-input font-large" data-co="Translation/QuoteLine1" />
+      <div data-name="line1-panel">
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/QuoteLine1">
       </div>
-      <div name="Line2">
-        <label class="dw-label__input text-gray-03">Line 2</label>
-        <input type="text" class="form-input font-large" data-co="Translation/QuoteLine2" />
+      <div data-name="line2-panel">
+        <label class="dw-label__input">Line 2</label>
+        <input type="text" class="form-input font-large" data-co="Translation/QuoteLine2">
       </div>
     </div>
   </div>

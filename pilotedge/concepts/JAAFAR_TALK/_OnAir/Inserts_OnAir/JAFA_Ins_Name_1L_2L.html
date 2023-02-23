@@ -11,7 +11,6 @@
   <script src="../../../../_sources/js/utils/dw.js" type="module"></script>
   <script src="../../../../_sources/js/payloadhosting.js"></script>
   <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
-  <script src="../../../../_sources/js/nlw.js"></script>
   <script>
     /* global Event */
     window.generateAutoTitles = () => {
@@ -60,7 +59,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image" />
+    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image">
     <span class="text-gray-15">Ins Name 1L 2L</span>
   </div>
 
@@ -81,12 +80,12 @@
         <label class="dw-label__section">Variant</label>
         <div class="form-input-chips">
           <label>
-            <input data-co="InsertVariantIndex" type="radio" value="0" name="inserts-line-count" />
+            <input data-co="InsertVariantIndex" type="radio" value="0" name="inserts-line-count">
             <span>1 Line</span>
           </label>
 
           <label>
-            <input data-co="InsertVariantIndex" type="radio" value="1" name="inserts-line-count" />
+            <input data-co="InsertVariantIndex" type="radio" value="1" name="inserts-line-count">
             <span>2 Lines</span>
           </label>
         </div>
@@ -100,30 +99,29 @@
       <div class="grid grid-cols-1 gap-2">
         <div>
           <label class="dw-label__input">Line 1</label>
-          <input type="text" class="form-input font-large" data-co="InsertLine1" />
+          <input type="text" class="form-input font-large" data-co="InsertLine1">
         </div>
         <div name="Line2">
           <label class="dw-label__input">Line 2</label>
-          <input type="text" class="form-input font-large" data-co="InsertLine2" />
+          <input type="text" class="form-input font-large" data-co="InsertLine2">
         </div>
       </div>
     </div>
   </div>
 
   <!-- TRANSLATION -->
-  <div class="field-group bg-gray-12" id="translation-panel">
-    <label class="field-group__label text-gray-03">Translation</label>
-    <span class="dw-alert dw-alert--info mb-4">
-      Please provide a translation for the operator
-    </span>
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
     <div class="grid grid-cols-1 gap-2">
       <div>
-        <label class="dw-label__input text-gray-03">Line 1</label>
-        <input type="text" class="form-input font-large" data-co="Translation/InsertLine1" />
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertLine1">
       </div>
       <div name="Line2">
-        <label class="dw-label__input text-gray-03">Line 2</label>
-        <input type="text" class="form-input font-large" data-co="Translation/InsertLine2" />
+        <label class="dw-label__input">Line 2</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertLine2">
       </div>
     </div>
   </div>

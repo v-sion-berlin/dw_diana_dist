@@ -12,16 +12,21 @@
   <script src="../../../../_sources/js/payloadhosting.js"></script>
   <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
   <script src="../../../../_sources/js/nlw.js"></script>
-  <script src="../../Sources/JS/jafa-credits.js"></script>
+  <script src="../../Sources/JS/jafa-inserts.js"></script>
   <script>
-    /* global NLW_DATA, NLW_PROPERTIES */
+    /* global NLW_DATA_CREDITS, NLW_DATA_ONLINE, NLW_PROPERTIES_CREDITS, NLW_PROPERTIES_ONLINE */
     /* global Event */
     window.generateAutoTitles = () => {
       return {
         '-auto-generated-title': 'JAFA Ins Credits',
         'ram-title': 'Credits',
-        'ram-continue-points': 2
+        'ram-continue-points': 6
       }
+    }
+
+    const socialMedia = (CoName) => {
+      console.log(document.querySelector('[data-co="' + CoName + '"]').parentNode.querySelector('label').innerHTML)
+      return (document.querySelector('[data-co="' + CoName + '"]').parentNode.querySelector('label').innerHTML)
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -30,30 +35,30 @@
 
       languageSelector.addEventListener('change', (event) => {
         // Panel 1
-        window.COElement('Credit1Line1').value = NLW_DATA[language][NLW_PROPERTIES.EDITORS]
-        window.COElement('Credit1Line2').value = NLW_DATA[language][NLW_PROPERTIES.EDITORS_NAME_1]
-        window.COElement('Credit1Line3').value = NLW_DATA[language][NLW_PROPERTIES.EDITORS_NAME_2]
-        window.COElement('Credit1Line4').value = NLW_DATA[language][NLW_PROPERTIES.EDITORS_NAME_3]
+        window.COElement('Credit1Line1').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.EDITORS]
+        window.COElement('Credit1Line2').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.EDITORS_NAME_1]
+        window.COElement('Credit1Line3').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.EDITORS_NAME_2]
+        window.COElement('Credit1Line4').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.EDITORS_NAME_3]
         // Panel 2
-        window.COElement('Credit2Line1').value = NLW_DATA[language][NLW_PROPERTIES.PRODUCERS]
-        window.COElement('Credit2Line2').value = NLW_DATA[language][NLW_PROPERTIES.PRODUCERS_NAME_1]
-        window.COElement('Credit2Line3').value = NLW_DATA[language][NLW_PROPERTIES.PRODUCERS_NAME_2]
+        window.COElement('Credit2Line1').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.PRODUCERS]
+        window.COElement('Credit2Line2').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.PRODUCERS_NAME_1]
+        window.COElement('Credit2Line3').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.PRODUCERS_NAME_2]
         // Panel 3
-        window.COElement('Credit3Line1').value = NLW_DATA[language][NLW_PROPERTIES.SHOW_MANAGEMENT]
-        window.COElement('Credit3Line2').value = NLW_DATA[language][NLW_PROPERTIES.SHOW_MANAGEMENT_NAME]
+        window.COElement('Credit3Line1').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.SHOW_MANAGEMENT]
+        window.COElement('Credit3Line2').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.SHOW_MANAGEMENT_NAME]
         // Panel 4
-        window.COElement('Credit4Line1').value = NLW_DATA[language][NLW_PROPERTIES.MANAGEMENT]
-        window.COElement('Credit4Line2').value = NLW_DATA[language][NLW_PROPERTIES.MANAGEMENT_NAMES]
+        window.COElement('Credit4Line1').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.MANAGEMENT]
+        window.COElement('Credit4Line2').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.MANAGEMENT_NAMES]
         // Panel 5
-        window.COElement('Credit5Line1').value = NLW_DATA[language][NLW_PROPERTIES.YOUTUBE]
-        window.COElement('Credit5Line2').value = NLW_DATA[language][NLW_PROPERTIES.FACEBOOK]
-        window.COElement('Credit5Line3').value = NLW_DATA[language][NLW_PROPERTIES.TWITTER]
+        window.COElement('Credit5Line1').value = NLW_DATA_ONLINE[socialMedia('Credit5Line1')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        window.COElement('Credit5Line2').value = NLW_DATA_ONLINE[socialMedia('Credit5Line2')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        window.COElement('Credit5Line3').value = NLW_DATA_ONLINE[socialMedia('Credit5Line3')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         // Panel 6
-        window.COElement('Credit6Line1').value = NLW_DATA[language][NLW_PROPERTIES.WHATSAPP]
-        window.COElement('Credit6Line3').value = NLW_DATA[language][NLW_PROPERTIES.INSTAGRAM]
+        window.COElement('Credit6Line1').value = NLW_DATA_ONLINE[socialMedia('Credit6Line1')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        window.COElement('Credit6Line3').value = NLW_DATA_ONLINE[socialMedia('Credit6Line3')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         // Panel 7 (Copyright is not NLW so far)
-        window.COElement('Credit7Line1').value = NLW_DATA[language][NLW_PROPERTIES.WEB]
-        window.COElement('Credit7Line3').value = NLW_DATA[language][NLW_PROPERTIES.MAIL]
+        window.COElement('Credit7Line1').value = NLW_DATA_ONLINE[socialMedia('Credit7Line1')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        window.COElement('Credit7Line3').value = NLW_DATA_ONLINE[socialMedia('Credit7Line3')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
       })
     })
 
@@ -65,7 +70,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/Images/Header.png" alt="JAFA Header image" />
+    <img src="../../Sources/Images/Header.png" alt="JAFA Header image">
     <span class="text-gray-15">Ins Credits</span>
   </div>
 
@@ -89,15 +94,15 @@
         <label data-co="Credit1Line1" value="" class="dw-label__input col-start-1 hidden"></label>
         <div>
           <label class="dw-label__input">Name 1</label>
-          <input type="text" data-co="Credit1Line2" class="form-input font-large" />
+          <input type="text" data-co="Credit1Line2" class="form-input font-large">
         </div>
         <div>
           <label class="dw-label__input">Name 2</label>
-          <input type="text" data-co="Credit1Line3" class="form-input font-large" />
+          <input type="text" data-co="Credit1Line3" class="form-input font-large">
         </div>
         <div>
           <label class="dw-label__input">Name 3</label>
-          <input type="text" data-co="Credit1Line4" class="form-input font-large" />
+          <input type="text" data-co="Credit1Line4" class="form-input font-large">
         </div>
       </div>
     </div>
@@ -108,11 +113,11 @@
         <label data-co="Credit2Line1" value="" class="dw-label__input col-start-1 hidden"></label>
         <div>
           <label class="dw-label__input">Name 1</label>
-          <input type="text" data-co="Credit2Line2" class="form-input font-large" />
+          <input type="text" data-co="Credit2Line2" class="form-input font-large">
         </div>
         <div>
           <label class="dw-label__input">Name 2</label>
-          <input type="text" data-co="Credit2Line3" class="form-input font-large" />
+          <input type="text" data-co="Credit2Line3" class="form-input font-large">
         </div>
       </div>
     </div>
@@ -123,7 +128,7 @@
         <label data-co="Credit3Line1" value="" class="dw-label__input col-start-1 hidden"></label>
         <div>
           <label class="dw-label__input">Name</label>
-          <input type="text" data-co="Credit3Line2" class="form-input font-large" />
+          <input type="text" data-co="Credit3Line2" class="form-input font-large">
         </div>
       </div>
     </div>
@@ -134,7 +139,7 @@
         <label data-co="Credit4Line1" value="" class="dw-label__input col-start-1 hidden"></label>
         <div>
           <label class="dw-label__input">Name</label>
-          <input type="text" data-co="Credit4Line2" class="form-input font-large" />
+          <input type="text" data-co="Credit4Line2" class="form-input font-large">
         </div>
       </div>
     </div>
@@ -145,15 +150,15 @@
         <label value="" class="dw-label__input col-start-1 hidden"></label>
         <div>
           <label class="dw-label__input">YouTube</label>
-          <input type="text" data-co="Credit5Line1" class="form-input" />
+          <input type="text" data-co="Credit5Line1" class="form-input dw-direction-ltr text-right">
         </div>
         <div>
           <label class="dw-label__input">Facebook</label>
-          <input type="text" data-co="Credit5Line2" class="form-input" />
+          <input type="text" data-co="Credit5Line2" class="form-input dw-direction-ltr text-right">
         </div>
         <div>
           <label class="dw-label__input">Twitter</label>
-          <input type="text" data-co="Credit5Line3" class="form-input" />
+          <input type="text" data-co="Credit5Line3" class="form-input dw-direction-ltr text-right">
         </div>
       </div>
     </div>
@@ -164,11 +169,11 @@
         <label value="" class="dw-label__input col-start-1 hidden"></label>
         <div>
           <label class="dw-label__input">WhatsApp</label>
-          <input type="text" data-co="Credit6Line1" class="form-input" />
+          <input type="text" data-co="Credit6Line1" class="form-input dw-direction-ltr text-right">
         </div>
         <div>
           <label class="dw-label__input">Instagram</label>
-          <input type="text" data-co="Credit6Line3" class="form-input" />
+          <input type="text" data-co="Credit6Line3" class="form-input dw-direction-ltr text-right">
         </div>
       </div>
     </div>
@@ -178,20 +183,17 @@
       <div class="grid grid-cols-1 gap-2">
         <div>
           <label class="dw-label__input">Web</label>
-          <input type="text" data-co="Credit7Line1" class="form-input" />
+          <input type="text" data-co="Credit7Line1" class="form-input dw-direction-ltr text-right">
         </div>
         <div>
           <label class="dw-label__input">Mail</label>
-          <input type="text" data-co="Credit7Line3" class="form-input" />
+          <input type="text" data-co="Credit7Line3" class="form-input dw-direction-ltr text-right">
         </div>
         <div>
           <div>
             <div class="dw-label__input">Copyright</div>
-            <select class="dw-dropdown" data-co="Credit7Line2">
-              <option>2022</option>
-              <option>2023</option>
-              <option>2024</option>
-              <option>2025</option>
+            <select class="dw-dropdown" data-co="Credit7Line2" data-nlw-table="copyright.db" data-nlw-keys="column:A" data-nlw-values="column:A">
+              <option disabled selected>-- Please select --</option>
             </select>
           </div>
         </div>
