@@ -50,15 +50,18 @@
         window.COElement('Credit4Line1').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.MANAGEMENT]
         window.COElement('Credit4Line2').value = NLW_DATA_CREDITS[language][NLW_PROPERTIES_CREDITS.MANAGEMENT_NAMES]
         // Panel 5
-        window.COElement('Credit5Line1').value = NLW_DATA_ONLINE[socialMedia('Credit5Line1')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         window.COElement('Credit5Line2').value = NLW_DATA_ONLINE[socialMedia('Credit5Line2')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         window.COElement('Credit5Line3').value = NLW_DATA_ONLINE[socialMedia('Credit5Line3')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         // Panel 6
-        window.COElement('Credit6Line1').value = NLW_DATA_ONLINE[socialMedia('Credit6Line1')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        window.COElement('Credit6Line2').value = NLW_DATA_ONLINE[socialMedia('Credit6Line2')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         window.COElement('Credit6Line3').value = NLW_DATA_ONLINE[socialMedia('Credit6Line3')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         // Panel 7 (Copyright is not NLW so far)
-        window.COElement('Credit7Line1').value = NLW_DATA_ONLINE[socialMedia('Credit7Line1')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        window.COElement('Credit7Line2').value = NLW_DATA_ONLINE[socialMedia('Credit7Line2')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
         window.COElement('Credit7Line3').value = NLW_DATA_ONLINE[socialMedia('Credit7Line3')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        // Panel 8 (Copyright not yet NLW)
+        window.COElement('Credit8Line1').value = NLW_DATA_ONLINE[socialMedia('Credit8Line1')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        window.COElement('Credit8Line2').value = NLW_DATA_ONLINE[socialMedia('Credit8Line2')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        window.COElement('Credit8Line3').value = NLW_DATA_ONLINE[socialMedia('Credit8Line3')][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
       })
     })
 
@@ -149,10 +152,6 @@
       <div class="grid grid-cols-1 gap-2">
         <label value="" class="dw-label__input col-start-1 hidden"></label>
         <div>
-          <label class="dw-label__input">YouTube</label>
-          <input type="text" data-co="Credit5Line1" class="form-input dw-direction-ltr text-right">
-        </div>
-        <div>
           <label class="dw-label__input">Facebook</label>
           <input type="text" data-co="Credit5Line2" class="form-input dw-direction-ltr text-right">
         </div>
@@ -168,8 +167,8 @@
       <div class="grid grid-cols-1 gap-2">
         <label value="" class="dw-label__input col-start-1 hidden"></label>
         <div>
-          <label class="dw-label__input">WhatsApp</label>
-          <input type="text" data-co="Credit6Line1" class="form-input dw-direction-ltr text-right">
+          <label class="dw-label__input">TikTok</label>
+          <input type="text" data-co="Credit6Line2" class="form-input dw-direction-ltr text-right">
         </div>
         <div>
           <label class="dw-label__input">Instagram</label>
@@ -181,18 +180,33 @@
     <div class="field-group">
       <div class="field-group__label">Panel 7 (Social Media III)</div>
       <div class="grid grid-cols-1 gap-2">
+        <label value="" class="dw-label__input col-start-1 hidden"></label>
+        <div>
+          <label class="dw-label__input">WhatsApp</label>
+          <input type="text" data-co="Credit7Line2" class="form-input dw-direction-ltr text-right">
+        </div>
+        <div>
+          <label class="dw-label__input">YouTube</label>
+          <input type="text" data-co="Credit7Line3" class="form-input dw-direction-ltr text-right">
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group bg-gray-01">
+      <div class="field-group__label">Panel 8 (Social Media IV)</div>
+      <div class="grid grid-cols-1 gap-2">
         <div>
           <label class="dw-label__input">Web</label>
-          <input type="text" data-co="Credit7Line1" class="form-input dw-direction-ltr text-right">
+          <input type="text" data-co="Credit8Line1" class="form-input dw-direction-ltr text-right">
         </div>
         <div>
           <label class="dw-label__input">Mail</label>
-          <input type="text" data-co="Credit7Line3" class="form-input dw-direction-ltr text-right">
+          <input type="text" data-co="Credit8Line3" class="form-input dw-direction-ltr text-right">
         </div>
         <div>
           <div>
             <div class="dw-label__input">Copyright</div>
-            <select class="dw-dropdown" data-co="Credit7Line2" data-nlw-table="copyright.db" data-nlw-keys="column:A" data-nlw-values="column:A">
+            <select class="dw-dropdown" data-co="Credit8Line2" data-nlw-table="copyright.db" data-nlw-keys="column:A" data-nlw-values="column:A">
               <option disabled selected>-- Please select --</option>
             </select>
           </div>
