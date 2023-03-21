@@ -30,7 +30,8 @@
 
     <div class="field-group bg-gray-02">
       <label class="field-group__label"
-        >Image Selection without Site/Container ID</label
+        >Image Selection without Site/Container ID, disabled Delete
+        Button</label
       >
       <div class="field-group">
         <div class="field-group__label">Image</div>
@@ -69,12 +70,12 @@
             class="dw-imgRowItem w-full dw_md:w-[fit-content] pt-2 pl-[2px] dw_md:pl-[10px] dw_md:pt-[24px]"
           >
             <div class="dw-btn-wrap">
-              <button class="dw-btn select">
-                <span>Search</span>
+              <button class="dw-btn dw-btnIcon select">
+                <span class="dw-btnSearch" title="Search">Search</span>
               </button>
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn remove">
+              <button class="dw-btn dw-btnIcon remove" disabled>
                 <span class="dw-btnDelete" title="Delete Image"
                   >Delete image</span
                 >
@@ -83,8 +84,8 @@
             <div class="dw-btn-wrap">
               <div class="dw-imgThumb">
                 <img
-                  src="../../_sources/images/placeholderThumb.png"
-                  data-placeholder="../../_sources/images/placeholderThumb.png"
+                  src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                  data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                   alt="Thumb"
                   width="35"
                   height="35"
@@ -119,19 +120,20 @@
                     </div>
                     <div class="dw-imgRowItem w-full dw_md:w-[fit-content] pt-2 pl-[2px] dw_md:pl-[10px] dw_md:pt-[24px]">
                         <div class="dw-btn-wrap">
-                            <button class="dw-btn select">
-                                <span>Search</span>
+                            <button class="dw-btn dw-btnIcon select">
+                              <span class="dw-btnSearch" title="Search"
+                                >Search</span>
                             </button>
                         </div>
                         <div class="dw-btn-wrap">
-                            <button class="dw-btn remove">
+                            <button class=dw-btn dw-btnIcon remove" disabled>
                                 <span class="dw-btnDelete" title="Delete Image">Delete image</span>
                             </button>
                         </div>
                         <div class="dw-btn-wrap">
                             <div class="dw-imgThumb">
                                 <img
-                                    src="../../_sources/images/placeholderThumb.png" data-placeholder="../../_sources/images/placeholderThumb.png"
+                                    src="../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                                     alt="Thumb"
                                     width="35"
                                     height="35"
@@ -180,23 +182,27 @@
               <input type="date" class="form-input imgSearchField" />
             </div>
           </div>
-          <div
-            class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6"
-          >
+          <div class="inline-flex justify-center w-[fit-content] px-4 py-6">
             <span class="dw-label__input">or</span>
           </div>
           <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
             <div class="w-[fit-content] flex-1">
-              <label class="dw-label__input">Site/Container-ID</label>
+              <label class="dw-label__input"
+                >Site/Container-ID
+                <img
+                  src="./_sources/images/info.svg"
+                  class="dw-infoIcon"
+                  title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen."
+              /></label>
               <input type="text" class="form-input imgSearchId" />
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn select">
-                <span>Search</span>
+              <button class="dw-btn dw-btnIcon select">
+                <span class="dw-btnSearch" title="Search">Search</span>
               </button>
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn remove">
+              <button class="dw-btn dw-btnIcon remove">
                 <span class="dw-btnDelete" title="Delete Image"
                   >Delete image</span
                 >
@@ -205,8 +211,8 @@
             <div class="dw-btn-wrap">
               <div class="dw-imgThumb">
                 <img
-                  src="../../_sources/images/placeholderThumb.png"
-                  data-placeholder="../../_sources/images/placeholderThumb.png"
+                  src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                  data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                   alt="Thumb"
                   width="35"
                   height="35"
@@ -253,16 +259,22 @@
           </div>
           <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
             <div class="w-[fit-content] flex-1">
-              <label class="dw-label__input">Site/Container-ID</label>
+              <label class="dw-label__input"
+                >Site/Container-ID
+                <img
+                  src="./_sources/images/info.svg"
+                  class="dw-infoIcon"
+                  title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen."
+              /></label>
               <input type="text" class="form-input imgSearchId" />
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn select">
-                <span>Search</span>
+              <button class="dw-btn dw-btnIcon select">
+                <span class="dw-btnSearch" title="Search">Search</span>
               </button>
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn remove">
+              <button class="dw-btn dw-btnIcon remove">
                 <span class="dw-btnDelete" title="Delete Image"
                   >Delete image</span
                 >
@@ -271,8 +283,8 @@
             <div class="dw-btn-wrap">
               <div class="dw-imgThumb">
                 <img
-                  src="../../_sources/images/placeholderThumb.png"
-                  data-placeholder="../../_sources/images/placeholderThumb.png"
+                  src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                  data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                   alt="Thumb"
                   width="35"
                   height="35"
@@ -318,16 +330,22 @@
           </div>
           <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
             <div class="w-[fit-content] flex-1">
-              <label class="dw-label__input">Site/Container-ID</label>
+              <label class="dw-label__input"
+                >Site/Container-ID
+                <img
+                  src="./_sources/images/info.svg"
+                  class="dw-infoIcon"
+                  title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen."
+              /></label>
               <input type="text" class="form-input imgSearchId" />
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn select">
-                <span>Search</span>
+              <button class="dw-btn dw-btnIcon select">
+                <span class="dw-btnSearch" title="Search">Search</span>
               </button>
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn remove">
+              <button class="dw-btn dw-btnIcon remove">
                 <span class="dw-btnDelete" title="Delete Image"
                   >Delete image</span
                 >
@@ -336,8 +354,8 @@
             <div class="dw-btn-wrap">
               <div class="dw-imgThumb">
                 <img
-                  src="../../_sources/images/placeholderThumb.png"
-                  data-placeholder="../../_sources/images/placeholderThumb.png"
+                  src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                  data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                   alt="Thumb"
                   width="35"
                   height="35"
@@ -383,16 +401,22 @@
           </div>
           <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
             <div class="w-[fit-content] flex-1">
-              <label class="dw-label__input">Site/Container-ID</label>
+              <label class="dw-label__input"
+                >Site/Container-ID
+                <img
+                  src="./_sources/images/info.svg"
+                  class="dw-infoIcon"
+                  title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen."
+              /></label>
               <input type="text" class="form-input imgSearchId" />
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn select">
-                <span>Search</span>
+              <button class="dw-btn dw-btnIcon select">
+                <span class="dw-btnSearch" title="Search">Search</span>
               </button>
             </div>
             <div class="dw-btn-wrap">
-              <button class="dw-btn remove">
+              <button class="dw-btn dw-btnIcon remove">
                 <span class="dw-btnDelete" title="Delete Image"
                   >Delete image</span
                 >
@@ -401,8 +425,8 @@
             <div class="dw-btn-wrap">
               <div class="dw-imgThumb">
                 <img
-                  src="../../_sources/images/placeholderThumb.png"
-                  data-placeholder="../../_sources/images/placeholderThumb.png"
+                  src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                  data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                   alt="Thumb"
                   width="35"
                   height="35"
@@ -438,23 +462,28 @@
                         <div class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6"><span class="dw-label__input">or</span></div>
                         <div class="dw-imgRowItem w-full dw_md:w-[fit-content] ">
                             <div class="w-[fit-content] flex-1">
-                                <label class="dw-label__input">Site/Container-ID</label>
+                                <label class="dw-label__input">Site/Container-ID <img
+                  src="./_sources/images/info.svg"
+                  class="dw-infoIcon"
+                  title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen."
+              /></label>
                                 <input type="text" class="form-input imgSearchId" />
                             </div>
                             <div class="dw-btn-wrap">
-                                <button class="dw-btn select">
-                                    <span>Search</span>
+                                <button class="dw-btn dw-btnIcon select">
+                                    <span class="dw-btnSearch" title="Search"
+                  >Search</span>
                                 </button>
                             </div>
                             <div class="dw-btn-wrap">
-                                <button class="dw-btn remove">
+                                <button class="dw-btn dw-btnIcon remove">
                                     <span class="dw-btnDelete" title="Delete Image">Delete image</span>
                                 </button>
                             </div>
                             <div class="dw-btn-wrap">
                                 <div class="dw-imgThumb">
                                     <img
-                                        src="../../_sources/images/placeholderThumb.png" data-placeholder="../../_sources/images/placeholderThumb.png"
+                                        src="../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                                         alt="Thumb"
                                         width="35"
                                         height="35"
@@ -584,8 +613,8 @@
 
               <div class="dw-imgThumb">
                 <img
-                  src="../../_sources/images/placeholderThumb.png"
-                  data-placeholder="../../_sources/images/placeholderThumb.png"
+                  src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                  data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                   alt="Thumb"
                   width="35"
                   height="35"
@@ -625,7 +654,7 @@
 
                         <div class="dw-imgThumb">
                             <img
-                                src="../../_sources/images/placeholderThumb.png" data-placeholder="../../_sources/images/placeholderThumb.png"
+                                src="../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                                 alt="Thumb"
                                 width="35"
                                 height="35"
@@ -674,8 +703,8 @@
 
             <div class="dw-imgThumb">
               <img
-                src="../../_sources/images/placeholderThumb.png"
-                data-placeholder="../../_sources/images/placeholderThumb.png"
+                src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                 alt="Thumb"
                 width="35"
                 height="35"
@@ -717,7 +746,7 @@
 
                         <div class="dw-imgThumb">
                             <img
-                                src="../../_sources/images/placeholderThumb.png" data-placeholder="../../_sources/images/placeholderThumb.png"
+                                src="../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                                 alt="Thumb"
                                 width="35"
                                 height="35"
@@ -769,8 +798,8 @@
 
             <div class="dw-imgThumb">
               <img
-                src="../../_sources/images/placeholderThumb.png"
-                data-placeholder="../../_sources/images/placeholderThumb.png"
+                src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                 alt="Thumb"
                 width="35"
                 height="35"
@@ -816,7 +845,7 @@
 
                         <div class="dw-imgThumb">
                             <img
-                                src="../../_sources/images/placeholderThumb.png" data-placeholder="../../_sources/images/placeholderThumb.png"
+                                src="../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
                                 alt="Thumb"
                                 width="35"
                                 height="35"

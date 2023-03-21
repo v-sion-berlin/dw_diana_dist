@@ -11,7 +11,6 @@
   <script src="../../../../_sources/js/utils/dw.js" type="module"></script>
   <script src="../../../../_sources/js/payloadhosting.js"></script>
   <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
-  <script src="../../../../_sources/js/nlw.js"></script>
   <script>
     window.generateAutoTitles = () => {
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
@@ -20,7 +19,7 @@
       const translationLocationText = document.querySelector('[data-co="Translation/LocationText"').value
       const locationTextFieldId = hasTranslation && translationLocationText ? '{Translation/LocationText}' : '{LocationText}'
       return {
-        '-auto-generated-title': ['NEWS Ins Archive Location', '||', language, '|', locationTextFieldId],
+        '-auto-generated-title': ['NEWS Ins Archive Location v0_02', '||', language, '|', locationTextFieldId],
         'ram-title': locationTextFieldId,
         'ram-continue-points': 0
       }

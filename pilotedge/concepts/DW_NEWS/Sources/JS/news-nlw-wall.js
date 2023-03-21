@@ -22,7 +22,8 @@ const initializeNLWData = (table) => {
     setting[column[1]] = ''
   })
 
-  const data = new Array(NLW.worksheet().worksheets.worksheet1.highestRow)
+  const data = new Array(Number(NLW.worksheet().worksheets.worksheet1.highestRow))
+
   for (let i = 0; i < data.length; i++) {
     data[i] = structuredClone(setting)
   }
