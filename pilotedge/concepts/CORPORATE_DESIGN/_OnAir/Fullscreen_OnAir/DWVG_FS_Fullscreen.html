@@ -34,14 +34,12 @@
     document.addEventListener('DOMContentLoaded', function () {
       showEventCheckbox = document.querySelector('[data-co="Dummy/ShowEvent"]')
       const eventPanels = document.querySelectorAll('[data-name="event-panel"]')
-      const eventInputs = document.querySelectorAll('[data-co="Event"]')
       showEventCheckbox.addEventListener('click', (event) => {
         eventPanels.forEach((panel) => {
           panel.dataset.visible = showEventCheckbox.checked
-        })
-        eventInputs.forEach((input) => {
-          input.value = showEventCheckbox.checked ? input.value : ''
-          input.dispatchEvent(new Event('input'))
+          const eventInput = panel.querySelector('input')
+          eventInput.value = showEventCheckbox.checked ? eventInput.value : ''
+          eventInput.dispatchEvent(new Event('input'))
         })
       })
 

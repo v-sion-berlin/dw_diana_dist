@@ -11,7 +11,6 @@
   <script src="../../../../_sources/js/utils/dw.js" type="module"></script>
   <script src="../../../../_sources/js/payloadhosting.js"></script>
   <script src="../../../../_sources/js/utils/viz.js" type="module"></script>
-  <script src="../../../../_sources/js/nlw.js"></script>
   <script>
     window.generateAutoTitles = () => {
       const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
@@ -20,7 +19,7 @@
       const translationInsertsLine1 = document.querySelector('[data-co="Translation/InsertsLine1"').value
       const insertLine1FieldId = hasTranslation && translationInsertsLine1 ? '{Translation/InsertsLine1}' : '{InsertsLine1}'
       return {
-        '-auto-generated-title': ['NEWS Ins Bundesliga', '||', language, '|', insertLine1FieldId],
+        '-auto-generated-title': ['NEWS Ins Bundesliga v0_02', '||', language, '|', insertLine1FieldId],
         'ram-title': insertLine1FieldId,
         'ram-continue-points': 0
       }

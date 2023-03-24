@@ -14,11 +14,10 @@
   <script src="../../../../_sources/js/nlw.js"></script>
   <script src="../../Sources/JS/news-nlw-wall.js"></script>
   <script>
-    /* global CustomEvent, Event, Option */
-    /* global NLW_DATA, getDistinctSettingValues, getFilteredData */
+    /* global CustomEvent, Option */
+    /* global NLW_DATA, getDistinctSettingValues, getFilteredData, settingSelectChanged, areaSelectChanged */
     const Studio = 'S3'
     const Content = 'Clip'
-    const IsDefault = 'X'
 
     let settingsSelect
     let areaSelect
@@ -32,50 +31,33 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      /** INIT **/
       const nlwData = getFilteredData(NLW_DATA, { Content, Studio })
       const settings = getDistinctSettingValues(nlwData, 'Setting')
 
       settingsSelect = document.querySelector('[data-co="Dummy/Setting"]')
       areaSelect = document.querySelector('[data-co="Dummy/Area"]')
-
       for (const setting of settings) {
         settingsSelect.add(new Option(setting))
       }
 
+      /** SETTING **/
       settingsSelect.addEventListener('change', (event) => {
-        const Setting = event.target.value
-        if (event.detail !== 'dw.js' && Setting) {
-          // Clear area select
-          while (areaSelect.length > 1) {
-            areaSelect.remove(areaSelect.length - 1)
-          }
-
-          // Get new areas
-          const data = getFilteredData(nlwData, { Setting })
-          const areas = getDistinctSettingValues(data, 'Area')
-          const defaultSetting = getFilteredData(data, { IsDefault })
-
-          // Fill area select
-          for (const area of areas) {
-            areaSelect.add(new Option(area))
-          }
-
-          // If we changed the setting manually, we are setting the default area
-          if (event.detail !== 'vizPayloadReady' && defaultSetting[0].Area) {
-            window.COElement('Dummy/Area').value = defaultSetting[0].Area
-            areaSelect.dispatchEvent(new Event('change'))
-          } else if (window.COElement('Dummy/Area').getFieldText()) {
-            areaSelect.value = window.COElement('Dummy/Area').getFieldText()
-          }
-        }
+        settingSelectChanged(event, areaSelect, nlwData)
       })
 
+      /** AREA **/
       areaSelect.addEventListener('change', (event) => {
-        if (event.detail !== 'dw.js') {
-          // Get new position and width
-          const Area = event.target.value
-          const [{ Setting }] = getFilteredData(nlwData, { Area })
-          window.COElement('PlayoutAreaKey').value = `${Setting} | ${Area}`
+        areaSelectChanged(event, nlwData)
+      })
+
+      /** MOVETO PANEL **/
+      const moveToPanel = document.querySelector('[data-name="move-to-panel"]')
+      const existingElementAnimationSelect = document.querySelector('[data-co="TODO/ANIMATION"]')
+      existingElementAnimationSelect.addEventListener('change', (event) => {
+        moveToPanel.dataset.visible = existingElementAnimationSelect.value === '3'
+        if (existingElementAnimationSelect.value !== '3') {
+          window.COElement('TODO/MOVETO').value = 0
         }
       })
     })
@@ -118,59 +100,100 @@
         <input type="text" class="form-input" data-co="PlayoutAreaKey">
       </div>
     </div>
-
-    <div class="form-input-chips-wrapper">
-      <div>
-        <div class="dw-label__input">Animate existing elements</div>
-        <select class="dw-dropdown" data-co="">
-          <option value="">Keep all elements</option>
-          <option value="">Move all elements automatically</option>
-          <option value="">Exclusive (Animate all elements out)</option>
-          <option value="">Move last element by...</option>
-        </select>
-      </div>
-    </div>
   </div>
 
   <!-- CONTENT -->
-  <div class="dw-content">
-    <div class="field-group" id="direction-switch">
+  <div class="dw-content" id="direction-switch">
+    <!-- NEXT ELEMENT -->
+    <div class="field-group">
       <div class="field-group__label">Clip</div>
 
       <div class="grid gap-2">
 
-        <div class="dw-flexGroup">
-          <input type="checkbox" class="form-input dw-checkbox">
-          <label class="dw-label__input">Clip with alpha</label>
+        <div class="flex flex-row flex-wrap gap-2">
+          <div>
+            <div class="dw-label__input">Animation</div>
+            <select class="dw-dropdown" data-co="AnimationInType">
+              <option value="0">Blend</option>
+              <option value="1">Follower</option>
+              <option value="2">New Topic</option>
+            </select>
+          </div>
+
+          <div>
+            <div class="dw-label__input">Options</div>
+            <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+              <div>
+                <div class="dw-flexGroup">
+                  <input type="checkbox" class="form-input dw-checkbox">
+                  <label class="dw-label__input">With alpha</label>
+                </div>
+              </div>
+              <div>
+                <div class="dw-flexGroup">
+                  <input type="checkbox" class="form-input dw-checkbox">
+                  <label class="dw-label__input">Blue add</label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="dw-imgSelect" type="image" data-co="">
-          <div>
-            <label class="dw-label__input">Author filter</label>
-            <input type="text" class="form-input" />
-          </div>
-          <div>
-            <label class="dw-label__input">Date filter</label>
-            <input type="date" class="form-input" />
-          </div>
-          <div class="dw-btn-wrap">
-            <button class="dw-btn select">
-              <span>Select image</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-              </svg>
+        <div>
+          <div class="dw-label__input">Clip</div>
+          <div class="dw-imgSelect" type="image" data-co="ImageIcon">
+            <div>
+              <label class="dw-label__input">Author filter</label>
+              <input type="text" class="form-input" />
+            </div>
+            <div>
+              <label class="dw-label__input">Date filter</label>
+              <input type="date" class="form-input" />
+            </div>
+            <div class="dw-btn-wrap">
+              <button class="dw-btn select">
+                <span>Select clip</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+                  <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <button class="dw-btn remove">
+              <span>Delete image</span>
             </button>
-          </div>
 
-          <button class="dw-btn remove">
-            <span>Delete image</span>
-          </button>
-
-          <div class="dw-imgThumb">
-            <img src="../../../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+            <div class="dw-imgThumb">
+              <img src="../../../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+            </div>
           </div>
         </div>
+      </div>
+    </div>
 
+    <!-- EXISTING ELEMENTS -->
+    <div class="field-group bg-gray-01">
+      <div class="field-group__label">Existing elements on the wall</div>
+
+      <div class="flex flex-row flex-wrap gap-2">
+        <div>
+          <div class="dw-label__input">Animate existing elements</div>
+          <select class="dw-dropdown" data-co="TODO/ANIMATION">
+            <option value="0">Keep all elements</option>
+            <option value="1">Move all elements automatically</option>
+            <option value="2">Exclusive (Animate all elements out)</option>
+            <option value="3">Move last element by...</option>
+          </select>
+        </div>
+
+        <div data-name="move-to-panel">
+          <label class="dw-label__input">
+            <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Negative values moving to the left,&#10;positive to the right.">
+          </label>
+          <div class="dw-quantity">
+            <input type="number" class="form-input dw-input-number" value="0" min="-16" max="16" data-co="TODO/MOVETO" data-scrubber>
+          </div>
+        </div>
       </div>
     </div>
   </div>
