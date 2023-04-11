@@ -1,0 +1,1332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<atom:feed xmlns:acl="http://www.vizrt.com/2012/acl" xmlns:app="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:core="http://ns.vizrt.com/ardome/core" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:mam="http://www.vizrt.com/2010/mam" xmlns:media="http://search.yahoo.com/mrss/" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:vizmedia="http://www.vizrt.com/opensearch/mediatype">
+    <atom:title>Untitled</atom:title>
+    <atom:link rel="self" href="https://vizone-diana.dwelle.de/thirdparty/asset/item?start=1&amp;num=50&amp;q=dw.imagesize%3A210%2A210&amp;media=image"/>
+    <opensearch:totalResults>12</opensearch:totalResults>
+    <opensearch:startIndex>1</opensearch:startIndex>
+    <opensearch:itemsPerPage>50</opensearch:itemsPerPage>
+    <atom:link rel="search" type="application/opensearchdescription+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item?format=opensearch"/>
+    <atom:link rel="facets" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/search/facets?start=1&amp;num=50&amp;q=dw.imagesize%3A210%2A210&amp;asset.mediaType=image&amp;qType=asset"/>
+    <atom:entry>
+        <atom:title>Sports Logo Tennis Wimbledon TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000831321/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000831321"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000831321"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000831321"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000831321/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000831321/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000831321/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000831321</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000831321/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000831321/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000831321"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000831321/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000831321"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000831321/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000831321"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321/assign"/>
+        <atom:updated>2023-01-24T12:01:15.495Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+keyframed</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002409107/physical/2952301240002409107.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002409107/physical/2952301240002409107.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="39099" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002409107"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412607/physical/2952301240002412607.data" fileSize="27986" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002412607"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412507/physical/2952301240002412507.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412607/physical/2952301240002412607.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002412507"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/JdZjMLwcN-f1RzUlciV9LQ/4828161609/-1/kf1/2023/01/24/2952301240000831321/ardok-index/Sports%20Logo%20Tennis%20Wimbledon%20TEST/2952301240002412607.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>HQVMUKGJCOZYYLBN.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000831321</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000831321/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000831321" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T12:00:09.619Z</dcterms:created>
+        <dcterms:identifier>HQVMUKGJCOZYYLBN</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000831321</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T12:00:35.175Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T12:00:51.193Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Tennis US Open TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000828921/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000828921"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000828921"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000828921"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000828921/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000828921/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000828921/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000828921</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000828921/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000828921/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000828921"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000828921/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000828921"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000828921/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000828921"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921/assign"/>
+        <atom:updated>2023-01-24T11:59:29.382Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+keyframed</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002409007/physical/2952301240002409007.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002409007/physical/2952301240002409007.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="23360" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002409007"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412407/physical/2952301240002412407.data" fileSize="20928" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002412407"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412307/physical/2952301240002412307.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412407/physical/2952301240002412407.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002412307"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/KB-C1-cYqiB-tjDtGhVfTw/4828161547/-1/kf1/2023/01/24/2952301240000828921/ardok-index/Sports%20Logo%20Tennis%20US%20Open%20TEST/2952301240002412407.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>HQBRXJLNPKMJGBIP.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000828921</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000828921/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000828921" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:59:07.521Z</dcterms:created>
+        <dcterms:identifier>HQBRXJLNPKMJGBIP</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000828921</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:59:19.325Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:59:25.186Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Tennis French Open TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000826521/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000826521"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000826521"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000826521"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000826521/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000826521/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000826521/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000826521</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000826521/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000826521/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000826521"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000826521/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000826521"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000826521/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000826521"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521/assign"/>
+        <atom:updated>2023-01-24T11:58:44.108Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+importd</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408907/physical/2952301240002408907.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408907/physical/2952301240002408907.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="33256" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408907"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412207/physical/2952301240002412207.data" fileSize="29026" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002412207"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412107/physical/2952301240002412107.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412207/physical/2952301240002412207.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002412107"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/N6gKtDPkGZ-MX7wj4Kluwg/4828161506/-1/kf1/2023/01/24/2952301240000826521/ardok-index/Sports%20Logo%20Tennis%20French%20Open%20TEST/2952301240002412207.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>VYXMKDTVDAPKWXMR.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000826521</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000826521/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000826521" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:58:26.315Z</dcterms:created>
+        <dcterms:identifier>VYXMKDTVDAPKWXMR</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000826521</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:58:34.822Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:58:44.098Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Soccer Football FIFA TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000824121/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000824121"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000824121"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000824121"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000824121/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000824121/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000824121/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000824121</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000824121/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000824121/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000824121"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000824121/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000824121"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000824121/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000824121"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121/assign"/>
+        <atom:updated>2023-01-24T13:08:46.482Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+keyframed</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408807/physical/2952301240002408807.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408807/physical/2952301240002408807.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="27339" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408807"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412007/physical/2952301240002412007.data" fileSize="25262" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002412007"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411907/physical/2952301240002411907.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002412007/physical/2952301240002412007.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411907"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/2nwyEy7k78EL6fbBCIHlcQ/4828161460/-1/kf1/2023/01/24/2952301240000824121/ardok-index/Sports%20Logo%20Soccer%20Football%20FIFA%20TEST/2952301240002412007.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>YHXSKAESKGIAWZCS.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000824121</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000824121/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000824121" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:57:40.679Z</dcterms:created>
+        <dcterms:identifier>YHXSKAESKGIAWZCS</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000824121</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:57:50.786Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:58:43.879Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Soccer Football DFB Pokal TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000821721/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000821721"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000821721"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000821721"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000821721/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000821721/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000821721/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000821721</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000821721/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000821721/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000821721"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000821721/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000821721"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000821721/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000821721"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721/assign"/>
+        <atom:updated>2023-01-24T11:57:12.999Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+importd</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408707/physical/2952301240002408707.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408707/physical/2952301240002408707.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="26604" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408707"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411807/physical/2952301240002411807.data" fileSize="20351" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411807"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411707/physical/2952301240002411707.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411807/physical/2952301240002411807.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411707"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/zcoqNap9pwYd-IBT2xtdvA/4828161418/-1/kf1/2023/01/24/2952301240000821721/ardok-index/Sports%20Logo%20Soccer%20Football%20DFB%20Pokal%20TEST/2952301240002411807.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>EBZZZGVTTKVDDDKH.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000821721</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000821721/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000821721" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:56:58.273Z</dcterms:created>
+        <dcterms:identifier>EBZZZGVTTKVDDDKH</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000821721</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:57:07.227Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:57:12.994Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Soccer Football Bundesliga1 TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809821/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000809821"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000809821"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000809821"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809821/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000809821/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000809821/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000809821</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000809821/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809821/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000809821"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809821/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000809821"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809821/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000809821"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821/assign"/>
+        <atom:updated>2023-01-24T11:56:27.138Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+keyframed</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408607/physical/2952301240002408607.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408607/physical/2952301240002408607.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="12016" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408607"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411607/physical/2952301240002411607.data" fileSize="18418" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411607"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411507/physical/2952301240002411507.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411607/physical/2952301240002411607.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411507"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/-31nEAcOUvJDQuyQvpGwUA/4828161369/-1/kf1/2023/01/24/2952301240000809821/ardok-index/Sports%20Logo%20Soccer%20Football%20Bundesliga1%20TEST/2952301240002411607.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>YKGGHOALBYCJXUMO.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000809821</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809821/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000809821" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:56:09.213Z</dcterms:created>
+        <dcterms:identifier>YKGGHOALBYCJXUMO</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000809821</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:56:18.565Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:56:27.046Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Motor Rallye Dakar TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000819321/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000819321"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000819321"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000819321"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000819321/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;8&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000819321/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000819321/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000819321</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000819321/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000819321/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000819321"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000819321/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000819321"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000819321/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000819321"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321/assign"/>
+        <atom:updated>2023-03-21T12:44:19.836Z</atom:updated>
+        <atom:author>
+            <atom:name>SYSTEM+admin</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408507/physical/2952301240002408507.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408507/physical/2952301240002408507.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="9032" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408507"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411407/physical/2952301240002411407.data" fileSize="17833" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411407"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411307/physical/2952301240002411307.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411407/physical/2952301240002411407.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411307"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/tPbMf1F3IxTtvQtlCRVKdA/4828161307/-1/kf1/2023/01/24/2952301240000819321/ardok-index/Sports%20Logo%20Motor%20Rallye%20Dakar%20TEST/2952301240002411407.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>XLIWFYBQGILYNKPO.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000819321</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000819321/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000819321" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:55:07.493Z</dcterms:created>
+        <dcterms:identifier>XLIWFYBQGILYNKPO</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000819321</core:externalIdentity>
+        <mam:retentiondate>2024-04-19</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:55:15.960Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:55:26.707Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Motor Moto GP TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000816921/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000816921"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000816921"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000816921"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000816921/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000816921/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000816921/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000816921</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000816921/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000816921/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000816921"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000816921/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000816921"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000816921/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000816921"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921/assign"/>
+        <atom:updated>2023-01-24T11:54:40.781Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+keyframed</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408407/physical/2952301240002408407.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408407/physical/2952301240002408407.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="16169" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408407"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411207/physical/2952301240002411207.data" fileSize="17827" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411207"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411107/physical/2952301240002411107.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411207/physical/2952301240002411207.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411107"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/uWX7MjZoOkaVH9E1367bTQ/4828161261/-1/kf1/2023/01/24/2952301240000816921/ardok-index/Sports%20Logo%20Motor%20Moto%20GP%20TEST/2952301240002411207.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>TSBFDBJRNNDVNDTM.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000816921</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000816921/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000816921" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:54:21.122Z</dcterms:created>
+        <dcterms:identifier>TSBFDBJRNNDVNDTM</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000816921</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:54:32.537Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:54:40.764Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Dummy TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000814521/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000814521"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000814521"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000814521"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000814521/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;7&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000814521/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000814521/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000814521</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000814521/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000814521/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000814521"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000814521/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000814521"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000814521/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000814521"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521/assign"/>
+        <atom:updated>2023-01-24T12:04:17.041Z</atom:updated>
+        <atom:author>
+            <atom:name>SYSTEM+admin</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408307/physical/2952301240002408307.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408307/physical/2952301240002408307.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="38018" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408307"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411007/physical/2952301240002411007.data" fileSize="22090" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002411007"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002410907/physical/2952301240002410907.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002411007/physical/2952301240002411007.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002410907"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/d7iZus-out1W9uVHHK9eJA/4828161169/-1/kf1/2023/01/24/2952301240000814521/ardok-index/Sports%20Logo%20Dummy%20TEST/2952301240002411007.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>RDUEEEWDBQTGIGMT.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000814521</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000814521/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000814521" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:52:49.950Z</dcterms:created>
+        <dcterms:identifier>RDUEEEWDBQTGIGMT</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000814521</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:53:10.810Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:53:20.231Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Basketball NBL TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000812121/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000812121"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000812121"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000812121"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000812121/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000812121/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000812121/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000812121</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000812121/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000812121/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000812121"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000812121/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000812121"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000812121/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000812121"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121/assign"/>
+        <atom:updated>2023-01-24T12:12:41.765Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+keyframed</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408207/physical/2952301240002408207.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408207/physical/2952301240002408207.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="14325" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408207"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002410807/physical/2952301240002410807.data" fileSize="19897" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002410807"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002410707/physical/2952301240002410707.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002410807/physical/2952301240002410807.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002410707"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/asyTRQSseC1eTWGNE_T8-g/4828161105/-1/kf1/2023/01/24/2952301240000812121/ardok-index/Sports%20Logo%20Basketball%20NBL%20TEST/2952301240002410807.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>ARVPSLOUDIELZJTV.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000812121</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000812121/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000812121" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:51:45.991Z</dcterms:created>
+        <dcterms:identifier>ARVPSLOUDIELZJTV</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000812121</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:51:56.958Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:53:04.785Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Basketball Beko BBL TEST</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809721/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301240000809721"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301240000809721"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301240000809721"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809721/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000809721/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301240000809721/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301240000809721</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301240000809721/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809721/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301240000809721"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809721/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301240000809721"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301240000809721/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301240000809721"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-Xxja2974jN5oT4d9GSMNcA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721/assign"/>
+        <atom:updated>2023-01-24T11:50:49.264Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+importd</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408107/physical/2952301240002408107.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002408107/physical/2952301240002408107.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="33147" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002408107"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002410607/physical/2952301240002410607.data" fileSize="24444" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002410607"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301240002410507/physical/2952301240002410507.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301240002410607/physical/2952301240002410607.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301240002410507"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/8LpTx3NCVJf85Xdel0m4PA/4828161025/-1/kf1/2023/01/24/2952301240000809721/ardok-index/Sports%20Logo%20Basketball%20Beko%20BBL%20TEST/2952301240002410607.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>GHEXVOBKQGPHFNUT.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:25</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="SYSTEM+admin" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1"/>
+            <acl:group name="MAM Users" read="1" write="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301240000809721</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301240000809721/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/Xxja2974jN5oT4d9GSMNcA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301240000809721" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-24T11:50:25.317Z</dcterms:created>
+        <dcterms:identifier>GHEXVOBKQGPHFNUT</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301240000809721</core:externalIdentity>
+        <mam:retentiondate>2024-02-23</mam:retentiondate>
+        <mam:ingestStart>2023-01-24T11:50:36.962Z</mam:ingestStart>
+        <mam:ingested>2023-01-24T11:50:49.256Z</mam:ingested>
+    </atom:entry>
+    <atom:entry>
+        <atom:title>Sports Logo Basketball Beko BBL TEST.png</atom:title>
+        <atom:link rel="edit" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521"/>
+        <atom:link rel="attach-media" href="https://vizone-diana.dwelle.de/api/asset/item/2952301180000784521/attach"/>
+        <atom:link rel="import-unmanaged" type="text/uri-list" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521/import-unmanaged"/>
+        <atom:link rel="transfer-media" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/transfer/destination?qSource=2952301180000784521"/>
+        <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?asset=2952301180000784521"/>
+        <atom:link rel="log-profile" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/logprofile/2952301180000784521"/>
+        <atom:link rel="thumbnails" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/api/asset/item/2952301180000784521/thumbnails"/>
+        <atom:link rel="upload-tasks" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521/upload-tasks"/>
+        <atom:link rel="mark-for-deletion" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521?qMarkOnly=1"/>
+        <atom:link rel="self" type="application/atom+xml;type=entry" etag="W/&quot;6&quot;" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521"/>
+        <atom:link rel="tape-entry" type="application/atom+xml;type=entry" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301180000784521/tapeentry"/>
+        <atom:link rel="tape-info" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/tape/item/2952301180000784521/tapeinfo"/>
+        <atom:category scheme="http://www.vizrt.com/types/txstatus" term="undecided" label="Undecided"/>
+        <atom:category scheme="http://www.vizrt.com/types" term="asset"/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/category" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/materialtype" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/ardome/asset/rightscode" term=""/>
+        <atom:category scheme="http://www.vizrt.com/types/qcstatus" term="undecided" label="Undecided"/>
+        <atom:id>urn:vme:default:asset:2952301180000784521</atom:id>
+        <atom:link rel="relations" href="https://vizone-diana.dwelle.de/thirdparty/asset/2952301180000784521/assetrelations?qIsTarget=1&amp;qIsSource=1"/>
+        <atom:link rel="describedby" type="application/vnd.vizrt.payload+xml" href="https://vizone-diana.dwelle.de/api/asset/item/2952301180000784521/metadata"/>
+        <atom:link rel="externalmetadata" type="application/vnd.adobe.xmp+xml" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521/externalmetadata"/>
+        <atom:link rel="invoker" type="application/vnd.vizrt.mediastudio+html" href="https://vizone-diana.dwelle.de/studio/#ItemPlace:2952301180000784521"/>
+        <atom:link rel="overlay-timeline" href="https://vizone-diana.dwelle.de/api/asset/item/2952301180000784521/overlay" thr:count="0"/>
+        <atom:link rel="segmentation" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/segmentation/2952301180000784521"/>
+        <atom:link rel="composed-from-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521/mediarelations?qRelation=composed-from"/>
+        <atom:link rel="used-in-media" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521/mediarelations?qRelation=used-in"/>
+        <atom:link rel="qccontext" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/api/asset/item/2952301180000784521/qccontext"/>
+        <atom:link rel="task" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/task/entry?qAsset=2952301180000784521"/>
+        <atom:link rel="monitor" href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/asset-W3ZyN_ruLr5m9P0f0lQZdA"/>
+        <atom:link rel="assign" href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521/assign"/>
+        <atom:updated>2023-01-18T15:22:01.510Z</atom:updated>
+        <atom:author>
+            <atom:name>DAEMON+importd</atom:name>
+        </atom:author>
+        <atom:content type="image/png" src="https://vizone-diana.dwelle.de/api/media/mob/2952301180002326007/physical/2952301180002326007.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj"/>
+        <media:group>
+            <media:content type="image/png" url="https://vizone-diana.dwelle.de/api/media/mob/2952301180002326007/physical/2952301180002326007.png?auth=8fvABXv3Z_HSn8ti1fD7roaIxI_HJ5G6GslKFIyFKlJYr6UvOYSqf64L7Plr_RhqPcbyyOH-nEjI6QbusyXoLWJ6M5Jp3Vsj" fileSize="33147" width="210" height="210" isDefault="1" original="1">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301180002326007"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardok" url="https://vizone-diana.dwelle.de/api/media/mob/2952301180002330407/physical/2952301180002330407.data" fileSize="24444" width="192" height="108" auth="Basic">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301180002330407"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+            <media:content type="application/vnd.vizrt.ardokindex" url="https://vizone-diana.dwelle.de/api/media/mob/2952301180002330307/physical/2952301180002330307.index" fileSize="82" auth="Basic" indexes="https://vizone-diana.dwelle.de/api/media/mob/2952301180002330407/physical/2952301180002330407.data">
+                <atom:link rel="media-status" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/media/status?mob=2952301180002330307"/>
+                <ebuCoreMain xmlns="urn:ebu:metadata-schema:ebuCore_2015" version="1.6">
+                    <coreMetadata>
+                        <format>
+                            <videoFormat videoFormatName=""/>
+                        </format>
+                    </coreMetadata>
+                </ebuCoreMain>
+            </media:content>
+        </media:group>
+        <media:thumbnail url="https://vizone-diana.dwelle.de/ardok/kCHZGPdDl_vcsOZAWFVedw/4827655264/-1/kf1/2023/01/18/2952301180000784521/ardok-index/Sports%20Logo%20Basketball%20Beko%20BBL%20TEST/2952301180002330407.jpg"/>
+        <mam:apitype>asset</mam:apitype>
+        <mam:mediastatus>online</mam:mediastatus>
+        <vizmedia:media>image</vizmedia:media>
+        <mam:derivativefilename>YTCNSFAUQVRUXSND.png</mam:derivativefilename>
+        <acl:asset>
+            <atom:id>urn:vme:default:ACCESS.Acl:1</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="DAEMON+autoimportd" read="1" write="1" admin="1"/>
+            <acl:group name="External applications" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Users" read="1" write="1" admin="1"/>
+        </acl:asset>
+        <acl:media>
+            <atom:id>urn:vme:default:ACCESS.Acl:1</atom:id>
+            <atom:link rel="groups" type="application/atom+xml;type=feed" href="https://vizone-diana.dwelle.de/thirdparty/group"/>
+            <acl:user name="DAEMON+autoimportd" read="1" write="1" admin="1"/>
+            <acl:group name="External applications" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Administrators" read="1" write="1" admin="1"/>
+            <acl:group name="MAM Users" read="1" write="1" admin="1"/>
+        </acl:media>
+        <core:ardomeIdentity name="id">2952301180000784521</core:ardomeIdentity>
+        <app:collection href="https://vizone-diana.dwelle.de/thirdparty/asset/item/2952301180000784521/logtracks">
+            <app:accept>application/atom+xml;type=entry</app:accept>
+            <app:categories>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="marker"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcerror"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="qcremark"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="restriction"/>
+                <atom:category scheme="http://www.vizrt.com/types/logtrack" term="scenedesc"/>
+            </app:categories>
+            <atom:link href="stomp://vizone-diana.dwelle.de:61613/?destination=/topic/W3ZyN_ruLr5m9P0f0lQZdA-logtrack-items" rel="monitor"/>
+            <atom:link href="https://vizone-diana.dwelle.de/thirdparty/media/logtrack/overview?qItem=2952301180000784521" rel="alternate"/>
+        </app:collection>
+        <dcterms:created>2023-01-18T15:21:04.195Z</dcterms:created>
+        <dcterms:identifier>YTCNSFAUQVRUXSND</dcterms:identifier>
+        <core:externalSource>INTERNAL</core:externalSource>
+        <core:externalIdentity>2952301180000784521</core:externalIdentity>
+        <mam:retentiondate>2024-02-17</mam:retentiondate>
+        <mam:ingestStart>2023-01-18T15:21:33.957Z</mam:ingestStart>
+        <mam:ingested>2023-01-18T15:22:01.505Z</mam:ingested>
+    </atom:entry>
+</atom:feed>
