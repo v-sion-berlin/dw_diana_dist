@@ -12,7 +12,9 @@
  * @since 1.00
  */
 const initializeInputs = async () => {
-  const elements = document.querySelectorAll('textarea, select, [type="number"], [type="date"], [type="text"], [type="range"]')
+  const elements = document.querySelectorAll(
+    'textarea, select, [type="number"], [type="date"], [type="text"], [type="range"]'
+  )
 
   if (elements) {
     const module = await import('./input.js')
@@ -56,19 +58,34 @@ const initializeDropdowns = async () => {
   }
 }
 
-/* TODO: remove, once declared deprecated over imgSearch */
 /**
+ * Add Change Listener to site/container Id fields to disable other image search fields on entry
  * Adds a larger image version to the Image Select Thumbnail and shows it on hover
  * @since 1.00
  */
-const initializeImageThumbs = async () => {
-  let isOverImgLarge = false
-  let isOverImgThumb = false
+const initializeImageSearch = async () => {
+  // initialize search
+  const elements = document.querySelectorAll('.imgSearchId')
+  for (const element of elements) {
+    element.addEventListener('keyup', (event) => {
+      const imgSearch = element.closest('.dw-imgSearch')
+      const fields = imgSearch.querySelectorAll('.imgSearchField')
+      for (const field of fields) {
+        field.disabled = event.target.value.length > 0
+      }
+    })
+  }
+
+  // initialize thumbs
+  const isOverImgLarges = []
+  const isOverImgThumbs = []
 
   const showHideImgLarge = (imgLarge) => {
     setTimeout(() => {
-      const imgThumb = imgLarge.parentElement.parentElement.querySelector('.dw-imgThumb')
-      if (!isOverImgLarge && !isOverImgThumb) {
+      const parent = imgLarge.closest('.dw-imgSearch')
+      const id = parent.getAttribute('id')
+      const imgThumb = imgLarge.parentElement.querySelector('.dw-imgThumb')
+      if (!isOverImgLarges[id] && !isOverImgThumbs[id]) {
         imgLarge.classList.add('hidden')
         imgLarge.removeEventListener('mouseover', onMouseOverImgLarge)
         imgLarge.removeEventListener('mouseout', onMouseOutImgLarge)
@@ -77,32 +94,46 @@ const initializeImageThumbs = async () => {
         const src = imgThumb.querySelector('img').getAttribute('src')
         if (src) {
           imgLarge.classList.remove('hidden')
-          imgLarge.querySelector('img').setAttribute('src', imgThumb.querySelector('img').getAttribute('src'))
+          imgLarge
+            .querySelector('img')
+            .setAttribute(
+              'src',
+              imgThumb.querySelector('img').getAttribute('src')
+            )
         }
       }
     }, 10)
   }
 
   const onMouseOverImgLarge = (event) => {
-    isOverImgLarge = true
+    const parent = event.target.closest('.dw-imgSearch')
+    const id = parent.getAttribute('id')
+    isOverImgLarges[id] = true
     showHideImgLarge(event.target.parentElement)
   }
 
   const onMouseOutImgLarge = (event) => {
-    isOverImgLarge = false
+    const parent = event.target.closest('.dw-imgSearch')
+    const id = parent.getAttribute('id')
+    isOverImgLarges[id] = false
     showHideImgLarge(event.target.parentElement)
   }
 
   const onMouseOutImgThumb = (event) => {
-    isOverImgThumb = false
-    const imgLarge = event.target.parentElement.parentElement.querySelector('.dw-imgLarge')
+    const parent = event.target.closest('.dw-imgSearch')
+    const id = parent.getAttribute('id')
+    isOverImgThumbs[id] = false
+    const imgLarge =
+      event.target.parentElement.parentElement.querySelector('.dw-imgLarge')
     showHideImgLarge(imgLarge)
   }
 
   const showLargeImage = (event) => {
-    const imgLarge = event.target.parentElement.parentElement.querySelector('.dw-imgLarge')
-
-    isOverImgThumb = true
+    const parent = event.target.closest('.dw-imgSearch')
+    const id = parent.getAttribute('id')
+    const imgLarge =
+      event.target.parentElement.parentElement.querySelector('.dw-imgLarge')
+    isOverImgThumbs[id] = true
     showHideImgLarge(imgLarge)
 
     imgLarge.addEventListener('mouseover', onMouseOverImgLarge)
@@ -110,118 +141,21 @@ const initializeImageThumbs = async () => {
     event.target.addEventListener('mouseout', onMouseOutImgThumb)
   }
 
-  const elements = document.querySelectorAll('.dw-imgSelect')
-  for (const element of elements) {
+  const wrappers = document.querySelectorAll('.dw-imgSearch')
+  let count = 0
+  for (const element of wrappers) {
+    element.setAttribute('id', 'imgSearch-' + count++)
     const imgThumb = element.querySelector('.dw-imgThumb')
     const imgLarge = document.createElement('div')
     const img = document.createElement('img')
     imgLarge.classList.add('dw-imgLarge')
     imgLarge.classList.add('hidden')
     imgLarge.appendChild(img)
-    element.append(imgLarge)
+    imgThumb.parentElement.append(imgLarge)
 
     imgThumb.addEventListener('mouseover', showLargeImage)
   }
 }
-
-/**
- * Add Change Listener to site/container Id fields to disable other image search fields on entry
- * Adds a larger image version to the Image Select Thumbnail and shows it on hover
- * @since 1.00
- */
-const initializeImageSearch = async () => {
-  // initialize search
-  const elements = document.querySelectorAll(".imgSearchId");
-  for (const element of elements) {
-    element.addEventListener("keyup", (event) => {
-      const imgSearch = element.closest(".dw-imgSearch");
-      const fields = imgSearch.querySelectorAll(".imgSearchField");
-      for (const field of fields) {
-        field.disabled = event.target.value.length > 0;
-      }
-    });
-  }
-
-  // initialize thumbs
-  let isOverImgLarges = [];
-  let isOverImgThumbs = [];
-
-  const showHideImgLarge = (imgLarge) => {
-    setTimeout(() => {
-      const parent = imgLarge.closest(".dw-imgSearch");
-      const id = parent.getAttribute("id");
-      const imgThumb = imgLarge.parentElement.querySelector(".dw-imgThumb");
-      if (!isOverImgLarges[id] && !isOverImgThumbs[id]) {
-        imgLarge.classList.add("hidden");
-        imgLarge.removeEventListener("mouseover", onMouseOverImgLarge);
-        imgLarge.removeEventListener("mouseout", onMouseOutImgLarge);
-        imgThumb.removeEventListener("mouseout", onMouseOutImgThumb);
-      } else {
-        const src = imgThumb.querySelector("img").getAttribute("src");
-        if (src) {
-          imgLarge.classList.remove("hidden");
-          imgLarge
-            .querySelector("img")
-            .setAttribute(
-              "src",
-              imgThumb.querySelector("img").getAttribute("src")
-            );
-        }
-      }
-    }, 10);
-  };
-
-  const onMouseOverImgLarge = (event) => {
-    const parent = event.target.closest(".dw-imgSearch");
-    const id = parent.getAttribute("id");
-    isOverImgLarges[id] = true;
-    showHideImgLarge(event.target.parentElement);
-  };
-
-  const onMouseOutImgLarge = (event) => {
-    const parent = event.target.closest(".dw-imgSearch");
-    const id = parent.getAttribute("id");
-    isOverImgLarges[id] = false;
-    showHideImgLarge(event.target.parentElement);
-  };
-
-  const onMouseOutImgThumb = (event) => {
-    const parent = event.target.closest(".dw-imgSearch");
-    const id = parent.getAttribute("id");
-    isOverImgThumbs[id] = false;
-    const imgLarge =
-      event.target.parentElement.parentElement.querySelector(".dw-imgLarge");
-    showHideImgLarge(imgLarge);
-  };
-
-  const showLargeImage = (event) => {
-    const parent = event.target.closest(".dw-imgSearch");
-    const id = parent.getAttribute("id");
-    const imgLarge =
-      event.target.parentElement.parentElement.querySelector(".dw-imgLarge");
-    isOverImgThumbs[id] = true;
-    showHideImgLarge(imgLarge);
-
-    imgLarge.addEventListener("mouseover", onMouseOverImgLarge);
-    imgLarge.addEventListener("mouseout", onMouseOutImgLarge);
-    event.target.addEventListener("mouseout", onMouseOutImgThumb);
-  };
-
-  const wrappers = document.querySelectorAll(".dw-imgSearch");
-  let count = 0;
-  for (const element of wrappers) {
-    element.setAttribute("id", "imgSearch-" + count++);
-    const imgThumb = element.querySelector(".dw-imgThumb");
-    const imgLarge = document.createElement("div");
-    const img = document.createElement("img");
-    imgLarge.classList.add("dw-imgLarge");
-    imgLarge.classList.add("hidden");
-    imgLarge.appendChild(img);
-    imgThumb.parentElement.append(imgLarge);
-
-    imgThumb.addEventListener("mouseover", showLargeImage);
-  }
-};
 
 /**
  * Defines a global variable window.datestamp that contains the actual
@@ -231,12 +165,12 @@ const initializeImageSearch = async () => {
  * @global
  */
 window.datestamp = () => {
-  const today = new Date();
-  const formatter = new Intl.NumberFormat("de-DE", { minimumIntegerDigits: 2 });
+  const today = new Date()
+  const formatter = new Intl.NumberFormat('de-DE', { minimumIntegerDigits: 2 })
   return `${formatter.format(today.getMonth() + 1)}${formatter.format(
     today.getDate()
-  )}`;
-};
+  )}`
+}
 
 /**
  * Defines a global function that can handle ltr/rtl changes
@@ -246,42 +180,42 @@ window.datestamp = () => {
  * @global
  */
 window.initializeDirectionSwitch = (queryLanguageSelect, queryDirectionDiv) => {
-  const languageSelect = document.querySelector(queryLanguageSelect);
-  const directionDiv = document.querySelector(queryDirectionDiv);
+  const languageSelect = document.querySelector(queryLanguageSelect)
+  const directionDiv = document.querySelector(queryDirectionDiv)
   if (!languageSelect) {
     console.error(
       `window.initializeDirectionSwitch(queryLanguageSelect, queryDirectionDiv): parameter queryLanguageSelect (${queryLanguageSelect}) doesn't give valid node.`
-    );
-    return;
+    )
+    return
   }
 
   if (!directionDiv) {
     console.error(
       `window.initializeDirectionSwitch(queryLanguageSelect, queryDirectionDiv): parameter directionDiv (${directionDiv}) doesn't give valid node.`
-    );
-    return;
+    )
+    return
   }
-  languageSelect.addEventListener("change", (e) => {
-    const selectedOption = languageSelect.options[languageSelect.selectedIndex];
+  languageSelect.addEventListener('change', (e) => {
+    const selectedOption = languageSelect.options[languageSelect.selectedIndex]
     const hasRtl =
-      selectedOption.hasAttribute("rtl") ||
-      selectedOption.hasAttribute("data-rtl");
+      selectedOption.hasAttribute('rtl') ||
+      selectedOption.hasAttribute('data-rtl')
     if (hasRtl) {
-      directionDiv.classList.add("dw-direction-rtl");
+      directionDiv.classList.add('dw-direction-rtl')
     } else {
-      directionDiv.classList.remove("dw-direction-rtl");
+      directionDiv.classList.remove('dw-direction-rtl')
     }
-  });
+  })
 
-  document.addEventListener("vizPayloadReady", () => {
+  document.addEventListener('vizPayloadReady', () => {
     // WE're using a custom event here to pass additional data. That way we can
     // distinguish between initial change call and change events that are fired
     // by the user.
     languageSelect.dispatchEvent(
-      new CustomEvent("change", { detail: "dw.js" })
-    );
-  });
-};
+      new CustomEvent('change', { detail: 'dw.js' })
+    )
+  })
+}
 
 /**
  * Defines a global function that shows a div if the attribute translation is present in the language selection
@@ -294,35 +228,35 @@ window.initializeTranslationPanel = (
   queryLanguageSelect,
   queryTranslationDiv
 ) => {
-  const languageSelect = document.querySelector(queryLanguageSelect);
-  const translationDiv = document.querySelector(queryTranslationDiv);
+  const languageSelect = document.querySelector(queryLanguageSelect)
+  const translationDiv = document.querySelector(queryTranslationDiv)
   if (!languageSelect) {
     console.error(
       `window.initializeTranslationPanel(queryLanguageSelect, queryTranslationDiv): parameter queryLanguageSelect (${queryLanguageSelect}) doesn't give valid node.`
-    );
-    return;
+    )
+    return
   }
 
   if (!translationDiv) {
     console.error(
       `window.initializeTranslationPanel(queryLanguageSelect, queryTranslationDiv): parameter queryTranslationDiv (${queryTranslationDiv}) doesn't give valid node.`
-    );
-    return;
+    )
+    return
   }
-  languageSelect.addEventListener("change", (e) => {
-    const selectedOption = languageSelect.options[languageSelect.selectedIndex];
+  languageSelect.addEventListener('change', (e) => {
+    const selectedOption = languageSelect.options[languageSelect.selectedIndex]
     const hasTranslation =
-      selectedOption.hasAttribute("translation") ||
-      selectedOption.hasAttribute("data-translation");
-    translationDiv.dataset.visible = hasTranslation;
-  });
+      selectedOption.hasAttribute('translation') ||
+      selectedOption.hasAttribute('data-translation')
+    translationDiv.dataset.visible = hasTranslation
+  })
 
-  document.addEventListener("vizPayloadReady", () => {
+  document.addEventListener('vizPayloadReady', () => {
     languageSelect.dispatchEvent(
-      new CustomEvent("change", { detail: "dw.js" })
-    );
-  });
-};
+      new CustomEvent('change', { detail: 'dw.js' })
+    )
+  })
+}
 
 /**
  * Function for capitalizing strings
@@ -332,13 +266,12 @@ window.initializeTranslationPanel = (
  * @global
  */
 window.capitalize = (text) => {
-  return text.replace(/^\w/, (c) => c.toUpperCase());
-};
+  return text.replace(/^\w/, (c) => c.toUpperCase())
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  initializeInputs();
-  initializeDraggables();
-  initializeDropdowns();
-  initializeImageThumbs();
-  initializeImageSearch();
-});
+document.addEventListener('DOMContentLoaded', () => {
+  initializeInputs()
+  initializeDraggables()
+  initializeDropdowns()
+  initializeImageSearch()
+})

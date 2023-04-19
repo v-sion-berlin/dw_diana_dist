@@ -28,7 +28,7 @@
       This page shows the usage of the Drag-n-Drop Table.
     </span>
 
-        <div class="field-group">
+    <div class="field-group">
       <div class="field-group__label">Table Vertical Drag'n'Drop</div>
       <div class="dw-dnd-wrapper dw-dnd-wrapper--vertical">
         <div class="dw-dnd-head">
@@ -36,8 +36,8 @@
           <div class="dw-dnd__cell h-[35px] mt-[30px]">Color</div>
           <div data-name="" class="dw-dnd__cell h-[73px]">Headline</div>
           <div data-name="Row1" class="dw-dnd__cell h-[73px]">Value</div>
-          <div data-name="Row2"class="dw-dnd__cell h-[73px]">Value</div>
-          <div data-name="Row3"class="dw-dnd__cell h-[73px]">Value</div>
+          <div data-name="Row2" class="dw-dnd__cell h-[73px]">Value</div>
+          <div data-name="Row3" class="dw-dnd__cell h-[73px]">Value</div>
         </div>
         <div data-name="BarTable" class="dw-dnd__section">
           <div data-name="Column1" class="dw-dnd">
@@ -433,8 +433,8 @@
           <div class="dw-dnd__cell h-[35px] mt-[30px]">Color</div>
           <div data-name="" class="dw-dnd__cell h-[73px]">Headline</div>
           <div data-name="Row1" class="dw-dnd__cell h-[73px]">Value</div>
-          <div data-name="Row2"class="dw-dnd__cell h-[73px]">Value</div>
-          <div data-name="Row3"class="dw-dnd__cell h-[73px]">Value</div>
+          <div data-name="Row2" class="dw-dnd__cell h-[73px]">Value</div>
+          <div data-name="Row3" class="dw-dnd__cell h-[73px]">Value</div>
         </div>
         <div data-name="BarTable" class="dw-dnd__section">
           <div data-name="Column1" class="dw-dnd">
@@ -1898,49 +1898,48 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="">
-                  <div>
+                <div
+                  class="dw-imgSearch flex flex-wrap flex-row items-start pb-0"
+                  type="image"
+                  data-co=""
+                >
+                  <div class="dw-imgRowItem w-full">
                     <div>
-                      <label class="dw-label__input">Author filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
                     <div>
-                      <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="15"
-                        height="15"
-                      >
-                        <path
-                          d="M12.45 7.571H1.95M7.2 2.214v10.714"
-                          stroke="currentColor"
-                          fill="none"
-                          fill-rule="evenodd"
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image"
+                          >Delete image</span
+                        >
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img
+                          src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          alt="Thumb"
+                          width="35"
+                          height="35"
                         />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img
-                      src="../../_sources/images/placeholderThumb.png"
-                      alt="Thumb"
-                      width="35"
-                      height="35"
-                    />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
@@ -1972,48 +1971,48 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="">
-                  <div>
+                <div
+                  class="dw-imgSearch flex flex-wrap flex-row items-start pb-0"
+                  type="image"
+                  data-co=""
+                >
+                  <div class="dw-imgRowItem w-full">
                     <div>
-                      <label class="dw-label__input">Author filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
                     <div>
-                      <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
-
-                  <button class="dw-btn select">
-                    <span>Select image</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                    >
-                      <path
-                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
-                        stroke="currentColor"
-                        fill="none"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img
-                      src="../../_sources/images/placeholderThumb.png"
-                      alt="Thumb"
-                      width="35"
-                      height="35"
-                    />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image"
+                          >Delete image</span
+                        >
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img
+                          src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          alt="Thumb"
+                          width="35"
+                          height="35"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
@@ -2045,48 +2044,48 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="">
-                  <div>
+                <div
+                  class="dw-imgSearch flex flex-wrap flex-row items-start pb-0"
+                  type="image"
+                  data-co=""
+                >
+                  <div class="dw-imgRowItem w-full">
                     <div>
-                      <label class="dw-label__input">Author filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
                     <div>
-                      <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
-
-                  <button class="dw-btn select">
-                    <span>Select image</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                    >
-                      <path
-                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
-                        stroke="currentColor"
-                        fill="none"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img
-                      src="../../_sources/images/placeholderThumb.png"
-                      alt="Thumb"
-                      width="35"
-                      height="35"
-                    />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image"
+                          >Delete image</span
+                        >
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img
+                          src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          alt="Thumb"
+                          width="35"
+                          height="35"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
@@ -2131,45 +2130,48 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="">
-                  <div>
+                <div
+                  class="dw-imgSearch flex flex-wrap flex-row items-start pb-0"
+                  type="image"
+                  data-co=""
+                >
+                  <div class="dw-imgRowItem w-full">
                     <div>
-                      <label class="dw-label__input">Author filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
                     <div>
-                      <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path
-                          d="M12.45 7.571H1.95M7.2 2.214v10.714"
-                          stroke="currentColor"
-                          fill="none"
-                          fill-rule="evenodd"
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image"
+                          >Delete image</span
+                        >
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img
+                          src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          alt="Thumb"
+                          width="35"
+                          height="35"
                         />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img
-                      src="../../_sources/images/placeholderThumb.png"
-                      alt="Thumb"
-                      width="35"
-                      height="35"
-                    />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
@@ -2201,44 +2203,48 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="">
-                  <div>
+                <div
+                  class="dw-imgSearch flex flex-wrap flex-row items-start pb-0"
+                  type="image"
+                  data-co=""
+                >
+                  <div class="dw-imgRowItem w-full">
                     <div>
-                      <label class="dw-label__input">Author filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
                     <div>
-                      <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
-
-                  <button class="dw-btn select">
-                    <span>Select image</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                      <path
-                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
-                        stroke="currentColor"
-                        fill="none"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img
-                      src="../../_sources/images/placeholderThumb.png"
-                      alt="Thumb"
-                      width="35"
-                      height="35"
-                    />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image"
+                          >Delete image</span
+                        >
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img
+                          src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          alt="Thumb"
+                          width="35"
+                          height="35"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
@@ -2270,44 +2276,48 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="">
-                  <div>
+                <div
+                  class="dw-imgSearch flex flex-wrap flex-row items-start pb-0"
+                  type="image"
+                  data-co=""
+                >
+                  <div class="dw-imgRowItem w-full">
                     <div>
-                      <label class="dw-label__input">Author filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
                     <div>
-                      <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
                     </div>
-                  </div>
-
-                  <button class="dw-btn select">
-                    <span>Select image</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                      <path
-                        d="M12.45 7.571H1.95M7.2 2.214v10.714"
-                        stroke="currentColor"
-                        fill="none"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img
-                      src="../../_sources/images/placeholderThumb.png"
-                      alt="Thumb"
-                      width="35"
-                      height="35"
-                    />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image"
+                          >Delete image</span
+                        >
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img
+                          src="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          data-placeholder="../../_sources/images/DIANA_placeholder_standard_square.png"
+                          alt="Thumb"
+                          width="35"
+                          height="35"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
