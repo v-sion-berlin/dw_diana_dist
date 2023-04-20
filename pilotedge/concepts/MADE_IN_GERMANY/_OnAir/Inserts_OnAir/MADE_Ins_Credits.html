@@ -231,7 +231,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/Images/Header.png" alt="MADE Header Image">
+    <img src="../../Sources/Images/Header.png" alt="MADE Header Image" />
     <span class="text-white">Ins Credits</span>
   </div>
 
@@ -253,8 +253,8 @@
     <div class="form-input-chips-wrapper">
       <div>
         <label class="dw-label__input">Show Sponsors</label>
-        <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Show2_CREDIT">
-        <input type="text" class="form-input hidden" data-co="Show2_CREDIT">
+        <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Show2_CREDIT" />
+        <input type="text" class="form-input hidden" data-co="Show2_CREDIT" />
       </div>
     </div>
   </div>
@@ -266,28 +266,28 @@
         <div class="field-group__label">Panel 1 (Production)</div>
         <div class="grid gap-2">
           <div class="max-w-xs dw-flexGroup">
-            <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/UseSecondContributorNameLine">
-            <input type="text" class="form-input hidden" data-co="ContributorTypeIndex">
+            <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/UseSecondContributorNameLine" />
+            <input type="text" class="form-input hidden" data-co="ContributorTypeIndex" />
             <label class="dw-label__input">Use second contributor name line</label>
           </div>
           <span class="dw-alert">Please add one contributor per input field</span>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <div>
               <label data-co="Contributor1Function" data-name="contributor1-function" class="dw-label__input">Producers</label>
-              <input type="text" class="form-input font-large" data-co="Contributor1Name1" data-name="contributor1-name1">
-              <input type="text" class="form-input font-large mt-2" name="secondcontributorline" data-co="Contributor1Name2" data-name="contributor1-name2">
+              <input type="text" class="form-input font-large" data-co="Contributor1Name1" data-name="contributor1-name1" />
+              <input type="text" class="form-input font-large mt-2" name="secondcontributorline" data-co="Contributor1Name2" data-name="contributor1-name2" />
             </div>
 
             <div>
               <label data-co="Contributor2Function" data-name="contributor2-function" class="dw-label__input">Director</label>
-              <input type="text" class="form-input font-large" data-co="Contributor2Name1" data-name="contributor2-name1">
-              <input type="text" class="form-input font-large mt-2" name="secondcontributorline" data-co="Contributor2Name2" data-name="contributor2-name2">
+              <input type="text" class="form-input font-large" data-co="Contributor2Name1" data-name="contributor2-name1" />
+              <input type="text" class="form-input font-large mt-2" name="secondcontributorline" data-co="Contributor2Name2" data-name="contributor2-name2" />
             </div>
 
             <div>
               <label data-co="Contributor3Function" data-name="contributor3-function" class="dw-label__input">Executive Producers</label>
-              <input type="text" class="form-input font-large" data-co="Contributor3Name1" data-name="contributor3-name1">
-              <input type="text" class="form-input font-large mt-2" name="secondcontributorline" data-co="Contributor3Name2" data-name="contributor3-name2">
+              <input type="text" class="form-input font-large" data-co="Contributor3Name1" data-name="contributor3-name1" />
+              <input type="text" class="form-input font-large mt-2" name="secondcontributorline" data-co="Contributor3Name2" data-name="contributor3-name2" />
             </div>
           </div>
         </div>
@@ -298,24 +298,27 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <div>
             <label data-co="SponsorsFunction1" data-name="stylist-function" class="dw-label__input"></label>
-            <input type="text" class="form-input font-large" data-co="SponsorsName1" data-name="stylist-name">
+            <input type="text" class="form-input font-large" data-co="SponsorsName1" data-name="stylist-name" />
           </div>
           <div>
             <label data-co="SponsorsFunction2" data-name="wardrobe-function" class="dw-label__input"></label>
-            <div class="dw-imgSelect" data-type="image" data-co="Logo">
-              <button class="dw-btn select">
-                <span>Select Image</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                  <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd"></path>
-                </svg>
-              </button>
-
-              <button class="dw-btn remove">
-                <span>Delete Image</span>
-              </button>
-
-              <div class="dw-imgThumb">
-                <img src="../../../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35">
+            <div class="dw-imgSearch flex flex-wrap flex-row items-start" data-type="image" data-co="Logo">
+              <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
+                <div class="dw-btn-wrap">
+                  <button class="dw-btn dw-btnIcon select">
+                    <span class="dw-btnSearch" title="Search">Search</span>
+                  </button>
+                </div>
+                <div class="dw-btn-wrap">
+                  <button class="dw-btn dw-btnIcon remove">
+                    <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                  </button>
+                </div>
+                <div class="dw-btn-wrap">
+                  <div class="dw-imgThumb">
+                    <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -327,28 +330,28 @@
         <div class="grid sm:grid-cols-3 gap-2">
           <div>
             <div class="max-w-xs dw-flexGroup h-[35px]">
-              <input type="checkbox" class="form-input dw-checkbox my-auto hidden" data-co="Dummy/UseAddress2" data-name="online1-active">
+              <input type="checkbox" class="form-input dw-checkbox my-auto hidden" data-co="Dummy/UseAddress2" data-name="online1-active" />
               <label data-co="Address1Function" data-name="online1-name" class="dw-label__input my-auto">Address Function</label>
             </div>
-            <input type="text" class="form-input mt-1" data-co="Address1Name" data-name="online1-address">
+            <input type="text" class="form-input mt-1" data-co="Address1Name" data-name="online1-address" />
           </div>
 
           <div>
             <div class="max-w-xs dw-flexGroup h-[35px]">
-              <input type="checkbox" class="form-input dw-checkbox my-auto" data-co="Dummy/UseAddress2" data-name="online2-active">
+              <input type="checkbox" class="form-input dw-checkbox my-auto" data-co="Dummy/UseAddress2" data-name="online2-active" />
               <!-- <label class="dw-label__input" data-co="Address2Function">Facebook</label> -->
-              <input type="text" class="form-input" data-co="Address2Function" data-name="online2-name">
+              <input type="text" class="form-input" data-co="Address2Function" data-name="online2-name" />
             </div>
-            <input type="text" class="form-input mt-1" data-co="Address2Name" data-name="online2-address">
+            <input type="text" class="form-input mt-1" data-co="Address2Name" data-name="online2-address" />
           </div>
 
           <div id="online-address3">
             <div class="max-w-xs dw-flexGroup h-[35px]">
-              <input type="checkbox" class="form-input dw-checkbox my-auto" data-co="Dummy/UseAddress3" data-name="online3-active">
+              <input type="checkbox" class="form-input dw-checkbox my-auto" data-co="Dummy/UseAddress3" data-name="online3-active" />
               <!-- <label class="dw-label__input" data-co="Address3Function">Twitter</label> -->
-              <input type="text" class="form-input" data-co="Address3Function" data-name="online3-name">
+              <input type="text" class="form-input" data-co="Address3Function" data-name="online3-name" />
             </div>
-            <input type="text" class="form-input mt-1" data-co="Address3Name" data-name="online3-address">
+            <input type="text" class="form-input mt-1" data-co="Address3Name" data-name="online3-address" />
           </div>
         </div>
       </div>

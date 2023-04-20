@@ -71,7 +71,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image">
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
     <span class="text-gray-15">Wall - S3 Clip</span>
   </div>
 
@@ -97,7 +97,7 @@
     <div class="form-input-chips-wrapper hidden">
       <div>
         <label class="dw-label__input">Playout area key</label>
-        <input type="text" class="form-input" data-co="PlayoutAreaKey">
+        <input type="text" class="form-input" data-co="PlayoutAreaKey" />
       </div>
     </div>
   </div>
@@ -109,7 +109,6 @@
       <div class="field-group__label">Clip</div>
 
       <div class="grid gap-2">
-
         <div class="flex flex-row flex-wrap gap-2">
           <div>
             <div class="dw-label__input">Animation</div>
@@ -125,13 +124,13 @@
             <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
               <div>
                 <div class="dw-flexGroup">
-                  <input type="checkbox" class="form-input dw-checkbox">
+                  <input type="checkbox" class="form-input dw-checkbox" />
                   <label class="dw-label__input">With alpha</label>
                 </div>
               </div>
               <div>
                 <div class="dw-flexGroup">
-                  <input type="checkbox" class="form-input dw-checkbox">
+                  <input type="checkbox" class="form-input dw-checkbox" />
                   <label class="dw-label__input">Blue add</label>
                 </div>
               </div>
@@ -141,30 +140,36 @@
 
         <div>
           <div class="dw-label__input">Clip</div>
-          <div class="dw-imgSelect" type="image" data-co="ImageIcon">
-            <div>
-              <label class="dw-label__input">Author filter</label>
-              <input type="text" class="form-input" />
-            </div>
-            <div>
-              <label class="dw-label__input">Date filter</label>
-              <input type="date" class="form-input" />
-            </div>
-            <div class="dw-btn-wrap">
-              <button class="dw-btn select">
-                <span>Select clip</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                  <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                </svg>
-              </button>
-            </div>
+          <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="ImageIcon">
+            <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1 dw_md:mr-2">
+              <div>
+                <div>
+                  <label class="dw-label__input">Author filter</label>
+                  <input type="text" class="form-input" />
+                </div>
+              </div>
 
-            <button class="dw-btn remove">
-              <span>Delete image</span>
-            </button>
-
-            <div class="dw-imgThumb">
-              <img src="../../../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+              <div>
+                <div>
+                  <label class="dw-label__input">Date filter</label>
+                  <input data-co="" type="date" class="form-input-date max-w-xs" max="2100-12-31" />
+                </div>
+              </div>
+              <div class="dw-btn-wrap">
+                <button class="dw-btn dw-btnIcon select">
+                  <span class="dw-btnSearch" title="Search">Search</span>
+                </button>
+              </div>
+              <div class="dw-btn-wrap">
+                <button class="dw-btn dw-btnIcon remove">
+                  <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                </button>
+              </div>
+              <div class="dw-btn-wrap">
+                <div class="dw-imgThumb">
+                  <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -188,10 +193,10 @@
 
         <div data-name="move-to-panel">
           <label class="dw-label__input">
-            <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Negative values moving to the left,&#10;positive to the right.">
+            <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Negative values moving to the left,&#10;positive to the right." />
           </label>
           <div class="dw-quantity">
-            <input type="number" class="form-input dw-input-number" value="0" min="-16" max="16" data-co="TODO/MOVETO" data-scrubber>
+            <input type="number" class="form-input dw-input-number" value="0" min="-16" max="16" data-co="TODO/MOVETO" data-scrubber />
           </div>
         </div>
       </div>

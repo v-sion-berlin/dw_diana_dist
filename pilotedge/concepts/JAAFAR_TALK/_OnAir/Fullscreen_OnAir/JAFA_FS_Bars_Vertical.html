@@ -55,12 +55,11 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/images/Header.png" alt="DW JAFA Header image">
+    <img src="../../Sources/images/Header.png" alt="DW JAFA Header image" />
     <span class="text-gray-15">FS Bars Vertical</span>
   </div>
   <!-- LANGUAGE -->
   <div class="flex flex-row flex-wrap bg-gray-01">
-
     <div class="form-input-chips-wrapper space-x-0">
       <div class="dw-label__input">Language</div>
       <select id="LanguageIndex" class="dw-dropdown">
@@ -79,7 +78,7 @@
 
     <div class="form-input-chips-wrapper space-x-0 w-[100px]">
       <div class="dw-label__input">Unit</div>
-      <input type="text" class="form-input font-large" data-co="ValueSuffix">
+      <input type="text" class="form-input font-large" data-co="ValueSuffix" />
     </div>
 
     <div class="form-input-chips-wrapper">
@@ -87,28 +86,27 @@
         <label class="dw-label__section">BG Density</label>
         <div class="form-input-chips">
           <label>
-            <input data-co="BgDensity" type="radio" value="0" name="BGTransparency">
+            <input data-co="BgDensity" type="radio" value="0" name="BGTransparency" />
             <span>Off</span>
           </label>
 
           <label>
-            <input data-co="BgDensity" type="radio" value="1" name="BGTransparency">
+            <input data-co="BgDensity" type="radio" value="1" name="BGTransparency" />
             <span>15%</span>
           </label>
 
           <label>
-            <input data-co="BgDensity" type="radio" value="2" name="BGTransparency">
+            <input data-co="BgDensity" type="radio" value="2" name="BGTransparency" />
             <span>30%</span>
           </label>
 
           <label>
-            <input data-co="BgDensity" type="radio" value="3" name="BGTransparency">
+            <input data-co="BgDensity" type="radio" value="3" name="BGTransparency" />
             <span>50%</span>
           </label>
         </div>
       </div>
     </div>
-
   </div>
 
   <!-- CONTENT -->
@@ -117,11 +115,11 @@
       <div class="grid grid-cols-1 gap-2">
         <div>
           <label class="dw-label__input">Headline</label>
-          <input type="text" class="form-input font-large" data-co="Headline">
+          <input type="text" class="form-input font-large" data-co="Headline" />
         </div>
         <div>
           <label class="dw-label__input">Subline</label>
-          <input type="text" class="form-input font-large" data-co="Subline">
+          <input type="text" class="form-input font-large" data-co="Subline" />
         </div>
       </div>
     </div>
@@ -138,42 +136,39 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="Bar1Image">
-                  <div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="Bar1Image">
+                  <div class="dw-alert mb-2">Size: 100 x 100px</div>
+                  <div class="dw-imgRowItem w-full">
                     <div>
                       <label class="dw-label__input">Author filter</label>
                       <input type="text" class="form-input" />
                     </div>
-                  </div>
-
-                  <div>
                     <div>
                       <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <input type="date" class="form-input" />
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img src="../../../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div>
                     <label class="dw-label__input">Value</label>
                     <div class="dw-quantity">
-                      <input data-co="Bar1Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01">
+                      <input data-co="Bar1Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01" />
                     </div>
                   </div>
                   <div>
@@ -184,7 +179,9 @@
                     <label class="dw-label__input">Color</label>
                     <div class="dw-colorDropdown">
                       <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Bar1Color">
-                        <option value="-1" disabled selected>-- Select --</option>
+                        <option value="-1" disabled selected>
+                          -- Select --
+                        </option>
                       </select>
                       <div class="dw-colorIndicator"></div>
                     </div>
@@ -199,42 +196,39 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="Bar2Image">
-                  <div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="Bar2Image">
+                  <div class="dw-alert mb-2">Size: 100 x 100px</div>
+                  <div class="dw-imgRowItem w-full">
                     <div>
                       <label class="dw-label__input">Author filter</label>
                       <input type="text" class="form-input" />
                     </div>
-                  </div>
-
-                  <div>
                     <div>
                       <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <input type="date" class="form-input" />
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div>
                     <label class="dw-label__input">Value</label>
                     <div class="dw-quantity">
-                      <input data-co="Bar2Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01">
+                      <input data-co="Bar2Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01" />
                     </div>
                   </div>
                   <div>
@@ -245,7 +239,9 @@
                     <label class="dw-label__input">Color</label>
                     <div class="dw-colorDropdown">
                       <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Bar2Color">
-                        <option value="-1" disabled selected>-- Select --</option>
+                        <option value="-1" disabled selected>
+                          -- Select --
+                        </option>
                       </select>
                       <div class="dw-colorIndicator"></div>
                     </div>
@@ -260,42 +256,39 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="Bar3Image">
-                  <div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="Bar3Image">
+                  <div class="dw-alert mb-2">Size: 100 x 100px</div>
+                  <div class="dw-imgRowItem w-full">
                     <div>
                       <label class="dw-label__input">Author filter</label>
                       <input type="text" class="form-input" />
                     </div>
-                  </div>
-
-                  <div>
                     <div>
                       <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <input type="date" class="form-input" />
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div>
                     <label class="dw-label__input">Value</label>
                     <div class="dw-quantity">
-                      <input data-co="Bar3Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01">
+                      <input data-co="Bar3Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01" />
                     </div>
                   </div>
                   <div>
@@ -306,7 +299,9 @@
                     <label class="dw-label__input">Color</label>
                     <div class="dw-colorDropdown">
                       <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Bar3Color">
-                        <option value="-1" disabled selected>-- Select --</option>
+                        <option value="-1" disabled selected>
+                          -- Select --
+                        </option>
                       </select>
                       <div class="dw-colorIndicator"></div>
                     </div>
@@ -321,42 +316,39 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="Bar4Image">
-                  <div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="Bar4Image">
+                  <div class="dw-alert mb-2">Size: 100 x 100px</div>
+                  <div class="dw-imgRowItem w-full">
                     <div>
                       <label class="dw-label__input">Author filter</label>
                       <input type="text" class="form-input" />
                     </div>
-                  </div>
-
-                  <div>
                     <div>
                       <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <input type="date" class="form-input" />
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div>
                     <label class="dw-label__input">Value</label>
                     <div class="dw-quantity">
-                      <input data-co="Bar4Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01">
+                      <input data-co="Bar4Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01" />
                     </div>
                   </div>
                   <div>
@@ -367,7 +359,9 @@
                     <label class="dw-label__input">Color</label>
                     <div class="dw-colorDropdown">
                       <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Bar4Color">
-                        <option value="-1" disabled selected>-- Select --</option>
+                        <option value="-1" disabled selected>
+                          -- Select --
+                        </option>
                       </select>
                       <div class="dw-colorIndicator"></div>
                     </div>
@@ -382,42 +376,39 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="Bar5Image">
-                  <div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="Bar5Image">
+                  <div class="dw-alert mb-2">Size: 100 x 100px</div>
+                  <div class="dw-imgRowItem w-full">
                     <div>
                       <label class="dw-label__input">Author filter</label>
                       <input type="text" class="form-input" />
                     </div>
-                  </div>
-
-                  <div>
                     <div>
                       <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <input type="date" class="form-input" />
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div>
                     <label class="dw-label__input">Value</label>
                     <div class="dw-quantity">
-                      <input data-co="Bar5Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01">
+                      <input data-co="Bar5Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01" />
                     </div>
                   </div>
                   <div>
@@ -428,7 +419,9 @@
                     <label class="dw-label__input">Color</label>
                     <div class="dw-colorDropdown">
                       <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Bar5Color">
-                        <option value="-1" disabled selected>-- Select --</option>
+                        <option value="-1" disabled selected>
+                          -- Select --
+                        </option>
                       </select>
                       <div class="dw-colorIndicator"></div>
                     </div>
@@ -443,42 +436,39 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="Bar6Image">
-                  <div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="Bar6Image">
+                  <div class="dw-alert mb-2">Size: 100 x 100px</div>
+                  <div class="dw-imgRowItem w-full">
                     <div>
                       <label class="dw-label__input">Author filter</label>
                       <input type="text" class="form-input" />
                     </div>
-                  </div>
-
-                  <div>
                     <div>
                       <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <input type="date" class="form-input" />
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div>
                     <label class="dw-label__input">Value</label>
                     <div class="dw-quantity">
-                      <input data-co="Bar6Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01">
+                      <input data-co="Bar6Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01" />
                     </div>
                   </div>
                   <div>
@@ -489,7 +479,9 @@
                     <label class="dw-label__input">Color</label>
                     <div class="dw-colorDropdown">
                       <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Bar6Color">
-                        <option value="-1" disabled selected>-- Select --</option>
+                        <option value="-1" disabled selected>
+                          -- Select --
+                        </option>
                       </select>
                       <div class="dw-colorIndicator"></div>
                     </div>
@@ -504,42 +496,39 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="Bar7Image">
-                  <div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="Bar7Image">
+                  <div class="dw-alert mb-2">Size: 100 x 100px</div>
+                  <div class="dw-imgRowItem w-full">
                     <div>
                       <label class="dw-label__input">Author filter</label>
                       <input type="text" class="form-input" />
                     </div>
-                  </div>
-
-                  <div>
                     <div>
                       <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <input type="date" class="form-input" />
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div>
                     <label class="dw-label__input">Value</label>
                     <div class="dw-quantity">
-                      <input data-co="Bar7Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01">
+                      <input data-co="Bar7Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01" />
                     </div>
                   </div>
                   <div>
@@ -550,7 +539,9 @@
                     <label class="dw-label__input">Color</label>
                     <div class="dw-colorDropdown">
                       <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Bar7Color">
-                        <option value="-1" disabled selected>-- Select --</option>
+                        <option value="-1" disabled selected>
+                          -- Select --
+                        </option>
                       </select>
                       <div class="dw-colorIndicator"></div>
                     </div>
@@ -565,42 +556,39 @@
             </div>
             <div class="dw-dnd__cell w-[fit-content] flex-1">
               <div class="grid gap-2">
-                <div class="dw-imgSelect pb-0" type="image" data-co="Bar8Image">
-                  <div>
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="Bar8Image">
+                  <div class="dw-alert mb-2">Size: 100 x 100px</div>
+                  <div class="dw-imgRowItem w-full">
                     <div>
                       <label class="dw-label__input">Author filter</label>
                       <input type="text" class="form-input" />
                     </div>
-                  </div>
-
-                  <div>
                     <div>
                       <label class="dw-label__input">Date filter</label>
-                      <input type="text" class="form-input" />
+                      <input type="date" class="form-input" />
                     </div>
-                  </div>
-                  <div>
-                    <label class="dw-label__input">Size: 100x100px</label>
-                    <button class="dw-btn select">
-                      <span>Select image</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path d="M12.45 7.571H1.95M7.2 2.214v10.714" stroke="currentColor" fill="none" fill-rule="evenodd" />
-                      </svg>
-                    </button>
-                  </div>
-                  <button class="dw-btn remove">
-                    <span>Delete image</span>
-                  </button>
-
-                  <div class="dw-imgThumb">
-                    <img src="../../_sources/images/placeholderThumb.png" alt="Thumb" width="35" height="35" />
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../_sources/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2">
                   <div>
                     <label class="dw-label__input">Value</label>
                     <div class="dw-quantity">
-                      <input data-co="Bar8Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01">
+                      <input data-co="Bar8Value" name="input-number-1" type="number" class="form-input dw-input-number dw-direction-ltr" min="0" max="9999" step=".01" />
                     </div>
                   </div>
                   <div>
@@ -611,7 +599,9 @@
                     <label class="dw-label__input">Color</label>
                     <div class="dw-colorDropdown">
                       <select class="dw-dropdown" data-active="false" tabindex="3" title="lorem ipsum" data-co="Bar8Color">
-                        <option value="-1" disabled selected>-- Select --</option>
+                        <option value="-1" disabled selected>
+                          -- Select --
+                        </option>
                       </select>
                       <div class="dw-colorIndicator"></div>
                     </div>
@@ -626,7 +616,7 @@
 
     <div class="field-group">
       <label class="dw-label__input">Source</label>
-      <input type="text" class="form-input font-large" data-co="Source">
+      <input type="text" class="form-input font-large" data-co="Source" />
     </div>
   </div>
 

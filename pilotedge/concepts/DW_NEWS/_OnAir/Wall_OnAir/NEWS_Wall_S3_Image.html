@@ -80,11 +80,6 @@
         window.COElement('BlueAdd').value = event.target.checked ? 1 : 0
       })
 
-      /** BLUE FADE **/
-      document.querySelector('[data-co="Dummy/BlueFade"]').addEventListener('click', (event) => {
-        window.COElement('TODO/BlueFade').value = event.target.checked ? 1 : 0
-      })
-
       /** CURRENT MOVE POSITION **/
       document.querySelector('[data-co="Dummy/CurrentMovePosition"]').addEventListener('input', (event) => {
         window.COElement('CurrentMovePosition').value = event.target.value * 360
@@ -115,7 +110,7 @@
 
 <body>
   <div class="dw-header dw-header--branded">
-    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image">
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
     <span class="text-gray-15">Wall - S3 Image</span>
   </div>
 
@@ -141,7 +136,7 @@
     <div class="form-input-chips-wrapper hidden">
       <div>
         <label class="dw-label__input">Playout area key</label>
-        <input type="text" class="form-input" data-co="PlayoutAreaKey">
+        <input type="text" class="form-input" data-co="PlayoutAreaKey" />
       </div>
     </div>
   </div>
@@ -153,7 +148,6 @@
       <div class="field-group__label">Image</div>
 
       <div class="grid gap-2">
-
         <div class="flex flex-row flex-wrap gap-2">
           <div>
             <div class="dw-label__input">Animation</div>
@@ -169,24 +163,17 @@
             <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
               <div>
                 <div class="dw-flexGroup">
-                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/ContentWithAlpha">
+                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/ContentWithAlpha" />
                   <label class="dw-label__input font-normal">With alpha</label>
                 </div>
-                <input type="text" class="form-input hidden" data-co="ContentWithAlpha">
+                <input type="text" class="form-input hidden" data-co="ContentWithAlpha" />
               </div>
               <div>
                 <div class="dw-flexGroup">
-                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/BlueAdd">
+                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/BlueAdd" />
                   <label class="dw-label__input font-normal">Blue add</label>
                 </div>
-                <input type="text" class="form-input hidden" data-co="BlueAdd">
-              </div>
-              <div>
-                <div class="dw-flexGroup">
-                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/BlueFade">
-                  <label class="dw-label__input font-normal">Blue fade</label>
-                </div>
-                <input type="text" class="form-input hidden" data-co="TODO/BlueFade">
+                <input type="text" class="form-input hidden" data-co="BlueAdd" />
               </div>
             </div>
           </div>
@@ -197,13 +184,16 @@
           <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="ImageIcon">
             <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1">
               <div class="w-[40%]">
-                <label class="dw-label__input">Title <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen."></label>
-                <input type="text" class="form-input imgSearchField">
+                <label class="dw-label__input">Title
+                  <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                <input type="text" class="form-input imgSearchField" />
               </div>
               <div class="w-[30%]">
                 <label class="dw-label__input">Language</label>
                 <select data-co="" class="dw-dropdown imgSearchField">
-                  <option value="" disabled selected>-- Please select --</option>
+                  <option value="" disabled selected>
+                    -- Please select --
+                  </option>
                   <option>De</option>
                   <option>En</option>
                   <option>Pl</option>
@@ -211,14 +201,17 @@
               </div>
               <div class="w-[30%]">
                 <label class="dw-label__input">Date</label>
-                <input type="date" class="form-input imgSearchField">
+                <input type="date" class="form-input imgSearchField" />
               </div>
             </div>
-            <div class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6"><span class="dw-label__input">or</span></div>
-            <div class="dw-imgRowItem w-full dw_md:w-[fit-content] ">
+            <div class="w-full block py-4 dw_md:inline-flex dw_md:justify-center dw_md:w-[fit-content] dw_md:px-4 dw_md:py-6">
+              <span class="dw-label__input">or</span>
+            </div>
+            <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
               <div class="w-[fit-content] flex-1">
-                <label class="dw-label__input">Site/Container-ID <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen."></label>
-                <input type="text" class="form-input imgSearchId">
+                <label class="dw-label__input">Site/Container-ID
+                  <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                <input type="text" class="form-input imgSearchId" />
               </div>
               <div class="dw-btn-wrap">
                 <button class="dw-btn dw-btnIcon select">
@@ -232,7 +225,7 @@
               </div>
               <div class="dw-btn-wrap">
                 <div class="dw-imgThumb">
-                  <img src="" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35">
+                  <img src="" data-placeholder="../../../../_sources/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
                 </div>
               </div>
             </div>
@@ -248,9 +241,9 @@
       <div class="flex flex-row flex-wrap gap-2">
         <div>
           <div class="dw-label__input">Animate existing elements</div>
+          <!-- TODO: SET CORRECT VALUES -->
           <select class="dw-dropdown" data-co="CurrentTransitionType">
             <option value="0">Keep all elements</option>
-            <option value="1">Move all elements automatically</option>
             <option value="2">Exclusive (Animate all elements out)</option>
             <option value="3">Move last element by...</option>
           </select>
@@ -258,13 +251,13 @@
 
         <div data-name="move-to-panel">
           <label class="dw-label__input">
-            <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Negative values moving to the left,&#10;positive to the right.">
+            <img src="../../../../_sources/images/info.svg" class="dw-infoIcon" title="Negative values moving to the left,&#10;positive to the right." />
           </label>
           <div class="dw-quantity">
-            <input type="number" class="form-input dw-input-number" value="0" min="-16" max="16" data-co="Dummy/CurrentMovePosition" data-scrubber>
+            <input type="number" class="form-input dw-input-number" value="0" min="-16" max="16" data-co="Dummy/CurrentMovePosition" data-scrubber />
           </div>
           <div class="dw-quantity hidden">
-            <input type="number" class="form-input dw-input-number" data-co="CurrentMovePosition">
+            <input type="number" class="form-input dw-input-number" data-co="CurrentMovePosition" />
           </div>
         </div>
 
@@ -273,24 +266,24 @@
           <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
             <div>
               <div class="dw-flexGroup">
-                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentImageWhite">
+                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentImageWhite" />
                 <label class="dw-label__input font-normal">Image White</label>
               </div>
-              <input type="text" class="form-input hidden" data-co="CurrentImageWhite">
+              <input type="text" class="form-input hidden" data-co="CurrentImageWhite" />
             </div>
             <div>
               <div class="dw-flexGroup">
-                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentBlueAdd">
+                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentBlueAdd" />
                 <label class="dw-label__input font-normal">Blue add</label>
               </div>
-              <input type="text" class="form-input hidden" data-co="CurrentBlueAdd">
+              <input type="text" class="form-input hidden" data-co="CurrentBlueAdd" />
             </div>
             <div>
               <div class="dw-flexGroup">
-                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentBlueFade">
+                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentBlueFade" />
                 <label class="dw-label__input font-normal">Blue fade</label>
               </div>
-              <input type="text" class="form-input hidden" data-co="CurrentBlueFade">
+              <input type="text" class="form-input hidden" data-co="CurrentBlueFade" />
             </div>
           </div>
         </div>

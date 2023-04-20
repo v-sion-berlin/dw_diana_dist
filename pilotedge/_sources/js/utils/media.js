@@ -27,7 +27,7 @@ console.debug('loading media.js')
  */
 class Media {
   /**
-   * Creates the value binding between html control and viz
+   * Creates the value binding between html control and viz.
    * @param {HTMLElement} element HTML element
    * @returns {Object} newFieldCallback callback to receive data if the controlobject changed
    * @since 1.00
@@ -37,12 +37,12 @@ class Media {
     const fieldPath = imageElement.dataset.co
     const searchTerms = imageElement.dataset.searchterms
 
+    // Click events
     imageElement.querySelector('.select')?.addEventListener('click', this.showImageDialog.bind(this, fieldPath, searchTerms))
     imageElement.querySelector('.remove')?.addEventListener('click', this.removeImage.bind(this, fieldPath))
 
     return (value) => {
       const imageObject = this.getImageCO(fieldPath)
-
       if (!this.validImageFile(imageObject.title)) {
         this.removeImage(fieldPath)
       } else {
@@ -52,7 +52,7 @@ class Media {
   }
 
   /**
-   * Starts the image dialog
+   * Starts the image dialog.
    * @param {String} fieldPath The fieldpath of the control object
    * @param {String} editRequestParameters Parameters for preselecting settings of the dialog.
    * @see [editField]{@link vizrt.PayloadHosting#editField}
@@ -64,128 +64,151 @@ class Media {
       if (vizrt.payloadhosting.fieldExists(fieldPath)) {
         const terms = searchTerms ? window[searchTerms]() : ''
 
-        // Litte helper to build vizOne search query.
-        // If:
-        //   1. Json object with defined keys is passed.
-        //   2. Nothing is passed. 
+        // Little helper to build vizOne search query.
+        // Options:
+        //   1. Pass self defined search query string.
+        //   2. Pass json object with defined keys.
+        //      Like {'show': 'abc', 'title': 'xyz'}
+        //   3. Pass Nothing.
         //
-        // If it is needed to pass a self defined vizOne search query,
-        // pass arguments as simple string not as object.
-        //
-        // Object:
+        // Passed object parameter are joined like this (=> option 2. and 3.):
         // ------------------------------------------------------------------------
         // KEY                  TYPE               SEARCH              QUERY JOINER
         // ------------------------------------------------------------------------
         // 'show'               (string)           is                  AND
         // 'language'           (string)           is                  AND
-        // 'title'              (string)           contains AND / OR   AND
-        // 'siteIdentity'       (string)           contains            OR
-        // 'usagedate'          (string)           is                  AND
-        // 'imagesize'          (object)           -                   AND
-        // 'imagesize.width'    (integer|string)   is                  - 
-        // 'imagesize.height'   (integer|string)   is                  -
+        // 'studio'             (string)           is                  AND
+        // 'title'              (string)           contains            AND
+        // 'siteIdentity'       (string)           is                  OR
+        // 'creationDate'       (string)           is                  AND
+        // 'usageDate'          (string)           is                  AND
+        // 'imageSize'          (object)           -                   AND
+        // 'imageSize.width'    (integer|string)   is                  - 
+        // 'imageSize.height'   (integer|string)   is                  -
         // ------------------------------------------------------------------------
-        //
-        // Usage:
-        // {'show': 'abc', ...}
         //
         // @author Deutsche Welle <mps-gs@dw.com>
         // @since 1.17
         //
-        const filterJoin = (string, seperator = ' ') => {
-          let array = string.split(' ').filter(element => element)
-          let out = []
-          array.forEach(element => { out.push(`${element}`) })
-          return out.join(seperator)
-        }
-
         const isObject = (object) => { return object.constructor === ({}).constructor }
+        const imageElement = document.querySelector(`[data-co="${fieldPath}"]`)
+        const imageInputs = this.getImageElements(imageElement)
         
         if (isObject(terms) || terms === '') {
-          let searchItems = []
-
-          if (terms.hasOwnProperty('show')) {
-            if (terms.show !== '') searchItems.push(['AND', `dw.show#dw.showKey:${terms.show}`])
-          }
-
-          if (terms.hasOwnProperty('language')) {
-            if (terms.language !== '') searchItems.push(['AND', `dw.language:'${terms.language}`])
-          }
-
-          if (terms.hasOwnProperty('title')) {
-            if (terms.title !== '') searchItems.push(['AND', `asset.title:${terms.title}`])
-          } else {
-            // Try to get asset 'title' from first input
-            // Search passed title in 'asset.title' and 'dw.descriptionmanual'
-            const input = document.querySelector(`[data-co="${fieldPath}"]`)?.querySelector('input[type="text"]')
-            if (input && input.value !== '') {
-              const title = input.value.trim()
-              let titleItems = (title.includes(',')) ? title.split(',').filter(element => element) : [title]
-              let subSearchTerms = []
-              let searchQuery = []
-
-              titleItems.forEach(item => {
-                if (item.includes(' ')) {
-                  searchQuery.push(`*${filterJoin(item)}*`)
-                } else {
-                  searchQuery.push(`*${item}*`)
-                }    
-              })
-              // Join queries
-              subSearchTerms.push(`asset.title:{${searchQuery.join(' OR ')}}`)
-              subSearchTerms.push(`dw.descriptionmanual:{${searchQuery.join(' OR ')}}`)
-
-              searchItems.push(['AND', `${subSearchTerms.join(' OR ')}`])
-            }
-          }  
-
-          if (terms.hasOwnProperty('siteIdentity')) {
-            if (terms.siteIdentity !== '') searchItems.push(['OR ', `asset.siteIdentity:${siteIdentity}`])
-          } else {
-            // Try to get asset 'siteIdentity' from second input
-            const inputs = document.querySelector(`[data-co="${fieldPath}"]`)?.querySelectorAll('input[type="text"]')
-            if (inputs && inputs.length === 2) {
-              const siteIdentity = inputs[1].value.trim()
-              if (siteIdentity !== '') {
-                searchItems.push(['OR', `asset.siteIdentity:*${siteIdentity}*`])
-              }    
-            }    
-          }
-
-          if (terms.hasOwnProperty('usagedate')) {
-            if (terms.usagedate !== '') searchItems.push(['AND', `dw.usagedate:${terms.usagedate}'`])
-          } else {
-            // Try to get asset date from datepicker
-            const datepicker = document.querySelector(`[data-co="${fieldPath}"]`)?.querySelector('input[type="date"]')
-            if (datepicker && datepicker.value !== '') searchItems.push(['AND', `dw.usagedate:${datepicker.value}`])
-          }
-
-          if (terms.hasOwnProperty('imagesize')) {
-            let width = terms.imagesize?.width
-            let height = terms.imagesize?.height
-            if (width && height) searchItems.push(['AND', `dw.imagesize:${width}*${height}`])
+          let imageSearchQuery = []
+          let imageSearchSettings = {}
+          // Image size
+          if (terms.hasOwnProperty('imageSize')) {
+            let width = terms.imageSize?.width
+            let height = terms.imageSize?.height
+            if (width && height) imageSearchQuery.push(['AND', `dw.imagesize:${width}*${height}`])
           } else {
             // Try to get asset image size from hint
-            const hint = document.querySelector(`[data-co="${fieldPath}"]`)?.querySelector('.dw-imgHint')
-            if (hint) {
-              let hintString = hint.innerHTML
+            if (imageInputs.imageSize) {
+              let hintString = imageInputs.imageSize.innerHTML
               let numbers = hintString.match(/(-\d+|\d+)(,\d+)*(\.\d+)*/g)
               if (numbers && numbers.length === 2) {
                 let [width, heigth] = numbers
-                searchItems.push(['AND', `dw.imagesize:${width}*${heigth}`])
+                imageSearchQuery.push(['AND', `dw.imagesize:${width}*${heigth}`])
               }
             }
           }
-
+          // Show
+          if (terms.hasOwnProperty('show')) {
+            if (terms.show !== '') imageSearchQuery.push(['AND', `dw.show#dw.showKey:${terms.show}`])
+          } else {
+            // Try to get 'show' from image element attribute
+            let dwShow = imageElement.dataset.searchshow
+            if (dwShow != null && dwShow != undefined) {
+              imageSearchQuery.push(['AND', `dw.show#dw.showKey:${dwShow}`])
+            }
+          }
+          // Language
+          if (terms.hasOwnProperty('language')) {
+            if (terms.language !== '') imageSearchQuery.push(['AND', `dw.language:${terms.language}`])
+          } else {
+            // Try to get 'language' from image dropdown
+            if (imageInputs.language) {
+              let languageSelected = imageInputs.language.value
+              if (languageSelected) {
+                imageSearchQuery.push(['AND', `dw.language:${languageSelected}`])
+                imageSearchSettings['language'] = languageSelected
+              }
+            }
+          }
+          // Studio
+          if (terms.hasOwnProperty('studio')) {
+            if (terms.studio !== '') imageSearchQuery.push(['AND', `dw.studios/dw.studio:${terms.studio}`])
+          } else {
+            // Try to get 'studio' from image dropdown
+            if (imageInputs.studio) {
+              let studioSelected = imageInputs.studio.value
+              if (studioSelected) {
+                imageSearchQuery.push(['AND', `dw.studios/dw.studio:${studioSelected}`])
+                imageSearchSettings['studio'] = studioSelected
+              }
+            }
+          }
+          // Creation date
+          if (terms.hasOwnProperty('creationDate')) {
+            if (terms.creationDate !== '') imageSearchQuery.push(['AND', `search.creationDate:${terms.creationDate}'`])
+          } else {
+            // Try to get creation date from datepicker
+            if (imageInputs.creationDate && imageInputs.creationDate.value !== '') {
+              let ingestDate = `[${imageInputs.creationDate.value}T00:00:00Z TO ${imageInputs.creationDate.value}T23:59:59Z]`
+              imageSearchQuery.push(['AND', `search.creationDate:${ingestDate}`])
+              imageSearchSettings['creationDate'] = imageInputs.creationDate.value
+            }
+          }
+          // Usage date
+          if (terms.hasOwnProperty('usageDate')) {
+            if (terms.usagedate !== '') imageSearchQuery.push(['AND', `dw.usagedate:${terms.usagedate}'`])
+          } else {
+            // Try to get usage date from datepicker
+            if (imageInputs.usageDate && imageInputs.usageDate.value !== '') {
+              imageSearchQuery.push(['AND', `dw.usagedate:${imageInputs.usageDate.value}`])
+              imageSearchSettings['usageDate'] = imageInputs.usageDate.value
+            }
+          }
+          // Title
+          if (terms.hasOwnProperty('title')) {
+            if (terms.title !== '') imageSearchQuery.push(['AND', `asset.title:${terms.title}`])
+          } else {
+            // Try to get asset 'title' fom input
+            if (imageInputs.title && imageInputs.title.value !== '') {
+              let title = imageInputs.title.value.trim()
+              imageSearchQuery.push(['AND', `asset.title:*${title}*`])
+              imageSearchSettings['title'] = title
+            }
+          }
+          // Site ID
+          // Special case: remove all search terms. 'AND' / 'OR' is not recognized
+          if (terms.hasOwnProperty('siteIdentity')) {
+            if (terms.siteIdentity !== '') imageSearchQuery.push(['OR ', `asset.siteIdentity:${siteIdentity}`])
+          } else {
+            // Try to get 'siteIdentity' from input
+            if (imageInputs.siteIdentity && imageInputs.siteIdentity.value !== '') {
+              imageSearchQuery = []
+              imageSearchQuery.push(['OR', `asset.siteIdentity:${imageInputs.siteIdentity.value}`])
+              imageSearchSettings['siteIdentity'] = imageInputs.siteIdentity.value
+            }
+          }
+          // Save search parameter
+          let pseudofieldPath = imageElement.dataset.searchco
+          if (vizrt.payloadhosting.isPayloadReady()) {
+            if (vizrt.payloadhosting.fieldExists(pseudofieldPath)) {
+              let objectString = btoa(JSON.stringify(imageSearchSettings))
+              vizrt.payloadhosting.setFieldText(pseudofieldPath, objectString)
+            }
+          }
           // Join search terms
-          let searchItemsString = ''
-          searchItems.forEach((singleSearchItem, index) => {
+          let imageSearchString = ''
+          imageSearchQuery.forEach((singleSearchItem, index) => {
             // First search term needs no operator
-            if (index === 0) singleSearchItem.shift()    
-            searchItemsString += ` ${singleSearchItem.join(' ')}`
+            if (index === 0) singleSearchItem.shift()
+            imageSearchString += ` ${singleSearchItem.join(' ')}`
           })
-          vizrt.payloadhosting.editField(fieldPath, { searchTerms: searchItemsString.trim() })
-
+          vizrt.payloadhosting.editField(fieldPath, { searchTerms: imageSearchString.trim() })
         } else {
           vizrt.payloadhosting.editField(fieldPath, { searchTerms: terms })
         }
@@ -194,7 +217,7 @@ class Media {
   }
 
   /**
-   * Removes a selected image
+   * Removes a selected image.
    * @param {String} fieldPath The fieldpath of the control object
    * @since 1.00
    * @instance
@@ -202,7 +225,10 @@ class Media {
   static removeImage (fieldPath) {
     if (vizrt.payloadhosting.isPayloadReady()) {
       if (vizrt.payloadhosting.fieldExists(fieldPath)) {
-        vizrt.payloadhosting.setFieldXml(fieldPath, null)
+        // Null or empty is not working correctly, set viz db empty image instead
+        // vizrt.payloadhosting.setFieldXml(fieldPath, null)
+        // vizrt.payloadhosting.setFieldXml(fieldPath, '')
+        vizrt.payloadhosting.setFieldXml(fieldPath, 'IMAGE*/noname')
       }
     }
   }
@@ -224,7 +250,6 @@ class Media {
         if (!url) {
           url = imageEntry.querySelector('content')?.innerHTML
         }
-
         title = imageEntry.querySelector('title')?.innerHTML
       }
     }
@@ -232,7 +257,28 @@ class Media {
   }
 
   /**
-   * Sets the image src of the html control to the given image object
+   * Get image elements (inputs, date, drobdown).
+   * @param {HTMLElement} imageElement The html control that shows the image
+   * @returns {ImageInputs} Image, title, language...
+   * @since 1.18
+   * @instance
+   */
+  static getImageElements (imageElement) {
+    return {
+      // Label
+      'imageSize': imageElement?.querySelector('div[data-search="imageSize"]'),
+      // Inputs
+      'title': imageElement?.querySelector('input[data-search="title"]'),
+      'language': imageElement?.querySelector('select[data-search="language"]'),
+      'studio': imageElement?.querySelector('select[data-search="studio"]'),
+      'creationDate' : imageElement?.querySelector('input[data-search="creationDate"]'),
+      'usageDate' : imageElement?.querySelector('input[data-search="usageDate"]'), 
+      'siteIdentity': imageElement?.querySelector('input[data-search="siteIdentity"]')
+    }
+  }
+
+  /**
+   * Sets the image src of the html control to the given image object.
    * @param {HTMLElement} imageElement The html control that shows the image
    * @param {Object} imageObject The image object that contains title and url
    * @since 1.00
@@ -240,20 +286,56 @@ class Media {
    */
   static setImage (imageElement, imageObject) {
     const imageValue = imageElement.querySelector('.dw-imgThumb img')
-    imageValue.src = (imageObject.url.indexOf('IMAGE*/') !== -1) ? '' : imageObject.url
+    imageValue.src = imageObject.url
     imageValue.dataset.title = imageObject.title
 
+    // Set search parameter, if pseudo field was defined
+    let pseudofieldPath = imageElement.dataset.searchco
+    if (vizrt.payloadhosting.isPayloadReady()) {
+      if (vizrt.payloadhosting.fieldExists(pseudofieldPath)) {
+        let imageSettingsString = vizrt.payloadhosting.getFieldText(pseudofieldPath)
+        if (imageSettingsString) {
+          // Try to read search parameter
+          let imageSearchSettings = {}
+          try {
+            imageSearchSettings = JSON.parse(atob(imageSettingsString))
+          } catch(e) {}
+          const imageInputs = this.getImageElements(imageElement)
+          // Set inputs
+          for (const [name, element] of Object.entries(imageInputs)) {
+            if (imageSearchSettings.hasOwnProperty(name)) {
+              if (element && (element.tagName === 'SELECT' || element.tagName === 'INPUT')) {
+                element.value = imageSearchSettings[name]
+              }
+            }
+          } 
+          // Disable inputs (optional)
+          if (imageSearchSettings.hasOwnProperty('siteIdentity')) {
+            for (const [name, element] of Object.entries(imageInputs)) {
+              if (element && (element.tagName === 'SELECT' || element.tagName === 'INPUT')) {
+                if (name !== 'siteIdentity') element.setAttribute('disabled', '')
+              }
+            }
+          }
+        }
+      }
+    }
+    // CSS
     if (imageObject.url) {
       imageElement.classList.add('image--state-loaded')
       imageElement.classList.remove('image--state-empty')
+      imageElement.querySelector('.remove').removeAttribute('disabled')
     } else {
+      // Set default image if possible
+      if (imageValue?.dataset.placeholder !== null) imageValue.src = imageValue.dataset.placeholder 
       imageElement.classList.remove('image--state-loaded')
       imageElement.classList.add('image--state-empty')
+      imageElement.querySelector('.remove').setAttribute('disabled', '')
     }
   }
 
   /**
-   * Checks whether is image file is valid
+   * Checks whether is image file is valid.
    * @param {String} fileName The filename
    * @param {Boolean} imageIsValid true if the image is valid otherwise false
    * @since 1.00

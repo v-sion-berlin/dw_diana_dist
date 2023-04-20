@@ -25,7 +25,9 @@ const initializeNLWData = (table) => {
   const data = new Array(Number(NLW.worksheet().worksheets.worksheet1.highestRow))
 
   for (let i = 0; i < data.length; i++) {
-    data[i] = structuredClone(setting)
+    // data[i] = structuredClone(setting)
+    // old style cloning of an object because of chromium version 92
+    data[i] = JSON.parse(JSON.stringify(setting))
   }
 
   Object.values(nlwTable).forEach((column) => {
