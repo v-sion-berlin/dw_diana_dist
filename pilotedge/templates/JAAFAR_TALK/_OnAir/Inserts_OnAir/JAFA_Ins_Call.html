@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaafar Talk - Ins Call</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/nlw.js"></script>
+  <script src="../../Sources/JS/jafa-inserts.js"></script>
+  <script>
+    /* global Event */
+    /* global NLW_DATA_ONLINE, NLW_PROPERTIES_ONLINE */
+    window.generateAutoTitles = () => {
+      const hasTranslation = true
+      const translationCallLine1 = document.querySelector('[data-co="Translation/CallLine1"').value
+      const callLine1FieldId = hasTranslation && translationCallLine1 ? '{Translation/CallLine1}' : '{CallLine1}'
+      return {
+        '-auto-generated-title': ['JAFA Ins Call', '||', callLine1FieldId, '|', '{CallLine2}'],
+        'ram-title': [callLine1FieldId, '|', '{CallLine2}'],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const socialMediaSelector = document.querySelector('[data-co="CallOnlineIconVariantIndex"]')
+
+      socialMediaSelector.addEventListener('change', (event) => {
+        const socialMedia = socialMediaSelector[socialMediaSelector.selectedIndex].innerHTML
+        if (socialMedia !== 'No Icon') {
+          window.COElement('CallLine1').value = NLW_DATA_ONLINE[socialMedia][NLW_PROPERTIES_ONLINE.TEXT_LINE]
+          window.COElement('CallLine2').value = NLW_DATA_ONLINE[socialMedia][NLW_PROPERTIES_ONLINE.SOCIAL_MEDIA_ADRESS]
+        }
+      })
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="CallOnlineIconVariantIndex"]').dispatchEvent(new Event('change'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image">
+    <span class="text-gray-15">Ins Call</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown">
+          <option translation>Arabic</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content dw-direction-rtl">
+    <div class="field-group">
+      <div class="grid gap-2">
+        <div class="flex flex-row gap-3" data-name="panel-social-media-line-2">
+          <div class="w-[135px]"></div>
+          <div class="flex-1">
+            <label class="dw-label__input">Line 1</label>
+            <input type="text" class="form-input font-large" data-co="CallLine1">
+          </div>
+        </div>
+
+        <div class="flex flex-row gap-3">
+          <div class="w-[135px]">
+            <label class="dw-label__input">Icon</label>
+            <select class="dw-dropdown" data-co="CallOnlineIconVariantIndex">
+              <option value="0">No Icon</option>
+              <option value="1">Facebook</option>
+              <option value="2">Instagram</option>
+              <option value="4">Twitter</option>
+              <option value="6">WhatsApp</option>
+              <option value="7">YouTube</option>
+              <option value="8">TikTok</option>
+            </select>
+          </div>
+          <div class="flex-1">
+            <label class="dw-label__input">Line 2</label>
+            <input type="text" class="form-input dw-direction-ltr" name="social-media-line-1" data-co="CallLine2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <div class="grid grid-cols-1 gap-2">
+      <div>
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/CallLine1">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

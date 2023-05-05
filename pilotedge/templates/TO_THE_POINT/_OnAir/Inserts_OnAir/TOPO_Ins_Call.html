@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To the Point - Ins Call</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/nlw.js"></script>
+  <script src="../../Sources/JS/topo-nlw.js"></script>
+  <script>
+    /* global NLW_DATA, NLW_PROPERTIES */
+    let language
+
+    window.generateAutoTitles = () => {
+      const lowerthirdLine1 = window.COElement('LowerthirdLine1').value
+      const lowerthirdLine2 = window.COElement('LowerthirdLine2').value
+      const lowerThirdWeb = window.COElement('LowerthirdLineWeb').value
+      let url
+      language === 'Arabic' ? url = lowerThirdWeb : url = lowerthirdLine2
+      return {
+        '-auto-generated-title': ['TOPO Ins Call', '||', language, '|', lowerthirdLine1, '|', url],
+        'ram-title': [lowerthirdLine1, '|', url],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      languageSelector.addEventListener('change', (event) => {
+        language = languageSelector[languageSelector.selectedIndex].text
+
+        if (event.detail !== 'dw.js') {
+          window.COElement('LowerthirdLine1').value = NLW_DATA[language][NLW_PROPERTIES.CALL_TEXT]
+          window.COElement('LowerthirdLine2').value = NLW_DATA[language][NLW_PROPERTIES.CALL_URL]
+          window.COElement('LowerthirdLineWeb').value = NLW_DATA[language][NLW_PROPERTIES.CALL_URL]
+        }
+
+        document.querySelector('[data-co="LowerthirdLine2"]').dataset.visible = (language !== 'Arabic')
+        document.querySelector('[data-co="LowerthirdLineWeb"]').dataset.visible = (language === 'Arabic')
+      })
+
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/images/Header.png" alt="TOPO Header Image">
+    <span class="text-white">Ins Call</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="4" data-rtl>Arabic</option>
+          <option value="0">English</option>
+          <option value="1">German</option>
+          <option value="3">Belarusian</option>
+          <option value="2">Spanish</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div class="field-group" id="direction-switch">
+      <div class="grid gap-2">
+        <div>
+          <label class="dw-label__input">Insert Text</label>
+          <input type="text" class="form-input font-large" data-co="LowerthirdLine1">
+        </div>
+        <div id="LowerthirdLine2">
+          <label class="dw-label__input">URL</label>
+          <input type="text" class="form-input" data-co="LowerthirdLine2">
+          <input type="text" class="form-input" data-co="LowerthirdLineWeb">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

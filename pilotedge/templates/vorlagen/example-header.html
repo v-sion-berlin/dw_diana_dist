@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header example</title>
+    <!-- Default includes -->
+    <link
+      href="../../framework/images/favicon.png"
+      rel="icon"
+      type="image/png"
+    />
+    <script src="../../framework/js/utils/prism.js"></script>
+    <link href="../../framework/css/prism.css" rel="stylesheet" />
+    <link href="../../framework/css/tailwind.css" rel="stylesheet" />
+    <script src="../../framework/js/utils/dw.js" type="module"></script>
+    <script src="../../framework/js/payloadhosting.js"></script>
+    <script src="../../framework/js/utils/viz.js" type="module"></script>
+    <script src="../../framework/js/nlw.js"></script>
+  </head>
+
+  <body>
+    <div class="field-group__label mt-2">Header Default</div>
+    <div class="dw-header">
+      <span>SHOW NAME</span>
+      <span>TEMPLATE NAME</span>
+    </div>
+
+    <div class="dw-code">
+      <pre class="language-html"><code><!-- <div class="dw-header">
+      <span>SHOW NAME</span>
+      <span>TEMPLATE NAME</span>
+    </div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">Header Branded</div>
+    <div class="dw-header dw-header--branded">
+      <img src="./framework/images/Header_NEWS.png" />
+      <span>Lorem ipsum dolor amet</span>
+    </div>
+
+    <div class="dw-code">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--branded">
+      <img src="./framework/images/Header_NEWS.png" />
+      <span>Lorem ipsum dolor amet</span>
+    </div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">
+      Header Branded mit weissem Text für dunkle Hintergründe
+    </div>
+    <div class="dw-header dw-header--branded">
+      <img src="./framework/images/Header_NEWS.png" />
+      <span class="text-white">Lorem ipsum dolor amet</span>
+    </div>
+
+    <div class="dw-code">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--branded">
+  <img src="./framework/images/Header_NEWS.png" />
+  <span class="text-white">Lorem ipsum dolor amet</span>
+</div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">Header Branded mit blauem Text</div>
+    <div class="dw-header dw-header--branded">
+      <img src="./framework/images/Header_NEWS.png" />
+      <span class="text-blue">Lorem ipsum dolor amet</span>
+    </div>
+
+    <div class="dw-code">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--branded">
+  <img src="./framework/images/Header_NEWS.png" />
+  <span class="text-blue">Lorem ipsum dolor amet</span>
+</div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">
+      Header Branded mit grauem (gray-15) Text
+    </div>
+    <div class="dw-header dw-header--branded">
+      <img src="./framework/images/Header_NEWS.png" />
+      <span class="text-gray-15">Lorem ipsum dolor amet</span>
+    </div>
+
+    <div class="dw-code">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--branded">
+  <img src="./framework/images/Header_NEWS.png" />
+  <span class="text-gray-15">Lorem ipsum dolor amet</span>
+</div> --></code></pre>
+    </div>
+    <div class="field-group__label mt-2">
+      Header mit sehr langem grauem (gray-15) Text
+    </div>
+    <div class="dw-header">
+      <span>Header mit sehr langem Titel</span>
+      <span class="text-gray-15"
+        >Header mit sehr langem grauem (gray-15) Text lorem ipsum</span
+      >
+    </div>
+
+    <div class="dw-code">
+      <pre class="language-html"><code><!-- <div class="dw-header">
+  <span class="text-gray-15">Header mit sehr langem grauem (gray-15) Text lorem ipsum</span>
+</div> --></code></pre>
+    </div>
+
+    <div class="field-group__label mt-2">Header Alert</div>
+    <div class="dw-header dw-header--alert">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+        <path
+          d="M12 5.177l8.631 15.823h-17.262l8.631-15.823zm0-4.177l-12 22h24l-12-22zm-1 9h2v6h-2v-6zm1 9.75c-.689 0-1.25-.56-1.25-1.25s.561-1.25 1.25-1.25 1.25.56 1.25 1.25-.561 1.25-1.25 1.25z"
+          fill="#002D5A"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <span>Please do not use this template! Work in progress...</span>
+    </div>
+
+    <div class="dw-code">
+      <pre
+        class="language-html"
+      ><code><!-- <div class="dw-header dw-header--alert">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+    <path
+      d="M12 5.177l8.631 15.823h-17.262l8.631-15.823zm0-4.177l-12 22h24l-12-22zm-1 9h2v6h-2v-6zm1 9.75c-.689 0-1.25-.56-1.25-1.25s.561-1.25 1.25-1.25 1.25.56 1.25 1.25-.561 1.25-1.25 1.25z"
+      fill="#002D5A"
+      fill-rule="evenodd"
+    />
+  </svg>
+  <span>Please do not use this template! Work in progress...</span>
+</div> --></code></pre>
+    </div>
+    <div class="dw-footer"><span>Contact: echtzeitgrafik@dw.com</span></div>
+  </body>
+</html>

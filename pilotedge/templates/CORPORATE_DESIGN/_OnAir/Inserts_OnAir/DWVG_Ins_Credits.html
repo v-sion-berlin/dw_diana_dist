@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Design - Ins Credits</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/nlw.js"></script>
+  <script src="../../Sources/JS/dwvg-nlw.js"></script>
+  <script>
+    /* global NLW_DATA, NLW_PROPERTIES */
+    /* global Event */
+    let language
+    let showEventCheckbox
+
+    window.generateAutoTitles = () => {
+      return {
+        '-auto-generated-title': ['DWVG CD Ins Credits', '||', language],
+        'ram-title': ['Credits', '|', language],
+        'ram-continue-points': document.querySelector('[data-co="Dummy/NumberPanels"]:checked').value - 1
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      languageSelector.addEventListener('change', (event) => {
+        language = languageSelector[languageSelector.selectedIndex].text
+        if (event.detail !== 'dw.js') {
+          document.querySelector('[data-co="Credits1Function"]').value = NLW_DATA[language][NLW_PROPERTIES.FUNCTION_1]
+          document.querySelector('[data-co="Credits1Function"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Credits2Function"]').value = NLW_DATA[language][NLW_PROPERTIES.FUNCTION_2]
+          document.querySelector('[data-co="Credits2Function"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Credits3Function"]').value = NLW_DATA[language][NLW_PROPERTIES.FUNCTION_3]
+          document.querySelector('[data-co="Credits3Function"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Credits4Function"]').value = NLW_DATA[language][NLW_PROPERTIES.FUNCTION_4]
+          document.querySelector('[data-co="Credits4Function"]').dispatchEvent(new Event('input'))
+          document.querySelector('[data-co="Credits5Function"]').value = NLW_DATA[language][NLW_PROPERTIES.FUNCTION_5]
+          document.querySelector('[data-co="Credits5Function"]').dispatchEvent(new Event('input'))
+        }
+      })
+
+      const creditsVariantOptions = document.querySelectorAll('[data-co="Dummy/NumberPanels"]')
+
+      const panel4 = document.querySelector('[data-name="panel-4"]')
+      const panel5 = document.querySelector('[data-name="panel-5"]')
+      const panelEvent = document.querySelector('[data-name="event-panel"]')
+
+      creditsVariantOptions.forEach((option) => option.addEventListener('click', (e) => {
+        const value = Number(e.target.value)
+        panel4.dataset.visible = value >= 4
+        panel5.dataset.visible = value >= 5
+        if (value === 4) {
+          panelEvent.classList.remove('bg-gray-01')
+        } else {
+          panelEvent.classList.add('bg-gray-01')
+        }
+      }))
+
+      showEventCheckbox = document.querySelector('[data-co="Dummy/ShowEvent"]')
+      const eventIndex = document.querySelector('[data-co="EventIndex"]')
+      const eventPanels = document.querySelectorAll('[data-name="event-panel"]')
+      showEventCheckbox.addEventListener('click', (event) => {
+        eventPanels.forEach((panel) => {
+          panel.dataset.visible = showEventCheckbox.checked
+          eventIndex.value = showEventCheckbox.checked ? 1 : 0
+          eventIndex.dispatchEvent(new Event('input'))
+        })
+      })
+
+      const showLogoCheckbox = document.querySelector('[data-co="Dummy/ShowLogo"]')
+      const logoIndex = document.querySelector('[data-co="LogoIndex"]')
+      showLogoCheckbox.addEventListener('click', (event) => {
+        logoIndex.value = showLogoCheckbox.checked ? 1 : 0
+        logoIndex.dispatchEvent(new Event('input'))
+      })
+
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="Dummy/NumberPanels"]:checked').click()
+      showEventCheckbox.dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="DWVG Header image">
+    <span class="text-white">Ins Credits</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="1">Amharic</option>
+          <option value="6" data-rtl>Arabic</option>
+          <option value="2">Bengali</option>
+          <option value="7" data-rtl>Dari</option>
+          <option value="0">English</option>
+          <option value="3">German</option>
+          <option value="4">Mandarin</option>
+          <option value="8" data-rtl>Pashto</option>
+          <option value="5">Spanish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Credits variant 3/4/5 Panels -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Panels</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="Dummy/NumberPanels" type="radio" value="3" name="number-panels">
+            <span>3</span>
+          </label>
+
+          <label>
+            <input data-co="Dummy/NumberPanels" type="radio" value="4" name="number-panels">
+            <span>4</span>
+          </label>
+
+          <label>
+            <input data-co="Dummy/NumberPanels" type="radio" value="5" name="number-panels">
+            <span>5</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show Event -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Show Event</label>
+        <input data-co="Dummy/ShowEvent" type="checkbox" class="form-input dw-checkbox">
+        <input data-co="EventIndex" type="number" class="form-input dw-input-number hidden">
+      </div>
+    </div>
+
+    <!-- Show Logo -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Show Logo</label>
+        <input data-co="Dummy/ShowLogo" type="checkbox" class="form-input dw-checkbox">
+        <input data-co="LogoIndex" type="number" class="form-input dw-input-number hidden">
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div id="direction-switch">
+      <div class="field-group" data-name="panel-1">
+        <div class="field-group__label">Panel 1</div>
+        <div class="grid sm:grid-cols-2 gap-1">
+          <div>
+            <label class="dw-label__input">Name</label>
+            <input type="text" class="form-input font-large" data-co="Credits1Name">
+          </div>
+
+          <div>
+            <label class="dw-label__input">Function</label>
+            <input type="text" class="form-input font-large" data-co="Credits1Function">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group bg-gray-01" data-name="panel-2">
+        <div class="field-group__label">Panel 2</div>
+        <div class="grid sm:grid-cols-2 gap-1">
+          <div>
+            <label class="dw-label__input">Name</label>
+            <input type="text" class="form-input font-large" data-co="Credits2Name">
+          </div>
+
+          <div>
+            <label class="dw-label__input">Function</label>
+            <input type="text" class="form-input font-large" data-co="Credits2Function">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group" data-name="panel-3">
+        <div class="field-group__label">Panel 3</div>
+        <div class="grid sm:grid-cols-2 gap-1">
+          <div>
+            <label class="dw-label__input">Name</label>
+            <input type="text" class="form-input font-large" data-co="Credits3Name">
+          </div>
+
+          <div>
+            <label class="dw-label__input">Function</label>
+            <input type="text" class="form-input font-large" data-co="Credits3Function">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group bg-gray-01" data-name="panel-4">
+        <div class="field-group__label">Panel 4</div>
+        <div class="grid sm:grid-cols-2 gap-1">
+          <div>
+            <label class="dw-label__input">Name</label>
+            <input type="text" class="form-input font-large" data-co="Credits4Name">
+          </div>
+
+          <div>
+            <label class="dw-label__input">Function</label>
+            <input type="text" class="form-input font-large" data-co="Credits4Function">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group" data-name="panel-5">
+        <div class="field-group__label">Panel 5</div>
+        <div class="grid sm:grid-cols-2 gap-1">
+          <div>
+            <label class="dw-label__input">Name</label>
+            <input type="text" class="form-input font-large" data-co="Credits5Name">
+          </div>
+
+          <div>
+            <label class="dw-label__input">Function</label>
+            <input type="text" class="form-input font-large" data-co="Credits5Function">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group bg-gray-01" data-name="event-panel">
+        <div class="field-group__label">Event</div>
+        <input type="text" class="form-input" data-co="Event">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

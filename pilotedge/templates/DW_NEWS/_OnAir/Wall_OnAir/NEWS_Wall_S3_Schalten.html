@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DW News Wall - S3 Schalten</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/nlw.js"></script>
+  <script src="../../Sources/JS/news-nlw-wall.js"></script>
+  <script>
+    /* global CustomEvent, Event, Option */
+    /* global NLW_DATA, getDistinctSettingValues, getFilteredData, settingSelectChanged, areaSelectChanged */
+    const Studio = 'S3'
+    const Content = 'Live'
+    let Setting
+    let Area
+
+    let settingsSelect
+    let areaSelect
+    let currentTransitionTypeSelect
+    let moveToPanel
+    let currentMovePositionInput
+    let currentBlueAddCheckbox
+    let currentBlueFadeCheckbox
+
+    window.generateAutoTitles = () => {
+      return {
+        '-auto-generated-title': ['NEWS Wall S3 Schalten v0_01', '||', '{Dummy/Setting}', '|', '{Dummy/Area}'],
+        'ram-title': ['WALL', '|', '{Dummy/Setting}', '|', '{Dummy/Area}'],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      /** LOAD NLW DATA **/
+      const nlwData = getFilteredData(NLW_DATA, { Content, Studio })
+      const settings = getDistinctSettingValues(nlwData, 'Setting')
+
+      /** GET NEEDED HTML CONTROLS **/
+      settingsSelect = document.querySelector('[data-co="Dummy/Setting"]')
+      areaSelect = document.querySelector('[data-co="Dummy/Area"]')
+      nextTransitionTypeSelect = document.querySelector('[data-co="NextTransitionType"]')
+      blueAddCheckbox = document.querySelector('[data-co="Dummy/BlueAdd"]')
+      currentTransitionTypeSelect = document.querySelector('[data-co="CurrentTransitionType"]')
+      moveToPanel = document.querySelector('[data-name="move-to-panel"]')
+      currentMovePositionInput = document.querySelector('[data-co="Dummy/CurrentMovePosition"]')
+      currentBlueAddCheckbox = document.querySelector('[data-co="Dummy/CurrentBlueAdd"]')
+      currentBlueFadeCheckbox = document.querySelector('[data-co="Dummy/CurrentBlueFade"]')
+
+      /** Add available settings to select **/
+      for (const setting of settings) {
+        settingsSelect.add(new Option(setting))
+      }
+
+      /** Settings changed event handler **/
+      settingsSelect.addEventListener('change', (event) => {
+        Setting = event.target.value
+        settingSelectChanged(event, areaSelect, nlwData)
+      })
+
+      /** Area changed event handler **/
+      areaSelect.addEventListener('change', (event) => {
+        Area = event.target.value
+        areaSelectChanged(event, nlwData)
+        currentTransitionTypeSelect.dispatchEvent(new Event('input'))
+      })
+
+      /** Current transition changed event handler **/
+      currentTransitionTypeSelect.addEventListener('input', (event) => {
+        moveToPanel.dataset.visible = currentTransitionTypeSelect.value === '3'
+        if (currentTransitionTypeSelect.value !== '3') {
+          window.COElement('Dummy/CurrentMovePosition').value = 0
+        } else {
+          const setting = getFilteredData(NLW_DATA, { Content, Studio, Setting, Area })
+          if (setting[0]) {
+            window.COElement('Dummy/CurrentMovePosition').value = setting[0].AutoMovePosition / 360.0
+          }
+        }
+      })
+
+      /** Current move position input changed event handler **/
+      currentMovePositionInput.addEventListener('input', (event) => {
+        window.COElement('CurrentMovePosition').value = event.target.value * 360
+      })
+
+      /** Current blue add checkbox clicked event handler **/
+      currentBlueAddCheckbox.addEventListener('click', (event) => {
+        window.COElement('CurrentBlueAdd').value = event.target.checked ? 1 : 0
+      })
+
+      /** Current blue fade checkbox clicked event handler **/
+      currentBlueFadeCheckbox.addEventListener('click', (event) => {
+        window.COElement('CurrentBlueFade').value = event.target.checked ? 1 : 0
+      })
+
+      const live2Panel = document.querySelector('[data-name="Live2_Panel"]')
+      const live3Panel = document.querySelector('[data-name="Live3_Panel"]')
+      const live4Panel = document.querySelector('[data-name="Live4_Panel"]')
+      areaSelect.addEventListener('change', (event) => {
+        if (event.detail !== 'dw.js' && Area) {
+          // Show/hide Live 2/3/4 Panels
+          const liveCount = Number(Area.match(/\d+/)[0])
+          live2Panel.dataset.visible = liveCount >= 2
+          live3Panel.dataset.visible = liveCount >= 3
+          live4Panel.dataset.visible = liveCount >= 4
+          window.COElement('LiveType').value = (liveCount - 1)
+        }
+      })
+    })
+
+    document.addEventListener('vizPayloadReady', () => {
+      settingsSelect.dispatchEvent(new CustomEvent('change', { detail: 'vizPayloadReady' }))
+      areaSelect.dispatchEvent(new CustomEvent('change', { detail: 'vizPayloadReady' }))
+      currentTransitionTypeSelect.dispatchEvent(new CustomEvent('input', { detail: 'vizPayloadReady' }))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image">
+    <span class="text-gray-15">Wall - S3 Schalten</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Setting</div>
+        <select class="dw-dropdown" data-co="Dummy/Setting">
+          <option value="" disabled>(none)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Area</div>
+        <select class="dw-dropdown" data-co="Dummy/Area">
+          <option value="" disabled>(none)</option>
+        </select>
+        <input type="text" class="form-input hidden" data-co="Dummy/Width">
+        <input type="number" class="form-input dw-input-number hidden" data-co="LiveType">
+      </div>
+    </div>
+
+    <div class="form-input-chips-wrapper hidden">
+      <div>
+        <label class="dw-label__input">Playout area key</label>
+        <input type="text" class="form-input" data-co="PlayoutAreaKey" />
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content" id="direction-switch">
+    <!-- NEXT ELEMENT -->
+    <div class="field-group">
+      <div class="field-group__label">Schalten</div>
+
+      <div class="dw-dnd-wrapper">
+        <div class="dw-dnd-head">
+          <div class="dw-dnd__cell dw-dnd__handle-wrap"></div>
+          <div class="dw-dnd__cell w-[85px]">Schalte</div>
+          <div class="dw-dnd__cell w-[95px]">Video In Nr.</div>
+          <div class="dw-dnd__cell flex-1">Insert Text</div>
+        </div>
+        <div class="dw-dnd__section">
+          <div class="dw-dnd">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[85px]">
+              <input type="text" class="form-input bg-transparent dw-direction-ltr" value="1. Schalte" disabled>
+            </div>
+            <div class="dw-dnd__cell w-[95px]">
+              <div class="dw-quantity">
+                <input type="number" class="form-input dw-input-number" min="1" max="4" value="1" data-co="LiveInputNumber1">
+              </div>
+            </div>
+            <div class="dw-dnd__cell flex-1">
+              <input type="text" class="form-input" data-co="LiveTextLabel1">
+            </div>
+          </div>
+
+          <div class="dw-dnd" data-name="Live2_Panel">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[85px]">
+              <input type="text" class="form-input bg-transparent dw-direction-ltr" value="2. Schalte" disabled>
+            </div>
+            <div class="dw-dnd__cell w-[95px]">
+              <div class="dw-quantity">
+                <input type="number" class="form-input dw-input-number" min="1" max="4" value="1" data-co="LiveInputNumber2">
+              </div>
+            </div>
+            <div class="dw-dnd__cell flex-1">
+              <input type="text" class="form-input" data-co="LiveTextLabel2">
+            </div>
+          </div>
+
+          <div class="dw-dnd" data-name="Live3_Panel">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[85px]">
+              <input type="text" class="form-input bg-transparent dw-direction-ltr" value="3. Schalte" disabled>
+            </div>
+            <div class="dw-dnd__cell w-[95px]">
+              <div class="dw-quantity">
+                <input type="number" class="form-input dw-input-number" min="1" max="4" value="1" data-co="LiveInputNumber3">
+              </div>
+            </div>
+            <div class="dw-dnd__cell flex-1">
+              <input type="text" class="form-input" data-co="LiveTextLabel3">
+            </div>
+          </div>
+
+          <div class="dw-dnd" data-name="Live4_Panel">
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+            <div class="dw-dnd__cell w-[85px]">
+              <input type="text" class="form-input bg-transparent dw-direction-ltr" value="4. Schalte" disabled>
+            </div>
+            <div class="dw-dnd__cell w-[95px]">
+              <div class="dw-quantity">
+                <input type="number" class="form-input dw-input-number" min="1" max="4" value="1" data-co="LiveInputNumber4">
+              </div>
+            </div>
+            <div class="dw-dnd__cell flex-1">
+              <input type="text" class="form-input" data-co="LiveTextLabel4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXISTING ELEMENTS -->
+    <div class="field-group bg-gray-01">
+      <div class="field-group__label">Existing elements on the wall</div>
+
+      <div class="flex flex-row flex-wrap gap-2">
+        <div>
+          <div class="dw-label__input">Animate existing elements</div>
+          <!-- TODO: SET CORRECT VALUES -->
+          <select class="dw-dropdown" data-co="CurrentTransitionType">
+            <option value="0">Keep all elements</option>
+            <option value="2">Exclusive (Animate all elements out)</option>
+            <option value="3">Move last element by...</option>
+          </select>
+        </div>
+
+        <div data-name="move-to-panel">
+          <label class="dw-label__input">
+            <img src="../../../../framework/images/info.svg" class="dw-infoIcon" title="Negative values moving to the left,&#10;positive to the right." />
+          </label>
+          <div class="dw-quantity">
+            <input type="number" class="form-input dw-input-number" value="0" min="-16" max="16" data-co="Dummy/CurrentMovePosition" data-scrubber />
+          </div>
+          <div class="dw-quantity hidden">
+            <input type="number" class="form-input dw-input-number" data-co="CurrentMovePosition" />
+          </div>
+        </div>
+
+        <div>
+          <div class="dw-label__input">Enable</div>
+          <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+            <div>
+              <div class="dw-flexGroup">
+                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentBlueAdd" />
+                <label class="dw-label__input font-normal">Blue add</label>
+              </div>
+              <input type="text" class="form-input hidden" data-co="CurrentBlueAdd" />
+            </div>
+            <div>
+              <div class="dw-flexGroup">
+                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentBlueFade" />
+                <label class="dw-label__input font-normal">Blue fade</label>
+              </div>
+              <input type="text" class="form-input hidden" data-co="CurrentBlueFade" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

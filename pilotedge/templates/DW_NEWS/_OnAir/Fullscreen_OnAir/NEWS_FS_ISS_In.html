@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DW News - FS Image Slide Show v0_01</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script>
+    window.generateAutoTitles = () => {
+      return {
+        '-auto-generated-title': ['NEWS FS Image Slide Show v0_01'],
+        'ram-title': ['ISS'],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const siteIdentityInput = document.querySelector('#siteIdentity')
+      const siteIdentityButton = document.querySelector('#button_fetchImagesBySiteIdentity')
+      const siteIdentityButtonAlert = siteIdentityButton.nextElementSibling
+      siteIdentityButton.addEventListener('click', (event) => {
+        siteIdentityButtonAlert.innerHTML = 'Loading images...'
+        console.log(siteIdentityInput.value)
+        setTimeout(() => {
+          siteIdentityButtonAlert.innerHTML = 'Success'
+        }, 5000)
+      })
+
+      document.querySelectorAll('[data-co="Dummy/ZoomVariant"]').forEach((option) => {
+        console.log(option)
+        option.addEventListener('change', (event) => {
+          const currentImage = event.target.parentNode.parentNode.parentNode.parentNode.id
+          event.target.parentNode.parentNode.parentNode.querySelectorAll('[name="' + currentImage + 'Zoom"]').forEach((chip) => {
+            chip.parentNode.parentNode.parentNode.dataset.visible = event.target.value !== '0'
+            if (chip.value === '0') {
+              chip.click()
+            }
+            switch (event.target.value) {
+              case '0':
+                chip.parentNode.dataset.visible = false
+                break
+              case '1':
+                chip.parentNode.dataset.visible = (Number(chip.value) >= 0)
+                break
+              case '2':
+                chip.parentNode.dataset.visible = (Number(chip.value) <= 0)
+                break
+            }
+          })
+        })
+      })
+    })
+  </script>
+</head>
+
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/images/Header.png" alt="DW NEWS Header image" />
+    <span class="text-gray-15">FS Image Slide Show v0_01</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndexGlobalPreview">
+          <option value="9" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="2">German</option>
+          <option value="6">Spanish</option>
+          <option value="5" data-translation>Russian</option>
+          <option value="7">Turkish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Duration -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__input">Time per Image</label>
+        <div class="dw-quantity">
+          <input data-co="TimePerImage" name="input-number-1" type="number" class="form-input dw-input-number" value="1" min="0" max="9999" data-scrubber />
+        </div>
+      </div>
+    </div>
+
+    <!-- Loop On/Off -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Loop</label>
+        <input data-co="Loop" type="checkbox" class="form-input dw-checkbox">
+      </div>
+    </div>
+
+    <!-- Fade On/Off -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Fade</label>
+        <input data-co="Blend" type="checkbox" class="form-input dw-checkbox">
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div class="field-group flex flex-row flex-wrap gap-2">
+      <div>
+        <label class="dw-label__input">Site/Container-ID</label>
+        <input type="text" class="form-input" id="siteIdentity">
+      </div>
+
+      <div>
+        <label class="dw-label__input"></label>
+        <button class="dw-btn" id="button_fetchImagesBySiteIdentity">Load images from VizOne</button>
+        <span class="dw-alert">&nbsp;</span>
+      </div>
+    </div>
+
+
+    <div class="field-group grid sm:grid-cols-2 grid-cols-1 gap-2">
+      <div class="bg-gray-01" id="Image0">
+        <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
+          <div class="field-group__label">Image 0</div>
+          <div class="dw-alert mb-2">Size: 1920 x 1080px</div>
+          <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1 dw_md:mr-2">
+            <div class="dw-btn-wrap">
+              <button class="dw-btn dw-btnIcon select">
+                <span class="dw-btnSearch" title="Search">Search</span>
+              </button>
+            </div>
+            <div class="dw-btn-wrap">
+              <button class="dw-btn dw-btnIcon remove">
+                <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+              </button>
+            </div>
+            <div class="dw-btn-wrap">
+              <div class="dw-imgThumb">
+                <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label class="dw-label__input">Source</label>
+          <input data-co="Image0Source" type="text" class="form-input" />
+        </div>
+
+        <div data-name="ZoomType">
+          <div>
+            <div class="dw-label__input">Zoom Variant</div>
+            <select class="dw-dropdown" data-co="Dummy/ZoomVariant">
+              <option value="0">NO ZOOM</option>
+              <option value="1">ZOOM IN</option>
+              <option value="2">ZOOM OUT</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="dw-label__section">Zoom Factor</label>
+          <div data-name="ZoomFactors" class="form-input-chips">
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="0" name="Image0Zoom" checked />
+              <span tabindex=0>0%</span>
+            </label>
+
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="-10" name="Image0Zoom" />
+              <span tabindex=0>-10%</span>
+            </label>
+
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="10" name="Image0Zoom" />
+              <span tabindex=0>10%</span>
+            </label>
+
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="-15" name="Image0Zoom" />
+              <span tabindex=0>-15%</span>
+            </label>
+
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="15" name="Image0Zoom" />
+              <span tabindex=0>15%</span>
+            </label>
+
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="-20" name="Image0Zoom" />
+              <span tabindex=0>-20%</span>
+            </label>
+
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="20" name="Image0Zoom" />
+              <span tabindex=0>20%</span>
+            </label>
+
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="-25" name="Image0Zoom" />
+              <span tabindex=0>-25%</span>
+            </label>
+
+            <label>
+              <input data-co="Image0Zoom" type="radio" value="25" name="Image0Zoom" />
+              <span tabindex=0>25%</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label>
+            <span class="">Zoom Focus X</span>
+            <div class="dw-rangeWrap">
+              <input data-co="Image0PositionX" type="range" class="dw-inputRange" min="-100" max="100" />
+              <input type="text" class="form-input rangeValue" data-scrubber />
+            </div>
+        </div>
+
+        <div>
+          <label>
+            <span class="">Zoom Focus Y</span>
+            <div class="dw-rangeWrap">
+              <input data-co="Image0PositionY" type="range" class="dw-inputRange" min="-100" max="100" />
+              <input type="text" class="form-input rangeValue" data-scrubber />
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

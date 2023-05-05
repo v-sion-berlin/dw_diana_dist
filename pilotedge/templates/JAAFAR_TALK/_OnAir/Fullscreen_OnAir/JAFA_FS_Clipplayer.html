@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAAFAR TALK - Clipplayer</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../Sources/JS/jafa-colors.js"></script>
+  <script>
+    /* global Event */
+    window.generateAutoTitles = () => {
+      const languageSelector = document.querySelector('#LanguageIndex')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const headline = '{Headline}'
+      const subline = '{Subline}'
+      return {
+        '-auto-generated-title': ['JAFA FS Clipplayer', '||', language, '|', headline, '|', subline],
+        'ram-title': [headline, '|', subline],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-co="MediaType"]').forEach((option) => option.addEventListener('click', (event) => {
+        document.querySelector('[data-name="ImageClip"]').dataset.visible = (event.target.value === '0' || event.target.value === '1')
+        document.querySelector('[data-name="Live"]').dataset.visible = (event.target.value === '2' || event.target.value === '3')
+      }))
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="MediaType"]:checked').dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/images/Header.png" alt="DW JAFA Header image" />
+    <span class="text-gray-15">FS Clipplayer</span>
+  </div>
+  <!-- LANGUAGE -->
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Language</div>
+      <select id="LanguageIndex" class="dw-dropdown">
+        <option data-rtl data-translation>Arabic</option>
+      </select>
+    </div>
+
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Media Type</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="MediaType" type="radio" value="0" name="MediaType" />
+            <span>Image</span>
+          </label>
+
+          <label>
+            <input data-co="MediaType" type="radio" value="1" name="MediaType" />
+            <span>Clip</span>
+          </label>
+
+          <label>
+            <input data-co="MediaType" type="radio" value="2" name="MediaType" />
+            <span>Live 1</span>
+          </label>
+
+          <label>
+            <input data-co="MediaType" type="radio" value="3" name="MediaType" />
+            <span>Live 2</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div id="direction-switch" class="dw-content dw-direction-rtl">
+    <div class="field-group">
+      <div class="grid grid-cols-1 gap-2 flex-1">
+        <div>
+          <label class="dw-label__input">Headline</label>
+          <input type="text" class="form-input font-large" data-co="Headline" />
+        </div>
+        <div>
+          <label class="dw-label__input">Subline</label>
+          <input type="text" class="form-input font-large" data-co="Subline" />
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div data-name="ImageClip">
+        <div class="field-group__label">CLIP</div>
+        <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="MediaFile">
+          <div class="dw-imgRowItem w-full">
+            <div>
+              <label class="dw-label__input">Author filter</label>
+              <input type="text" class="form-input" />
+            </div>
+            <div>
+              <label class="dw-label__input">Date filter</label>
+              <input type="date" class="form-input" />
+            </div>
+            <div class="dw-btn-wrap">
+              <button class="dw-btn dw-btnIcon select">
+                <span class="dw-btnSearch" title="Search">Search</span>
+              </button>
+            </div>
+            <div class="dw-btn-wrap">
+              <button class="dw-btn dw-btnIcon remove">
+                <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+              </button>
+            </div>
+            <div class="dw-btn-wrap">
+              <div class="dw-imgThumb">
+                <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-name="Live">
+        <h1 class="dw-headline">LIVE</h1>
+        <p>Plays live channel.</p>
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="dw-label__input">Source</label>
+      <input type="text" class="form-input font-large" data-co="Source" />
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

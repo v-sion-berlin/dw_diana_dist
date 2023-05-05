@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euromaxx - Ins High5</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script>
+    window.generateAutoTitles = () => {
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const highFiveNumber = Number(document.querySelector('[data-co="HighFiveIndex"]:checked').value) + 1
+      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('data-translation')
+      const translationContentLine1 = document.querySelector('[data-co="Translation/ContentLine1"').value
+      const contentLine1FieldId = hasTranslation && translationContentLine1 ? '{Translation/ContentLine1}' : '{ContentLine1}'
+      const translationContentLine2 = document.querySelector('[data-co="Translation/ContentLine2"').value
+      const contentLine2FieldId = hasTranslation && translationContentLine2 ? '{Translation/ContentLine2}' : '{ContentLine2}'
+      return {
+        '-auto-generated-title': ['EMXX Ins High5', '||', language, '|', highFiveNumber, '|', contentLine1FieldId, '|', contentLine2FieldId],
+        'ram-title': [highFiveNumber, '|', contentLine1FieldId, '|', contentLine2FieldId],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="EMXX header image">
+    <span class="text-gray-15">Ins High5</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="3" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="2">German</option>
+          <option value="1">Spanish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Insert variant -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__input">High5 Index</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="HighFiveIndex" type="radio" value="0" name="skipsponsors">
+            <span>1</span>
+          </label>
+
+          <label>
+            <input data-co="HighFiveIndex" type="radio" value="1" name="skipsponsors">
+            <span>2</span>
+          </label>
+
+          <label>
+            <input data-co="HighFiveIndex" type="radio" value="2" name="skipsponsors">
+            <span>3</span>
+          </label>
+
+          <label>
+            <input data-co="HighFiveIndex" type="radio" value="3" name="skipsponsors">
+            <span>4</span>
+          </label>
+
+          <label>
+            <input data-co="HighFiveIndex" type="radio" value="4" name="skipsponsors">
+            <span>5</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div class="field-group" id="direction-switch">
+      <div class="grid grid-cols-1 gap-2">
+        <div id="ContentLine1">
+          <label class="dw-label__input">Line 1</label>
+          <input type="text" class="form-input font-large" data-co="ContentLine1">
+        </div>
+        <div id="ContentLine2">
+          <label class="dw-label__input">Line 2</label>
+          <input type="text" class="form-input font-large" data-co="ContentLine2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <div class="grid grid-cols-1 gap-2">
+      <div id="ContentLine1">
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/ContentLine1">
+      </div>
+      <div id="ContentLine2">
+        <label class="dw-label__input">Line 2</label>
+        <input type="text" class="form-input font-large" data-co="Translation/ContentLine2">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

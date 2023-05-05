@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DW News (Lowerthird) - Ins Story</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/nlw.js"></script>
+  <script src="../../Sources/JS/news-nlw.js"></script>
+  <script>
+    /* global Event, Option */
+    /* global initializeNLWData, NLW_PROPERTIES */
+    /* global vizrt */
+
+    let nlwData = {}
+    let showLocationCheckbox
+
+    window.generateAutoTitles = () => {
+      const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('data-translation')
+      const translationInsertsLine1 = document.querySelector('[data-co="Translation/InsertsLine1"').value
+      const insertLine1FieldId = hasTranslation && translationInsertsLine1 ? '{Translation/InsertsLine1}' : '{InsertsLine1}'
+      const translationInsertsLine2 = document.querySelector('[data-co="Translation/InsertsLine2"').value
+      const insertLine2FieldId = hasTranslation && translationInsertsLine2 ? '{Translation/InsertsLine2}' : '{InsertsLine2}'
+      return {
+        '-auto-generated-title': ['NEWS Ins Story', '||', language, '|', insertLine1FieldId, '|', insertLine2FieldId],
+        'ram-title': [insertLine1FieldId, '|', insertLine2FieldId],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      nlwData = initializeNLWData()
+
+      // Show / Hide Location
+      showLocationCheckbox = document.querySelector('[data-co="Dummy/ShowLocation"]')
+      showLocationCheckbox.addEventListener('click', (event) => {
+        document.querySelector('#Location').dataset.visible = event.target.checked
+        if (!event.target.checked) {
+          document.querySelector('[data-co="LocationText"]').value = ''
+          document.querySelector('[data-co="LocationText"]').dispatchEvent(new Event('input'))
+        }
+      })
+
+      const flagSelect = document.querySelector('[data-co="Flag"]')
+
+      const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
+      languageSelector.addEventListener('change', (event) => {
+        const language = languageSelector[languageSelector.selectedIndex].text
+        const flags = nlwData[language][NLW_PROPERTIES.FLAGS].split(/\s*\|\s*/)
+
+        language === 'Arabic' ? flagSelect.classList.add('text-m') : flagSelect.classList.remove('text-m')
+
+        while (flagSelect.length > 0) {
+          flagSelect.remove(flagSelect.length - 1)
+        }
+
+        const flagCO = vizrt.payloadhosting.getFieldText('Flag')
+        flags.forEach((flag) => {
+          const flagText = flag.split('[')[0].trim()
+          const newOption = new Option(flagText)
+          if (flagText === 'none') {
+            newOption.value = ''
+          }
+          flagSelect.add(newOption)
+          if (flagText === flagCO) {
+            flagSelect.selectedIndex = flagSelect.options.length - 1
+          }
+        })
+      })
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndexGlobalPreview"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndexGlobalPreview"]', '#translation-panel')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      showLocationCheckbox.dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
+    <span class="text-gray-15">Ins Story</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndexGlobalPreview">
+          <option value="9" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="2">German</option>
+          <option value="6">Spanish</option>
+          <option value="5" data-translation>Russian</option>
+          <option value="7">Turkish</option>
+        </select>
+      </div>
+    </div>
+    <!-- Show Location -->
+    <div class="form-input-chips-wrapper">
+      <div>
+          <label class="dw-label__section">Show Location</label>
+          <input data-co="Dummy/ShowLocation" type="checkbox" class="form-input dw-checkbox" />
+      </div>
+    </div>
+    <!-- Flag -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Flag</div>
+        <select class="dw-dropdown font-large" data-co="Flag">
+          <option value="">none</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div id="direction-switch">
+    <div class="field-group">
+      <div class="grid grid-cols-1 gap-2">
+        <div>
+          <label class="dw-label__input">Line 1</label>
+          <input type="text" class="form-input font-large" data-co="InsertsLine1" />
+        </div>
+        <div>
+          <label class="dw-label__input">Line 2</label>
+          <input type="text" class="form-input font-large" data-co="InsertsLine2" />
+        </div>
+
+        <div id="Location">
+          <label class="dw-label__input">Location</label>
+          <input type="text" class="form-input font-large" data-co="LocationText" />
+        </div>
+        <!-- Time feature is not in use -->
+        <div id="TimeZone" class="hidden">
+          <label class="dw-label__input">Current Time Difference to UTC in hours</label>
+          <div class="flex flex-row gap-2 w-[50%]">
+            <input type="text" class="form-input font-large" data-co="LocalTimeText" value="Local Time" disabled />
+            <div class="dw-quantity">
+              <input data-co="TimeShift" name="input-number-1" type="number" class="form-input dw-input-number" value="1" min="0" max="24" data-scrubber />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group bg-gray-12" id="translation-panel">
+    <label class="field-group__label text-gray-03">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">
+      Please provide a translation for the operator
+    </span>
+    <div class="grid grid-cols-1 gap-2">
+      <div>
+        <label class="dw-label__input text-gray-03">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertsLine1" />
+      </div>
+      <div>
+        <label class="dw-label__input text-gray-03">Line 2</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertsLine2" />
+      </div>
+      <div>
+        <label class="dw-label__input text-gray-03">Location</label>
+        <input type="text" class="form-input font-large" data-co="Translation/LocationText" />
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

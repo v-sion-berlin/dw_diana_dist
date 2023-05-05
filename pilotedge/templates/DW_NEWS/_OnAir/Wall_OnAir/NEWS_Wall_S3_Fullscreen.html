@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DW News Wall - S3 VIZ FS</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/nlw.js"></script>
+  <script src="../../Sources/JS/news-nlw-wall.js"></script>
+  <script>
+    /* global CustomEvent, Option */
+    /* global NLW_DATA, getDistinctSettingValues, getFilteredData, settingSelectChanged, areaSelectChanged */
+    const Studio = 'S3'
+    const Content = 'Fullscreen'
+    let Setting
+    let Area
+
+    let settingsSelect
+    let areaSelect
+    let nextTransitionTypeSelect
+    let contentWithAlphaCheckbox
+    let currentImageWhiteCheckbox
+    let blueAddCheckbox
+    let currentTransitionTypeSelect
+    let moveToPanel
+    let currentMovePositionInput
+    let currentBlueAddCheckbox
+    let currentBlueFadeCheckbox
+
+    window.generateAutoTitles = () => {
+      const nextTransitionType = nextTransitionTypeSelect[nextTransitionTypeSelect.selectedIndex].text
+      const hasContentWithAlpha = window.COElement('ContentWithAlpha').value === '1' ? 'Alpha' : ''
+      const hasBlueAdd = window.COElement('BlueAdd').value === '1' ? 'Blue add' : ''
+      let nextOptions = ''
+      if (hasContentWithAlpha || hasBlueAdd) {
+        nextOptions = `with: ${hasContentWithAlpha} ${hasBlueAdd}`
+      }
+      return {
+        '-auto-generated-title': ['NEWS Wall S3 VIZ FS v0_01', '||', '{Dummy/Setting}', '|', '{Dummy/Area}', '|', nextTransitionType, '|', '{ImageIcon}', '|', nextOptions],
+        'ram-title': ['WALL', '|', '{Dummy/Setting}', '|', '{Dummy/Area}', '|', '{ImageIcon}'],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      /** LOAD NLW DATA **/
+      const nlwData = getFilteredData(NLW_DATA, { Content, Studio })
+      const settings = getDistinctSettingValues(nlwData, 'Setting')
+
+      /** GET NEEDED HTML CONTROLS **/
+      settingsSelect = document.querySelector('[data-co="Dummy/Setting"]')
+      areaSelect = document.querySelector('[data-co="Dummy/Area"]')
+      nextTransitionTypeSelect = document.querySelector('[data-co="NextTransitionType"]')
+      contentWithAlphaCheckbox = document.querySelector('[data-co="Dummy/ContentWithAlpha"]')
+      currentImageWhiteCheckbox = document.querySelector('[data-co="Dummy/CurrentImageWhite"]')
+      blueAddCheckbox = document.querySelector('[data-co="Dummy/BlueAdd"]')
+      currentTransitionTypeSelect = document.querySelector('[data-co="CurrentTransitionType"]')
+      moveToPanel = document.querySelector('[data-name="move-to-panel"]')
+      currentMovePositionInput = document.querySelector('[data-co="Dummy/CurrentMovePosition"]')
+      currentBlueAddCheckbox = document.querySelector('[data-co="Dummy/CurrentBlueAdd"]')
+      currentBlueFadeCheckbox = document.querySelector('[data-co="Dummy/CurrentBlueFade"]')
+
+      /** Add available settings to select **/
+      for (const setting of settings) {
+        settingsSelect.add(new Option(setting))
+      }
+
+      /** Settings changed event handler **/
+      settingsSelect.addEventListener('change', (event) => {
+        Setting = event.target.value
+        settingSelectChanged(event, areaSelect, nlwData)
+      })
+
+      /** Area changed event handler **/
+      areaSelect.addEventListener('change', (event) => {
+        Area = event.target.value
+        areaSelectChanged(event, nlwData)
+        currentTransitionTypeSelect.dispatchEvent(new Event('input'))
+      })
+
+      /** Next transition changed event handler **/
+      nextTransitionTypeSelect.addEventListener('change', (event) => {
+        if (event.target.value === '2' && contentWithAlphaCheckbox.checked) {
+          contentWithAlphaCheckbox.click()
+        }
+        contentWithAlphaCheckbox.disabled = event.target.value === '2'
+      })
+
+      /** Content with alpha checkbox clicked event handler **/
+      contentWithAlphaCheckbox.addEventListener('click', (event) => {
+        window.COElement('ContentWithAlpha').value = event.target.checked ? 1 : 0
+
+        if (!event.target.checked && currentImageWhiteCheckbox.checked) {
+          currentImageWhiteCheckbox.click()
+        }
+
+        if (event.target.checked) {
+          window.COElement('CurrentTransitionType').value = 0
+        }
+
+        currentImageWhiteCheckbox.disabled = !event.target.checked
+        currentTransitionTypeSelect.disabled = event.target.checked
+      })
+
+      /** Current image white ckeckbox event handler **/
+      currentImageWhiteCheckbox.addEventListener('click', (event) => {
+        window.COElement('CurrentImageWhite').value = event.target.checked ? 1 : 0
+      })
+
+      /** Blue add checkbox click event handler **/
+      blueAddCheckbox.addEventListener('click', (event) => {
+        window.COElement('BlueAdd').value = event.target.checked ? 1 : 0
+      })
+
+      /** Current transition changed event handler **/
+      currentTransitionTypeSelect.addEventListener('input', (event) => {
+        moveToPanel.dataset.visible = currentTransitionTypeSelect.value === '3'
+        if (currentTransitionTypeSelect.value !== '3') {
+          window.COElement('Dummy/CurrentMovePosition').value = 0
+        } else {
+          const setting = getFilteredData(NLW_DATA, { Content, Studio, Setting, Area })
+          if (setting[0]) {
+            window.COElement('Dummy/CurrentMovePosition').value = setting[0].AutoMovePosition / 360.0
+          }
+        }
+      })
+
+      /** Current move position input changed event handler **/
+      currentMovePositionInput.addEventListener('input', (event) => {
+        window.COElement('CurrentMovePosition').value = event.target.value * 360
+      })
+
+      /** Current blue add checkbox clicked event handler **/
+      currentBlueAddCheckbox.addEventListener('click', (event) => {
+        window.COElement('CurrentBlueAdd').value = event.target.checked ? 1 : 0
+      })
+
+      /** Current blue fade checkbox clicked event handler **/
+      currentBlueFadeCheckbox.addEventListener('click', (event) => {
+        window.COElement('CurrentBlueFade').value = event.target.checked ? 1 : 0
+      })
+    })
+
+    document.addEventListener('vizPayloadReady', () => {
+      settingsSelect.dispatchEvent(new CustomEvent('change', { detail: 'vizPayloadReady' }))
+      areaSelect.dispatchEvent(new CustomEvent('change', { detail: 'vizPayloadReady' }))
+      nextTransitionTypeSelect.dispatchEvent(new CustomEvent('change', { detail: 'vizPayloadReady' }))
+      currentTransitionTypeSelect.dispatchEvent(new CustomEvent('input', { detail: 'vizPayloadReady' }))
+      contentWithAlphaCheckbox.dispatchEvent(new CustomEvent('click', { detail: 'vizPayloadReady' }))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
+    <span class="text-gray-15">Wall - S3 VIZ FS</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Setting</div>
+        <select class="dw-dropdown" data-co="Dummy/Setting">
+          <option value="" disabled>(none)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Area</div>
+        <select class="dw-dropdown" data-co="Dummy/Area">
+          <option value="" disabled>(none)</option>
+        </select>
+        <input type="text" class="form-input hidden" data-co="Dummy/Width">
+      </div>
+    </div>
+
+    <div class="form-input-chips-wrapper hidden">
+      <div>
+        <label class="dw-label__input">Playout area key</label>
+        <input type="text" class="form-input" data-co="PlayoutAreaKey" />
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content" id="direction-switch">
+    <!-- NEXT ELEMENT -->
+    <div class="field-group">
+      <div class="field-group__label">Next content</div>
+
+      <div class="grid gap-2">
+        <div class="flex flex-row flex-wrap gap-2">
+          <div>
+            <div class="dw-label__input">Animation</div>
+            <select class="dw-dropdown" data-co="NextTransitionType">
+              <option value="0">Blend</option>
+              <option value="1">Follower</option>
+              <option value="2">New Topic</option>
+            </select>
+          </div>
+
+          <div>
+            <div class="dw-label__input">Enable</div>
+            <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+              <div>
+                <div class="dw-flexGroup">
+                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/ContentWithAlpha" />
+                  <label class="dw-label__input font-normal">Alpha</label>
+                </div>
+                <input type="text" class="form-input hidden" data-co="ContentWithAlpha" />
+              </div>
+              <div>
+                <div class="dw-flexGroup">
+                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentImageWhite" />
+                  <label class="dw-label__input font-normal">Brighten bg</label>
+                </div>
+                <input type="text" class="form-input hidden" data-co="CurrentImageWhite" />
+              </div>
+              <div>
+                <div class="dw-flexGroup">
+                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/BlueAdd" />
+                  <label class="dw-label__input font-normal">Blue add</label>
+                </div>
+                <input type="text" class="form-input hidden" data-co="BlueAdd" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXISTING ELEMENTS -->
+    <div class="field-group bg-gray-01">
+      <div class="field-group__label">Existing elements on the wall</div>
+
+      <div class="flex flex-row flex-wrap gap-2">
+        <div>
+          <div class="dw-label__input">Animate existing elements</div>
+          <!-- TODO: SET CORRECT VALUES -->
+          <select class="dw-dropdown" data-co="CurrentTransitionType">
+            <option value="0">Keep all elements</option>
+            <option value="2">Exclusive (Animate all elements out)</option>
+            <option value="3">Move last element by...</option>
+          </select>
+        </div>
+
+        <div data-name="move-to-panel">
+          <label class="dw-label__input">
+            <img src="../../../../framework/images/info.svg" class="dw-infoIcon" title="Negative values moving to the left,&#10;positive to the right." />
+          </label>
+          <div class="dw-quantity">
+            <input type="number" class="form-input dw-input-number" value="0" min="-16" max="16" data-co="Dummy/CurrentMovePosition" data-scrubber />
+          </div>
+          <div class="dw-quantity hidden">
+            <input type="number" class="form-input dw-input-number" data-co="CurrentMovePosition" />
+          </div>
+        </div>
+
+        <div>
+          <div class="dw-label__input">Enable</div>
+          <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+            <div>
+              <div class="dw-flexGroup">
+                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentBlueAdd" />
+                <label class="dw-label__input font-normal">Blue add</label>
+              </div>
+              <input type="text" class="form-input hidden" data-co="CurrentBlueAdd" />
+            </div>
+            <div>
+              <div class="dw-flexGroup">
+                <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/CurrentBlueFade" />
+                <label class="dw-label__input font-normal">Blue fade</label>
+              </div>
+              <input type="text" class="form-input hidden" data-co="CurrentBlueFade" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

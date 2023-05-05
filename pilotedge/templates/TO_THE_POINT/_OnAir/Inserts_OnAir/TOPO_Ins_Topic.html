@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To the Point - Ins Topic</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+
+  <script>
+    window.generateAutoTitles = () => {
+      const languageSelect = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelect[languageSelect.selectedIndex].text
+      const hasTranslation = languageSelect[languageSelect.selectedIndex].hasAttribute('data-translation')
+      const variant = document.querySelector('[data-co="TopicVariantIndex"]:checked').value === '1' ? 'A' : 'B'
+      const topicHeadlineFieldId = hasTranslation && window.COElement('Translation/TopicHeadline').value ? '{Translation/TopicHeadline}' : '{TopicHeadline}'
+      const topicSublineFieldId = hasTranslation && window.COElement('Translation/TopicSubline').value ? '{Translation/TopicSubline}' : '{TopicSubline}'
+      return {
+        '-auto-generated-title': ['TOPO Ins Topic', '||', language, '|', variant, '|', topicHeadlineFieldId, '|', topicSublineFieldId],
+        'ram-title': [language, '|', variant, '|', topicHeadlineFieldId, '|', topicSublineFieldId],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('[data-co="Dummy/TopicGlowActive"]').addEventListener('click', (event) => {
+        window.COElement('TopicGlowActive').value = event.target.checked ? '1' : '0'
+      })
+
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/images/Header.png" alt="TOPO Header Image">
+    <span class="text-white">Ins Topic</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="4" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="1">German</option>
+          <option value="3" data-translation>Belarusian</option>
+          <option value="2">Spanish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Variant -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Variant</div>
+        <div class="form-input-chips">
+          <label>
+            <input type="radio" value="0" name="TopicVariant" data-co="TopicVariantIndex" />
+            <span>A</span>
+          </label>
+          <label>
+            <input type="radio" value="1" name="TopicVariant" data-co="TopicVariantIndex" />
+            <span>B</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Glow -->
+    <div id="ShowSponsorsPanel" class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__input">Use Glow</label>
+        <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/TopicGlowActive">
+        <input type="text" class="form-input hidden" data-co="TopicGlowActive">
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div id="direction-switch" class="field-group">
+      <div class="grid gap-2">
+        <div>
+          <label class="dw-label__input">Top line</label>
+          <input type="text" class="form-input font-large" data-co="TopicHeadline" />
+        </div>
+        <div>
+          <label class="dw-label__input">Bottom line</label>
+          <input type="text" class="form-input font-large" data-co="TopicSubline" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <div class="grid gap-2">
+      <div>
+        <label class="dw-label__input">Top line</label>
+        <input type="text" class="form-input" data-co="Translation/TopicHeadline" />
+      </div>
+      <div>
+        <label class="dw-label__input">Bottom line</label>
+        <input type="text" class="form-input" data-co="Translation/TopicSubline" />
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

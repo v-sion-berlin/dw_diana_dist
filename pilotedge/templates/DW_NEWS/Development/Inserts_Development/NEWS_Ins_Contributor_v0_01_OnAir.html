@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DW News (Lowerthird) - Ins Contributor</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/nlw.js"></script>
+  <script src="../../Sources/JS/news-nlw.js"></script>
+  <script>
+    /* global Event */
+    /* global initializeNLWData, NLW_PROPERTIES */
+
+    let nlwData = {}
+    let language
+
+    window.generateAutoTitles = () => {
+      return {
+        '-auto-generated-title': ['NEWS Ins Contributor', '||', language, '|', '{InsertsLine2}'],
+        'ram-title': ['{InsertsLine2}'],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      nlwData = initializeNLWData()
+
+      const languageSelector = document.querySelector('[data-co="LanguageIndexGlobalPreview"]')
+      languageSelector.addEventListener('change', (event) => {
+        language = languageSelector[languageSelector.selectedIndex].text
+        const translationLanguage = 'English'
+
+        document.querySelector('[data-co="InsertsLine1"]').value = nlwData[language][NLW_PROPERTIES.REPORT]
+        document.querySelector('[data-co="InsertsLine1"]').innerHTML = nlwData[translationLanguage][NLW_PROPERTIES.REPORT]
+        document.querySelector('[data-co="InsertsLine1"]').dispatchEvent(new Event('input'))
+      })
+
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndexGlobalPreview"]', '#direction-switch')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
+    <span class="text-gray-15">Ins Contributor</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndexGlobalPreview">
+          <option value="9" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="2">German</option>
+          <option value="6">Spanish</option>
+          <option value="5" data-translation>Russian</option>
+          <option value="7">Turkish</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div id="direction-switch">
+    <div class="field-group">
+      <div class="grid grid-cols-1 gap-2">
+        <div>
+          <label value="" data-co="InsertsLine1" class="dw-label__input">Report by</label>
+          <input type="text" class="form-input font-large" data-co="InsertsLine2" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

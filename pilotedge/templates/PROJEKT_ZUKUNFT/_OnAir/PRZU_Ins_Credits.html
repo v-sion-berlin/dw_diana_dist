@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt Zukunft - Ins Credits</title>
+  <!-- Default includes -->
+  <link href="../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../framework/js/nlw.js"></script>
+  <script src="../Sources/JS/przu-nlw.js"></script>
+  <script>
+    /* global Event, Option */
+    /* global NLW_DATA, NLW_PROPERTIES */
+
+    window.generateAutoTitles = () => {
+      return {
+        '-auto-generated-title': 'PRZU Ins Credits v0_01',
+        'ram-title': 'Credits',
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // set ltr / rtl dependent on selected language
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const helperPanel = document.querySelector('#HelpPanel')
+      const helperPanelSelect = helperPanel.querySelector('select')
+      languageSelector.addEventListener('change', (event) => {
+        const nlwLanguage = languageSelector[languageSelector.selectedIndex].text
+        // HELP PANEL
+        helperPanel.dataset.visible = ['Bengali', 'Hindi'].includes(nlwLanguage)
+        const helpPanelNames = NLW_DATA[nlwLanguage][NLW_PROPERTIES.HELPER_NAMES].split(', ')
+
+        while (helperPanelSelect.length > 0) {
+          helperPanelSelect.remove(helperPanelSelect.length - 1)
+        }
+        helpPanelNames.forEach((name) => {
+          const option = new Option()
+          const [textContent, value] = name.split(' > ')
+          option.textContent = textContent
+          option.value = value
+          helperPanelSelect.add(option)
+        })
+        helperPanelSelect.dispatchEvent(new Event('change'))
+        // PANEL 1
+        const credit1Line2 = document.querySelector('[data-name="BrasilianProducer2"]')
+        const credit1Line3 = document.querySelector('[data-name="BrasilianProducer3"]')
+        const credit3Panel = document.querySelector('[data-name="CreditFunction3"]')
+
+        const editorData = NLW_DATA[nlwLanguage][NLW_PROPERTIES.CREDITS_POSITION_3].split(': ')
+
+        document.querySelector('#BrazilianAlert').dataset.visible = (event.target.value === '2')
+        credit1Line2.dataset.visible = (event.target.value === '2')
+        credit1Line3.dataset.visible = (event.target.value === '2')
+        credit3Panel.dataset.visible = (event.target.value !== '2')
+        if (event.target.value !== '2') {
+          // then not Brasilian
+          window.COElement('Credit1Name2').value = ''
+          window.COElement('Credit1Name3').value = ''
+          window.COElement('CreditFunction2').value = NLW_DATA[nlwLanguage][NLW_PROPERTIES.CREDITS_POSITION_2]
+          document.querySelector('[data-co="CreditFunction2"]').innerHTML = 'Director'
+          window.COElement('Credit2Name1').value = ''
+        } else {
+          window.COElement('CreditFunction3').value = ''
+          window.COElement('Credit3Name1').value = ''
+          window.COElement('CreditFunction2').value = editorData[0]
+          document.querySelector('[data-co="CreditFunction2"]').innerHTML = 'Editor'
+          window.COElement('Credit2Name1').value = editorData[1]
+        }
+        window.COElement('CreditFunction1').value = NLW_DATA[nlwLanguage][NLW_PROPERTIES.CREDITS_POSITION_1]
+
+        window.COElement('CreditFunction3').value = editorData[0]
+        if (editorData.length > 1) {
+          window.COElement('Credit3Name1').value = editorData[1]
+        } else { window.COElement('Credit3Name1').value = '' }
+
+        // PANEL 2
+        const wardrobeData = NLW_DATA[nlwLanguage][NLW_PROPERTIES.CREDITS_WARDROBE].split(': ')
+        window.COElement('CreditWardrobe').value = wardrobeData[0]
+        window.COElement('CreditWardrobeName').value = wardrobeData[1]
+
+        // PANEL 3
+        const onlineAdresses = NLW_DATA[nlwLanguage][NLW_PROPERTIES.CREDITS_ONLINE].split(',')
+        for (let i = 0; i < onlineAdresses.length; i++) {
+          document.querySelector('[data-co="CreditOnline' + (i + 1) + '"]').dataset.visible = true
+          window.COElement('CreditOnline' + (i + 1)).value = onlineAdresses[i]
+        }
+        if (onlineAdresses.length < 5) {
+          for (let i = onlineAdresses.length + 1; i <= 5; i++) {
+            document.querySelector('[data-co="CreditOnline' + (i) + '"]').dataset.visible = false
+            window.COElement('CreditOnline' + (i)).value = ''
+          }
+        }
+      })
+      helperPanelSelect.addEventListener('change', (event) => {
+        helperPanel.querySelector('input').value = helperPanelSelect[helperPanelSelect.selectedIndex].value
+      })
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+    document.querySelector('vizPayloadReady', function () {
+      document.querySelector('[data-co="LanguageIndex"]').dispatchEvent(new Event('change'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../Sources/Images/Header.png" alt="PRZU Header Image" />
+    <span class="text-white">Ins Credits</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="7" data-rtl data-translation>Arabic</option>
+          <option value="1" data-translation>Bengali</option>
+          <option value="2">Brazilian</option>
+          <option value="8" data-rtl data-translation>Dari</option>
+          <option value="0">English</option>
+          <option value="3">German</option>
+          <option value="4" data-translation>Hindi</option>
+          <option value="5">Indonesian</option>
+          <option value="9" data-rtl data-translation>Pashto</option>
+          <option value="6">Spanish</option>
+          <option value="10" data-rtl data-translation>Urdu</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!-- Help Panel -->
+  <div class="field-group flex-1 bg-gray-01" id="HelpPanel">
+    <div class="field-group__label mb-[-2px]">Help</div>
+    <span class="dw-alert mb-2">
+      Use this to convert latin written names to different alphabet.
+    </span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <select class="dw-dropdown" id="helpNameSelect">
+        <option>Name from NLW</option>
+      </select>
+      <input type="text" class="form-input">
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div id="direction-switch" class="dw-content">
+    <div class="field-group">
+      <div class="field-group__label">Panel 1</div>
+      <div class="grid grid-cols-1 gap-2">
+        <div>
+          <span id="BrazilianAlert" class="dw-alert mb-2 mt-1">Please note, that multiple entries are possible - one per input field.</span>
+          <label data-co="CreditFunction1" class="dw-label__input">Producer</label>
+          <div class="grid grid-cols-1 gap-2">
+            <input type="text" class="form-input" data-co="Credit1Name1" />
+            <input data-name="BrasilianProducer2" type="text" class="form-input" data-co="Credit1Name2" />
+            <input data-name="BrasilianProducer3" type="text" class="form-input" data-co="Credit1Name3" />
+          </div>
+        </div>
+        <div>
+          <label data-co="CreditFunction2" class="dw-label__input">Director</label>
+          <input type="text" class="form-input" data-co="Credit2Name1" />
+        </div>
+        <div data-name="CreditFunction3">
+          <label data-co="CreditFunction3" class="dw-label__input">Editor</label>
+          <input type="text" class="form-input" data-co="Credit3Name1" />
+        </div>
+      </div>
+    </div>
+    <div class="field-group bg-gray-01">
+      <div class="field-group__label">Panel 2</div>
+      <label data-co="CreditWardrobe" class="dw-label__input">Wardrobe</label>
+      <input type="text" class="form-input" data-co="CreditWardrobeName" />
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Panel 3</div>
+      <div class="grid grid-cols-1 gap-2">
+        <div>
+          <label data-co="" class="dw-label__input">Online</label>
+          <div class="grid grid-cols-1 gap-2">
+            <input type="text" class="form-input" data-co="CreditOnline1" />
+            <input type="text" class="form-input" data-co="CreditOnline2" />
+            <input type="text" class="form-input" data-co="CreditOnline3" />
+            <input type="text" class="form-input" data-co="CreditOnline4" />
+            <input type="text" class="form-input" data-co="CreditOnline5" />
+          </div>
+        </div>
+        <div>
+          <div class="dw-label__input">Copyright</div>
+          <select class="dw-dropdown" data-co="Credit7Line2" data-nlw-table="copyright.db" data-nlw-keys="column:A" data-nlw-values="column:A">
+            <option disabled selected>-- Please select --</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

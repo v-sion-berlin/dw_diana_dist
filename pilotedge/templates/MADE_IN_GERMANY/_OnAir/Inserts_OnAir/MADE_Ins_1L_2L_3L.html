@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Made in Germany - Ins 1L 2L 3L</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script>
+    const divMapping = {
+      '1 Line': [
+        { query: '[data-name="Line1"]', visible: true },
+        { query: '[data-name="Line2"]', visible: false },
+        { query: '[data-name="Line3"]', visible: false }
+      ],
+      '2 Lines': [
+        { query: '[data-name="Line1"]', visible: true },
+        { query: '[data-name="Line2"]', visible: true },
+        { query: '[data-name="Line3"]', visible: false }
+      ],
+      '3 Lines': [
+        { query: '[data-name="Line1"]', visible: true },
+        { query: '[data-name="Line2"]', visible: true },
+        { query: '[data-name="Line3"]', visible: true }
+      ]
+    }
+
+    window.generateAutoTitles = () => {
+      const languageSelect = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelect[languageSelect.selectedIndex].text
+      const hasTranslation = languageSelect[languageSelect.selectedIndex].hasAttribute('data-translation')
+      const insertLine1Translation = document.querySelector('[data-co="Translation/InsertLine1"').value
+      const insertLine1FieldId = hasTranslation && insertLine1Translation ? '{Translation/InsertLine1}' : '{InsertLine1}'
+      const insertLine2Translation = document.querySelector('[data-co="Translation/InsertLine2"').value
+      const insertLine2FieldId = hasTranslation && insertLine2Translation ? '{Translation/InsertLine2}' : '{InsertLine2}'
+      const insertLine3Translation = document.querySelector('[data-co="Translation/InsertLine3"').value
+      const insertLine3FieldId = hasTranslation && insertLine3Translation ? '{Translation/InsertLine3}' : '{InsertLine3}'
+
+      return {
+        '-auto-generated-title': ['MADE Ins 1L 2L 3L', '||', language, '|', insertLine1FieldId, '|', insertLine2FieldId, '|', insertLine3FieldId],
+        'ram-title': [insertLine1FieldId, '|', insertLine2FieldId, '|', insertLine3FieldId],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Show / hide playout duration panel dependent on automatic playout
+      const insertVariantOptions = document.querySelectorAll('[data-co="InsertVariantIndex"]')
+      insertVariantOptions.forEach((option) => option.addEventListener('click', (event) => {
+        const insertVariantName = option.parentNode.querySelector('span').innerHTML
+        divMapping[insertVariantName].forEach((divConfig) => {
+          const elements = document.querySelectorAll(divConfig.query)
+          elements.forEach((element) => {
+            element.dataset.visible = divConfig.visible
+            element.parentNode.appendChild(element)
+          })
+        })
+      }))
+
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="InsertVariantIndex"]:checked').click()
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="MADE Header Image">
+    <span class="text-white">Ins 1L 2L 3L</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="3" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="1">German</option>
+          <option value="2">Spanish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Insert variant -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Variant</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="InsertVariantIndex" type="radio" value="0" name="insert-variant">
+            <span>1 Line</span>
+          </label>
+
+          <label>
+            <input data-co="InsertVariantIndex" type="radio" value="1" name="insert-variant">
+            <span>2 Lines</span>
+          </label>
+
+          <label>
+            <input data-co="InsertVariantIndex" type="radio" value="2" name="insert-variant">
+            <span>3 Lines</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div class="field-group" id="direction-switch">
+      <div class="grid grid-cols-1 gap-2">
+        <div data-name="Line1">
+          <label class="dw-label__input">Line 1</label>
+          <input type="text" class="form-input font-large" data-co="InsertLine1">
+        </div>
+        <div data-name="Line2">
+          <label class="dw-label__input">Line 2</label>
+          <input type="text" class="form-input font-large" data-co="InsertLine2">
+        </div>
+        <div data-name="Line3">
+          <label class="dw-label__input">Line 3</label>
+          <input type="text" class="form-input font-large" data-co="InsertLine3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <div class="grid grid-cols-1 gap-2">
+      <div data-name="Line1">
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertLine1">
+      </div>
+      <div data-name="Line2">
+        <label class="dw-label__input">Line 2</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertLine2">
+      </div>
+      <div data-name="Line3">
+        <label class="dw-label__input">Line 3</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertLine3">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAAFAR TALK - Text Quote</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../Sources/JS/jafa-colors.js"></script>
+  <script>
+    window.generateAutoTitles = () => {
+      const languageSelector = document.querySelector('#LanguageIndex')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const headline = '{Headline}'
+      const subline = '{Subline}'
+      return {
+        '-auto-generated-title': ['JAFA FS Text Quote', '||', language, '|', headline, '|', subline],
+        'ram-title': [headline, '|', subline],
+        'ram-continue-points': 0
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/images/Header.png" alt="DW JAFA Header image">
+    <span class="text-gray-15">FS Text Quote</span>
+  </div>
+  <!-- LANGUAGE -->
+  <div class="flex flex-row flex-wrap bg-gray-01">
+
+    <div class="form-input-chips-wrapper space-x-0">
+      <div class="dw-label__input">Language</div>
+      <select id="LanguageIndex" class="dw-dropdown">
+        <option data-rtl data-translation>Arabic</option>
+      </select>
+    </div>
+
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">BG Density</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="BgDensity" type="radio" value="0" name="BGTransparency">
+            <span>Off</span>
+          </label>
+
+          <label>
+            <input data-co="BgDensity" type="radio" value="1" name="BGTransparency">
+            <span>15%</span>
+          </label>
+
+          <label>
+            <input data-co="BgDensity" type="radio" value="2" name="BGTransparency">
+            <span>30%</span>
+          </label>
+
+          <label>
+            <input data-co="BgDensity" type="radio" value="3" name="BGTransparency">
+            <span>50%</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div id="direction-switch" class="dw-content dw-direction-rtl">
+    <div class="field-group">
+      <div class="grid grid-cols-1 gap-2 flex-1">
+        <div>
+          <label class="dw-label__input">Headline</label>
+          <input type="text" class="form-input font-large" data-co="Headline">
+        </div>
+        <div>
+          <label class="dw-label__input">Subline</label>
+          <input type="text" class="form-input font-large" data-co="Subline">
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="dw-label__input">Text</label>
+      <textarea data-co="Quote" class="dw-textarea font-large" data-max-rows="6" rows="6"></textarea>
+    </div>
+    <div class="field-group">
+      <label class="dw-label__input">Source</label>
+      <input type="text" class="form-input font-large" data-co="Source">
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

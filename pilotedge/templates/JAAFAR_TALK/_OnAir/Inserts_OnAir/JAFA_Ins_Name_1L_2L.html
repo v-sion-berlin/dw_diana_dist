@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaafar Talk - Ins Name 1L 2L</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script>
+    /* global Event */
+    window.generateAutoTitles = () => {
+      const hasTranslation = true
+      const translationInsertsLine1 = document.querySelector('[data-co="Translation/InsertLine1"').value
+      const insertLine1FieldId = hasTranslation && translationInsertsLine1 ? '{Translation/InsertLine1}' : '{InsertLine1}'
+      const translationInsertsLine2 = document.querySelector('[data-co="Translation/InsertLine2"').value
+      const insertLine2FieldId = hasTranslation && translationInsertsLine2 ? '{Translation/InsertLine2}' : '{InsertLine2}'
+
+      const selectedVariant = document.querySelector('[data-co="InsertVariantIndex"]:checked').value
+      let autotitle
+      let ramtitle
+      switch (selectedVariant) {
+        case '0':
+          ramtitle = [insertLine1FieldId]
+          autotitle = ['JAFA Ins Name 1L 2L', '||', insertLine1FieldId]
+          break
+        case '1':
+          ramtitle = [insertLine1FieldId, '|', insertLine2FieldId]
+          autotitle = ['JAFA Ins Name 1L 2L', '||', insertLine1FieldId, '|', insertLine2FieldId]
+          break
+      }
+
+      return {
+        '-auto-generated-title': autotitle,
+        'ram-title': ramtitle,
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const insertsLineCountOptions = document.querySelectorAll('[data-co="InsertVariantIndex"]')
+
+      insertsLineCountOptions.forEach((option) => option.addEventListener('click', (event) => {
+        document.querySelectorAll('[name="Line2"]').forEach((line) => {
+          line.dataset.visible = ((event.target.value === '1') || (event.target.value === '3'))
+        })
+      }))
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="InsertVariantIndex"]:checked').dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="JAFA Header Image">
+    <span class="text-gray-15">Ins Name 1L 2L</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown">
+          <option translation>Arabic</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Insert variant -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Variant</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="InsertVariantIndex" type="radio" value="0" name="inserts-line-count">
+            <span>1 Line</span>
+          </label>
+
+          <label>
+            <input data-co="InsertVariantIndex" type="radio" value="1" name="inserts-line-count">
+            <span>2 Lines</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content dw-direction-rtl">
+    <div class="field-group">
+      <div class="grid grid-cols-1 gap-2">
+        <div>
+          <label class="dw-label__input">Line 1</label>
+          <input type="text" class="form-input font-large" data-co="InsertLine1">
+        </div>
+        <div name="Line2">
+          <label class="dw-label__input">Line 2</label>
+          <input type="text" class="form-input font-large" data-co="InsertLine2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <div class="grid grid-cols-1 gap-2">
+      <div>
+        <label class="dw-label__input">Line 1</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertLine1">
+      </div>
+      <div name="Line2">
+        <label class="dw-label__input">Line 2</label>
+        <input type="text" class="form-input font-large" data-co="Translation/InsertLine2">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

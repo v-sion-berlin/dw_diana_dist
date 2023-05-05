@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt Zukunft - Ins Online</title>
+  <!-- Default includes -->
+  <link href="../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../framework/js/nlw.js"></script>
+  <script src="../Sources/JS/przu-nlw.js"></script>
+  <script>
+    /* global Event */
+    /* global Option */
+    /* global NLW_DATA, NLW_PROPERTIES */
+
+    let iconSelector, iconSelectorWXL, iconSelectorWXL2
+    let language
+    let showChangeOnAir
+    let selectedOnlineVariant
+
+    window.generateAutoTitles = () => {
+      const title = ['PRZU Ins Online v0_01', '||', language]
+      const appendix = []
+      for (let i = 0; i <= selectedOnlineVariant; i++) {
+        appendix.push('|')
+        const componentString = '{OnlineLine1' + (i === 0 ? '' : 'WXL' + (i === 1 ? '' : '2')) + '}'
+        appendix.push(componentString)
+      }
+      return {
+        '-auto-generated-title': title.concat(appendix),
+        'ram-title': appendix.slice(1),
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      showChangeOnAir = document.querySelectorAll('[data-co="OnlineVariantIndex"]')
+      iconSelector = document.querySelector('[data-co="OnlineIconIndex"]')
+
+      const SocialMediaLine1 = document.querySelector('[data-co="OnlineLine1"]')
+      iconSelector.addEventListener('change', (event) => {
+        if (event.detail !== 'dw.js') {
+          SocialMediaLine1.value = iconSelector.options[iconSelector.selectedIndex].dataset.url || ''
+          SocialMediaLine1.dispatchEvent(new Event('input'))
+        }
+      })
+
+      iconSelectorWXL = document.querySelector('[data-co="OnlineIconIndexWXL"]')
+      const SocialMediaLine1WXL = document.querySelector('[data-co="OnlineLine1WXL"]')
+      iconSelectorWXL.addEventListener('change', (event) => {
+        if (event.detail !== 'dw.js') {
+          SocialMediaLine1WXL.value = iconSelectorWXL.options[iconSelectorWXL.selectedIndex].dataset.url || ''
+          SocialMediaLine1WXL.dispatchEvent(new Event('input'))
+        }
+      })
+
+      iconSelectorWXL2 = document.querySelector('[data-co="OnlineIconIndexWXL2"]')
+      const SocialMediaLine1WXL2 = document.querySelector('[data-co="OnlineLine1WXL2"]')
+      iconSelectorWXL2.addEventListener('change', (event) => {
+        if (event.detail !== 'dw.js') {
+          SocialMediaLine1WXL2.value = iconSelectorWXL.options[iconSelectorWXL2.selectedIndex].dataset.url || ''
+          SocialMediaLine1WXL2.dispatchEvent(new Event('input'))
+        }
+      })
+
+      showChangeOnAir.forEach(option => option.addEventListener('click', (event) => {
+        // selectedOnlineVariant
+        selectedOnlineVariant = event.target.value
+        document.querySelector('#ChangePanel').dataset.visible = selectedOnlineVariant !== '0'
+        document.querySelector('#ChangePanel2').dataset.visible = selectedOnlineVariant === '2'
+      }))
+
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      languageSelector.addEventListener('change', (event) => {
+        language = languageSelector[languageSelector.selectedIndex].text
+        const onlineIdxArray = {
+          Facebook: 1,
+          Twitter: 2,
+          Web: 3,
+          YouTube: 4
+        }
+
+        const iconSelectorValue = iconSelector.value
+        const iconSelectorWXLValue = iconSelectorWXL.value
+        const iconSelectorWXL2Value = iconSelectorWXL.value
+
+        while (iconSelector.length > 1) {
+          iconSelector.remove(iconSelector.length - 1)
+          iconSelectorWXL.remove(iconSelectorWXL.length - 1)
+          iconSelectorWXL2.remove(iconSelectorWXL2.length - 1)
+        }
+
+        const emptyOption = new Option()
+        emptyOption.value = 0
+        emptyOption.label = 'No Icon'
+        emptyOption.dataset.url = ''
+        iconSelector.add(emptyOption)
+        iconSelectorWXL.add(emptyOption.cloneNode(true))
+        iconSelectorWXL2.add(emptyOption.cloneNode(true))
+
+        const nlwUrls = NLW_DATA[language][NLW_PROPERTIES.ONLINE].split('; ')
+        nlwUrls.forEach((nlwUrl, idx) => {
+          let [icon, url] = nlwUrl.split(': ')
+          icon = icon.trim()
+          url = url.trim()
+          const newOption = new Option(icon)
+          newOption.value = onlineIdxArray[icon] ? onlineIdxArray[icon] : 0
+          newOption.dataset.url = url
+          iconSelector.add(newOption)
+          iconSelectorWXL.add(newOption.cloneNode(true))
+          iconSelectorWXL2.add(newOption.cloneNode(true))
+        })
+
+        iconSelector.value = iconSelectorValue
+        iconSelector.dispatchEvent(new Event('change'))
+        iconSelectorWXL.value = iconSelectorWXLValue
+        iconSelectorWXL.dispatchEvent(new Event('change'))
+        iconSelectorWXL2.value = iconSelectorWXL2Value
+        iconSelectorWXL2.dispatchEvent(new Event('change'))
+      })
+
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+    })
+
+    document.addEventListener('vizPayloadReady', function () {
+      document.querySelector('[data-co="OnlineVariantIndex"]:checked').dispatchEvent(new Event('click'))
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../Sources/Images/Header.png" alt="PRZU Header Image">
+    <span class="text-white">Ins Online</span>
+  </div>
+
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="7" data-rtl data-translation>Arabic</option>
+          <option value="1" data-translation>Bengali</option>
+          <option value="2">Brazilian</option>
+          <option value="8" data-rtl data-translation>Dari</option>
+          <option value="0">English</option>
+          <option value="3">German</option>
+          <option value="4" data-translation>Hindi</option>
+          <option value="5">Indonesian</option>
+          <option value="9" data-rtl data-translation>Pashto</option>
+          <option value="6">Spanish</option>
+          <option value="10" data-rtl data-translation>Urdu</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Short/Long Version -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Insert Length</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="OnlineLengthIndex" type="radio" value="0" name="insert-length" />
+            <span>Short</span>
+          </label>
+
+          <label>
+            <input data-co="OnlineLengthIndex" type="radio" value="1" name="insert-length" />
+            <span>Long</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change on air -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Number of Changes OnAir</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="OnlineVariantIndex" type="radio" value="0" name="dummy-inserts-line-count" />
+            <span>None</span>
+          </label>
+
+          <label>
+            <input data-co="OnlineVariantIndex" type="radio" value="1" name="dummy-inserts-line-count" />
+            <span>1</span>
+          </label>
+
+          <label>
+            <input data-co="OnlineVariantIndex" type="radio" value="2" name="dummy-inserts-line-count" />
+            <span>2</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div id="direction-switch">
+      <div class="field-group">
+        <div class="field-group__label">Panel 1</div>
+        <div class="flex sm:flex-row flex-col gap-2">
+          <div class="sm:w-[155px]">
+            <label class="dw-label__input">Icon</label>
+            <select class="dw-dropdown" data-co="OnlineIconIndex">
+              <option value="-1" selected disabled>- Please select -</option>
+              <option value="0">No Icon</option>
+              <option value="1">Facebook</option>
+              <option value="2">Twitter</option>
+              <option value="3">Web</option>
+              <option value="4">YouTube</option>
+            </select>
+          </div>
+          <div class="flex-1">
+            <label class="dw-label__input">Web address</label>
+            <input type="text" class="form-input dw-direction-ltr" data-co="OnlineLine1">
+          </div>
+        </div>
+      </div>
+
+      <div id="ChangePanel" class="field-group bg-gray-01">
+        <div class="field-group__label">Panel 2</div>
+        <div class="flex sm:flex-row flex-col gap-2">
+          <div class="sm:w-[155px]">
+            <label class="dw-label__input">Icon</label>
+            <select class="dw-dropdown" data-co="OnlineIconIndexWXL">
+              <option value="-1" selected disabled>- Please select -</option>
+              <option value="0">No Icon</option>
+              <option value="1">Facebook</option>
+              <option value="2">Twitter</option>
+              <option value="3">Web</option>
+              <option value="4">YouTube</option>
+            </select>
+          </div>
+          <div class="flex-1">
+            <label class="dw-label__input">Web address</label>
+            <input type="text" class="form-input dw-direction-ltr" data-co="OnlineLine1WXL">
+          </div>
+        </div>
+      </div>
+
+      <div id="ChangePanel2" class="field-group">
+        <div class="field-group__label">Panel 3</div>
+        <div class="flex sm:flex-row flex-col gap-2">
+          <div class="sm:w-[155px]">
+            <label class="dw-label__input">Icon</label>
+            <select class="dw-dropdown" data-co="OnlineIconIndexWXL2">
+              <option value="-1" selected disabled>- Please select -</option>
+              <option value="0">No Icon</option>
+              <option value="1">Facebook</option>
+              <option value="2">Twitter</option>
+              <option value="3">Web</option>
+              <option value="4">YouTube</option>
+            </select>
+          </div>
+          <div class="flex-1">
+            <label class="dw-label__input">Web address</label>
+            <input type="text" class="form-input dw-direction-ltr" data-co="OnlineLine1WXL2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

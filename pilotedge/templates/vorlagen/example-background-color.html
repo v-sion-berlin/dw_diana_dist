@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Color example</title>
+    <!-- Default includes -->
+    <link
+      href="../../framework/images/favicon.png"
+      rel="icon"
+      type="image/png"
+    />
+    <script src="../../framework/js/utils/prism.js"></script>
+    <link href="../../framework/css/prism.css" rel="stylesheet" />
+    <link href="../../framework/css/tailwind.css" rel="stylesheet" />
+    <script src="../../framework/js/utils/dw.js" type="module"></script>
+    <script src="../../framework/js/payloadhosting.js"></script>
+    <script src="../../framework/js/utils/viz.js" type="module"></script>
+    <script src="../../framework/js/nlw.js"></script>
+  </head>
+
+  <body>
+    <div class="dw-header">
+      <span>Background Color examples</span>
+    </div>
+
+    <span class="dw-alert dw-alert--info w-full">
+      Hier wird die Verwendung von Hintergrundfarben auf Container demonstriert.
+      Grundsätzlich kann die class <strong>bg-{color-value}</strong> auf allen
+      Container platziertw werden, sollte aber, um Abstände zu vermeiden, auf
+      dem äußersten div mit class <strong>field-group</strong> gesetzt
+      werden.<br />
+      <i>Ein Code-Beispiel findet sich ganz unten.</i>
+    </span>
+
+    <div class="field-group">
+      <div class="field-group__label">Background bg-blue</div>
+    </div>
+    <div class="field-group bg-blue">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Background bg-blue-light</div>
+    </div>
+    <div class="field-group bg-blue-light">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Background bg-blue-medium</div>
+    </div>
+    <div class="field-group bg-blue-medium">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-01</div>
+    </div>
+    <div class="field-group bg-gray-01">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-02</div>
+    </div>
+    <div class="field-group bg-gray-02">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-03</div>
+    </div>
+    <div class="field-group bg-gray-03">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-04</div>
+    </div>
+    <div class="field-group bg-gray-04">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-05</div>
+    </div>
+    <div class="field-group bg-gray-05">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-06</div>
+    </div>
+    <div class="field-group bg-gray-06">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-07</div>
+    </div>
+    <div class="field-group bg-gray-07">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-08</div>
+    </div>
+    <div class="field-group bg-gray-08">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-09</div>
+    </div>
+    <div class="field-group bg-gray-09">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-10</div>
+    </div>
+    <div class="field-group bg-gray-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-11</div>
+    </div>
+    <div class="field-group bg-gray-11">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-12</div>
+    </div>
+    <div class="field-group bg-gray-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-13</div>
+    </div>
+    <div class="field-group bg-gray-13">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-14</div>
+    </div>
+    <div class="field-group bg-gray-14">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-15</div>
+    </div>
+    <div class="field-group bg-gray-15">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-gray-16</div>
+    </div>
+    <div class="field-group bg-gray-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-green</div>
+    </div>
+    <div class="field-group bg-green">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-orange</div>
+    </div>
+    <div class="field-group bg-orange">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-orange-light</div>
+    </div>
+    <div class="field-group bg-orange-light">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-orange-medium</div>
+    </div>
+    <div class="field-group bg-orange-medium">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-red</div>
+    </div>
+    <div class="field-group bg-red">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Background bg-black text-white</div>
+    </div>
+
+    <div class="field-group bg-black">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label text-white">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input text-white"
+              >Highlight 7th Place</label
+            >
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">
+        Example code with Parameters bg-black text-white
+      </div>
+    </div>
+    <div class="dw-code">
+      <pre class="language-html"><code><!-- <div class="field-group bg-black">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div>
+          <label class="field-group__label text-white">Label</label>
+          <div class="dw-flexGroup h-7 items-center">
+            <input
+              type="checkbox"
+              class="form-input dw-checkbox"
+              value="Tabelle einfärben"
+              title="7. Platz einfärben"
+            />
+            <label class="dw-label__input text-white">Highlight 7th Place</label>
+          </div>
+        </div>
+        <div class="dw-dnd-wrapper bg-gray-01">
+          <div class="dw-dnd__section">
+            <div class="dw-dnd">
+              <div class="dw-dnd__cell dw-dnd__handle-wrap">
+                <span class="dw-dnd__handle"></span>
+              </div>
+              <div class="dw-dnd__cell flex-1">
+                <input type="text" class="form-input" value="Lorem ipsum" />
+              </div>
+              <div class="dw-dnd__cell flex-auto">
+                <select class="dw-dropdown font-bold text-xl" tabindex="2">
+                  <option value="" disabled selected>...</option>
+                  <option>&uarr;</option>
+                  <option>&darr;</option>
+                  <option>&middot;&middot;&middot;</option>
+                </select>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="10"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+              <div class="dw-dnd__cell dw_md:w-[90px] w-[65px]">
+                <div class="dw-quantity">
+                  <input
+                    type="number"
+                    class="form-input dw-input-number"
+                    placeholder=""
+                    value="20"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> --></code></pre>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To the Point - Ins Quote</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+
+  <script>
+    window.generateAutoTitles = () => {
+      const languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('data-translation')
+      const translationName = document.querySelector('[data-co="Translation/QuoteName"').value
+      const nameFieldId = hasTranslation && translationName ? '{Translation/QuoteName}' : '{QuoteName}'
+      const translationFunction = document.querySelector('[data-co="Translation/QuoteFunction"').value
+      const functionFieldId = hasTranslation && translationFunction ? '{Translation/QuoteFunction}' : '{QuoteFunction}'
+      return {
+        '-auto-generated-title': ['TOPO Ins Quote', '||', language, '|', nameFieldId, '|', functionFieldId],
+        'ram-title': [nameFieldId, '|', functionFieldId],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/images/Header.png" alt="TOPO Header Image">
+    <span class="text-white">Ins Quote</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="4" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="1">German</option>
+          <option value="3" data-translation>Belarusian</option>
+          <option value="2">Spanish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Position -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Position</div>
+        <div class="form-input-chips">
+          <label>
+            <input type="radio" value="0" name="QuoteVariant" data-co="QuoteVariantIndex">
+            <span>Left</span>
+          </label>
+          <label>
+            <input type="radio" value="1" name="QuoteVariant" data-co="QuoteVariantIndex">
+            <span>Right</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div id="direction-switch" class="field-group">
+      <div class="grid gap-2">
+        <div>
+          <label class="dw-label__input">Quote</label>
+          <span class="dw-alert">Please press Enter for a linebreak and to prevent overflow on the right.<br>Quotation marks will be added automatically.</span>
+          <textarea class="dw-textarea font-large" data-co="QuoteText" rows="6" cols="30" data-max-rows="6" data-word-length-warning="25" data-word-length-error="30"></textarea>
+          <span id="overflow-warning" class="dw-alert dw-alert--error">Text contains at least one word, that is too long and should thus be split to prevent overflow on the right.</span>
+        </div>
+
+        <div>
+          <label class="dw-label__input">Quotee Name</label>
+          <input type="text" class="form-input font-large" data-co="QuoteName">
+        </div>
+
+        <div>
+          <label class="dw-label__input">Quotee Function</label>
+          <input type="text" class="form-input font-large" data-co="QuoteFunction">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <div class="grid gap-2">
+      <div>
+        <label class="dw-label__input">Quotee Name</label>
+        <input type="text" class="form-input" data-co="Translation/QuoteName">
+      </div>
+      <div>
+        <label class="dw-label__input">Quotee Function</label>
+        <input type="text" class="form-input" data-co="Translation/QuoteFunction">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DW News - FS TOP</title>
+  <!-- Default includes -->
+  <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
+  <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
+  <script src="../../../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../../../framework/js/payloadhosting.js"></script>
+  <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/nlw.js"></script>
+  <script src="../../Sources/JS/news-nlw.js"></script>
+  <script>
+    /* global Event, Option */
+    /* global NLW_DATA_SHOWS */
+    /* global vizrt */
+
+    let languageSelector
+    let showSelect
+
+    window.generateAutoTitles = () => {
+      const language = languageSelector[languageSelector.selectedIndex].text
+      const show = showSelect[showSelect.selectedIndex].text
+      const hasTranslation = languageSelector[languageSelector.selectedIndex].hasAttribute('data-translation')
+      const translationTopLine = document.querySelector('[data-co="Translation/TopLine"').value
+      const topLineFieldId = hasTranslation && translationTopLine ? '{Translation/TopLine}' : '{TopLine}'
+      const color = document.querySelector('[name="ColorIndex"]:checked').nextElementSibling.textContent
+      return {
+        '-auto-generated-title': ['TOP v0_01', '||', language, '|', show, '|', color, '|', topLineFieldId],
+        'ram-title': ['TOP v0_01', '|', topLineFieldId],
+        'ram-continue-points': 0
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      showSelect = document.querySelector('[data-co="ShowIndex"]')
+      languageSelector = document.querySelector('[data-co="LanguageIndex"]')
+      languageSelector.addEventListener('change', (event) => {
+        const language = languageSelector[languageSelector.selectedIndex].text
+        const shows = NLW_DATA_SHOWS[language]
+        const coShow = vizrt.payloadhosting.getFieldText('ShowIndex')
+
+        while (showSelect.length > 0) {
+          showSelect.remove(showSelect.length - 1)
+        }
+
+        shows.forEach((show, i) => {
+          if (i > 0) {
+            if (show !== '') {
+              const option = new Option(show, i - 1)
+              showSelect.add(option)
+              if (i - 1 === Number(coShow)) {
+                showSelect.value = coShow
+              }
+            }
+          }
+        })
+        showSelect.dispatchEvent(new Event('input'))
+      })
+
+      // set ltr / rtl dependent on selected language
+      window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
+      window.initializeTranslationPanel('[data-co="LanguageIndex"]', '#translation-panel')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="dw-header dw-header--branded">
+    <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image">
+    <span class="text-gray-15">FS TOP</span>
+  </div>
+  <div class="flex flex-row flex-wrap bg-gray-01">
+    <!-- Language -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Language</div>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="9" data-rtl data-translation>Arabic</option>
+          <option value="0">English</option>
+          <option value="2">German</option>
+          <option value="6">Spanish</option>
+          <option value="5" data-translation>Russian</option>
+          <option value="7">Turkish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Show -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <div class="dw-label__input">Show</div>
+        <select class="dw-dropdown" data-co="ShowIndex">
+          <option value="">(none)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Color -->
+    <div class="form-input-chips-wrapper">
+      <div>
+        <label class="dw-label__section">Color</label>
+        <div class="form-input-chips">
+          <label>
+            <input data-co="ColorIndex" type="radio" value="0" name="ColorIndex">
+            <span>Blue</span>
+          </label>
+
+          <label>
+            <input data-co="ColorIndex" type="radio" value="1" name="ColorIndex">
+            <span>Red</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="dw-content">
+    <div id="direction-switch">
+      <div class="field-group">
+        <span class="dw-alert dw-alert--info">
+          <span class="text-orange font-bold">Info:</span>
+          TOP insert also displays video clip!
+        </span>
+      </div>
+
+      <div class="field-group">
+        <div id="ContentLine1">
+          <label class="dw-label__input">TOP Headline</label>
+          <input type="text" class="form-input font-large" data-co="TopLine">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSLATION -->
+  <div class="field-group" id="translation-panel">
+    <label class="field-group__label">Translation</label>
+    <span class="dw-alert dw-alert--info mb-4">Please provide a translation for the operator</span>
+
+    <label class="dw-label__input">TOP Headline</label>
+    <input type="text" data-co="Translation/TopLine" class="form-input">
+  </div>
+
+  <!-- FOOTER -->
+  <div class="dw-footer">
+    <span>Contact: echtzeitgrafik@dw.com</span>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Test Template</title>
+    <!-- Default includes -->
+    <link href="../../framework/images/favicon.png" rel="icon" type="image/png">
+    <link href="../../framework/css/tailwind.css" rel="stylesheet">
+    <script src="../../framework/js/utils/dw.js" type="module"></script>
+    <script src="../../framework/js/payloadhosting.js"></script>
+    <script src="../../framework/js/utils/viz.js" type="module"></script>
+    <script src="../../framework/js/nlw.js"></script>
+
+    <!-- util functions -->
+    <script src="framework/js/font_test.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="dw-header">
+      <span>Font Test</span>
+      <span></span>
+    </div>
+
+    <div class="field-group bg-gray-01">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div>
+          <div class="dw-label__input">Language</div>
+          <select data-co="language" class="dw-dropdown">
+
+          </select>
+        </div>
+
+        <div>
+          <div class="dw-label__input">Fonts</div>
+          <select data-co="-concept-variant-choice/variant" class="dw-dropdown">
+          </select>
+        </div>
+
+        <div>
+          <div class="dw-label__input">Input method</div>
+          <select data-co="text-input-method" class="dw-dropdown">
+            <option value="Copy & Paste">Copy & Paste</option>
+            <option value="Manually">Manually</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="direction-switch">
+      <div class="field-group">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div id="Numbers">
+            <label class="dw-label__input" for="textarea-subline-text">Numbers</label>
+            <textarea id="textarea-subline-text" class="dw-textarea" data-co="numbers" rows="6" data-max-rows="6"></textarea>
+          </div>
+
+          <div id="SpecialCharacters">
+            <label class="dw-label__input" for="textarea-subline-text">Special Characters</label>
+            <textarea id="textarea-subline-text" class="dw-textarea" data-co="special-characters" rows="6" data-max-rows="6"></textarea>
+          </div>
+
+          <div id="Text">
+            <label class="dw-label__input" for="textarea-subline-text">Text</label>
+            <textarea id="textarea-subline-text" class="dw-textarea" data-co="text" rows="6" data-max-rows="6"></textarea>
+          </div>
+
+          <div id="TextLowercase">
+            <label class="dw-label__input" for="textarea-subline-text">Lowercase text (optional)</label>
+            <textarea id="textarea-subline-text" class="dw-textarea" data-co="text-lowercase" rows="6" data-max-rows="6"></textarea>
+          </div>
+
+          <div id="TextUppercase">
+            <label class="dw-label__input" for="textarea-subline-text">Uppercase text (optional)</label>
+            <textarea id="textarea-subline-text" class="dw-textarea" data-co="text-uppercase" rows="6" data-max-rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
