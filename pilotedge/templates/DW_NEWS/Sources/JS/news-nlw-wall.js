@@ -63,7 +63,7 @@ const settingSelectChanged = (event, areaSelect, nlwData) => {
   const Setting = event.target.value
   if (event.detail !== 'dw.js' && Setting) {
     // Clear area select
-    while (areaSelect.length > 1) {
+    while (areaSelect.length > 0) {
       areaSelect.remove(areaSelect.length - 1)
     }
 

@@ -75,6 +75,11 @@ class Draggable {
                     coElements[j].dispatchEvent(new Event('change'))
                     coElementsNext[j].dispatchEvent(new Event('change'))
                   }
+
+                  if (coElements[j].classList.contains('dw-checkbox')) {
+                    coElements[j].dispatchEvent(new Event('click'))
+                    coElementsNext[j].dispatchEvent(new Event('click'))
+                  }
                 }
               }
             }

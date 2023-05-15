@@ -11,7 +11,13 @@
   <script src="../../../../framework/js/utils/dw.js" type="module"></script>
   <script src="../../../../framework/js/payloadhosting.js"></script>
   <script src="../../../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../../../framework/js/utils/vizone.js"></script>
   <script>
+    /* global CustomEvent */
+    let loopCheckbox
+    let blendCheckbox
+    let showSourceCheckboxes
+
     window.generateAutoTitles = () => {
       return {
         '-auto-generated-title': ['NEWS FS Image Slide Show v0_01'],
@@ -21,9 +27,13 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+      loopCheckbox = document.querySelector('[data-co="Dummy/Loop"]')
+      blendCheckbox = document.querySelector('[data-co="Dummy/Blend"]')
+      showSourceCheckboxes = document.querySelectorAll('[data-co^="Dummy/Image"][data-co$="ShowSource"]')
+
       const siteIdentityInput = document.querySelector('#siteIdentity')
       const siteIdentityButton = document.querySelector('#button_fetchImagesBySiteIdentity')
-      const siteIdentityButtonAlert = siteIdentityButton.nextElementSibling
+      const siteIdentityButtonAlert = document.querySelector('#siteIdentityButtonAlert')
       siteIdentityButton.addEventListener('click', (event) => {
         siteIdentityButtonAlert.innerHTML = 'Loading images...'
         console.log(siteIdentityInput.value)
@@ -32,29 +42,31 @@
         }, 5000)
       })
 
-      document.querySelectorAll('[data-co="Dummy/ZoomVariant"]').forEach((option) => {
-        console.log(option)
-        option.addEventListener('change', (event) => {
-          const currentImage = event.target.parentNode.parentNode.parentNode.parentNode.id
-          event.target.parentNode.parentNode.parentNode.querySelectorAll('[name="' + currentImage + 'Zoom"]').forEach((chip) => {
-            chip.parentNode.parentNode.parentNode.dataset.visible = event.target.value !== '0'
-            if (chip.value === '0') {
-              chip.click()
-            }
-            switch (event.target.value) {
-              case '0':
-                chip.parentNode.dataset.visible = false
-                break
-              case '1':
-                chip.parentNode.dataset.visible = (Number(chip.value) >= 0)
-                break
-              case '2':
-                chip.parentNode.dataset.visible = (Number(chip.value) <= 0)
-                break
-            }
-          })
+      /** Current blue fade checkbox clicked event handler **/
+      loopCheckbox.addEventListener('click', (event) => {
+        window.COElement('Loop').value = event.target.checked ? 1 : 0
+      })
+
+      /** Current blue fade checkbox clicked event handler **/
+      blendCheckbox.addEventListener('click', (event) => {
+        window.COElement('Blend').value = event.target.checked ? 1 : 0
+      })
+
+      /** Show / Hide Image Sources **/
+      showSourceCheckboxes.forEach((checkbox) => {
+        const imageShowSourceCo = checkbox.dataset.co.replace('Dummy/', '')
+        const imageSourceCo = imageShowSourceCo.replace('Show', '')
+        checkbox.addEventListener('click', (event) => {
+          document.querySelector(`[data-co="${imageSourceCo}"]`).dataset.visible = event.target.checked
+          window.COElement(imageShowSourceCo).value = event.target.checked ? 1 : 0
         })
       })
+    })
+
+    document.addEventListener('vizPayloadReady', () => {
+      loopCheckbox.dispatchEvent(new CustomEvent('input', { detail: 'vizPayloadReady' }))
+      blendCheckbox.dispatchEvent(new CustomEvent('input', { detail: 'vizPayloadReady' }))
+      showSourceCheckboxes.forEach((checkbox) => checkbox.dispatchEvent(new CustomEvent('click', { detail: 'vizPayloadReady' })))
     })
   </script>
 </head>
@@ -71,13 +83,18 @@
     <div class="form-input-chips-wrapper">
       <div>
         <div class="dw-label__input">Language</div>
-        <select class="dw-dropdown" data-co="LanguageIndexGlobalPreview">
-          <option value="9" data-rtl data-translation>Arabic</option>
-          <option value="0">English</option>
+        <select class="dw-dropdown" data-co="LanguageIndex">
+          <option value="9" data-rtl>Arabic</option>
+          <option value="0">Bengali</option>
+          <option value="1">English</option>
           <option value="2">German</option>
+          <option value="3">Hindi</option>
+          <option value="4">Kiswahili</option>
+          <option value="5">Russian</option>
           <option value="6">Spanish</option>
-          <option value="5" data-translation>Russian</option>
           <option value="7">Turkish</option>
+          <option value="8">Ukrainian</option>
+          <option value="10" data-rtl>Urdu</option>
         </select>
       </div>
     </div>
@@ -87,158 +104,661 @@
       <div>
         <label class="dw-label__input">Time per Image</label>
         <div class="dw-quantity">
-          <input data-co="TimePerImage" name="input-number-1" type="number" class="form-input dw-input-number" value="1" min="0" max="9999" data-scrubber />
+          <input data-co="TimePerImage" type="number" class="form-input dw-input-number" min="2.0" max="10.0" data-scrubber>
         </div>
       </div>
     </div>
 
-    <!-- Loop On/Off -->
+    <!-- Loop and Fade On/Off -->
     <div class="form-input-chips-wrapper">
       <div>
-        <label class="dw-label__section">Loop</label>
-        <input data-co="Loop" type="checkbox" class="form-input dw-checkbox">
+        <label class="dw-label__input">Enable</label>
+        <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+          <div>
+            <div class="dw-flexGroup">
+              <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Loop">
+              <label class="dw-label__input font-normal">Loop</label>
+            </div>
+            <input type="text" class="form-input hidden" data-co="Loop">
+          </div>
+          <div>
+            <div class="dw-flexGroup">
+              <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Blend">
+              <label class="dw-label__input font-normal">Fade</label>
+            </div>
+            <input type="text" class="form-input hidden" data-co="Blend">
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Fade On/Off -->
     <div class="form-input-chips-wrapper">
       <div>
-        <label class="dw-label__section">Fade</label>
-        <input data-co="Blend" type="checkbox" class="form-input dw-checkbox">
+        <label class="dw-label__input">Load images with Site/Container-ID</label>
+        <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+          <input type="text" class="form-input flex-1" id="siteIdentity">
+          <button class="dw-btn shrink" id="button_fetchImagesBySiteIdentity">Load</button>
+        </div>
+        <span class="dw-alert" id="siteIdentityButtonAlert">&nbsp;</span>
       </div>
     </div>
   </div>
 
   <!-- CONTENT -->
-  <div class="dw-content">
-    <div class="field-group flex flex-row flex-wrap gap-2">
-      <div>
-        <label class="dw-label__input">Site/Container-ID</label>
-        <input type="text" class="form-input" id="siteIdentity">
-      </div>
+  <div class="dw-content" id="direction-switch">
+    <div class="field-group">
+      <div class="field-group__label">Images</div>
 
-      <div>
-        <label class="dw-label__input"></label>
-        <button class="dw-btn" id="button_fetchImagesBySiteIdentity">Load images from VizOne</button>
-        <span class="dw-alert">&nbsp;</span>
-      </div>
-    </div>
-
-
-    <div class="field-group grid sm:grid-cols-2 grid-cols-1 gap-2">
-      <div class="bg-gray-01" id="Image0">
-        <div class="dw-imgSearch flex flex-wrap flex-row items-start" type="image" data-co="">
-          <div class="field-group__label">Image 0</div>
-          <div class="dw-alert mb-2">Size: 1920 x 1080px</div>
-          <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1 dw_md:mr-2">
-            <div class="dw-btn-wrap">
-              <button class="dw-btn dw-btnIcon select">
-                <span class="dw-btnSearch" title="Search">Search</span>
-              </button>
+      <div class="dw-dnd-wrapper">
+        <!-- Body -->
+        <div class="dw-dnd__section">
+          <!-- Row 1 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
             </div>
-            <div class="dw-btn-wrap">
-              <button class="dw-btn dw-btnIcon remove">
-                <span class="dw-btnDelete" title="Delete Image">Delete image</span>
-              </button>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
             </div>
-            <div class="dw-btn-wrap">
-              <div class="dw-imgThumb">
-                <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image1ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image1ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image1Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image2ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image2ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image2Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image3ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image3ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image3Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image4ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image4ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image4Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image5ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image5ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image5Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image6ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image6ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image6Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 7 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image7ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image7ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image7Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 8 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image8ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image8ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image8Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 9 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image9ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image9ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image9Source">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 10 -->
+          <div class="dw-dnd">
+            <!-- Drag handle -->
+            <div class="dw-dnd__cell dw-dnd__handle-wrap">
+              <span class="dw-dnd__handle"></span>
+            </div>
+
+            <div class="dw-dnd__cell dw_md:w-[40px] w-[35px]">
+              <input data-co="" type="text" class="form-input dw-direction-ltr" />
+            </div>
+
+            <div class="dw-dnd__cell w-[fit-content] flex-1">
+              <div class="grid gap-2">
+                <!-- Image control -->
+                <div class="dw-imgSearch flex flex-wrap flex-row items-start pb-0" type="image" data-co="">
+                  <div class="dw-imgRowItem w-full">
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Author filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <label class="dw-label__input">Date filter</label>
+                        <input type="text" class="form-input" />
+                      </div>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon select">
+                        <span class="dw-btnSearch" title="Search">Search</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <button class="dw-btn dw-btnIcon remove">
+                        <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                      </button>
+                    </div>
+                    <div class="dw-btn-wrap">
+                      <div class="dw-imgThumb">
+                        <img src="../../../../framework/images/DIANA_placeholder_standard_square.png" data-placeholder="../../../../framework/images/DIANA_placeholder_standard_square.png" alt="Thumb" width="35" height="35" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Source -->
+                <div>
+                  <div class="dw-label__input">Source</div>
+                  <div class="flex flex-row flex-wrap gap-2 items-center h-[35px]">
+                    <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/Image10ShowSource">
+                    <input type="text" class="hidden form-input" data-co="Image10ShowSource">
+                    <input type="text" class="flex-1 form-input" data-co="Image10Source">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <label class="dw-label__input">Source</label>
-          <input data-co="Image0Source" type="text" class="form-input" />
-        </div>
-
-        <div data-name="ZoomType">
-          <div>
-            <div class="dw-label__input">Zoom Variant</div>
-            <select class="dw-dropdown" data-co="Dummy/ZoomVariant">
-              <option value="0">NO ZOOM</option>
-              <option value="1">ZOOM IN</option>
-              <option value="2">ZOOM OUT</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="dw-label__section">Zoom Factor</label>
-          <div data-name="ZoomFactors" class="form-input-chips">
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="0" name="Image0Zoom" checked />
-              <span tabindex=0>0%</span>
-            </label>
-
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="-10" name="Image0Zoom" />
-              <span tabindex=0>-10%</span>
-            </label>
-
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="10" name="Image0Zoom" />
-              <span tabindex=0>10%</span>
-            </label>
-
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="-15" name="Image0Zoom" />
-              <span tabindex=0>-15%</span>
-            </label>
-
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="15" name="Image0Zoom" />
-              <span tabindex=0>15%</span>
-            </label>
-
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="-20" name="Image0Zoom" />
-              <span tabindex=0>-20%</span>
-            </label>
-
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="20" name="Image0Zoom" />
-              <span tabindex=0>20%</span>
-            </label>
-
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="-25" name="Image0Zoom" />
-              <span tabindex=0>-25%</span>
-            </label>
-
-            <label>
-              <input data-co="Image0Zoom" type="radio" value="25" name="Image0Zoom" />
-              <span tabindex=0>25%</span>
-            </label>
-          </div>
-        </div>
-
-        <div>
-          <label>
-            <span class="">Zoom Focus X</span>
-            <div class="dw-rangeWrap">
-              <input data-co="Image0PositionX" type="range" class="dw-inputRange" min="-100" max="100" />
-              <input type="text" class="form-input rangeValue" data-scrubber />
-            </div>
-        </div>
-
-        <div>
-          <label>
-            <span class="">Zoom Focus Y</span>
-            <div class="dw-rangeWrap">
-              <input data-co="Image0PositionY" type="range" class="dw-inputRange" min="-100" max="100" />
-              <input type="text" class="form-input rangeValue" data-scrubber />
-            </div>
-        </div>
       </div>
     </div>
-  </div>
 
-  <!-- FOOTER -->
-  <div class="dw-footer">
-    <span>Contact: echtzeitgrafik@dw.com</span>
-  </div>
+    <!-- FOOTER -->
+    <div class="dw-footer">
+      <span>Contact: echtzeitgrafik@dw.com</span>
+    </div>
 </body>
 
 </html>

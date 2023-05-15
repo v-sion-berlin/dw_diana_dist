@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DW News Wall - S3 Clip</title>
+  <title>DW News Wall S3 - Clip</title>
   <!-- Default includes -->
   <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
   <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
@@ -33,7 +33,7 @@
     let currentBlueAddCheckbox
     let currentBlueFadeCheckbox
     let clipLoopCheckbox
-    let clipMultiplePartsCheckbox
+    let clipSequenceCheckbox
 
     window.generateAutoTitles = () => {
       const nextTransitionType = nextTransitionTypeSelect[nextTransitionTypeSelect.selectedIndex].text
@@ -68,11 +68,14 @@
       currentBlueAddCheckbox = document.querySelector('[data-co="Dummy/CurrentBlueAdd"]')
       currentBlueFadeCheckbox = document.querySelector('[data-co="Dummy/CurrentBlueFade"]')
       clipLoopCheckbox = document.querySelector('[data-co="Dummy/ClipLoop"]')
-      clipMultiplePartsCheckbox = document.querySelector('[data-co="Dummy/ClipMultipleParts"]')
+      clipSequenceCheckbox = document.querySelector('[data-co="Dummy/ClipSequence"]')
 
       /** Add available settings to select **/
-      for (const setting of settings) {
-        settingsSelect.add(new Option(setting))
+      if (settings.length > 0) {
+        settingsSelect.remove(0)
+        for (const setting of settings) {
+          settingsSelect.add(new Option(setting))
+        }
       }
 
       /** Settings changed event handler **/
@@ -86,6 +89,9 @@
         Area = event.target.value
         areaSelectChanged(event, nlwData)
         currentTransitionTypeSelect.dispatchEvent(new Event('input'))
+        if (event.detail !== 'dw.js' && event.detail !== 'vizPayloadReady') {
+          vizrt.payloadhosting.setFieldXml('ClipPath', 'IMAGE*/noname')
+        }
       })
 
       /** Next transition changed event handler **/
@@ -93,7 +99,7 @@
         if (event.target.value === '2' && contentWithAlphaCheckbox.checked) {
           contentWithAlphaCheckbox.click()
         }
-        contentWithAlphaCheckbox.disabled = event.target.value === '2'
+        contentWithAlphaCheckbox.parentElement.parentElement.dataset.visible = event.target.value !== '2'
       })
 
       /** Content with alpha checkbox clicked event handler **/
@@ -108,8 +114,8 @@
           window.COElement('CurrentTransitionType').value = 0
         }
 
-        currentImageWhiteCheckbox.disabled = !event.target.checked
-        currentTransitionTypeSelect.disabled = event.target.checked
+        currentImageWhiteCheckbox.parentElement.parentElement.dataset.visible = event.target.checked
+        currentTransitionTypeSelect.parentElement.dataset.visible = !event.target.checked
       })
 
       /** Current image white ckeckbox event handler **/
@@ -153,11 +159,23 @@
       /** Current blue fade checkbox clicked event handler **/
       clipLoopCheckbox.addEventListener('click', (event) => {
         window.COElement('ClipLoop').value = event.target.checked ? 1 : 0
+
+        if (!event.target.checked && clipSequenceCheckbox.checked) {
+          clipSequenceCheckbox.click()
+        }
+
+        clipSequenceCheckbox.parentElement.parentElement.dataset.visible = !event.target.checked
       })
 
       /** Current blue fade checkbox clicked event handler **/
-      clipMultiplePartsCheckbox.addEventListener('click', (event) => {
-        window.COElement('ClipMultipleParts').value = event.target.checked ? 1 : 0
+      clipSequenceCheckbox.addEventListener('click', (event) => {
+        window.COElement('ClipSequence').value = event.target.checked ? 1 : 0
+
+        if (!event.target.checked && clipLoopCheckbox.checked) {
+          clipLoopCheckbox.click()
+        }
+
+        clipLoopCheckbox.parentElement.parentElement.dataset.visible = !event.target.checked
       })
     })
 
@@ -174,7 +192,7 @@
 <body>
   <div class="dw-header dw-header--branded">
     <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
-    <span class="text-gray-15">Wall - S3 Clip</span>
+    <span class="text-gray-15">Wall S3 - Clip</span>
   </div>
 
   <div class="flex flex-row flex-wrap bg-gray-01">
@@ -255,10 +273,10 @@
               </div>
               <div>
                 <div class="dw-flexGroup">
-                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/ClipMultipleParts" />
-                  <label class="dw-label__input font-normal">Clip with multiple parts</label>
+                  <input type="checkbox" class="form-input dw-checkbox" data-co="Dummy/ClipSequence" />
+                  <label class="dw-label__input font-normal">Clip sequence</label>
                 </div>
-                <input type="text" class="form-input hidden" data-co="ClipMultipleParts" />
+                <input type="text" class="form-input hidden" data-co="ClipSequence" />
               </div>
             </div>
           </div>

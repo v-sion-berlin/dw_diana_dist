@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DW News Wall - S3 VIZ FS</title>
+  <title>DW News Wall S3 - VIZ FS</title>
   <!-- Default includes -->
   <link href="../../../../framework/images/favicon.png" rel="icon" type="image/png">
   <link href="../../../../framework/css/tailwind.css" rel="stylesheet">
@@ -43,7 +43,7 @@
       }
       return {
         '-auto-generated-title': ['NEWS Wall S3 VIZ FS v0_01', '||', '{Dummy/Setting}', '|', '{Dummy/Area}', '|', nextTransitionType, '|', '{ImageIcon}', '|', nextOptions],
-        'ram-title': ['WALL', '|', '{Dummy/Setting}', '|', '{Dummy/Area}', '|', '{ImageIcon}'],
+        'ram-title': ['WALL', '|', '{Dummy/Setting}', '|', '{Dummy/Area}', '|', 'VIZ FS'],
         'ram-continue-points': 0
       }
     }
@@ -67,10 +67,12 @@
       currentBlueFadeCheckbox = document.querySelector('[data-co="Dummy/CurrentBlueFade"]')
 
       /** Add available settings to select **/
-      for (const setting of settings) {
-        settingsSelect.add(new Option(setting))
+      if (settings.length > 0) {
+        settingsSelect.remove(0)
+        for (const setting of settings) {
+          settingsSelect.add(new Option(setting))
+        }
       }
-
       /** Settings changed event handler **/
       settingsSelect.addEventListener('change', (event) => {
         Setting = event.target.value
@@ -89,7 +91,7 @@
         if (event.target.value === '2' && contentWithAlphaCheckbox.checked) {
           contentWithAlphaCheckbox.click()
         }
-        contentWithAlphaCheckbox.disabled = event.target.value === '2'
+        contentWithAlphaCheckbox.parentElement.parentElement.dataset.visible = event.target.value !== '2'
       })
 
       /** Content with alpha checkbox clicked event handler **/
@@ -104,8 +106,8 @@
           window.COElement('CurrentTransitionType').value = 0
         }
 
-        currentImageWhiteCheckbox.disabled = !event.target.checked
-        currentTransitionTypeSelect.disabled = event.target.checked
+        currentImageWhiteCheckbox.parentElement.parentElement.dataset.visible = event.target.checked
+        currentTransitionTypeSelect.parentElement.dataset.visible = !event.target.checked
       })
 
       /** Current image white ckeckbox event handler **/
@@ -160,7 +162,7 @@
 <body>
   <div class="dw-header dw-header--branded">
     <img src="../../Sources/Images/Header.png" alt="DW NEWS Header image" />
-    <span class="text-gray-15">Wall - S3 VIZ FS</span>
+    <span class="text-gray-15">Wall S3 - VIZ FS</span>
   </div>
 
   <div class="flex flex-row flex-wrap bg-gray-01">

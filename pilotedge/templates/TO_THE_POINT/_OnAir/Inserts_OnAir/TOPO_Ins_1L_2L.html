@@ -32,6 +32,10 @@
       lowerthirdVariantOptions.forEach((option) => option.addEventListener('click', (e) => {
         document.querySelector('#LowerthirdLine2').dataset.visible = e.target.value === '1'
         document.querySelector('#DummyLowerthirdLine2').dataset.visible = e.target.value === '1'
+        if (e.target.value === '0') {
+          window.COElement('LowerthirdLine2').value = ''
+          window.COElement('Translation/LowerthirdLine2').value = ''
+        }
       }))
 
       window.initializeDirectionSwitch('[data-co="LanguageIndex"]', '#direction-switch')
