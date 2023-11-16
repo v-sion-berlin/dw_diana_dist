@@ -59,7 +59,108 @@ const initializeDropdowns = async () => {
 }
 
 /**
- * Add Change Listener to site/container Id fields to disable other image search fields on entry
+ * Add Change Listener to Image Gallery tools
+ * @since 1.00
+ */
+const initializeImageGallery = async () => {
+  // initialize gallery
+  const elements = document.querySelectorAll('.dw-imgZoom')
+  for (const element of elements) {
+    const chips = element.querySelector('.form-input-chips')
+    const zoomWrap = element.querySelector('.dw-zoom-wrap')
+    const zoomDropdown = element.querySelector('.dw-dropdown-zoom')
+    const zoomImage = element.querySelector('.dw-zoomImage')
+    const zoomImageFocus = element.querySelector('.dw-zoomImageFocus')
+
+    chips.addEventListener('change', (event) => {
+      const zoomType = event.target.value || event.target.querySelector(':checked').value
+      if (zoomType === 'zoom-off' && !zoomWrap?.classList.contains('hidden')) {
+        zoomWrap?.classList.add('hidden')
+        zoomImageFocus?.classList.add('hidden')
+      } else {
+        zoomWrap?.classList.remove('hidden')
+        zoomImageFocus?.classList.remove('hidden')
+      }
+    })
+
+    zoomDropdown.addEventListener('change', (event) => {
+      // We will set zoomImageFocus only when we're changing the dropdown manually
+      if (event.detail !== 'dw.js') {
+        const zoomFactor = (1 + event.target.value / 100)
+        const width = Math.round(zoomImage.offsetWidth / zoomFactor)
+        const height = Math.round(zoomImage.offsetHeight / zoomFactor)
+
+        const x = (zoomImage.offsetWidth - width) / 2
+        const y = (zoomImage.offsetHeight - height) / 2
+
+        setZoom(zoomImageFocus, zoomImage, { width, height, x, y })
+
+        zoomImage.dataset.posX = getTransformedValue(x, zoomImageFocus.dataset.maxLeft)
+        zoomImage.dataset.posY = getTransformedValue(y, zoomImageFocus.dataset.maxTop)
+        zoomImageFocus.dispatchEvent(new CustomEvent('focusChanged'))
+      }
+    })
+
+    zoomImageFocus.addEventListener('updateZoom', (event) => {
+      const zoomFactor = (1 + zoomImage.dataset.zoom / 100)
+      const width = Math.round(zoomImage.offsetWidth / zoomFactor)
+      const height = Math.round(zoomImage.offsetHeight / zoomFactor)
+
+      const x = getTransformedValueBack(zoomImage.dataset.posX, zoomImage.offsetWidth - width)
+      const y = getTransformedValueBack(-zoomImage.dataset.posY, zoomImage.offsetHeight - height)
+
+      setZoom(zoomImageFocus, zoomImage, { width, height, x, y })
+    })
+
+    let isDragging = false
+    const offset = { x: 0, y: 0 }
+
+    zoomImageFocus.addEventListener('mousedown', function (event) {
+      isDragging = true
+      offset.x = event.clientX - zoomImageFocus.offsetLeft
+      offset.y = event.clientY - zoomImageFocus.offsetTop
+    })
+
+    document.addEventListener('mouseup', function () {
+      isDragging = false
+      zoomImageFocus.dispatchEvent(new CustomEvent('focusChanged'))
+    })
+
+    document.addEventListener('mousemove', function (event) {
+      if (isDragging) {
+        const x = Math.max(0, Math.min(zoomImageFocus.dataset.maxLeft, event.clientX - offset.x))
+        zoomImageFocus.style.left = x + 'px'
+        zoomImage.dataset.posX = getTransformedValue(x, zoomImageFocus.dataset.maxLeft)
+
+        const y = Math.max(0, Math.min(zoomImageFocus.dataset.maxTop, event.clientY - offset.y))
+        zoomImageFocus.style.top = y + 'px'
+        zoomImage.dataset.posY = -getTransformedValue(y, zoomImageFocus.dataset.maxTop)
+      }
+    })
+  }
+}
+
+const getTransformedValue = (value, maxValue) => {
+  const valueRelative = value / maxValue * 100
+  return (valueRelative - 50) * 2
+}
+
+const getTransformedValueBack = (value, maxValue) => {
+  const valueRelative = (value / 2 + 50)
+  return valueRelative * maxValue / 100
+}
+
+const setZoom = (zoomImageFocus, zoomImage, data) => {
+  zoomImageFocus.style.width = data.width + 'px'
+  zoomImageFocus.style.height = data.height + 'px'
+  zoomImageFocus.style.left = `${data.x}px`
+  zoomImageFocus.style.top = `${data.y}px`
+  zoomImageFocus.dataset.maxLeft = zoomImage.offsetWidth - data.width
+  zoomImageFocus.dataset.maxTop = zoomImage.offsetHeight - data.height
+}
+
+/**
+ * Add Change Listener to site/zoomImage Id fields to disable other image search fields on entry
  * Adds a larger image version to the Image Select Thumbnail and shows it on hover
  * @since 1.00
  */
@@ -146,14 +247,15 @@ const initializeImageSearch = async () => {
   for (const element of wrappers) {
     element.setAttribute('id', 'imgSearch-' + count++)
     const imgThumb = element.querySelector('.dw-imgThumb')
+    if (!imgThumb) return
     const imgLarge = document.createElement('div')
     const img = document.createElement('img')
     imgLarge.classList.add('dw-imgLarge')
     imgLarge.classList.add('hidden')
     imgLarge.appendChild(img)
-    imgThumb.parentElement.append(imgLarge)
+    imgThumb?.parentElement?.append(imgLarge)
 
-    imgThumb.addEventListener('mouseover', showLargeImage)
+    imgThumb?.addEventListener('mouseover', showLargeImage)
   }
 }
 
@@ -274,4 +376,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeDraggables()
   initializeDropdowns()
   initializeImageSearch()
+  initializeImageGallery()
 })

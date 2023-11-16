@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image gallery example</title>
+  <!-- Default includes -->
+  <script src="../../framework/js/utils/prism.js"></script>
+  <link href="../../framework/css/prism.css" rel="stylesheet" />
+  <link href="../../framework/images/favicon.png" rel="icon" type="image/png" />
+  <link href="../../framework/css/tailwind.css" rel="stylesheet" />
+  <script src="../../framework/js/utils/dw.js" type="module"></script>
+  <script src="../../framework/js/payloadhosting.js"></script>
+  <script src="../../framework/js/utils/viz.js" type="module"></script>
+  <script src="../../framework/js/nlw.js"></script>
+</head>
+
+<body>
+  <div class="dw-header">
+    <span>Image gallery examples</span>
+  </div>
+
+  <span class="dw-alert dw-alert--info w-full">
+    This page shows the usage of the Image Gallery Component.
+  </span>
+
+  <div class="field-group">
+    <div class="field-group">
+      <div class="field-group__label">Gallery Settings</div>
+      <div class="dw-alert mb-2" data-search="imageSize">
+        Please get an image with the size of 2400x1350px.
+      </div>
+      <div>
+        <label class="dw-label__input">Duration</label>
+        <select data-co="" class="dw-dropdown dw-dropdown-duration w-[76px]">
+          <option value="2">2 Sek</option>
+          <option value="5" selected>5 Sek</option>
+          <option value="10">10 Sek</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Gallery Image</div>
+      <div class="dw-imgSearch dw-imgZoom flex flex-wrap flex-row items-start" type="image" data-co="" data-searchCo="" data-searchShow="">
+
+        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1 dw_md:mr-2">
+          <div class="dw-imgRowItem w-full flex-col flex-nowrap">
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+              <div class="w-[fit-content] flex-1">
+                <label class="dw-label__input">Site/Container-ID
+                  <img src="../../framework/images/info.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                <input type="text" class="form-input imgSearchId" data-search="siteIdentity" />
+              </div>
+              <div class="dw-btn-wrap pl-2">
+                <button class="dw-btn dw-btnIcon select">
+                  <span class="dw-btnSearch" title="Search">Search</span>
+                </button>
+              </div>
+              <div class="dw-btn-wrap pl-2">
+                <button class="dw-btn dw-btnIcon remove" disabled>
+                  <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                </button>
+              </div>
+            </div>
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+              <div class="w-[fit-content] flex-1">
+                <label class="dw-label__input">Image Copyright</label>
+                <div class="form-input-with-icon-wrap">
+                  <input data-co="" type="text" class="form-input" title="text" />
+                  <img src="../../framework/images/icon_copyright.svg" class="form-input-icon" alt="copyright" />
+                </div>
+              </div>
+            </div>
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full items-start">
+              <div>
+                <label class="dw-label__section">Type of zoom</label>
+                <div class="form-input-chips">
+                  <label>
+                    <input data-co="ZoomOff" type="radio" value="zoom-off" name="Zoom" />
+                    <span>Off</span>
+                  </label>
+
+                  <label>
+                    <input data-co="ZoomIn" type="radio" name="Zoom" value="zoom-in" checked />
+                    <span>In</span>
+                  </label>
+                  <label>
+                    <input data-co="ZoomOut" type="radio" value="zoom-out" name="Zoom" />
+                    <span>Out</span>
+                  </label>
+                </div>
+              </div>
+              <div class="pl-2 dw-zoom-wrap">
+                <label class="dw-label__input">Zoom-scale</label>
+                <select data-co="" class="dw-dropdown dw-dropdown-zoom">
+                  <option value="5">5%</option>
+                  <option value="10">10%</option>
+                  <option value="15">15%</option>
+                  <option value="20">20%</option>
+                  <option value="25" selected>25%</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
+          <div class="dw-zoomImageWrap">
+            <label class="dw-label__input">Image-preview with zoom-in target</label>
+            <div class="dw-zoomImage">
+              <img src="../../framework/images/sample.png" data-placeholder="../../framework/images/sample.png" alt="Thumb" width="252" height="154" />
+              <div class="dw-zoomImageFocus"></div>
+            </div>
+            <div class="dw-alert pt-1" data-search="">
+              Click into the image where you want to zoom
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Gallery Image</div>
+      <div class="dw-imgSearch dw-imgZoom flex flex-wrap flex-row items-start" type="image" data-co="" data-searchCo="" data-searchShow="">
+        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1 dw_md:mr-2">
+          <div class="dw-imgRowItem w-full flex-col flex-nowrap">
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+              <div class="w-[fit-content] flex-1">
+                <label class="dw-label__input">Site/Container-ID
+                  <img src="../../framework/images/info.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                <input type="text" class="form-input imgSearchId" data-search="siteIdentity" />
+              </div>
+              <div class="dw-btn-wrap pl-2">
+                <button class="dw-btn dw-btnIcon select">
+                  <span class="dw-btnSearch" title="Search">Search</span>
+                </button>
+              </div>
+              <div class="dw-btn-wrap pl-2">
+                <button class="dw-btn dw-btnIcon remove" disabled>
+                  <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                </button>
+              </div>
+            </div>
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+              <div class="w-[fit-content] flex-1">
+                <label class="dw-label__input">Image Copyright</label>
+                <div class="form-input-with-icon-wrap">
+                  <input data-co="" type="text" class="form-input" title="text" />
+                  <img src="../../framework/images/icon_copyright.svg" class="form-input-icon" alt="copyright" />
+                </div>
+              </div>
+            </div>
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full items-start">
+              <div>
+                <label class="dw-label__section">Type of zoom</label>
+                <div class="form-input-chips">
+                  <label>
+                    <input data-co="ZoomOff" type="radio" value="zoom-off" name="Zoom" />
+                    <span>Off</span>
+                  </label>
+
+                  <label>
+                    <input data-co="ZoomIn" type="radio" name="Zoom" value="zoom-in" checked />
+                    <span>In</span>
+                  </label>
+                  <label>
+                    <input data-co="ZoomOut" type="radio" value="zoom-out" name="Zoom" />
+                    <span>Out</span>
+                  </label>
+                </div>
+              </div>
+              <div class="pl-2 dw-zoom-wrap">
+                <label class="dw-label__input">Zoom-scale</label>
+                <select data-co="" class="dw-dropdown dw-dropdown-zoom">
+                  <option value="5">5%</option>
+                  <option value="10">10%</option>
+                  <option value="15">15%</option>
+                  <option value="20">20%</option>
+                  <option value="25" selected>25%</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
+          <div class="dw-zoomImageWrap">
+            <label class="dw-label__input">Image-preview with zoom-in target</label>
+            <div class="dw-zoomImage">
+              <img src="../../framework/images/sample.png" data-placeholder="../../framework/images/sample.png" alt="Thumb" width="252" height="154" />
+              <div class="dw-zoomImageFocus"></div>
+            </div>
+            <div class="dw-alert pt-1" data-search="">
+              Click into the image where you want to zoom
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Gallery Image</div>
+      <div class="dw-imgSearch dw-imgZoom flex flex-wrap flex-row items-start" type="image" data-co="" data-searchCo="" data-searchShow="">
+        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1 dw_md:mr-2">
+          <div class="dw-imgRowItem w-full flex-col flex-nowrap">
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+              <div class="w-[fit-content] flex-1">
+                <label class="dw-label__input">Site/Container-ID
+                  <img src="./framework/images/info.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                <input type="text" class="form-input imgSearchId" data-search="siteIdentity" />
+              </div>
+              <div class="dw-btn-wrap pl-2">
+                <button class="dw-btn dw-btnIcon select">
+                  <span class="dw-btnSearch" title="Search">Search</span>
+                </button>
+              </div>
+              <div class="dw-btn-wrap pl-2">
+                <button class="dw-btn dw-btnIcon remove" disabled>
+                  <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                </button>
+              </div>
+            </div>
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+              <div class="w-[fit-content] flex-1">
+                <label class="dw-label__input">Image Copyright</label>
+                <div class="form-input-with-icon-wrap">
+                  <input data-co="" type="text" class="form-input" title="text" />
+                  <img src="./framework/images/copyright.svg" class="form-input-icon" alt="copyright" />
+                </div>
+              </div>
+            </div>
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full items-start">
+              <div>
+                <label class="dw-label__section">Type of zoom</label>
+                <div class="form-input-chips">
+                  <label>
+                    <input data-co="ZoomOff" type="radio" value="zoom-off" name="Zoom" />
+                    <span>Off</span>
+                  </label>
+
+                  <label>
+                    <input data-co="ZoomIn" type="radio" name="Zoom" value="zoom-in" checked />
+                    <span>In</span>
+                  </label>
+                  <label>
+                    <input data-co="ZoomOut" type="radio" value="zoom-out" name="Zoom" />
+                    <span>Out</span>
+                  </label>
+                </div>
+              </div>
+              <div class="pl-2 dw-zoom-wrap">
+                <label class="dw-label__input">Zoom-scale</label>
+                <select data-co="" class="dw-dropdown dw-dropdown-zoom">
+                  <option value="5">5%</option>
+                  <option value="10">10%</option>
+                  <option value="15">15%</option>
+                  <option value="20">20%</option>
+                  <option value="25" selected>25%</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
+          <div class="dw-zoomImageWrap">
+            <label class="dw-label__input">Image-preview with zoom-in target</label>
+            <div class="dw-zoomImage">
+              <img src="../../framework/images/sample.png" data-placeholder="../../framework/images/sample.png" alt="Thumb" width="252" height="154" />
+              <div class="dw-zoomImageFocus"></div>
+            </div>
+            <div class="dw-alert pt-1" data-search="">
+              Click into the image where you want to zoom
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field-group__label">Gallery Image</div>
+      <div class="dw-imgSearch dw-imgZoom flex flex-wrap flex-row items-start" type="image" data-co="" data-searchCo="" data-searchShow="">
+        <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1 dw_md:mr-2">
+          <div class="dw-imgRowItem w-full flex-col flex-nowrap">
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+              <div class="w-[fit-content] flex-1">
+                <label class="dw-label__input">Site/Container-ID
+                  <img src="../../framework/images/icon_copyright.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+                <input type="text" class="form-input imgSearchId" data-search="siteIdentity" />
+              </div>
+              <div class="dw-btn-wrap pl-2">
+                <button class="dw-btn dw-btnIcon select">
+                  <span class="dw-btnSearch" title="Search">Search</span>
+                </button>
+              </div>
+              <div class="dw-btn-wrap pl-2">
+                <button class="dw-btn dw-btnIcon remove" disabled>
+                  <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+                </button>
+              </div>
+            </div>
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+              <div class="w-[fit-content] flex-1">
+                <label class="dw-label__input">Image Copyright</label>
+                <div class="form-input-with-icon-wrap">
+                  <input data-co="" type="text" class="form-input" title="text" />
+                  <img src="../../framework/images/icon_copyright.svg" class="form-input-icon" alt="copyright" />
+                </div>
+              </div>
+            </div>
+            <div class="dw-imgRowItem flex-nowrap justify-items-start w-full items-start">
+              <div>
+                <label class="dw-label__section">Type of zoom</label>
+                <div class="form-input-chips">
+                  <label>
+                    <input data-co="ZoomOff" type="radio" value="zoom-off" name="Zoom" />
+                    <span>Off</span>
+                  </label>
+
+                  <label>
+                    <input data-co="ZoomIn" type="radio" name="Zoom" value="zoom-in" checked />
+                    <span>In</span>
+                  </label>
+                  <label>
+                    <input data-co="ZoomOut" type="radio" value="zoom-out" name="Zoom" />
+                    <span>Out</span>
+                  </label>
+                </div>
+              </div>
+              <div class="pl-2 dw-zoom-wrap">
+                <label class="dw-label__input">Zoom-scale</label>
+                <select data-co="" class="dw-dropdown dw-dropdown-zoom">
+                  <option value="5">5%</option>
+                  <option value="10">10%</option>
+                  <option value="15">15%</option>
+                  <option value="20">20%</option>
+                  <option value="25" selected>25%</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
+          <div class="dw-zoomImageWrap">
+            <label class="dw-label__input">Image-preview with zoom-in target</label>
+            <div class="dw-zoomImage">
+              <img src="../../framework/images/sample.png" data-placeholder="../../framework/images/sample.png" alt="Thumb" width="252" height="154" />
+              <div class="dw-zoomImageFocus"></div>
+            </div>
+            <div class="dw-alert pt-1" data-search="">
+              Click into the image where you want to zoom
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <div class="field-group__label">Gallery Image</div>
+    <div class="dw-imgSearch dw-imgZoom flex flex-wrap flex-row items-start" type="image" data-co="" data-searchCo="" data-searchShow="">
+      <div class="dw-alert mb-2" data-search="imageSize">
+        Please get an image with the size of 2400x1350px.
+      </div>
+      <div class="dw-imgRowItem w-full dw_md:w-[fit-content] dw_md:flex-1 dw_md:mr-2">
+        <div class="dw-imgRowItem w-full flex-col flex-nowrap">
+          <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+            <div class="w-[fit-content] flex-1">
+              <label class="dw-label__input">Site/Container-ID
+                <img src="./framework/images/info.svg" class="dw-infoIcon" title="Hier kann ein Infotext rein,&#10;auch über mehrere Zeilen." /></label>
+              <input type="text" class="form-input imgSearchId" data-search="siteIdentity" />
+            </div>
+            <div class="dw-btn-wrap pl-2">
+              <button class="dw-btn dw-btnIcon select">
+                <span class="dw-btnSearch" title="Search">Search</span>
+              </button>
+            </div>
+            <div class="dw-btn-wrap pl-2">
+              <button class="dw-btn dw-btnIcon remove" disabled>
+                <span class="dw-btnDelete" title="Delete Image">Delete image</span>
+              </button>
+            </div>
+          </div>
+          <div class="dw-imgRowItem flex-nowrap justify-items-start w-full">
+            <div class="w-[fit-content] flex-1">
+              <label class="dw-label__input">Image Copyright</label>
+              <div class="form-input-with-icon-wrap">
+                <input data-co="" type="text" class="form-input" title="text" />
+                <img src="./framework/images/copyright.svg" class="form-input-icon" alt="copyright" />
+              </div>
+            </div>
+          </div>
+          <div class="dw-imgRowItem flex-nowrap justify-items-start w-full items-start">
+            <div>
+              <label class="dw-label__section">Type of zoom</label>
+              <div class="form-input-chips">
+                <label>
+                  <input data-co="ZoomOff" type="radio" value="zoom-off" name="Zoom" />
+                  <span>Off</span>
+                </label>
+
+                <label>
+                  <input data-co="ZoomIn" type="radio" name="Zoom" value="zoom-in" checked />
+                  <span>In</span>
+                </label>
+                <label>
+                  <input data-co="ZoomOut" type="radio" value="zoom-out" name="Zoom" />
+                  <span>Out</span>
+                </label>
+              </div>
+            </div>
+            <div class="pl-2 dw-zoom-wrap">
+              <label class="dw-label__input">Zoom-scale</label>
+              <select data-co="" class="dw-dropdown dw-dropdown-zoom">
+                <option value="5">5%</option>
+                <option value="10">10%</option>
+                <option value="15">15%</option>
+                <option value="20">20%</option>
+                <option value="25" selected>25%</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dw-imgRowItem w-full dw_md:w-[fit-content]">
+        <div class="dw-zoomImageWrap">
+          <label class="dw-label__input">Image-preview with zoom-in target</label>
+          <div class="dw-zoomImage">
+            <img src="../../framework/images/sample.png" data-placeholder="../../framework/images/sample.png" alt="Thumb" width="252" height="154" />
+            <div class="dw-zoomImageFocus"></div>
+          </div>
+          <div class="dw-alert pt-1" data-search="">
+            Click into the image where you want to zoom
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

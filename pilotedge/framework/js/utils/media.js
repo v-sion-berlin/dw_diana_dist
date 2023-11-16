@@ -42,8 +42,8 @@ class Media {
     imageElement.querySelector('.remove')?.addEventListener('click', this.removeImage.bind(this, fieldPath))
     const imageDateElements = imageElement.querySelectorAll('input[type="date"]')
     imageDateElements.forEach((dateElement, index) => {
-      let clearButton = dateElement.previousElementSibling?.querySelectorAll('label[class*="cursor-pointer"]')[0]
-      if (clearButton) clearButton.onclick = function() { if (!dateElement.disabled) dateElement.value = '' }
+      const clearButton = dateElement.previousElementSibling?.querySelectorAll('label[class*="cursor-pointer"]')[0]
+      if (clearButton) clearButton.onclick = function () { if (!dateElement.disabled) dateElement.value = '' }
     })
 
     return (value) => {
@@ -53,6 +53,7 @@ class Media {
       } else {
         this.setImage(imageElement, imageObject)
       }
+      imageElement.dispatchEvent(new Event('change'))
     }
   }
 
@@ -77,20 +78,20 @@ class Media {
         //   3. Pass Nothing.
         //
         // Passed object parameter are joined like this (=> option 2. and 3.):
-        // ------------------------------------------------------------------------
-        // KEY                  TYPE               SEARCH              QUERY JOINER
-        // ------------------------------------------------------------------------
-        // 'show'               (string)           is                  AND
-        // 'language'           (string)           is                  AND
-        // 'studio'             (string)           is                  AND
-        // 'title'              (string)           contains            AND
-        // 'siteIdentity'       (string)           is                  OR
-        // 'creationDate'       (string)           is                  AND
-        // 'usageDate'          (string)           is                  AND
-        // 'imageSize'          (object)           -                   AND
-        // 'imageSize.width'    (integer|string)   is                  - 
-        // 'imageSize.height'   (integer|string)   is                  -
-        // ------------------------------------------------------------------------
+        // --------------------------------------------------------------------------------
+        // KEY                          TYPE               SEARCH              QUERY JOINER
+        // --------------------------------------------------------------------------------
+        // 'show'                       (string)           is                  AND
+        // 'language'                   (string)           is                  AND
+        // 'studio'                     (string)           is                  AND
+        // 'title'                      (string)           contains            AND
+        // 'siteIdentity'               (string)           is                  OR
+        // 'creationDate'               (string)           is                  AND
+        // 'usageDate'                  (string)           is                  AND
+        // 'imageSize'                  (object)           -                   AND
+        // 'imageSize.width'            (integer|string)   is                  -
+        // 'imageSize.height'           (integer|string)   is                  -
+        // --------------------------------------------------------------------------------
         //
         // @author Deutsche Welle <mps-gs@dw.com>
         // @since 1.17
@@ -98,22 +99,22 @@ class Media {
         const isObject = (object) => { return object.constructor === ({}).constructor }
         const imageElement = document.querySelector(`[data-co="${fieldPath}"]`)
         const imageInputs = this.getImageElements(imageElement)
-        
+
         if (isObject(terms) || terms === '') {
           let imageSearchQuery = []
-          let imageSearchSettings = {}
+          const imageSearchSettings = {}
           // Image size
           if (terms.hasOwnProperty('imageSize')) {
-            let width = terms.imageSize?.width
-            let height = terms.imageSize?.height
+            const width = terms.imageSize?.width
+            const height = terms.imageSize?.height
             if (width && height) imageSearchQuery.push(['AND', `dw.imagesize:${width}*${height}`])
           } else {
             // Try to get asset image size from hint
             if (imageInputs.imageSize) {
-              let hintString = imageInputs.imageSize.innerHTML
-              let numbers = hintString.match(/(-\d+|\d+)(,\d+)*(\.\d+)*/g)
+              const hintString = imageInputs.imageSize.innerHTML
+              const numbers = hintString.match(/(-\d+|\d+)(,\d+)*(\.\d+)*/g)
               if (numbers && numbers.length === 2) {
-                let [width, heigth] = numbers
+                const [width, heigth] = numbers
                 imageSearchQuery.push(['AND', `dw.imagesize:${width}*${heigth}`])
               }
             }
@@ -123,7 +124,7 @@ class Media {
             if (terms.show !== '') imageSearchQuery.push(['AND', `dw.show#dw.showKey:${terms.show}`])
           } else {
             // Try to get 'show' from image element attribute
-            let dwShow = imageElement.dataset.searchshow
+            const dwShow = imageElement.dataset.searchshow
             if (dwShow != null && dwShow != undefined) {
               imageSearchQuery.push(['AND', `dw.show#dw.showKey:${dwShow}`])
             }
@@ -134,10 +135,10 @@ class Media {
           } else {
             // Try to get 'language' from image dropdown
             if (imageInputs.language) {
-              let languageSelected = imageInputs.language.value
+              const languageSelected = imageInputs.language.value
               if (languageSelected) {
                 imageSearchQuery.push(['AND', `dw.language:${languageSelected}`])
-                imageSearchSettings['language'] = languageSelected
+                imageSearchSettings.language = languageSelected
               }
             }
           }
@@ -147,10 +148,10 @@ class Media {
           } else {
             // Try to get 'studio' from image dropdown
             if (imageInputs.studio) {
-              let studioSelected = imageInputs.studio.value
+              const studioSelected = imageInputs.studio.value
               if (studioSelected) {
                 imageSearchQuery.push(['AND', `dw.studios/dw.studio:${studioSelected}`])
-                imageSearchSettings['studio'] = studioSelected
+                imageSearchSettings.studio = studioSelected
               }
             }
           }
@@ -160,9 +161,9 @@ class Media {
           } else {
             // Try to get creation date from datepicker
             if (imageInputs.creationDate && imageInputs.creationDate.value !== '') {
-              let ingestDate = `[${imageInputs.creationDate.value}T00:00:00Z TO ${imageInputs.creationDate.value}T23:59:59Z]`
+              const ingestDate = `[${imageInputs.creationDate.value}T00:00:00Z TO ${imageInputs.creationDate.value}T23:59:59Z]`
               imageSearchQuery.push(['AND', `search.creationDate:${ingestDate}`])
-              imageSearchSettings['creationDate'] = imageInputs.creationDate.value
+              imageSearchSettings.creationDate = imageInputs.creationDate.value
             }
           }
           // Usage date
@@ -172,7 +173,7 @@ class Media {
             // Try to get usage date from datepicker
             if (imageInputs.usageDate && imageInputs.usageDate.value !== '') {
               imageSearchQuery.push(['AND', `dw.usagedate:${imageInputs.usageDate.value}`])
-              imageSearchSettings['usageDate'] = imageInputs.usageDate.value
+              imageSearchSettings.usageDate = imageInputs.usageDate.value
             }
           }
           // Title
@@ -181,28 +182,31 @@ class Media {
           } else {
             // Try to get asset 'title' fom input
             if (imageInputs.title && imageInputs.title.value !== '') {
-              let title = imageInputs.title.value.trim()
-              imageSearchQuery.push(['AND', `asset.title:*${title}*`])
-              imageSearchSettings['title'] = title
+              const title = imageInputs.title.value.trim()
+              imageSearchQuery.push(['AND', `asset.title:${title}`])
+              imageSearchSettings.title = title
             }
           }
           // Site ID
           // Special case: remove all search terms. 'AND' / 'OR' is not recognized
           if (terms.hasOwnProperty('siteIdentity')) {
-            if (terms.siteIdentity !== '') imageSearchQuery.push(['OR ', `asset.siteIdentity:${siteIdentity}`])
+            if (terms.siteIdentity !== '') {
+              imageSearchQuery.push(['OR', `asset.siteIdentity:${imageInputs.siteIdentity.value} OR dw.sendungUUID:${imageInputs.siteIdentity.value}`])
+            }
           } else {
             // Try to get 'siteIdentity' from input
+            // Using site id (aka the container id) and sendungUUID
             if (imageInputs.siteIdentity && imageInputs.siteIdentity.value !== '') {
               imageSearchQuery = []
-              imageSearchQuery.push(['OR', `asset.siteIdentity:${imageInputs.siteIdentity.value}`])
-              imageSearchSettings['siteIdentity'] = imageInputs.siteIdentity.value
+              imageSearchQuery.push(['OR', `asset.siteIdentity:"${imageInputs.siteIdentity.value}" OR dw.sendungUUID:"${imageInputs.siteIdentity.value}"`])
+              imageSearchSettings.siteIdentity = imageInputs.siteIdentity.value
             }
           }
           // Save search parameter
-          let pseudofieldPath = imageElement.dataset.searchco
+          const pseudofieldPath = imageElement.dataset.searchco
           if (vizrt.payloadhosting.isPayloadReady()) {
             if (vizrt.payloadhosting.fieldExists(pseudofieldPath)) {
-              let objectString = btoa(JSON.stringify(imageSearchSettings))
+              const objectString = btoa(JSON.stringify(imageSearchSettings))
               vizrt.payloadhosting.setFieldText(pseudofieldPath, objectString)
             }
           }
@@ -271,14 +275,14 @@ class Media {
   static getImageElements (imageElement) {
     return {
       // Label
-      'imageSize': imageElement?.querySelector('div[data-search="imageSize"]'),
+      imageSize: imageElement?.querySelector('div[data-search="imageSize"]'),
       // Inputs
-      'title': imageElement?.querySelector('input[data-search="title"]'),
-      'language': imageElement?.querySelector('select[data-search="language"]'),
-      'studio': imageElement?.querySelector('select[data-search="studio"]'),
-      'creationDate' : imageElement?.querySelector('input[data-search="creationDate"]'),
-      'usageDate' : imageElement?.querySelector('input[data-search="usageDate"]'), 
-      'siteIdentity': imageElement?.querySelector('input[data-search="siteIdentity"]')
+      title: imageElement?.querySelector('input[data-search="title"]'),
+      language: imageElement?.querySelector('select[data-search="language"]'),
+      studio: imageElement?.querySelector('select[data-search="studio"]'),
+      creationDate: imageElement?.querySelector('input[data-search="creationDate"]'),
+      usageDate: imageElement?.querySelector('input[data-search="usageDate"]'),
+      siteIdentity: imageElement?.querySelector('input[data-search="siteIdentity"]')
     }
   }
 
@@ -290,21 +294,49 @@ class Media {
    * @instance
    */
   static setImage (imageElement, imageObject) {
-    const imageValue = imageElement.querySelector('.dw-imgThumb img')
+    let imageValue = imageElement.querySelector('.dw-imgThumb img')
+    imageValue = imageValue || imageElement.querySelector('.dw-zoomImage img')
     imageValue.src = imageObject.url
     imageValue.dataset.title = imageObject.title
-
+    // Add image-title label
+    const imageInputs = this.getImageElements(imageElement)
+    const imageTitle = `Selected file: ${(imageObject.title ? imageObject.title : '-')}`
+    let hasDivLabel = (imageInputs?.imageSize?.nextElementSibling)?.classList.contains('imageTitle')
+    if (!hasDivLabel) hasDivLabel = imageElement.querySelector('div[class*="imageTitle"]') !== null
+    // Create or update image-title label
+    if (hasDivLabel) {
+      const divLabel = imageElement.querySelector('div[class*="imageTitle"]')
+      divLabel.innerHTML = imageTitle
+    } else {
+      // If image element has a image-size label, add image-title label below
+      if (imageInputs.imageSize) {
+        const divLabel = imageInputs.imageSize.cloneNode(true)
+        divLabel.removeAttribute('data-search')
+        divLabel.innerHTML = imageTitle
+        divLabel.classList.add('imageTitle')
+        imageInputs.imageSize.classList.remove('mb-2')
+        imageInputs.imageSize.parentNode.insertBefore(divLabel, imageInputs.imageSize.nextSibling)
+      // No image-size label
+      } else {
+        const divLabel = document.createElement('div')
+        divLabel.classList.add('dw-alert')
+        divLabel.classList.add('mb-2')
+        divLabel.classList.add('imageTitle')
+        divLabel.innerHTML = imageTitle
+        imageElement.insertBefore(divLabel, imageElement.firstChild)
+      }
+    }
     // Set search parameter, if pseudo field was defined
-    let pseudofieldPath = imageElement.dataset.searchco
+    const pseudofieldPath = imageElement.dataset.searchco
     if (vizrt.payloadhosting.isPayloadReady()) {
       if (vizrt.payloadhosting.fieldExists(pseudofieldPath)) {
-        let imageSettingsString = vizrt.payloadhosting.getFieldText(pseudofieldPath)
+        const imageSettingsString = vizrt.payloadhosting.getFieldText(pseudofieldPath)
         if (imageSettingsString) {
           // Try to read search parameter
           let imageSearchSettings = {}
           try {
             imageSearchSettings = JSON.parse(atob(imageSettingsString))
-          } catch(e) {}
+          } catch (e) { }
           const imageInputs = this.getImageElements(imageElement)
           // Set inputs
           for (const [name, element] of Object.entries(imageInputs)) {
@@ -313,8 +345,11 @@ class Media {
                 element.value = imageSearchSettings[name]
               }
             }
-          } 
+          }
           // Disable inputs (optional)
+          // Workaround:
+          //   Site ID is the wrong search term, using the Container Id (aka sendungUUID) instead.
+          //   This part will be removed later.
           if (imageSearchSettings.hasOwnProperty('siteIdentity')) {
             for (const [name, element] of Object.entries(imageInputs)) {
               if (element && (element.tagName === 'SELECT' || element.tagName === 'INPUT')) {
@@ -332,7 +367,7 @@ class Media {
       imageElement.querySelector('.remove').removeAttribute('disabled')
     } else {
       // Set default image if possible
-      if (imageValue?.dataset.placeholder !== null) imageValue.src = imageValue.dataset.placeholder 
+      if (imageValue?.dataset.placeholder !== null) imageValue.src = imageValue.dataset.placeholder
       imageElement.classList.remove('image--state-loaded')
       imageElement.classList.add('image--state-empty')
       imageElement.querySelector('.remove').setAttribute('disabled', '')

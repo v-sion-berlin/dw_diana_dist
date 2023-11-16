@@ -73,6 +73,8 @@ const generateAutoTitles = () => {
       const SEPERATOR_TWO = '|'
       // Not allowed character in passed object array values will removed
       const REMOVE_CHARACTER = /\|/g
+      // Date now
+      const DATE_NOW = new Date()
 
       const titleObject = window.generateAutoTitles()
       if (!titleObject || typeof titleObject != 'object') return
@@ -142,9 +144,10 @@ const generateAutoTitles = () => {
             if (vizrt.payloadhosting.fieldExists(item)) {
               let coValue = vizrt.payloadhosting.getFieldText(item)
               // Image?
-              if (!coValue) {
+              if (!coValue || vizrt.payloadhosting.getFieldMediaType(item) === 'application/atom+xml;type=entry;media=video') {
                 let xml = vizrt.payloadhosting.getFieldXml(item)
                 if (xml) {
+                  //console.log(xml)
                   let title = xml.querySelector('title')?.innerHTML
                   coValue = (title && title.trim() !== '') ? (title.substring(0, title.lastIndexOf('.')) || title) : ''
                 }
@@ -196,6 +199,12 @@ const generateAutoTitles = () => {
             if (String(item).trim() !== '') out.push(stringRemoveNotAllowedChr(String(item)))
           }
         })
+        // Timestamp
+        //out.push(SEPERATOR_TWO)
+        //out.push(DATE_NOW.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: '2-digit' }))
+        //out.push(SEPERATOR_TWO)
+        //out.push(DATE_NOW.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit' }))
+
         out = arrayRemoveSeperatorNotNeeded(out, SEPERATOR_ONE)
         out = arrayRemoveSeperatorNotNeeded(out, SEPERATOR_TWO)
         return out.join(' ')
